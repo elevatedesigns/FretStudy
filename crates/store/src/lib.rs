@@ -1068,6 +1068,7 @@ mod tests {
         }
         let s = Store::open(&path).unwrap();
         assert_eq!(s.profiles().unwrap().len(), 1);
+        drop(s); // Windows can't delete a file that is still open.
         std::fs::remove_dir_all(&dir).unwrap();
     }
 
