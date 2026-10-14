@@ -1,0 +1,707 @@
+// Level 1 — First Strums. See docs/02-Curriculum-Part1-Levels-0-2.md.
+Level(
+    number: 1,
+    title: "First Strums",
+    goal: "Make real music in week one with easy chords, steady down-strums, and simple tab melodies.",
+    weeks: "2–3 weeks",
+    lessons: [
+        Lesson(
+            id: "L1.1",
+            title: "Your First Chord: E Minor",
+            thread: Chords,
+            minutes: 12,
+            prerequisites: ["L0.8"],
+            goal: "Play E minor cleanly, plus the one-finger E minor 7.",
+            practice: "Five minutes a day for three days. Make the E minor shape, strum once, then lift your fingers and make it again. Do it ten times. Then pluck each string to check for buzzes.",
+            steps: [
+                Learn(
+                    title: "A team of notes",
+                    explain: "A chord is a team of notes played together. E minor is a great first chord. It uses all six strings and only two fingers. Minor chords sound a little sad or serious.",
+                    facts: [
+                        "Stand your fingertips up tall, like a little arch, so they don't touch the strings next to them.",
+                        "Strum all six strings.",
+                    ],
+                    visual: Some(Chord("Em")),
+                ),
+                Learn(
+                    title: "The one-finger cousin",
+                    explain: "Lift your ring finger off E minor and you get E minor 7. It's in the same family, with a dreamy sound. Only one finger!",
+                    visual: Some(ChordPair("Em", "Em7-1")),
+                ),
+                Learn(
+                    title: "Step by step: making E minor",
+                    explain: "Put finger 2 on string 5, fret 2. Then put finger 3 on string 4, fret 2, right next to it. Keep both fingers curved so they don't touch the other strings. Now strum all six strings. That's E minor, your first chord!",
+                    facts: [
+                        "Finger 2 goes on the thicker string, finger 3 on the thinner one.",
+                        "All six strings ring. Strings 6, 3, 2, and 1 are open.",
+                    ],
+                    tips: [
+                        "If string 3 sounds muffled, finger 3 is lying on it. Curve the finger more so only the tip touches.",
+                        "Your fingertips may feel sore for the first week or two. That's normal. Short practice every day toughens them up.",
+                    ],
+                    visual: Some(Chord("Em")),
+                ),
+                Activity(
+                    title: "Buzz check",
+                    instructions: "Hold E minor. Pluck one string at a time, starting with the fattest. FretStudy listens to each string. If one sounds dead, check that no finger is leaning on it.",
+                    activity: StringCheck(chord: "Em"),
+                ),
+                Activity(
+                    title: "Strum it",
+                    instructions: "Strum down once on every click: four times on E minor, then four times on E minor 7.",
+                    activity: StrumAlong(chords: ["Em", "Em7-1"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How many fingers does E minor use?",
+                            visual: Some(Chord("Em")),
+                            choices: ["One", "Two", "Three"],
+                            answer: 1,
+                            explain: "Fingers 2 and 3, both on fret 2.",
+                        ),
+                        (
+                            prompt: "How many strings do you strum for E minor?",
+                            choices: ["All six", "Just four", "Just the skinny three"],
+                            answer: 0,
+                            explain: "Every string has an O or a dot, so strum all six.",
+                        ),
+                        (
+                            prompt: "Listen. Is this chord major (bright) or minor (sad)?",
+                            audio: Some(Chords(["Em"])),
+                            choices: ["Major", "Minor"],
+                            answer: 1,
+                            explain: "That was E minor. Minor chords sound darker.",
+                        ),
+                        (
+                            prompt: "A string sounds dead. What's the most likely reason?",
+                            choices: ["A finger is leaning on it", "The guitar is too old", "You strummed too slowly"],
+                            answer: 0,
+                            explain: "Arch your fingers so only the tips touch their own strings.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.2",
+            title: "Strumming Down on the Beat",
+            thread: Rhythm,
+            minutes: 10,
+            prerequisites: ["L1.1"],
+            goal: "Strum steady quarter notes: one down-strum on every beat.",
+            practice: "Five minutes a day for four days. Strum E minor with the metronome at 60 BPM, one down-strum per click. When it feels easy, try 70.",
+            steps: [
+                Learn(
+                    title: "One strum per click",
+                    explain: "Strumming is brushing the pick across the strings. Each time the metronome clicks, strum down once: 1, 2, 3, 4. Keep your wrist loose, like shaking water off your hand. Steady is much more important than fast.",
+                    facts: [
+                        "Down means the pick moves toward the floor.",
+                        "Strum through the strings. Don't dig in.",
+                        "A quarter note lasts one beat.",
+                    ],
+                    visual: Some(StrumGrid(Quarters)),
+                ),
+                Learn(
+                    title: "Where and how to strum",
+                    explain: "Strum over the soundhole, or between the neck and the bridge on an electric. Let your wrist do most of the work, like shaking water off your hand. The pick should brush across all the strings in one smooth sweep, from the thickest string to the thinnest.",
+                    facts: [
+                        "Strum with the pick slightly angled, not flat. It glides through the strings more easily.",
+                        "Your arm swings a little, but the wrist makes the motion.",
+                    ],
+                    tips: [
+                        "Strumming too hard makes the guitar sound harsh and pulls it out of tune. Strum firmly, but relaxed.",
+                        "If you hit only a few strings, start your strum from a little higher above string 6.",
+                    ],
+                    visual: Some(StrumGrid(Quarters)),
+                ),
+                Learn(
+                    title: "Count out loud",
+                    explain: "Count \"1, 2, 3, 4\" out loud and strum on every number. Counting keeps you in time and helps you feel where each bar starts. It might feel silly, but even pro players count when they learn something new.",
+                    facts: [
+                        "One strum per beat is called quarter-note strumming.",
+                        "Four strums make one bar.",
+                    ],
+                    visual: Some(BeatPulse(bpm: 70.0)),
+                ),
+                Activity(
+                    title: "Steady strums",
+                    instructions: "Strum E minor down on every click. Start at 60 BPM, then try 70 and 80.",
+                    activity: StrumAlong(chords: ["Em"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0, 80.0], repeats: 4),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "How many down-strums are in one measure of quarter notes?",
+                            visual: Some(StrumGrid(Quarters)),
+                            choices: ["2", "4", "8"],
+                            answer: 1,
+                            explain: "One on each beat: 1, 2, 3, 4.",
+                        ),
+                        (
+                            prompt: "What matters most when you start strumming?",
+                            choices: ["Going fast", "Staying steady with the beat", "Strumming as loud as possible"],
+                            answer: 1,
+                            explain: "A steady beat matters most. Keep strumming evenly, even if it feels slow. Speed comes later, by itself.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.3",
+            title: "Easy G and Easy C",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L1.2"],
+            goal: "Play the small versions of G and C, strumming only the top four strings.",
+            practice: "Five minutes a day for four days. Make easy G, strum four times, then easy C, strum four times. Check each one for buzzes before you speed up.",
+            steps: [
+                Learn(
+                    title: "Aim your strum",
+                    explain: "Some chords don't use all six strings, so you aim your strum. Easy G uses one finger. Easy C uses two. Only strum the four skinny strings. Start your strum at string 4.",
+                    facts: [
+                        "Easy G: finger 3 on string 1, fret 3.",
+                        "Easy C: finger 2 on string 4, fret 2, and finger 1 on string 2, fret 1.",
+                        "G and C are major chords. They sound bright and happy.",
+                    ],
+                    visual: Some(ChordPair("G-easy", "C-easy")),
+                ),
+                Learn(
+                    title: "Easy G",
+                    explain: "Easy G needs just one finger. Put finger 3 on string 1, fret 3. Strum only the top four strings: 4, 3, 2, and 1. It's a small version of the full G chord you'll learn later.",
+                    facts: [
+                        "Strings 6 and 5 are not played (they have an X).",
+                        "Start your strum on string 4.",
+                    ],
+                    tips: [
+                        "Keep finger 3 standing up on its tip so strings 2 and 3 can ring.",
+                    ],
+                    visual: Some(Chord("G-easy")),
+                ),
+                Learn(
+                    title: "Easy C",
+                    explain: "Easy C uses two fingers. Put finger 1 on string 2, fret 1. Then put finger 2 on string 4, fret 2. Strum the top four strings. It sounds bright and happy.",
+                    facts: [
+                        "Strings 3 and 1 ring open.",
+                        "Again, start your strum on string 4.",
+                    ],
+                    tips: [
+                        "If string 3 is quiet, finger 2 is leaning on it. Arch the finger.",
+                        "If string 1 is quiet, finger 1 is touching it. Come up onto the fingertip.",
+                    ],
+                    visual: Some(Chord("C-easy")),
+                ),
+                Activity(
+                    title: "Buzz check: easy G",
+                    instructions: "Hold easy G and pluck strings 4, 3, 2, and 1 one at a time.",
+                    activity: StringCheck(chord: "G-easy"),
+                ),
+                Activity(
+                    title: "Buzz check: easy C",
+                    instructions: "Hold easy C and pluck strings 4, 3, 2, and 1 one at a time.",
+                    activity: StringCheck(chord: "C-easy"),
+                ),
+                Activity(
+                    title: "G to C",
+                    instructions: "Strum easy G four times, then easy C four times. Keep going!",
+                    activity: StrumAlong(chords: ["G-easy", "C-easy"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Which strings do you strum for easy G?",
+                            visual: Some(Chord("G-easy")),
+                            choices: ["All six", "The top four (strings 4 to 1)", "Only string 1"],
+                            answer: 1,
+                            explain: "Strings 5 and 6 have an X, so start your strum at string 4.",
+                        ),
+                        (
+                            prompt: "Which finger plays easy G?",
+                            visual: Some(Chord("G-easy")),
+                            choices: ["Finger 1", "Finger 2", "Finger 3"],
+                            answer: 2,
+                            explain: "Ring finger (3) on string 1, fret 3.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("C-easy")),
+                            choices: ["Easy G", "Easy C", "E minor"],
+                            answer: 1,
+                            explain: "Finger 2 on string 4 and finger 1 on string 2 make easy C.",
+                        ),
+                        (
+                            prompt: "Listen. Major or minor?",
+                            audio: Some(Chords(["G-easy"])),
+                            choices: ["Major", "Minor"],
+                            answer: 0,
+                            explain: "G is a major chord. It sounds bright.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.4",
+            title: "Changing Chords Without Stopping",
+            thread: Technique,
+            minutes: 12,
+            prerequisites: ["L1.3"],
+            goal: "Switch between two chords in time.",
+            practice: "One minute of chord changes a day for a week: Em to easy G, then easy G to easy C. Write down your score each day. Most people improve a lot in a week!",
+            steps: [
+                Learn(
+                    title: "Three switching tricks",
+                    explain: "The hardest part at first is switching chords without stopping. Trick one: look ahead and picture the next chord before you move. Trick two: move all your fingers together, like a claw landing. Trick three: it's okay to strum the open strings on beat 4 while your hand flies to the next chord. Keep the music going!",
+                    facts: [
+                        "Practice the switch without strumming first.",
+                        "Lift your fingers only a little. Small moves are fast moves.",
+                    ],
+                    visual: Some(ChordPair("G-easy", "C-easy")),
+                ),
+                Learn(
+                    title: "Practice the change, not the chord",
+                    explain: "Playing one chord is easy. Getting from one chord to the next on time is the real skill. So practice just the switch. Make chord one, then chord two, then back, over and over. Speed comes from doing the change many times, slowly and correctly.",
+                    facts: [
+                        "Look at the next chord before you need it.",
+                        "Move all your fingers together, like one hand-shape landing at once.",
+                    ],
+                    tips: [
+                        "Don't stop the strumming hand to wait for the chord. Keep strumming, even if the chord isn't ready yet. Your fingers will learn to catch up.",
+                        "Lift your fingers only a little. Big lifts take longer to come back down.",
+                    ],
+                    visual: Some(ChordPair("Em", "G-easy")),
+                ),
+                Activity(
+                    title: "One-minute changes: E minor and easy G",
+                    instructions: "Switch back and forth as many times as you can in one minute. Strum once each time you land (or press Space). Try to beat your best score every day.",
+                    activity: ChangeTrainer(a: "Em", b: "G-easy", target: 20),
+                ),
+                Activity(
+                    title: "One-minute changes: easy G and easy C",
+                    instructions: "Same game with easy G and easy C.",
+                    activity: ChangeTrainer(a: "G-easy", b: "C-easy", target: 20),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "When should you picture the next chord?",
+                            choices: ["Before you move", "After you land", "Never"],
+                            answer: 0,
+                            explain: "Looking ahead makes the move faster and smoother.",
+                        ),
+                        (
+                            prompt: "You're not ready for the next chord on beat 4. What can you do?",
+                            choices: ["Stop and wait", "Strum the open strings while your hand moves", "Start the song over"],
+                            answer: 1,
+                            explain: "Keeping the rhythm matters more than every note being perfect.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.5",
+            title: "The D7 Chord",
+            thread: Chords,
+            minutes: 12,
+            prerequisites: ["L1.4"],
+            goal: "Play D7 and hear how it wants to go to G.",
+            practice: "Five minutes a day for four days. Strum easy G for four beats, then D7 for four beats, and back. Listen for the way D7 pulls back home to G.",
+            steps: [
+                Learn(
+                    title: "A chord with a pull",
+                    explain: "D7 looks like a little triangle pointing at the tuning pegs. It's a tension chord. When you play it, your ears want to hear G next. It's like a ball thrown in the air that has to come back down.",
+                    facts: [
+                        "Strum only the top four strings.",
+                        "Moving from D7 back to G is called resolving.",
+                        "With G, C, and D7 you can play hundreds of songs.",
+                    ],
+                    visual: Some(Chord("D7")),
+                ),
+                Learn(
+                    title: "Building D7",
+                    explain: "D7 has three fingers in a small triangle. Put finger 2 on string 3, fret 2. Put finger 1 on string 2, fret 1. Put finger 3 on string 1, fret 2. Strum only the top four strings, starting with open string 4.",
+                    facts: [
+                        "The open D string (string 4) is the root, the note the chord is named after.",
+                        "Strings 6 and 5 aren't played.",
+                    ],
+                    tips: [
+                        "Finger 1 has to reach across to string 2 while the others are on strings 3 and 1. Take your time making the shape.",
+                        "Strum from string 4 so the low D sets the sound.",
+                    ],
+                    visual: Some(Chord("D7")),
+                ),
+                Learn(
+                    title: "Home and away",
+                    explain: "In the key of G, G is home. D7 is away, and it pulls back toward home, like a ball rolling downhill. Lots of songs go back and forth between these two chords. Listen for the pull every time you switch back to G.",
+                    facts: [
+                        "G is the 1 chord in the key of G. D7 is the 5 chord.",
+                        "The 5 chord almost always wants to go back to the 1.",
+                    ],
+                    visual: Some(ChordPair("G-easy", "D7")),
+                ),
+                Activity(
+                    title: "Home or away?",
+                    instructions: "Listen to each chord. Does it sound finished (home), or like it wants to move (away)?",
+                    activity: EarQuiz(kind: HomeOrAway, rounds: 6),
+                ),
+                Activity(
+                    title: "G and D7",
+                    instructions: "Strum along: two bars of G, two of D7, two of G, then D7 and back home to G.",
+                    activity: StrumAlong(chords: ["G-easy", "G-easy", "D7", "D7", "G-easy", "G-easy", "D7", "G-easy"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Listen to two chords. Which one sounds finished?",
+                            audio: Some(Chords(["D7", "G-easy"])),
+                            choices: ["The first", "The second"],
+                            answer: 1,
+                            explain: "The second was G, the home chord. D7 wants to move to it.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("D7")),
+                            choices: ["D7", "Easy C", "E minor"],
+                            answer: 0,
+                            explain: "The triangle shape on strings 3, 2, and 1 is D7.",
+                        ),
+                        (
+                            prompt: "Which strings do you strum for D7?",
+                            visual: Some(Chord("D7")),
+                            choices: ["All six", "The top four", "Only strings 5 and 6"],
+                            answer: 1,
+                            explain: "Strings 6 and 5 have an X. Strum from string 4.",
+                        ),
+                        (
+                            prompt: "Where does D7 want to go?",
+                            choices: ["G", "E minor", "Nowhere"],
+                            answer: 0,
+                            explain: "D7 is the 5 chord in the key of G, so it leans toward G and wants to land there.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.6",
+            title: "Picking Single Strings",
+            thread: Notes,
+            minutes: 10,
+            prerequisites: ["L0.6", "L1.2"],
+            goal: "Pick individual strings accurately from tab.",
+            practice: "Five minutes a day for four days. Play the open-string riffs slowly with the metronome at 60 BPM. Aim for every note to be clean and even.",
+            steps: [
+                Learn(
+                    title: "Drawing with a pencil",
+                    explain: "Strumming is like painting with a big brush. Picking is like drawing with a pencil: one string at a time. Rest your picking hand lightly near the bridge so you don't get lost.",
+                    facts: [
+                        "Use down-strokes for now.",
+                        "Watch the tab: the line tells you the string.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0), (string: 6, fret: 0), (string: 5, fret: 0), (string: 5, fret: 0), (string: 4, fret: 0), (string: 4, fret: 0), (string: 5, fret: 0), (string: 5, fret: 0)])),
+                ),
+                Learn(
+                    title: "Small, steady picking",
+                    explain: "To play one string at a time, rest the side of your picking hand lightly near the bridge. Keep the pick close to the strings. Move only a tiny bit, just enough to get through one string. Small moves land on the right string much more often.",
+                    facts: [
+                        "Pick down for now. Later you'll alternate down and up.",
+                        "Look at the string you want to play next before you play it.",
+                    ],
+                    tips: [
+                        "Hitting two strings at once? Your move is too big. Make it smaller.",
+                        "Don't watch the pick the whole time. Feel where the strings are.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0), (string: 5, fret: 0), (string: 4, fret: 0), (string: 5, fret: 0), (string: 6, fret: 0, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Open-string riff",
+                    instructions: "Play the riff from the tab: two Es, two As, two Ds, two As. The mic listens for each note.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 6, fret: 0), (string: 6, fret: 0), (string: 5, fret: 0), (string: 5, fret: 0),
+                        (string: 4, fret: 0), (string: 4, fret: 0), (string: 5, fret: 0), (string: 5, fret: 0),
+                    ]),
+                ),
+                Activity(
+                    title: "Riff two",
+                    instructions: "Now a riff that climbs: E, A, D, G and back down.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 6, fret: 0), (string: 5, fret: 0), (string: 4, fret: 0), (string: 3, fret: 0),
+                        (string: 4, fret: 0), (string: 5, fret: 0), (string: 6, fret: 0, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "In this tab, which string do you play first?",
+                            visual: Some(Tab([(string: 5, fret: 0), (string: 4, fret: 0)])),
+                            choices: ["String 5 (A)", "String 1 (E)", "String 3 (G)"],
+                            answer: 0,
+                            explain: "The first 0 is on the fifth line from the top: string 5, the A string.",
+                        ),
+                        (
+                            prompt: "Where can your picking hand rest lightly?",
+                            choices: ["Near the bridge", "On the tuning pegs", "On the frets"],
+                            answer: 0,
+                            explain: "A light touch near the bridge helps you find the strings.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.7",
+            title: "Your First Melody: Strings 1 and 2",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L1.6"],
+            goal: "Play notes on strings 1 and 2 and play a real melody.",
+            practice: "Five minutes a day for five days. Play the first line of the melody slowly, then the second. When both are easy, play them together without stopping.",
+            steps: [
+                Learn(
+                    title: "Assigned seats",
+                    explain: "In first position, finger 1 handles fret 1, finger 2 handles fret 2, and finger 3 handles fret 3. Each finger gets its own seat! Now you can play melodies, the part people sing.",
+                    facts: [
+                        "String 1: E is open, F is fret 1, G is fret 3.",
+                        "String 2: B is open, C is fret 1, D is fret 3.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3), (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3)], first_fret: 0, last_fret: 5, show_names: true)),
+                ),
+                Learn(
+                    title: "Notes on strings 1 and 2",
+                    explain: "This melody uses just five notes on the two thinnest strings. On string 1, open is E, fret 1 is F, and fret 3 is G. On string 2, fret 1 is C and fret 3 is D. Each finger has its own fret: finger 1 plays fret 1, and finger 3 plays fret 3.",
+                    facts: [
+                        "String 1: E (open), F (fret 1), G (fret 3).",
+                        "String 2: C (fret 1), D (fret 3).",
+                    ],
+                    tips: [
+                        "Use finger 3 for fret 3, not finger 2. Then your hand stays in one spot and never has to move.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3), (string: 2, fret: 1), (string: 2, fret: 3)], first_fret: 0, last_fret: 4, show_names: true)),
+                ),
+                Learn(
+                    title: "Reading the melody",
+                    explain: "Here is the start of the melody in tab. Say the note names as you play them. Notice how the melody steps up and down, one note at a time, like walking up and down stairs.",
+                    facts: [
+                        "The first line: E E F G G F E D.",
+                        "Hold the longer notes for two beats.",
+                    ],
+                    visual: Some(Tab([(string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3), (string: 1, fret: 3), (string: 1, fret: 1), (string: 1, fret: 0), (string: 2, fret: 3, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Ode to Joy",
+                    instructions: "Play the opening of Ode to Joy (Beethoven) from the tab. Press Listen to hear it first. The mic follows along as you play.",
+                    activity: PlayNotes(tempo: 80.0, notes: [
+                        (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3),
+                        (string: 1, fret: 3), (string: 1, fret: 1), (string: 1, fret: 0), (string: 2, fret: 3),
+                        (string: 2, fret: 1), (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0),
+                        (string: 1, fret: 0, beats: 1.5), (string: 2, fret: 3, beats: 0.5), (string: 2, fret: 3, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Where is G on string 1?",
+                            choices: ["Open", "Fret 1", "Fret 3"],
+                            answer: 2,
+                            explain: "E open, F at fret 1, G at fret 3.",
+                        ),
+                        (
+                            prompt: "Where is C on string 2?",
+                            choices: ["Fret 1", "Fret 3", "Open"],
+                            answer: 0,
+                            explain: "B open, C at fret 1, D at fret 3.",
+                        ),
+                        (
+                            prompt: "Which finger plays fret 3 in first position?",
+                            choices: ["Finger 1", "Finger 3", "Finger 4"],
+                            answer: 1,
+                            explain: "Each finger has its own fret: finger 3 plays fret 3.",
+                        ),
+                        (
+                            prompt: "What note is this?",
+                            visual: Some(Tab([(string: 2, fret: 3)])),
+                            choices: ["D", "G", "C"],
+                            answer: 0,
+                            explain: "String 2, fret 3 is D.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.8",
+            title: "Ear Lab: High, Low, Happy, Sad",
+            thread: TheoryEar,
+            minutes: 8,
+            prerequisites: ["L1.3"],
+            goal: "Hear higher vs. lower notes, and major vs. minor chords.",
+            practice: "Two minutes a day: play one round of each ear game in the Ear Gym. Ears grow by listening a little bit every day.",
+            steps: [
+                Learn(
+                    title: "Your ears already know",
+                    explain: "Major chords usually sound bright and happy. Minor chords sound darker, or sad. G and C are major. E minor is minor. Your ears already know the difference. Let's prove it!",
+                    more: Some("The reason is one note called the 3rd. In a minor chord it's one fret lower than in a major chord. You'll see that in Level 2."),
+                    visual: Some(ChordPair("G-easy", "Em")),
+                ),
+                Learn(
+                    title: "High and low",
+                    explain: "Thin strings sound high, like a bird. Thick strings sound low, like a bear. Pressing higher frets also makes a note higher. Try it: pluck string 6, then string 1, and listen to how different they are.",
+                    facts: [
+                        "Higher notes shake faster. Lower notes shake slower.",
+                        "Moving toward the body of the guitar makes notes higher.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 0), (string: 1, fret: 0), (string: 1, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Learn(
+                    title: "Happy and sad",
+                    explain: "Chords have moods. Major chords sound bright and happy. Minor chords sound darker, a little sad or serious. Strum E minor, then easy C, and listen to the difference. You don't need to know why yet. Just notice how each one feels.",
+                    facts: [
+                        "E minor: dark, minor.",
+                        "C: bright, major.",
+                    ],
+                    tips: [
+                        "Close your eyes when you listen. It helps your ears focus.",
+                    ],
+                    visual: Some(ChordPair("Em", "C-easy")),
+                ),
+                Activity(
+                    title: "Which is higher?",
+                    instructions: "Two notes play. Pick the one that sounds higher.",
+                    activity: EarQuiz(kind: HighLow, rounds: 6),
+                ),
+                Activity(
+                    title: "Major or minor?",
+                    instructions: "One chord plays. Is it bright (major) or dark (minor)?",
+                    activity: EarQuiz(kind: MajorMinor, rounds: 10),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Listen. Major or minor?",
+                            audio: Some(Chords(["Em"])),
+                            choices: ["Major", "Minor"],
+                            answer: 1,
+                            explain: "That was E minor. It sounded dark and a little sad, which is the sound of a minor chord.",
+                        ),
+                        (
+                            prompt: "Listen. Major or minor?",
+                            audio: Some(Chords(["C-easy"])),
+                            choices: ["Major", "Minor"],
+                            answer: 0,
+                            explain: "That was C major. It sounded bright and happy, which is the sound of a major chord.",
+                        ),
+                        (
+                            prompt: "Listen. Which note is higher?",
+                            audio: Some(Notes([(string: 1, fret: 3), (string: 2, fret: 1)])),
+                            choices: ["The first", "The second"],
+                            answer: 0,
+                            explain: "The first note was G on string 1. The second was C on string 2, which is lower.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L1.9",
+            title: "Level 1 Song: Ode to Joy",
+            thread: Song,
+            minutes: 20,
+            prerequisites: ["L1.5", "L1.7", "L1.8"],
+            goal: "Put it all together: chords, steady strumming, and a melody.",
+            practice: "Ten minutes a day for a week. Play the song slowly all the way through, once strummed and once as a melody. Then play along with the app at a faster tempo.",
+            steps: [
+                Learn(
+                    title: "Your first full song",
+                    explain: "Ode to Joy is a famous melody by Beethoven. You already know its first part! Now you'll strum its chords with easy C and easy G, and then play the whole melody.",
+                    facts: [
+                        "Chords, one per bar: C, G, C, G, C, G, C, C.",
+                        "The melody uses only strings 1 and 2.",
+                    ],
+                    visual: Some(ChordPair("C-easy", "G-easy")),
+                ),
+                Learn(
+                    title: "Learn it in pieces",
+                    explain: "A song is easier in small pieces. Learn the first line until it's smooth. Then learn the second line. Then join them. If one spot is hard, play just that spot five times slowly before you play the whole song again.",
+                    facts: [
+                        "Slow and steady beats fast and bumpy.",
+                        "It's fine to practice the hard bar more than the easy ones.",
+                    ],
+                    tips: [
+                        "Don't always start from the beginning. Start from the part that's giving you trouble.",
+                        "If you make a mistake while playing along, keep going. Real musicians don't stop.",
+                    ],
+                    visual: Some(StrumGrid(Quarters)),
+                ),
+                Activity(
+                    title: "Strum the chords",
+                    instructions: "Strum down on every beat. Change chords at the start of each bar.",
+                    activity: StrumAlong(chords: ["C-easy", "G-easy", "C-easy", "G-easy", "C-easy", "G-easy", "C-easy", "C-easy"], beats_per_chord: 4, pattern: Quarters, tempos: [70.0, 80.0], repeats: 1),
+                ),
+                Activity(
+                    title: "Play the whole melody",
+                    instructions: "Both halves of the melody. The second half ends differently: it lands on C.",
+                    activity: PlayNotes(tempo: 80.0, notes: [
+                        (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3),
+                        (string: 1, fret: 3), (string: 1, fret: 1), (string: 1, fret: 0), (string: 2, fret: 3),
+                        (string: 2, fret: 1), (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0),
+                        (string: 1, fret: 0, beats: 1.5), (string: 2, fret: 3, beats: 0.5), (string: 2, fret: 3, beats: 2.0),
+                        (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3),
+                        (string: 1, fret: 3), (string: 1, fret: 1), (string: 1, fret: 0), (string: 2, fret: 3),
+                        (string: 2, fret: 1), (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0),
+                        (string: 2, fret: 3, beats: 1.5), (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 1, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 80,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Em")),
+                            choices: ["E minor", "Easy G", "D7"],
+                            answer: 0,
+                            explain: "Two fingers on fret 2 of strings 5 and 4, and all six strings ring. That's E minor, the first chord you learned.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("D7")),
+                            choices: ["Easy C", "D7", "E minor 7"],
+                            answer: 1,
+                            explain: "Fingers on strings 3, 2, and 1 make a small triangle, and you only strum the top four strings. That's D7.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("C-easy")),
+                            choices: ["Easy C", "Easy G", "E minor"],
+                            answer: 0,
+                            explain: "Easy C uses only the top four strings: finger 2 on string 4, fret 2, and finger 1 on string 2, fret 1.",
+                        ),
+                        (
+                            prompt: "Which note is this?",
+                            visual: Some(Tab([(string: 1, fret: 1)])),
+                            choices: ["F", "C", "E"],
+                            answer: 0,
+                            explain: "String 1, fret 1 is F.",
+                        ),
+                        (
+                            prompt: "Listen. Major or minor?",
+                            audio: Some(Chords(["Em"])),
+                            choices: ["Major", "Minor"],
+                            answer: 1,
+                            explain: "The chord sounded dark and a little sad. That's the sound of minor. Major chords sound bright and happy.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

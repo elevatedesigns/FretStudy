@@ -1,0 +1,561 @@
+// Style Track B — Blues. See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 10,
+    title: "🎸 Blues",
+    track: Some("Blues"),
+    goal: "Turnarounds, shuffles, 9th chords, double stops, slow and minor blues, the 8-bar blues, and fingerstyle Delta blues.",
+    weeks: "6–8 weeks",
+    lessons: [
+        Lesson(
+            id: "B.1",
+            title: "Intros, Turnarounds, and Endings",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L5.13", "L6.4"],
+            goal: "Play a classic blues turnaround in the last two bars of the 12-bar.",
+            practice: "Five minutes a day for a week. Play the turnaround ten times. Then play a full 12-bar blues with the turnaround and a 9th-chord ending.",
+            steps: [
+                Learn(
+                    title: "The turnaround",
+                    explain: "The last two bars of a blues are the turnaround. They spin the song back to the top. A classic one keeps the high A ringing while a lower note walks down one fret at a time. Then it lands on the 5 chord. The same lick works as an intro, and as an ending if you stop on the 1 chord.",
+                    facts: [
+                        "The walking notes are on string 3: frets 9, 8, 7, and 6 (E, E♭, D, C♯).",
+                        "Between each one, pick the high A on string 1, fret 5.",
+                        "Land on E (string 5, fret 7) to point back to the top.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 9, beats: 0.5), (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 8, beats: 0.5),
+                        (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 7, beats: 0.5), (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 6, beats: 0.5),
+                        (string: 5, fret: 7, beats: 4.0),
+                    ])),
+                ),
+                Learn(
+                    title: "A classic ending",
+                    explain: "Blues songs often end with a little slide. Play the A9 chord one fret higher. Then slide it down one fret to A9 and let it ring. It sounds like the band saying goodbye. You can also start a song with the turnaround as an intro.",
+                    facts: [
+                        "Intro: play bars 11 and 12 first.",
+                        "Ending: slide into the 1 chord from one fret above.",
+                    ],
+                    tips: [
+                        "Let the last chord ring. Don't rush the ending!",
+                    ],
+                    visual: Some(Chord("A9")),
+                ),
+                Activity(
+                    title: "Play the turnaround",
+                    instructions: "Slowly first. Keep the high A light and even.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 9, beats: 0.5), (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 8, beats: 0.5),
+                        (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 7, beats: 0.5), (string: 1, fret: 5, beats: 0.5), (string: 3, fret: 6, beats: 0.5),
+                        (string: 5, fret: 7, beats: 4.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Use it in a blues",
+                    instructions: "Strum the 12-bar. In bars 11 and 12, play the turnaround instead.",
+                    activity: StrumAlong(chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], beats_per_chord: 4, pattern: Swing8, tempos: [70.0, 90.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Where does the turnaround go?",
+                            choices: ["The last two bars", "The first bar", "Bar 5"],
+                            answer: 0,
+                            explain: "The turnaround fills the last two bars (11 and 12) and leads the band back to the top.",
+                        ),
+                        (
+                            prompt: "Which chord does a turnaround usually land on?",
+                            choices: ["The 5 chord", "The 4 chord", "The 6 chord"],
+                            answer: 0,
+                            explain: "It lands on the 5 chord, which pulls back to the 1 chord at the top of the next chorus.",
+                        ),
+                        (
+                            prompt: "How do you turn a turnaround into an ending?",
+                            choices: ["Stop on the 1 chord instead", "Play it faster", "Skip it"],
+                            answer: 0,
+                            explain: "End on the 1 chord instead of the 5, and the turnaround sounds finished instead of leading back.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.2",
+            title: "Blues Shuffles and Rhythm Variations",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["B.1"],
+            goal: "Play the shuffle slow and fast, and know the Texas shuffle and half-time feels.",
+            practice: "Five minutes a day for a week. Play the shuffle riff with the new top note. Try it slow, then medium, then fast.",
+            steps: [
+                Learn(
+                    title: "Same riff, new feels",
+                    explain: "The boogie shuffle changes with the speed. A medium shuffle lopes along. An up-tempo shuffle drives hard. In a Texas shuffle, both hands dig in and the riff gets loud. In half-time, the drums feel twice as slow, even though the chords move at the same speed.",
+                    facts: [
+                        "Keep the long-short swing at every speed.",
+                        "Rest your picking hand on the strings for a tight, chunky sound.",
+                    ],
+                    visual: Some(StrumGrid(Boogie)),
+                ),
+                Learn(
+                    title: "Reach for the 7th",
+                    explain: "Here's a riff variation. Play the boogie riff on E, but add one more note: fret 5 on string 5. That's the flat 7th, the bluesy note in E7. The riff now climbs 2, 4, 5, 4. Your pinky reaches for fret 5.",
+                    facts: [
+                        "Frets on string 5: 2, 4, 5, 4.",
+                        "Move the same idea to A (strings 5 and 4) and B (strings 5 and 4 at fret 2).",
+                    ],
+                    tips: [
+                        "Stretch slowly. If fret 5 is too far, warm up with finger stretches first.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0), (string: 5, fret: 2), (string: 6, fret: 0), (string: 5, fret: 4), (string: 6, fret: 0), (string: 5, fret: 5), (string: 6, fret: 0), (string: 5, fret: 4)])),
+                ),
+                Activity(
+                    title: "Medium, then up-tempo",
+                    instructions: "Boogie through the 12-bar in E. The second speed is fast!",
+                    activity: StrumAlong(chords: ["E7", "E7", "E7", "E7", "A7", "A7", "E7", "E7", "B7", "A7", "E7", "B7"], beats_per_chord: 4, pattern: Boogie, tempos: [80.0, 120.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What stays the same at every shuffle speed?",
+                            choices: ["The long-short swing", "The volume", "The key"],
+                            answer: 0,
+                            explain: "Slow or fast, a shuffle keeps its long-short swing. That's what makes it a shuffle.",
+                        ),
+                        (
+                            prompt: "In a half-time feel, the drums feel…",
+                            choices: ["Twice as slow", "Twice as fast", "The same"],
+                            answer: 0,
+                            explain: "In half-time, the drums play their pattern twice as slowly, so the beat feels heavy and laid back.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.3",
+            title: "9th and 13th Chords",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["B.2"],
+            goal: "Play dominant 9th and 13th chords and slide into them.",
+            practice: "Five minutes a day for a week. Play the 9th-chord blues in E. Swap in E13 on the last beat of each bar.",
+            steps: [
+                Learn(
+                    title: "Bluesy and jazzy",
+                    explain: "A 9 chord is a 7 chord with one more note on top: the 9th. It sounds bluesy and a little jazzy. A 13 chord adds the 13th, which is the 6th note up high. Blues players love to slide a 9 chord up one fret into place.",
+                    facts: [
+                        "9 = 1 3 5 ♭7 9. 13 = 1 3 ♭7 13 (the 5th and 9th are often left out).",
+                        "Try sliding from one fret below into the chord.",
+                    ],
+                    visual: Some(ChordPair("E9", "A9")),
+                ),
+                Learn(
+                    title: "What's in a 9 and a 13",
+                    explain: "A 9 chord is a 7th chord with one more note on top: the 9th. A 13 chord adds the 13th, which is the 6th note of the scale up high. Both sound richer than a plain 7. Blues players love sliding between a 9 and a 13.",
+                    facts: [
+                        "9: 1, 3, 5, ♭7, 9.",
+                        "13: 1, 3, ♭7, 13 (the 5 and 9 are often left out).",
+                    ],
+                    tips: [
+                        "You don't need every note. Guitars often drop the 5th to keep shapes playable.",
+                    ],
+                    visual: Some(ChordPair("E9", "E13")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each 9 chord.",
+                    activity: ChordCheck(chords: ["E9", "A9", "B9"]),
+                ),
+                Activity(
+                    title: "A 9th-chord blues in E",
+                    instructions: "E9, A9, and B9 through the 12 bars.",
+                    activity: StrumAlong(chords: ["E9", "E9", "E9", "E9", "A9", "A9", "E9", "E9", "B9", "A9", "E9", "B9"], beats_per_chord: 4, pattern: Swing8, tempos: [70.0, 90.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What does a 9 chord add to a 7 chord?",
+                            choices: ["The 9th", "The 6th", "The ♭5"],
+                            answer: 0,
+                            explain: "A 9 chord is a 7 chord with the 9th on top: 1 3 5 ♭7 9.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("E9")),
+                            choices: ["E9", "E7", "Em"],
+                            answer: 0,
+                            explain: "An E7 shape with an F♯ (the 9th) on string 1, fret 2. That makes E9.",
+                        ),
+                        (
+                            prompt: "The 13th is the same letter as which note?",
+                            choices: ["The 6th", "The 2nd", "The 7th"],
+                            answer: 0,
+                            explain: "The 13th is the 6th note, one octave higher.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.4",
+            title: "Double Stops",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["B.3"],
+            goal: "Play pairs of pentatonic notes together on strings 2 and 3.",
+            practice: "Five minutes a day for a week. Play double stops on strings 1 and 2 at frets 5 and 8. Slide into them from a fret below.",
+            steps: [
+                Learn(
+                    title: "Two notes at once",
+                    explain: "A double stop is two notes played together. It sounds fat and bluesy. Take two notes from Box 1 that sit side by side on strings 2 and 3. Pick both at once. Then slide or bend them as a pair.",
+                    facts: [
+                        "Fret 5 on strings 3 and 2: C and E.",
+                        "Fret 7 on string 3 with fret 8 on string 2: D and G.",
+                        "Barre a pair with one finger, or use two fingers.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 3, fret: 5), (string: 2, fret: 5), (string: 3, fret: 7), (string: 2, fret: 8)], first_fret: 3, last_fret: 10, show_names: true)),
+                ),
+                Learn(
+                    title: "A one-finger double stop",
+                    explain: "Lay finger 1 flat across strings 1 and 2 at fret 5. Pick both strings together. That's a double stop! In A, these notes are E and A. Move up to fret 8 for G and C. Shake them with vibrato for a big blues sound.",
+                    facts: [
+                        "Fret 5: E and A. Fret 8: G and C.",
+                        "Both pairs fit in the A minor pentatonic.",
+                    ],
+                    tips: [
+                        "Pick only the two strings. Rest your picking hand lightly on the others.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 2, fret: 5), (string: 1, fret: 5), (string: 2, fret: 8), (string: 1, fret: 8)], first_fret: 3, last_fret: 10, show_names: true)),
+                ),
+                Activity(
+                    title: "Double-stop moves",
+                    instructions: "Tick each move once you can play it cleanly.",
+                    activity: Checklist(items: [
+                        "Pick C and E together (fret 5, strings 3 and 2).",
+                        "Pick D and G together (frets 7 and 8).",
+                        "Slide a pair up from one fret below.",
+                        "Rock between the two pairs with a swing feel.",
+                    ]),
+                ),
+                Activity(
+                    title: "Jam with double stops",
+                    instructions: "Mix single notes and pairs over a blues in A.",
+                    activity: Jam(key: "A", scale: "minor_pentatonic", shape: Some(1), chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], pattern: Swing8, bpm: 85.0),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What is a double stop?",
+                            choices: ["Two notes played together", "Stopping the song twice", "A very short note"],
+                            answer: 0,
+                            explain: "A double stop is two notes played at the same time, usually on side-by-side strings.",
+                        ),
+                        (
+                            prompt: "In Box 1, which strings are great for double stops?",
+                            choices: ["Strings 2 and 3", "Strings 5 and 6", "Strings 1 and 6"],
+                            answer: 0,
+                            explain: "In Box 1, strings 2 and 3 have pairs that sound great together, like C and E at fret 5.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.5",
+            title: "Mixolydian and Dominant Arpeggios",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["B.4"],
+            goal: "Aim for the 3rd of each 7 chord as the blues changes.",
+            practice: "Five minutes a day for a week. Play the A7 arpeggio and A Mixolydian. Then solo, landing on the 3rd of each chord.",
+            steps: [
+                Learn(
+                    title: "Follow the changes",
+                    explain: "Each chord in the blues is a 7 chord with its own notes. When a new chord comes, aim for its 3rd. Over A7 that's C sharp. Over D7 it's F sharp. Over E7 it's G sharp. Now your solo follows the song, not just the key.",
+                    facts: [
+                        "A7 = A C♯ E G. D7 = D F♯ A C. E7 = E G♯ B D.",
+                        "Mixolydian (major with a ♭7) fits each 7 chord.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "mixolydian", first_fret: 3, last_fret: 10)),
+                ),
+                Learn(
+                    title: "Mixolydian fits 7 chords",
+                    explain: "Mixolydian is the major scale with one change: the 7th note is a fret lower. That makes it match a 7 chord perfectly. A Mixolydian has the notes A, B, C sharp, D, E, F sharp, and G. The C sharp and G are the notes that say A7.",
+                    facts: [
+                        "A7 = A, C♯, E, G.",
+                        "Mix Mixolydian with the minor pentatonic for a classic blues sound.",
+                    ],
+                    tips: [
+                        "Land on C sharp over A7. It shows you know where the music is.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "mixolydian", first_fret: 4, last_fret: 10)),
+                ),
+                Activity(
+                    title: "Chase the chord tones",
+                    instructions: "The colored dots are the current chord's notes. Land on one at the start of each bar.",
+                    activity: Jam(key: "A", scale: "chromatic", chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], pattern: Swing8, bpm: 75.0, chord_tones: true),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Over D7, which note is the 3rd?",
+                            choices: ["F♯", "F", "A"],
+                            answer: 0,
+                            explain: "D7 is D F♯ A C. Its 3rd is F♯.",
+                        ),
+                        (
+                            prompt: "Over E7, which note is the 3rd?",
+                            choices: ["G♯", "G", "B"],
+                            answer: 0,
+                            explain: "E7 is E G♯ B D. Its 3rd is G♯.",
+                        ),
+                        (
+                            prompt: "Which mode fits a 7 chord?",
+                            choices: ["Mixolydian", "Lydian", "Phrygian"],
+                            answer: 0,
+                            explain: "Mixolydian is major with a ♭7, the same notes as a 7 chord, so it fits each one.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.6",
+            title: "Slow Blues and Minor Blues",
+            thread: Rhythm,
+            minutes: 20,
+            prerequisites: ["B.5"],
+            goal: "Feel a slow blues in triplets and play a minor blues.",
+            practice: "Five minutes a day for a week. Play the slow blues counting 1-2-3 in each beat. Then play the minor blues and solo over it.",
+            steps: [
+                Learn(
+                    title: "Slow blues: three in every beat",
+                    explain: "A slow blues has three pulses in every beat: \"1-trip-let, 2-trip-let.\" Musicians call this 12/8. It feels heavy and soulful. Leave lots of space and make every note count.",
+                    facts: [
+                        "Count 1-trip-let 2-trip-let 3-trip-let 4-trip-let.",
+                        "Long bends and wide vibrato sound great at slow speeds.",
+                    ],
+                    visual: Some(StrumGrid(Swing8)),
+                ),
+                Learn(
+                    title: "Minor blues",
+                    explain: "A minor blues uses the same 12-bar map with minor chords. In A minor, play Am, Dm, and E7. The E7 gives a strong pull home. Solo with A minor pentatonic or natural minor.",
+                    visual: Some(TwelveBar(key: "A")),
+                ),
+                Learn(
+                    title: "Minor blues chords",
+                    explain: "A minor blues uses the same 12-bar map, but the chords are minor. In A, the 1 chord is A minor and the 4 chord is D minor. The 5 chord is often a 7 chord, E7, which pulls you home. It sounds sad and moody.",
+                    facts: [
+                        "1: Am. 4: Dm. 5: E7.",
+                        "The minor pentatonic fits perfectly.",
+                    ],
+                    tips: [
+                        "Play slowly and let notes ring. Minor blues sounds best with lots of space.",
+                    ],
+                    visual: Some(ChordPair("Am", "Dm")),
+                ),
+                Activity(
+                    title: "A minor blues",
+                    instructions: "Am, Dm, and E7 through the 12 bars. Play it slowly.",
+                    activity: StrumAlong(chords: ["Am", "Am", "Am", "Am", "Dm", "Dm", "Am", "Am", "E7", "Dm", "Am", "E7"], beats_per_chord: 4, pattern: Swing8, tempos: [60.0, 75.0], repeats: 1),
+                ),
+                Activity(
+                    title: "Solo over the minor blues",
+                    instructions: "Slow and soulful. Leave space!",
+                    activity: Jam(key: "A", scale: "minor_pentatonic", shape: Some(1), chords: ["Am", "Am", "Am", "Am", "Dm", "Dm", "Am", "Am", "E7", "Dm", "Am", "E7"], pattern: Swing8, bpm: 65.0),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How many pulses are in each beat of a slow blues?",
+                            choices: ["3", "2", "4"],
+                            answer: 0,
+                            explain: "A slow blues feels three pulses per beat (12/8 time): 1-trip-let, 2-trip-let.",
+                        ),
+                        (
+                            prompt: "In an A minor blues, what's the 5 chord?",
+                            choices: ["E7", "Em", "E5"],
+                            answer: 0,
+                            explain: "Minor blues usually makes the 5 chord a dominant 7, E7, for a stronger pull home to A minor.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.7",
+            title: "The 8-Bar Blues and the Diminished 7th",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["B.6"],
+            goal: "Play an 8-bar blues with a diminished passing chord.",
+            practice: "Five minutes a day for a week. Play the 8-bar blues in A with the diminished chord. Count the bars out loud.",
+            steps: [
+                Learn(
+                    title: "A shorter map",
+                    explain: "Not every blues is 12 bars. The 8-bar blues is shorter and moves faster. It often slips in a diminished 7th chord to walk the bass up from the 4 chord to the 1 chord. The diminished chord sounds tense, and that makes the next chord feel great.",
+                    facts: [
+                        "In A: A7 | A7 | D7 | D♯dim7 | A7 | E7 | A7 | E7.",
+                        "D to D♯ to E: the bass walks up one fret at a time.",
+                    ],
+                    visual: Some(ChordPair("Ddim7", "D#dim7")),
+                ),
+                Learn(
+                    title: "The sneaky diminished chord",
+                    explain: "A diminished 7th chord sounds tense, like a spooky movie. In the blues, it's a passing chord. Play it one fret above the 4 chord, then go home to the 1. In A, that's D, then D sharp diminished 7, then back to A.",
+                    facts: [
+                        "Dim7 chords repeat every three frets.",
+                        "Use it for just a beat or two.",
+                    ],
+                    tips: [
+                        "Move the whole shape up three frets. It's still the same chord!",
+                    ],
+                    visual: Some(Chord("D#dim7")),
+                ),
+                Activity(
+                    title: "8-bar blues in A",
+                    instructions: "Hear how D♯dim7 leads back home.",
+                    activity: StrumAlong(chords: ["A7", "A7", "D7", "D#dim7", "A7", "E7", "A7", "E7"], beats_per_chord: 4, pattern: Swing8, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How long is an 8-bar blues?",
+                            choices: ["8 bars", "12 bars", "16 bars"],
+                            answer: 0,
+                            explain: "An 8-bar blues is just what it says: eight bars per chorus instead of twelve.",
+                        ),
+                        (
+                            prompt: "What does the diminished chord do here?",
+                            choices: ["Adds tension and walks the bass up", "Ends the song", "Makes it minor"],
+                            answer: 0,
+                            explain: "The diminished chord is tense, and it walks the bass up one fret at a time, so the next chord feels like a release.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.8",
+            title: "Fingerstyle Delta Blues",
+            thread: Technique,
+            minutes: 20,
+            prerequisites: ["B.7"],
+            goal: "Play a steady alternating thumb bass with the heel of your hand muting the low strings.",
+            practice: "Ten minutes a day for a week. Keep the thumb steady on string 6 while your fingers play the melody. Start very slowly.",
+            steps: [
+                Learn(
+                    title: "A one-person band",
+                    explain: "Old Delta blues players were a one-person band. The thumb thumps the bass on every beat, back and forth between two strings. The fingers add little bits of melody on top. Rest the heel of your hand on the low strings. That's called heel damping. It makes the bass short and punchy.",
+                    facts: [
+                        "In E: the thumb rocks between string 6 and string 4.",
+                        "A brush stroke (a quick down strum with the fingers) adds a snare-drum sound.",
+                    ],
+                    visual: Some(StrumGrid(Travis)),
+                ),
+                Learn(
+                    title: "Thumb and pinch",
+                    explain: "In Delta blues, your thumb thumps the low E string on every beat. Your fingers pluck melody notes on the high strings. When the thumb and a finger play at the same time, it's called a pinch. Start with the thumb alone, then add one pinch per bar.",
+                    facts: [
+                        "Thumb: string 6, every beat.",
+                        "Fingers: strings 1, 2, and 3.",
+                    ],
+                    tips: [
+                        "Mute string 6 with the side of your hand for a thumpy, drum-like sound.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0), (string: 6, fret: 0), (string: 2, fret: 3), (string: 6, fret: 0), (string: 1, fret: 0), (string: 6, fret: 0, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Thumb and fingers in E",
+                    instructions: "Keep the thumb steady and the bass notes short.",
+                    activity: StrumAlong(chords: ["E7", "E7", "A7", "E7"], beats_per_chord: 4, pattern: Travis, tempos: [60.0, 75.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What is heel damping?",
+                            choices: ["Resting the heel of your hand on the low strings", "Pressing harder with the fretting hand", "Turning the volume down"],
+                            answer: 0,
+                            explain: "Heel damping means resting the heel of your picking hand on the low strings, which keeps the bass short and punchy.",
+                        ),
+                        (
+                            prompt: "What does the thumb do in Delta blues?",
+                            choices: ["Plays a steady bass on every beat", "Plays the melody", "Rests"],
+                            answer: 0,
+                            explain: "The thumb keeps a steady bass on every beat, like a drummer, while the fingers add melody.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "B.9",
+            title: "Blues Capstone: Three Choruses",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["B.8"],
+            goal: "Record a 3-chorus blues: a head, a solo, and a solo that ends with a turnaround.",
+            practice: "Fifteen minutes a day for a week. Practice all three choruses in order. Record the full song at the end of the week.",
+            steps: [
+                Learn(
+                    title: "Your blues",
+                    explain: "Make your own 3-chorus blues in A. Chorus 1 is the head: a riff or melody you make up. Chorus 2 is a solo. Chorus 3 is another solo that ends with the turnaround. Record it over the backing and listen back.",
+                    facts: [
+                        "Use what you know: double stops, bends, 9th chords, and chord tones.",
+                        "Wear headphones so the mic only hears your guitar.",
+                    ],
+                    visual: Some(TwelveBar(key: "A")),
+                ),
+                Learn(
+                    title: "Plan your three choruses",
+                    explain: "Chorus 1: play rhythm with a shuffle riff. Chorus 2: solo with licks, bends, and double stops. Chorus 3: play rhythm again and finish with a classic ending. Planning ahead helps you play without stopping.",
+                    facts: [
+                        "Start with an intro: the turnaround.",
+                        "End with a slide into the 1 chord.",
+                    ],
+                    tips: [
+                        "Write your plan on paper and keep it in front of you.",
+                    ],
+                    visual: Some(TwelveBar(key: "E")),
+                ),
+                Activity(
+                    title: "Record your blues",
+                    instructions: "Start the backing, then press Record.",
+                    activity: Record(chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], pattern: Boogie, bpm: 85.0),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What is the head of a song?",
+                            choices: ["The main riff or melody, played first", "The last chord", "The drum part"],
+                            answer: 0,
+                            explain: "The head is the main riff or melody. It's played first, then solos, then often the head again.",
+                        ),
+                        (
+                            prompt: "Which chord adds a 9th to a 7 chord?",
+                            choices: ["A 9 chord", "A sus chord", "A minor chord"],
+                            answer: 0,
+                            explain: "A 9 chord adds the 9th to a 7 chord.",
+                        ),
+                        (
+                            prompt: "Where does the turnaround go?",
+                            choices: ["The last two bars", "The middle", "The first bar"],
+                            answer: 0,
+                            explain: "The turnaround is the last two bars, leading back to the top.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

@@ -1,0 +1,1070 @@
+// Level 5 — Lead Guitar Basics. See docs/02-Curriculum-Part3-Levels-5-6.md.
+Level(
+    number: 5,
+    title: "Lead Guitar Basics",
+    goal: "The minor pentatonic, hammer-ons, pull-offs, slides, bends, vibrato, the 12-bar blues, and your first solo.",
+    weeks: "6–8 weeks",
+    lessons: [
+        Lesson(
+            id: "L5.1",
+            title: "The Minor Pentatonic Scale: Box 1",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["L4.13"],
+            goal: "Play the A minor pentatonic Box 1 up and down, and know where its roots are.",
+            practice: "Five minutes a day for a week. Climb the box up and down with alternate picking. Start slow with the metronome at 60, then go up by 5 each day.",
+            steps: [
+                Learn(
+                    title: "A five-note ladder",
+                    explain: "\"Penta\" means five. This scale is a ladder with five notes. It is the scale behind most rock and blues solos. It skips the two notes that are easy to bump into wrong. So almost anything you play from it sounds good! Its shape looks like a box, with two notes on every string.",
+                    facts: [
+                        "The recipe: 1, ♭3, 4, 5, ♭7. In A that's A C D E G.",
+                        "Finger 1 plays every fret-5 note. Fingers 3 and 4 play frets 7 and 8.",
+                        "Red squares are roots (A). There are three of them in the box.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", shape: Some(1), first_fret: 3, last_fret: 10)),
+                ),
+                Learn(
+                    title: "Up the ladder",
+                    explain: "Start on the low A at string 6, fret 5. Play two notes on each string, then move to the next string. When you reach the top, come back down. Pick down, up, down, up the whole way.",
+                    visual: Some(Tab([
+                        (string: 6, fret: 5), (string: 6, fret: 8), (string: 5, fret: 5), (string: 5, fret: 7),
+                        (string: 4, fret: 5), (string: 4, fret: 7), (string: 3, fret: 5), (string: 3, fret: 7),
+                        (string: 2, fret: 5), (string: 2, fret: 8), (string: 1, fret: 5), (string: 1, fret: 8, beats: 2.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Two notes on every string",
+                    explain: "Box 1 has exactly two notes on each string. Use finger 1 for the lower fret and finger 3 or 4 for the higher one. On strings 6, 1, and 2 the gap is three frets, so use finger 4. On strings 5, 4, and 3 the gap is two frets, so use finger 3.",
+                    facts: [
+                        "Root notes (A) are on string 6 fret 5, string 4 fret 7, and string 1 fret 5.",
+                        "Start and end on a root so it sounds finished.",
+                    ],
+                    tips: [
+                        "Keep finger 1 parked at fret 5. Don't let your hand slide around.",
+                        "Pick down, up, down, up. That's called alternate picking.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 5), (string: 4, fret: 7), (string: 1, fret: 5)], first_fret: 3, last_fret: 10, show_names: true)),
+                ),
+                Activity(
+                    title: "Climb the box",
+                    instructions: "Play Box 1 from the bottom to the top. Go slow and let each note ring.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 5), (string: 6, fret: 8), (string: 5, fret: 5), (string: 5, fret: 7),
+                        (string: 4, fret: 5), (string: 4, fret: 7), (string: 3, fret: 5), (string: 3, fret: 7),
+                        (string: 2, fret: 5), (string: 2, fret: 8), (string: 1, fret: 5), (string: 1, fret: 8, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Climb back down",
+                    instructions: "Now from the top back to the low A.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 1, fret: 8), (string: 1, fret: 5), (string: 2, fret: 8), (string: 2, fret: 5),
+                        (string: 3, fret: 7), (string: 3, fret: 5), (string: 4, fret: 7), (string: 4, fret: 5),
+                        (string: 5, fret: 7), (string: 5, fret: 5), (string: 6, fret: 8), (string: 6, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Which notes are in A minor pentatonic?",
+                            choices: ["A C D E G", "A B C D E F G", "A C E"],
+                            answer: 0,
+                            explain: "The recipe 1, ♭3, 4, 5, ♭7 from A gives A, C, D, E, G. Five notes, so it's a pentatonic (\"five-note\") scale.",
+                        ),
+                        (
+                            prompt: "How many notes does the box have on each string?",
+                            choices: ["Two", "Three", "One"],
+                            answer: 0,
+                            explain: "Every string in Box 1 has two notes, which is why it looks like a neat box.",
+                        ),
+                        (
+                            prompt: "In Box 1, which finger plays all the fret-5 notes?",
+                            choices: ["Finger 1", "Finger 3", "Finger 4"],
+                            answer: 0,
+                            explain: "Box 1 sits with finger 1 at fret 5. Finger 1 plays every fret-5 note, and fingers 3 and 4 reach frets 7 and 8.",
+                        ),
+                        (
+                            prompt: "Move Box 1 so its root on string 6 is at fret 8. What scale is it now?",
+                            choices: ["C minor pentatonic", "A minor pentatonic", "G minor pentatonic"],
+                            answer: 0,
+                            explain: "The root on string 6 names the scale. String 6, fret 8 is C.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.2",
+            title: "Pentatonic Licks and Patterns",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L5.1"],
+            goal: "Learn three short licks in Box 1 and use them over a backing groove.",
+            practice: "Five minutes a day for a week. Play each lick four times, then make up a new lick that ends on an A.",
+            steps: [
+                Learn(
+                    title: "Licks are words",
+                    explain: "A scale is like the alphabet. A lick is like a word. Learn a few words and you can make sentences. That is what a solo is! Great players keep a bag of short licks and mix them up. Each lick here ends on a root, so it sounds finished.",
+                    facts: [
+                        "Lick 1 walks down strings 2, 3, and 4 and lands on A.",
+                        "Lick 2 plays the box in groups of three notes.",
+                        "Lick 3 runs down from the top and lands on A.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 2, fret: 5), (string: 2, fret: 8), (string: 2, fret: 5), (string: 3, fret: 7),
+                        (string: 3, fret: 5), (string: 4, fret: 7, beats: 3.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Question and answer",
+                    explain: "Good solos sound like talking. Play a short lick that ends on a note that is not A. That sounds like a question. Then play a lick that ends on A. That sounds like an answer. Try it: ask, then answer.",
+                    facts: [
+                        "Ending on the root (A) sounds finished.",
+                        "Ending on other notes sounds like there's more to say.",
+                    ],
+                    tips: [
+                        "Leave a little space between licks. Silence is part of music too.",
+                    ],
+                    visual: Some(Tab([(string: 2, fret: 5), (string: 2, fret: 8), (string: 1, fret: 5), (string: 1, fret: 8, beats: 2.0), (string: 2, fret: 8), (string: 2, fret: 5), (string: 3, fret: 7), (string: 3, fret: 5), (string: 4, fret: 7, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Lick 1: land on A",
+                    instructions: "Play lick 1. Hold the last note.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 2, fret: 5), (string: 2, fret: 8), (string: 2, fret: 5), (string: 3, fret: 7),
+                        (string: 3, fret: 5), (string: 4, fret: 7, beats: 3.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Lick 2: groups of three",
+                    instructions: "Three notes, then start one note higher. Say \"1-2-3, 2-3-4\" as you go.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 6, fret: 5), (string: 6, fret: 8), (string: 5, fret: 5),
+                        (string: 6, fret: 8), (string: 5, fret: 5), (string: 5, fret: 7),
+                        (string: 5, fret: 5), (string: 5, fret: 7), (string: 4, fret: 5),
+                        (string: 5, fret: 7), (string: 4, fret: 5), (string: 4, fret: 7, beats: 3.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Lick 3: the waterfall",
+                    instructions: "Start at the top and run down to the A on string 4.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 1, fret: 8), (string: 1, fret: 5), (string: 2, fret: 8), (string: 2, fret: 5),
+                        (string: 3, fret: 7), (string: 3, fret: 5), (string: 4, fret: 7, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Jam with your licks",
+                    instructions: "Start the backing. Play a lick, rest, then play another. The neck lights up the notes you play.",
+                    activity: Jam(key: "A", scale: "minor_pentatonic", shape: Some(1), chords: ["Am", "Dm", "Am", "Em"], pattern: Eighths, bpm: 80.0),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "A scale is like the alphabet. A lick is like…",
+                            choices: ["A word", "A whole book", "A single letter"],
+                            answer: 0,
+                            explain: "Notes are like letters and a lick is like a word: a short idea you can put into sentences (solos).",
+                        ),
+                        (
+                            prompt: "Why do these licks end on A?",
+                            choices: ["A is the root, so the lick sounds finished", "A is the highest note", "A is the easiest note to bend"],
+                            answer: 0,
+                            explain: "A is the root, the home note of A minor pentatonic. Ending on it makes a lick sound finished.",
+                        ),
+                        (
+                            prompt: "What comes after \"1-2-3\" in groups of three?",
+                            choices: ["2-3-4", "4-5-6", "3-2-1"],
+                            answer: 0,
+                            explain: "In groups of three, each group starts one note higher than the last: 1-2-3, then 2-3-4, then 3-4-5.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.3",
+            title: "The 12-Bar Blues",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L5.2"],
+            goal: "Know the 12-bar blues map and strum it in E and A.",
+            practice: "Five minutes a day for a week. Play the 12 bars in E and in A, counting the bars out loud. Then play it without counting.",
+            steps: [
+                Learn(
+                    title: "A 12-bar song map",
+                    explain: "The 12-bar blues is a song map. It is 12 bars long and uses just three chords: the 1, the 4, and the 5. Learn this map and you can jam with almost anyone. Tons of blues and rock songs use it. One time through all 12 bars is called a chorus.",
+                    facts: [
+                        "Row 1: 1 1 1 1. Row 2: 4 4 1 1. Row 3: 5 4 1 5.",
+                        "The last bar is the turnaround. It points you back to the top.",
+                        "Orange = the 1 chord, green = the 4, blue = the 5.",
+                    ],
+                    visual: Some(TwelveBar(key: "A")),
+                ),
+                Learn(
+                    title: "Bluesy 7th chords",
+                    explain: "In the blues, all three chords are usually 7th chords. They sound a little spicy. In the key of A, play A7, D7, and E7. In the key of E, play E7, A7, and B7. You learned these shapes back in Level 3.",
+                    visual: Some(TwelveBar(key: "E")),
+                ),
+                Learn(
+                    title: "The turnaround",
+                    explain: "Bars 11 and 12 are called the turnaround. In bar 12, the 5 chord pulls you back to the start. It sounds like a door swinging open. When you hear it, you know a new round of 12 bars is coming.",
+                    facts: [
+                        "Bar 9 is the 5 chord, bar 10 is the 4 chord.",
+                        "Bar 12 is the 5 chord, ready to go home.",
+                    ],
+                    tips: [
+                        "Lost your place? Listen for the 4 chord in bar 5. It always changes there.",
+                    ],
+                    visual: Some(ChordPair("E7", "B7")),
+                ),
+                Activity(
+                    title: "12 bars in E",
+                    instructions: "Strum once per beat. Follow the chord names. Count the bars!",
+                    activity: StrumAlong(chords: ["E7", "E7", "E7", "E7", "A7", "A7", "E7", "E7", "B7", "A7", "E7", "B7"], beats_per_chord: 4, pattern: Quarters, tempos: [70.0, 90.0], repeats: 1),
+                ),
+                Activity(
+                    title: "12 bars in A",
+                    instructions: "Same map, new key.",
+                    activity: StrumAlong(chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], beats_per_chord: 4, pattern: Quarters, tempos: [70.0, 90.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How many bars long is one time through the blues?",
+                            choices: ["12", "8", "16"],
+                            answer: 0,
+                            explain: "One chorus of the blues is 12 bars long. That's where the name \"12-bar blues\" comes from.",
+                        ),
+                        (
+                            prompt: "Which chord numbers does the 12-bar blues use?",
+                            choices: ["1, 4, and 5", "1, 2, and 3", "1, 5, and 6"],
+                            answer: 0,
+                            explain: "The 12-bar blues uses only three chords: the 1, the 4, and the 5.",
+                        ),
+                        (
+                            prompt: "Which chord is in bar 9?",
+                            choices: ["The 5 chord", "The 1 chord", "The 4 chord"],
+                            answer: 0,
+                            explain: "Row 3 starts with the 5 chord in bar 9, then the 4, the 1, and the 5 again.",
+                        ),
+                        (
+                            prompt: "In the key of A, what is the 4 chord?",
+                            choices: ["D7", "E7", "B7"],
+                            answer: 0,
+                            explain: "Count up from A: A (1), B (2), C♯ (3), D (4). Blues uses 7th chords, so the 4 chord is D7.",
+                        ),
+                        (
+                            prompt: "What is the turnaround?",
+                            choices: ["The last bar, which leads back to the top", "The first bar", "A strum pattern"],
+                            answer: 0,
+                            explain: "The turnaround is the end of the chorus (usually the 5 chord in bar 12). It points the music back to the top.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.4",
+            title: "Shuffle Feel and the Boogie Riff",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["L5.3"],
+            goal: "Play eighth notes with a long-short shuffle, and play the boogie riff over the 12-bar blues.",
+            practice: "Five minutes a day for a week. Play the boogie riff on A, D, and E with a swing feel. Then play it all the way through the 12-bar blues.",
+            steps: [
+                Learn(
+                    title: "Long-short, long-short",
+                    explain: "In a shuffle, the eighth notes are not even. They go long-short, long-short. It sounds like a horse galloping. Say \"HUMP-ty DUMP-ty\" and you've got it. Count \"1-trip-let, 2-trip-let.\" Play on the \"1\" and on the \"let.\"",
+                    facts: [
+                        "Even eighths are called straight. Long-short eighths are called swung.",
+                        "The first note gets about two thirds of the beat.",
+                    ],
+                    visual: Some(StrumGrid(Swing8)),
+                ),
+                Activity(
+                    title: "Straight or swing?",
+                    instructions: "Listen. Are the notes even, or long-short?",
+                    activity: EarQuiz(kind: StraightOrSwing, rounds: 6),
+                ),
+                Learn(
+                    title: "The boogie riff",
+                    explain: "Here is a famous blues riff. Play the open A string plus string 4, fret 2. Then reach your pinky to string 4, fret 4. Rock back and forth: two of the first, two of the second. Rest your picking hand lightly on the strings to get a chunky sound.",
+                    facts: [
+                        "The first pair is the root and the 5th. The second is the root and the 6th.",
+                        "For D, use strings 4 and 3. For E, use strings 6 and 5.",
+                        "Swing it! Long-short, long-short.",
+                    ],
+                    visual: Some(StrumGrid(Boogie)),
+                ),
+                Learn(
+                    title: "The boogie riff up close",
+                    explain: "The boogie riff uses two strings. The open string is the root. On the next string, play fret 2, then fret 4, then back to 2. Your finger 1 stays at fret 2 while finger 3 reaches for fret 4.",
+                    facts: [
+                        "A: open string 5 with string 4.",
+                        "D: open string 4 with string 3. E: open string 6 with string 5.",
+                    ],
+                    tips: [
+                        "Swing it! Long-short, long-short. Say \"hump-ty dump-ty\" as you play.",
+                    ],
+                    visual: Some(Tab([(string: 5, fret: 0), (string: 4, fret: 2), (string: 5, fret: 0), (string: 4, fret: 2), (string: 5, fret: 0), (string: 4, fret: 4), (string: 5, fret: 0), (string: 4, fret: 4)])),
+                ),
+                Activity(
+                    title: "Boogie through the 12 bars",
+                    instructions: "Play the boogie riff on each chord. The app plays the riff on the chord's root.",
+                    activity: StrumAlong(chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], beats_per_chord: 4, pattern: Boogie, tempos: [70.0, 90.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "In a shuffle, how do the eighth notes feel?",
+                            choices: ["Long-short, long-short", "Even, like a clock", "Short-long, short-long"],
+                            answer: 0,
+                            explain: "A shuffle swings the eighth notes: long-short, long-short, like a galloping horse.",
+                        ),
+                        (
+                            prompt: "In \"1-trip-let,\" which parts do you play?",
+                            choices: ["The \"1\" and the \"let\"", "The \"trip\" only", "All three"],
+                            answer: 0,
+                            explain: "Split each beat into three (1-trip-let) and play only the first and last parts. That gives the long-short swing.",
+                        ),
+                        (
+                            prompt: "The boogie riff rocks between the 5th and which other note?",
+                            choices: ["The 6th", "The 3rd", "The 2nd"],
+                            answer: 0,
+                            explain: "The riff rocks between root + 5th and root + 6th. The pinky reaches two frets up to make the 6th.",
+                        ),
+                        (
+                            prompt: "Which strings play the boogie riff on the A chord?",
+                            choices: ["Strings 5 and 4", "Strings 6 and 5", "Strings 2 and 1"],
+                            answer: 0,
+                            explain: "For A, the open A string is the root, and string 4 adds the 5th (fret 2) or the 6th (fret 4).",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.5",
+            title: "Hammer-Ons and Pull-Offs",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["L5.4"],
+            goal: "Make two notes from one pick with hammer-ons and pull-offs.",
+            practice: "Five minutes a day for a week. Play each hammer-on and pull-off ten times. Try to make the second note as loud as the first.",
+            steps: [
+                Learn(
+                    title: "Hammer it on",
+                    explain: "Pick one note. Then slam another finger down, like a tiny hammer. You get a second note, and you didn't pick again! Hit close to the fret with your fingertip. In tab, a hammer-on is an \"h\" between the notes.",
+                    facts: [
+                        "Tab: 5h7 means pick fret 5, then hammer on fret 7.",
+                        "Hammer fast and firm. A soft hammer makes a weak note.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 5), (string: 3, fret: 7, tech: Some(Hammer)), (string: 2, fret: 5), (string: 2, fret: 8, tech: Some(Hammer), beats: 2.0)])),
+                    tips: [
+                        "Come down on the tip of your finger, right behind the fret.",
+                        "Fast and firm, like tapping a drum.",
+                    ],
+                ),
+                Learn(
+                    title: "Pull it off",
+                    explain: "A pull-off is the other way around. Put both fingers down. Pick the higher note. Then flick the top finger off the string, a little toward the floor. The lower note rings out. Don't just lift! The flick plucks the string. In tab, a pull-off is a \"p.\"",
+                    facts: [
+                        "The lower finger must already be down before you pull off.",
+                        "Hammer-ons and pull-offs together are called legato. It means smooth.",
+                    ],
+                    visual: Some(Tab([(string: 2, fret: 8), (string: 2, fret: 5, tech: Some(Pull)), (string: 3, fret: 7), (string: 3, fret: 5, tech: Some(Pull), beats: 2.0)])),
+                    tips: [
+                        "Keep the lower finger already pressed down before you pull.",
+                        "Pull a little sideways, like plucking with your fretting finger.",
+                    ],
+                ),
+                Activity(
+                    title: "Hammer up the box",
+                    instructions: "Pick the first note on each string, then hammer the second. The mic listens for both notes.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 4, fret: 5), (string: 4, fret: 7, tech: Some(Hammer)),
+                        (string: 3, fret: 5), (string: 3, fret: 7, tech: Some(Hammer)),
+                        (string: 2, fret: 5), (string: 2, fret: 8, tech: Some(Hammer)),
+                        (string: 1, fret: 5), (string: 1, fret: 8, tech: Some(Hammer), beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Pull down the box",
+                    instructions: "Pick the high note, then pull off to the low one.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 1, fret: 8), (string: 1, fret: 5, tech: Some(Pull)),
+                        (string: 2, fret: 8), (string: 2, fret: 5, tech: Some(Pull)),
+                        (string: 3, fret: 7), (string: 3, fret: 5, tech: Some(Pull)),
+                        (string: 4, fret: 7, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What does 5h7 mean in tab?",
+                            choices: ["Pick fret 5, then hammer on fret 7", "Pick fret 7, then pull off to fret 5", "Slide from 5 to 7"],
+                            answer: 0,
+                            explain: "The \"h\" means hammer-on: pick fret 5, then slam another finger onto fret 7 without picking again.",
+                        ),
+                        (
+                            prompt: "How do you do a pull-off?",
+                            choices: ["Flick the finger off the string so the lower note rings", "Lift the finger straight up", "Pick both notes"],
+                            answer: 0,
+                            explain: "Pull the finger off a little sideways, toward the floor. That flick plucks the string so the lower note sounds.",
+                        ),
+                        (
+                            prompt: "Before a pull-off, where is the lower finger?",
+                            choices: ["Already pressing its fret", "In the air", "On the next string"],
+                            answer: 0,
+                            explain: "The lower note's finger must already be pressing. When the top finger flicks off, that note is ready to ring.",
+                        ),
+                        (
+                            prompt: "What does \"legato\" mean?",
+                            choices: ["Smooth", "Loud", "Fast"],
+                            answer: 0,
+                            explain: "Legato means smooth and connected. Hammer-ons and pull-offs let notes flow without new picks.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.6",
+            title: "Slides",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["L5.5"],
+            goal: "Slide between notes and keep them ringing.",
+            practice: "Five minutes a day for five days. Play both slide licks slowly. Listen for a smooth sound with no gap in the middle.",
+            steps: [
+                Learn(
+                    title: "Glide like a sled",
+                    explain: "Keep your finger pressed down and glide it along the string, like a sled on snow. The sound slides with you. Don't let up! If you press too lightly, the note dies. In tab, a slash means slide: 5/7 slides up, 7\\5 slides down.",
+                    facts: [
+                        "Pick once, at the start. The slide does the rest.",
+                        "Blues players love to slide into a note from one or two frets below.",
+                        "Slides will help you move between boxes later.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 5), (string: 3, fret: 7, tech: Some(Slide)), (string: 2, fret: 5), (string: 2, fret: 8, beats: 2.0)])),
+                    tips: [
+                        "Keep pressing as you slide. If you let go, the sound stops.",
+                        "Press a little lighter than usual so your finger can glide.",
+                    ],
+                ),
+                Learn(
+                    title: "Slide into a note",
+                    explain: "You can also slide in from nowhere. Start two or three frets below your note, and press lightly. Pick, then slide up and land on the note. You don't hear the starting fret clearly. It just sounds like a swoop into the note.",
+                    facts: [
+                        "A slide up sounds exciting. A slide down sounds relaxed.",
+                        "In tab, a slide is shown with a slash: / for up, \\ for down.",
+                    ],
+                    tips: [
+                        "Stop exactly on the target fret. Going past it sounds sloppy.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 4), (string: 3, fret: 7, tech: Some(Slide), beats: 2.0), (string: 2, fret: 5), (string: 2, fret: 8, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Slide lick 1",
+                    instructions: "Pick, slide up, then finish on string 2.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 3, fret: 5), (string: 3, fret: 7, tech: Some(Slide)), (string: 2, fret: 5), (string: 2, fret: 8), (string: 1, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Slide lick 2",
+                    instructions: "Slide up, then slide back down.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 4, fret: 5), (string: 4, fret: 7, tech: Some(Slide)), (string: 4, fret: 5, tech: Some(Slide)), (string: 5, fret: 7), (string: 5, fret: 5), (string: 6, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What does a slash (/) mean in tab?",
+                            choices: ["Slide", "Hammer-on", "Bend"],
+                            answer: 0,
+                            explain: "A slash in tab means slide: keep the finger down and glide to the next fret.",
+                        ),
+                        (
+                            prompt: "What keeps a slide ringing?",
+                            choices: ["Keep pressing as you glide", "Pick again at the end", "Lift your finger"],
+                            answer: 0,
+                            explain: "Keep pressing the string the whole way. If you let up, the note stops ringing.",
+                        ),
+                        (
+                            prompt: "How many times do you pick for one slide?",
+                            choices: ["Once, at the start", "Twice", "Once for every fret"],
+                            answer: 0,
+                            explain: "You pick once at the start. The slide carries the sound to the new note.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.7",
+            title: "String Bends (In Tune!)",
+            thread: Technique,
+            minutes: 20,
+            prerequisites: ["L5.6"],
+            goal: "Bend a string up a whole step and land right on the target note.",
+            practice: "Five minutes a day for a week. Play the target note, then bend up to match it. Use the tuner to check if you reached the right pitch.",
+            steps: [
+                Learn(
+                    title: "Stretch the note",
+                    explain: "Bending means pushing the string up, toward your face. The note goes higher, like stretching a rubber band. It makes the guitar sing like a voice! The trick is to bend to the right note, not just somewhere higher.",
+                    facts: [
+                        "A whole-step bend goes up two frets' worth. A half step is one fret.",
+                        "Bend with finger 3. Put fingers 1 and 2 behind it on the same string to help push.",
+                        "Turn your wrist like a doorknob. Don't push with one fingertip.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 7, tech: Some(Bend(2)), beats: 2.0), (string: 3, fret: 5), (string: 4, fret: 7, beats: 2.0)])),
+                ),
+                Learn(
+                    title: "Three sweet bend spots",
+                    explain: "Here is a trick to bend in tune. First play the goal note two frets higher. Listen to it. Then go back and bend until you match it. Box 1 has three great spots to bend.",
+                    facts: [
+                        "String 3, fret 7 (D): bend up to E.",
+                        "String 2, fret 8 (G): bend up to A, the root.",
+                        "String 1, fret 8 (C): bend up to D.",
+                        "On an acoustic guitar, start with half-step bends. Electric strings bend easier.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 3, fret: 7), (string: 2, fret: 8), (string: 1, fret: 8)], first_fret: 4, last_fret: 10, show_names: true)),
+                ),
+                Learn(
+                    title: "Check your bend",
+                    explain: "A bend should land on a real note. Here's a trick. First play fret 9 on string 3 and listen. Then bend fret 7 until it sounds the same. If it's too low, push more. If it's too high, push less.",
+                    facts: [
+                        "A whole-step bend sounds like two frets higher.",
+                        "Fret 7 bent up a whole step sounds like fret 9.",
+                    ],
+                    tips: [
+                        "Use three fingers to push! Put fingers 1 and 2 behind finger 3 to help.",
+                        "Turn your wrist like turning a doorknob. Don't just push with the fingertip.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 3, fret: 7), (string: 3, fret: 9)], first_fret: 4, last_fret: 10, show_names: true)),
+                ),
+                Activity(
+                    title: "Bend string 3",
+                    instructions: "Bend D up to E. Watch the meter reach the green line.",
+                    activity: BendCheck(string: 3, fret: 7, steps: 2),
+                ),
+                Activity(
+                    title: "Bend string 2",
+                    instructions: "Bend G up to A.",
+                    activity: BendCheck(string: 2, fret: 8, steps: 2),
+                ),
+                Activity(
+                    title: "Bend string 1",
+                    instructions: "Bend C up to D.",
+                    activity: BendCheck(string: 1, fret: 8, steps: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How far does a whole-step bend go up?",
+                            choices: ["Two frets' worth", "One fret's worth", "Five frets' worth"],
+                            answer: 0,
+                            explain: "A whole step is two frets. A whole-step bend raises the note as if you'd moved up two frets.",
+                        ),
+                        (
+                            prompt: "Which finger usually bends, with helpers behind it?",
+                            choices: ["Finger 3", "Finger 1", "Your thumb"],
+                            answer: 0,
+                            explain: "Finger 3 does the bending, and fingers 1 and 2 sit behind it on the same string to help push.",
+                        ),
+                        (
+                            prompt: "How can you check that a bend is in tune?",
+                            choices: ["Play the goal note two frets up first, then match it", "Bend as far as you can", "Look at your finger"],
+                            answer: 0,
+                            explain: "First play the goal note two frets higher and listen. Then bend until your bent note matches it.",
+                        ),
+                        (
+                            prompt: "You bend string 3, fret 7 (D) a whole step. What note should you hear?",
+                            choices: ["E", "D♯", "F♯"],
+                            answer: 0,
+                            explain: "D bent up a whole step (two frets' worth) becomes E. Fret 9 on string 3 is the note to match.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.8",
+            title: "Vibrato",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["L5.7"],
+            goal: "Hold a note with a steady, even vibrato.",
+            practice: "Three minutes a day for a week. Hold a note for four beats with vibrato. Try slow, wide wobbles and then fast, small ones.",
+            steps: [
+                Learn(
+                    title: "Make the note shimmer",
+                    explain: "Vibrato is a little wobble on a note. Think of a singer's voice shaking at the end of a long note. It makes a note sound alive instead of flat. To do it, bend the string up a tiny bit, let it back down, and repeat. Turn your wrist like a doorknob.",
+                    facts: [
+                        "Steady speed matters more than how wide you wobble.",
+                        "Try about five wobbles each second.",
+                        "In tab, vibrato is a wavy line: ~",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 5), (string: 3, fret: 7), (string: 4, fret: 7, tech: Some(Vibrato), beats: 4.0)])),
+                    tips: [
+                        "Keep the wobble steady, like a rocking chair. Uneven vibrato sounds shaky.",
+                        "Move from your wrist, not your fingertip.",
+                    ],
+                ),
+                Learn(
+                    title: "Two kinds of vibrato",
+                    explain: "There are two ways to wobble a note. Bend vibrato pushes the string up and down, a tiny bit, over and over. Classical vibrato rocks your finger left and right along the string. Rock and blues players mostly use bend vibrato.",
+                    facts: [
+                        "Bend vibrato: up and down, across the neck.",
+                        "Classical vibrato: side to side, along the neck.",
+                    ],
+                    tips: [
+                        "Add vibrato at the end of a long note. That's where it sounds best.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 3, fret: 7), (string: 2, fret: 8), (string: 1, fret: 5)], first_fret: 4, last_fret: 10, show_names: true)),
+                ),
+                Activity(
+                    title: "Steady wobble",
+                    instructions: "Hold the A on string 4, fret 7, and add vibrato. The wavy line shows your wobble.",
+                    activity: VibratoCheck(string: 4, fret: 7),
+                ),
+                Activity(
+                    title: "Vibrato on a bend",
+                    instructions: "Try it on string 2, fret 8, too.",
+                    activity: VibratoCheck(string: 2, fret: 8),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What is vibrato?",
+                            choices: ["A small, steady wobble on a held note", "A very fast strum", "A slide down the neck"],
+                            answer: 0,
+                            explain: "Vibrato is a small, even wobble in pitch that makes a held note sound alive, like a singer's voice.",
+                        ),
+                        (
+                            prompt: "What matters most for good vibrato?",
+                            choices: ["A steady speed", "Going as wide as you can", "Picking hard"],
+                            answer: 0,
+                            explain: "A steady, even speed sounds musical. A wobble that's too wide or uneven sounds out of tune.",
+                        ),
+                        (
+                            prompt: "Which tab mark means vibrato?",
+                            choices: ["~", "h", "/"],
+                            answer: 0,
+                            explain: "The wavy line (~) means vibrato. h is a hammer-on and / is a slide.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.9",
+            title: "The Blues Scale and Blue Notes",
+            thread: Notes,
+            minutes: 12,
+            prerequisites: ["L5.8"],
+            goal: "Add the blue note to Box 1 and use it as a passing note.",
+            practice: "Five minutes a day for a week. Climb the blues scale, and play a lick that passes through the blue note. Don't stop on it!",
+            steps: [
+                Learn(
+                    title: "One crunchy extra note",
+                    explain: "Add one extra note to the minor pentatonic and you get the blues scale. The new note sits right between the 4 and the 5. It sounds crunchy and bluesy. Slide through it, but don't park on it! In A, the new note is E flat.",
+                    facts: [
+                        "The blues scale: 1, ♭3, 4, ♭5, 5, ♭7. In A: A C D E♭ E G.",
+                        "In Box 1, the ♭5 is at string 5, fret 6 and string 3, fret 8.",
+                        "The blue note shows up as a blue diamond.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "blues", shape: Some(1), first_fret: 3, last_fret: 10)),
+                ),
+                Learn(
+                    title: "Where the blue note lives",
+                    explain: "The blue note sits between two notes of the pentatonic box. In A, it's E flat. Find it at string 5, fret 6 and string 3, fret 8. It sounds tense, so slide through it or pass it quickly on your way to the next note.",
+                    facts: [
+                        "Blues scale: 1, ♭3, 4, ♭5, 5, ♭7.",
+                        "The ♭5 is the blue note.",
+                    ],
+                    tips: [
+                        "The blue note is spicy. A little goes a long way!",
+                    ],
+                    visual: Some(Neck(notes: [(string: 5, fret: 6), (string: 3, fret: 8)], first_fret: 3, last_fret: 10, show_names: true)),
+                ),
+                Activity(
+                    title: "Climb the blues scale",
+                    instructions: "Play the blues scale up. Don't skip the blue notes!",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 5), (string: 6, fret: 8), (string: 5, fret: 5), (string: 5, fret: 6), (string: 5, fret: 7),
+                        (string: 4, fret: 5), (string: 4, fret: 7), (string: 3, fret: 5), (string: 3, fret: 7), (string: 3, fret: 8),
+                        (string: 2, fret: 5), (string: 2, fret: 8), (string: 1, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Pass through the blue note",
+                    instructions: "4, blue note, 5, then home to A. Keep it moving.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 5, fret: 5), (string: 5, fret: 6), (string: 5, fret: 7), (string: 4, fret: 5), (string: 4, fret: 7, beats: 3.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What does the blues scale add to the minor pentatonic?",
+                            choices: ["The ♭5", "The 2", "The major 7"],
+                            answer: 0,
+                            explain: "The blues scale is the minor pentatonic plus one note: the ♭5, sitting between the 4 and the 5.",
+                        ),
+                        (
+                            prompt: "In A, what is the blue note?",
+                            choices: ["E♭", "F", "B"],
+                            answer: 0,
+                            explain: "In A, the 4 is D and the 5 is E. The note between them is E♭, the blue note.",
+                        ),
+                        (
+                            prompt: "How should you usually play the blue note?",
+                            choices: ["Pass through it to the next note", "Hold it for a long time", "Skip it"],
+                            answer: 0,
+                            explain: "The blue note is crunchy, so slide through it to the next note. Parking on it sounds sour.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.10",
+            title: "Improvising: Make Your Own Solo",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["L5.9"],
+            goal: "Make up a solo over the 12-bar blues with space, repeats, and strong endings.",
+            practice: "Ten minutes a day for a week. Solo over the 12-bar backing track. Each day, pick one idea: use space, repeat a lick, or end on the root.",
+            steps: [
+                Learn(
+                    title: "Tell a story",
+                    explain: "A good solo is like telling a story. Say a short idea. Take a breath. Then answer it. You don't need lots of notes. You need good notes and some empty space. Start tiny: make a whole solo with one note. Then try two notes, then three.",
+                    facts: [
+                        "Call and response: play a 2-bar idea, then answer it.",
+                        "Rests are part of the solo. Leave space!",
+                        "End your ideas on the root, A.",
+                        "Repeat an idea, then change it a little.",
+                    ],
+                    visual: Some(TwelveBar(key: "A")),
+                ),
+                Learn(
+                    title: "Three tricks for a better solo",
+                    explain: "First, use space. Play a lick, then wait. Second, repeat yourself. Playing a lick twice helps the listener remember it. Third, end on the root. Landing on A at the end of the chorus makes your solo sound complete.",
+                    facts: [
+                        "Start with just three notes. Small solos can sound great.",
+                        "Change one small thing each time you repeat a lick.",
+                    ],
+                    tips: [
+                        "Don't play nonstop. The best players leave room to breathe.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", shape: Some(1), first_fret: 3, last_fret: 10)),
+                ),
+                Activity(
+                    title: "Solo time",
+                    instructions: "Start the backing. First solo with one note, then two, then the whole box. Aim to stay on the dots.",
+                    activity: Jam(key: "A", scale: "blues", shape: Some(1), chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], pattern: Swing8, bpm: 80.0),
+                ),
+                Activity(
+                    title: "How did it go?",
+                    instructions: "Tick what you did in your solo.",
+                    activity: Checklist(items: [
+                        "I left some space between ideas.",
+                        "I ended ideas on A.",
+                        "I repeated an idea and changed it.",
+                        "I used a bend, a hammer-on, or a slide.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What makes a good solo?",
+                            choices: ["Good notes with some space", "As many notes as possible", "Playing only the highest notes"],
+                            answer: 0,
+                            explain: "Good solos use strong notes and leave space to breathe. More notes doesn't mean better music.",
+                        ),
+                        (
+                            prompt: "What is call and response?",
+                            choices: ["Play a short idea, then answer it", "Sing while you play", "Play the same note forever"],
+                            answer: 0,
+                            explain: "Call and response is like a question and an answer: a short idea, then a reply that fits it.",
+                        ),
+                        (
+                            prompt: "Over a blues in A, which note makes a strong ending?",
+                            choices: ["A", "E♭", "B"],
+                            answer: 0,
+                            explain: "A is the root of a blues in A, so it sounds like home and makes a strong ending.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.11",
+            title: "Ear Lab: Intervals",
+            thread: TheoryEar,
+            minutes: 10,
+            prerequisites: ["L5.10"],
+            goal: "Hear the difference between major and minor 3rds, and 4ths and 5ths.",
+            practice: "Three minutes a day for a week. Play each interval and hum it. Then try the ear quiz without looking.",
+            steps: [
+                Learn(
+                    title: "Every gap has a sound",
+                    explain: "An interval is the gap between two notes. Each gap has its own sound. Old, famous tunes help you remember them. Sing them out loud, too. Your voice helps your ears learn.",
+                    facts: [
+                        "Major 3rd (4 frets): \"When the Saints Go Marching In.\"",
+                        "Minor 3rd (3 frets): \"Greensleeves.\"",
+                        "4th (5 frets): \"Here Comes the Bride.\"",
+                        "5th (7 frets): \"Twinkle, Twinkle, Little Star.\"",
+                    ],
+                    visual: Some(Neck(notes: [(string: 5, fret: 0), (string: 5, fret: 3), (string: 5, fret: 4), (string: 5, fret: 5), (string: 5, fret: 7)], first_fret: 0, last_fret: 8, show_names: true)),
+                ),
+                Learn(
+                    title: "Song starts help you remember",
+                    explain: "Many people remember intervals by the first two notes of a song. A 4th sounds like \"Here Comes the Bride.\" A 5th sounds like \"Twinkle, Twinkle.\" A major 3rd sounds like the start of \"When the Saints Go Marching In.\"",
+                    facts: [
+                        "Minor 3rd: 3 frets. Major 3rd: 4 frets.",
+                        "4th: 5 frets. 5th: 7 frets.",
+                    ],
+                    tips: [
+                        "Sing the two notes quietly. Your voice helps your ear learn.",
+                    ],
+                    visual: Some(Tab([(string: 5, fret: 0), (string: 5, fret: 7, beats: 2.0), (string: 5, fret: 0), (string: 5, fret: 5, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Major or minor 3rd?",
+                    instructions: "Bright or dark? Listen to the gap.",
+                    activity: EarQuiz(kind: Thirds, rounds: 8),
+                ),
+                Activity(
+                    title: "4th or 5th?",
+                    instructions: "Bride or Twinkle? Hum the start of each tune.",
+                    activity: EarQuiz(kind: FourthsFifths, rounds: 8),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How many frets apart is a major 3rd?",
+                            choices: ["4", "3", "7"],
+                            answer: 0,
+                            explain: "A major 3rd is four half steps, so the two notes are four frets apart on one string.",
+                        ),
+                        (
+                            prompt: "How many frets apart is a 5th?",
+                            choices: ["7", "5", "4"],
+                            answer: 0,
+                            explain: "A perfect 5th is seven half steps, so it's seven frets up the same string.",
+                        ),
+                        (
+                            prompt: "Which tune starts with a 4th?",
+                            choices: ["Here Comes the Bride", "Twinkle, Twinkle, Little Star", "Greensleeves"],
+                            answer: 0,
+                            explain: "\"Here Comes the Bride\" opens with a 4th. \"Twinkle, Twinkle\" opens with a 5th.",
+                        ),
+                        (
+                            prompt: "Which sounds darker?",
+                            choices: ["A minor 3rd", "A major 3rd"],
+                            answer: 0,
+                            explain: "A minor 3rd is one fret smaller than a major 3rd, and it sounds darker and sadder.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.12",
+            title: "Dominant 7th Barre Chords for the Blues",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L5.11"],
+            goal: "Play the 12-bar blues in any key with two movable 7th shapes.",
+            practice: "Five minutes a day for a week. Play the blues in A up the neck with the barre shapes. Then move all three shapes to play the blues in G.",
+            steps: [
+                Learn(
+                    title: "Two shapes, any key",
+                    explain: "You know the E-shape and A-shape barres. Now make them into 7th chords. With these two shapes, your hand barely moves. You can play the blues in any key! Just put finger 1 on the key's name on string 6.",
+                    facts: [
+                        "The 1 chord: E-shape 7th at the key's fret.",
+                        "The 4 chord: A-shape 7th at the same fret.",
+                        "The 5 chord: A-shape 7th two frets higher.",
+                    ],
+                    visual: Some(ChordPair("A7-barre", "D7-Abarre")),
+                    tips: [
+                        "Find the 4 chord on the same fret, one string higher. That keeps your hand still.",
+                        "Lightly lift your fingers between chords for a choppy blues sound.",
+                    ],
+                ),
+                Learn(
+                    title: "The 5 chord, two frets up",
+                    explain: "In A, the 1 chord is A7 at fret 5. The 4 chord, D7, is at fret 5 too. The 5 chord, E7, slides up to fret 7. All three chords live inside three frets!",
+                    visual: Some(Chord("E7-Abarre")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each barre 7th. Let every string ring.",
+                    activity: ChordCheck(chords: ["A7-barre", "D7-Abarre", "E7-Abarre"]),
+                ),
+                Activity(
+                    title: "Blues in A, up the neck",
+                    instructions: "Swing it, long-short.",
+                    activity: StrumAlong(chords: ["A7-barre", "A7-barre", "A7-barre", "A7-barre", "D7-Abarre", "D7-Abarre", "A7-barre", "A7-barre", "E7-Abarre", "D7-Abarre", "A7-barre", "E7-Abarre"], beats_per_chord: 4, pattern: Swing8, tempos: [70.0, 90.0], repeats: 1),
+                ),
+                Activity(
+                    title: "Blues in G",
+                    instructions: "Same shapes, moved to fret 3.",
+                    activity: StrumAlong(chords: ["G7-barre", "G7-barre", "G7-barre", "G7-barre", "C7-Abarre", "C7-Abarre", "G7-barre", "G7-barre", "D7-Abarre", "C7-Abarre", "G7-barre", "D7-Abarre"], beats_per_chord: 4, pattern: Swing8, tempos: [70.0, 90.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("A7-barre")),
+                            choices: ["A7", "Am", "A"],
+                            answer: 0,
+                            explain: "An E-shape barre with the 7th on string 4, rooted at string 6, fret 5. String 6, fret 5 is A, so it's A7.",
+                        ),
+                        (
+                            prompt: "In a blues, where do you play the 4 chord?",
+                            choices: ["A-shape 7th at the same fret as the 1 chord", "E-shape at fret 1", "Two frets lower"],
+                            answer: 0,
+                            explain: "The 4 chord uses the A-shape 7th at the same fret as the 1 chord. Your hand just changes shape, not place.",
+                        ),
+                        (
+                            prompt: "Where is the 5 chord?",
+                            choices: ["A-shape 7th, two frets higher", "E-shape, one fret higher", "Open position"],
+                            answer: 0,
+                            explain: "Slide the same A-shape 7th up two frets for the 5 chord. All three chords live within a couple of frets.",
+                        ),
+                        (
+                            prompt: "For a blues in G, where does the 1 chord go?",
+                            choices: ["E-shape 7th at fret 3", "E-shape 7th at fret 5", "A-shape 7th at fret 7"],
+                            answer: 0,
+                            explain: "G is at fret 3 on string 6.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L5.13",
+            title: "Level 5 Song: First Blues",
+            thread: Song,
+            minutes: 20,
+            prerequisites: ["L5.12"],
+            goal: "Play a 12-bar shuffle in A: one chorus of boogie rhythm and one chorus of your own solo.",
+            practice: "Ten minutes a day for a week. Play one round of rhythm, then one round of solo. Record yourself and listen back.",
+            steps: [
+                Learn(
+                    title: "Your first blues",
+                    explain: "This is your Level 5 song. It's a 12-bar shuffle in A. First, play one chorus of the boogie riff. Then play one chorus of your own solo in Box 1. Use at least one bend, one hammer-on or pull-off, and one slide.",
+                    facts: [
+                        "Chorus 1: boogie riff on A7, D7, and E7.",
+                        "Chorus 2: your solo. Leave space. Land on A.",
+                    ],
+                    visual: Some(TwelveBar(key: "A")),
+                ),
+                Learn(
+                    title: "Switching jobs",
+                    explain: "In a blues band, players take turns. First you play rhythm, the chords. Then it's your turn to solo. Count the 12 bars so you know when to switch. The switch always happens right after bar 12.",
+                    facts: [
+                        "One time through 12 bars is called a chorus.",
+                        "Rhythm, then solo, then rhythm again to end.",
+                    ],
+                    tips: [
+                        "Before your solo, take a breath. Start with one long note.",
+                    ],
+                    visual: Some(TwelveBar(key: "A")),
+                ),
+                Activity(
+                    title: "Chorus 1: rhythm",
+                    instructions: "Boogie through the 12 bars at a shuffle.",
+                    activity: StrumAlong(chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], beats_per_chord: 4, pattern: Boogie, tempos: [80.0, 90.0], repeats: 1),
+                ),
+                Activity(
+                    title: "Chorus 2: your solo",
+                    instructions: "The app plays the boogie. You play the solo!",
+                    activity: Jam(key: "A", scale: "blues", shape: Some(1), chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], pattern: Boogie, bpm: 90.0),
+                ),
+                Activity(
+                    title: "Solo checklist",
+                    instructions: "Did your solo have these?",
+                    activity: Checklist(items: [
+                        "At least one bend",
+                        "A hammer-on or a pull-off",
+                        "A slide",
+                        "Space between ideas",
+                        "An ending on A",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "In A minor pentatonic Box 1, where is a root?",
+                            choices: ["String 6, fret 5", "String 6, fret 8", "String 3, fret 7"],
+                            answer: 0,
+                            explain: "Box 1 for A starts on the root: string 6, fret 5 is A.",
+                        ),
+                        (
+                            prompt: "What are the chords in row 3 of the 12-bar blues?",
+                            choices: ["5 4 1 5", "1 1 1 1", "4 4 1 1"],
+                            answer: 0,
+                            explain: "Row 3 is 5, 4, 1, 5. The last 5 is the turnaround that leads back to the top.",
+                        ),
+                        (
+                            prompt: "What's the extra note in the blues scale?",
+                            choices: ["The ♭5", "The 2", "The 6"],
+                            answer: 0,
+                            explain: "The blues scale adds the ♭5 (the blue note) to the five notes of the minor pentatonic.",
+                        ),
+                        (
+                            prompt: "You bend string 2, fret 8 (G) a whole step. What's the goal note?",
+                            choices: ["A", "G♯", "B"],
+                            answer: 0,
+                            explain: "G bent up a whole step becomes A. That's the root of the key, a great note to bend to.",
+                        ),
+                        (
+                            prompt: "In tab, what does \"p\" mean?",
+                            choices: ["Pull-off", "Pick hard", "Pause"],
+                            answer: 0,
+                            explain: "In tab, p is a pull-off and h is a hammer-on.",
+                        ),
+                        (
+                            prompt: "In tab, what does \"b\" mean?",
+                            choices: ["Bend", "Bass note", "Barre"],
+                            answer: 0,
+                            explain: "In tab, b means bend, often with the goal fret shown next to it.",
+                        ),
+                        (
+                            prompt: "What does a shuffle feel like?",
+                            choices: ["Long-short, long-short", "Even and straight", "Very slow"],
+                            answer: 0,
+                            explain: "A shuffle swings the eighth notes: long-short, long-short, like a galloping horse.",
+                        ),
+                        (
+                            prompt: "What tab mark means slide?",
+                            choices: ["/", "~", "h"],
+                            answer: 0,
+                            explain: "The slash (/) means slide. ~ is vibrato and h is a hammer-on.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

@@ -1,0 +1,599 @@
+// Style Track R — Rock. See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 11,
+    title: "⚡ Rock",
+    track: Some("Rock"),
+    goal: "Riffs, Drop D, gallops, lead vocabulary, speed, legato and tapping, sweeps, and rock tone.",
+    weeks: "6–8 weeks",
+    lessons: [
+        Lesson(
+            id: "R.1",
+            title: "Riffs and Rests",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["L5.13"],
+            goal: "Play a power-chord riff with tight, silent rests.",
+            practice: "Five minutes a day for a week. Play each riff with the metronome. Make sure every rest is silent.",
+            steps: [
+                Learn(
+                    title: "The silence is part of the riff",
+                    explain: "A riff is a short, catchy part that repeats. In rock, the quiet spots matter as much as the notes. To make a rest, stop the strings fast. Lift your fretting fingers a little, but keep them touching the strings. Rest your picking hand on the strings too.",
+                    facts: [
+                        "Mute with both hands for the cleanest rests.",
+                        "Power chords slide easily. Keep your hand shape and move from the elbow.",
+                    ],
+                    visual: Some(StrumGrid(Quarters)),
+                ),
+                Learn(
+                    title: "How to stop a note",
+                    explain: "To make a rest, the strings must go quiet. For fretted notes, loosen your fretting finger. For open strings, touch them with your picking hand's palm. Silence makes a riff punchy. Without it, the riff sounds messy.",
+                    facts: [
+                        "A rest lasts just as long as a note.",
+                        "Count rests out loud: \"one, (two), three.\"",
+                    ],
+                    tips: [
+                        "Practice the rests on their own. Play, stop, play, stop.",
+                    ],
+                    visual: Some(Durations),
+                ),
+                Activity(
+                    title: "A single-note riff",
+                    instructions: "Low E string only. Keep it tight.",
+                    activity: PlayNotes(tempo: 90.0, notes: [
+                        (string: 6, fret: 0, beats: 0.5), (string: 6, fret: 0, beats: 0.5), (string: 6, fret: 3), (string: 6, fret: 5),
+                        (string: 6, fret: 0, beats: 0.5), (string: 6, fret: 0, beats: 0.5), (string: 6, fret: 7, beats: 0.5), (string: 6, fret: 5, beats: 1.5),
+                    ]),
+                ),
+                Activity(
+                    title: "Power-chord riff",
+                    instructions: "Downstrokes. Stop the strings on the rests.",
+                    activity: StrumAlong(chords: ["E5", "G5", "A5", "A5"], beats_per_chord: 4, pattern: Quarters, tempos: [90.0, 110.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How do you make a clean rest in a riff?",
+                            choices: ["Stop the strings with both hands", "Keep strumming", "Turn up the volume"],
+                            answer: 0,
+                            explain: "Use both hands. Lift the fretting fingers a little and rest the picking hand on the strings, so the rest is truly silent.",
+                        ),
+                        (
+                            prompt: "What is a riff?",
+                            choices: ["A short, catchy part that repeats", "A guitar solo only", "A broken string"],
+                            answer: 0,
+                            explain: "A riff is a short, catchy part that repeats, often on the low strings.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.2",
+            title: "Drop D Tuning",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["R.1"],
+            tuning: Some("drop_d"),
+            goal: "Tune to Drop D and play one-finger power chords.",
+            practice: "Five minutes a day for a week. Play the Drop D riff and slide the one-finger power chord to frets 3, 5, and 7.",
+            steps: [
+                Learn(
+                    title: "Drop the low string",
+                    explain: "Tune only string 6 down a whole step, from E to D. Now the strings are D A D G B E. The big bonus: the bottom three strings make a power chord with just one finger! Lay one finger across strings 6, 5, and 4 at the same fret.",
+                    facts: [
+                        "Open strings 6, 5, and 4 make D5.",
+                        "One finger at fret 2 makes E5. At fret 5 it makes G5.",
+                        "To go back to standard, tune string 6 up to E.",
+                    ],
+                    visual: Some(Shape(frets: "000xxx", fingers: "------", name: "D5 in Drop D (open)")),
+                ),
+                Learn(
+                    title: "Tune it by ear",
+                    explain: "You can tune Drop D without a tuner. Play string 6 at fret 7, then play open string 5. Both should be A. Turn the string 6 peg down slowly until the two notes match and stop wobbling. You can also match open string 6 to open string 4, an octave apart.",
+                    facts: [
+                        "In Drop D, string 6 fret 7 = A = open string 5.",
+                        "Open string 6 and open string 4 are both D.",
+                    ],
+                    tips: [
+                        "Tune down past the note, then come back up to it. Strings stay in tune better that way.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 7, beats: 2.0), (string: 5, fret: 0, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Tune to Drop D",
+                    instructions: "Lower string 6 until it matches D. The tuner knows you're in Drop D.",
+                    activity: Tune,
+                ),
+                Learn(
+                    title: "One finger, any power chord",
+                    explain: "Barre strings 6, 5, and 4 with one finger. Slide it up and down. That's a heavy riff machine!",
+                    visual: Some(Shape(frets: "555xxx", fingers: "111---", name: "G5 in Drop D")),
+                ),
+                Activity(
+                    title: "A Drop D riff",
+                    instructions: "Play these notes on string 6. Each one stands for the one-finger power chord at that fret.",
+                    activity: PlayNotes(tempo: 90.0, notes: [
+                        (string: 6, fret: 0, beats: 0.5), (string: 6, fret: 0, beats: 0.5), (string: 6, fret: 3), (string: 6, fret: 5),
+                        (string: 6, fret: 0, beats: 0.5), (string: 6, fret: 7, beats: 0.5), (string: 6, fret: 5), (string: 6, fret: 3),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In Drop D, what is string 6 tuned to?",
+                            choices: ["D", "E", "C"],
+                            answer: 0,
+                            explain: "In Drop D, string 6 is lowered a whole step, from E to D.",
+                        ),
+                        (
+                            prompt: "How many fingers does a Drop D power chord need?",
+                            choices: ["One", "Three", "Four"],
+                            answer: 0,
+                            explain: "Strings 6, 5, and 4 in Drop D make a power chord at any fret with one finger laid across them.",
+                        ),
+                        (
+                            prompt: "In Drop D, one finger at fret 5 on strings 6, 5, and 4 makes…",
+                            choices: ["G5", "A5", "E5"],
+                            answer: 0,
+                            explain: "String 6 is D in Drop D. Fret 5 on it is G (D, E, F, F♯, G), so the chord is G5.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.3",
+            title: "Gallops and Palm-Muted Grooves",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["R.2"],
+            goal: "Play the gallop rhythm with palm muting.",
+            practice: "Five minutes a day for a week. Gallop on E5 with palm muting. Then switch between E5, G5, and A5 every bar.",
+            steps: [
+                Learn(
+                    title: "Ride the horse",
+                    explain: "The gallop sounds like a running horse: \"one, two-and.\" Play one long note, then two quick ones. Count \"1 - & a\" in each beat. Rest the edge of your picking hand on the strings near the bridge. That's palm muting, and it makes the gallop chug.",
+                    facts: [
+                        "Down on 1, then down-down (or down-up) on \"& a.\"",
+                        "Accent the first note of each gallop.",
+                    ],
+                    visual: Some(StrumGrid(Gallop)),
+                    tips: [
+                        "Use down, up, down for each gallop. Keep the pick small and close to the strings.",
+                        "Count \"one-and-a, two-and-a\" to feel the gallop.",
+                    ],
+                ),
+                Learn(
+                    title: "Palm mute the gallop",
+                    explain: "Rest the edge of your picking hand on the strings, near the bridge. Now play the gallop: long, short-short. The muted notes sound tight and punchy, like a horse running. Lift your hand a little for accents.",
+                    facts: [
+                        "Gallop rhythm: an eighth and two sixteenths.",
+                        "Palm muting makes it chug.",
+                    ],
+                    visual: Some(StrumGrid(Gallop)),
+                ),
+                Activity(
+                    title: "Gallop on power chords",
+                    instructions: "Start slow. Keep your picking hand muted.",
+                    activity: StrumAlong(chords: ["E5", "E5", "G5", "A5"], beats_per_chord: 4, pattern: Gallop, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How does a gallop sound?",
+                            choices: ["One long note, then two quick ones", "Three even notes", "Two long notes"],
+                            answer: 0,
+                            explain: "A gallop is one longer note and two quick ones: \"one, two-and\", like a running horse.",
+                        ),
+                        (
+                            prompt: "Where does the palm rest for palm muting?",
+                            choices: ["On the strings near the bridge", "On the frets", "On the tuning pegs"],
+                            answer: 0,
+                            explain: "Rest the edge of your picking hand on the strings right near the bridge for a chunky, muted sound.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.4",
+            title: "Rock Lead Vocabulary",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["R.3"],
+            goal: "Play a repeating lick, a unison-style bend, and wide vibrato.",
+            practice: "Five minutes a day for a week. Play each lick: the repeating lick, the bend to E, and wide vibrato. Then mix them in a solo.",
+            steps: [
+                Learn(
+                    title: "Words every rocker knows",
+                    explain: "Rock solos use a few big moves. A repeating lick loops three or four notes fast. A unison bend plays one note while a lower string bends up to match it. Wide vibrato shakes a note hard. Use them all in Box 1.",
+                    facts: [
+                        "Repeating lick: high A, G, E, over and over.",
+                        "Unison bend: hold string 2, fret 5, and bend string 3, fret 7 up to match it.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 1, fret: 5, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 2, fret: 5, beats: 0.5),
+                        (string: 1, fret: 5, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 2, fret: 5, beats: 0.5),
+                        (string: 1, fret: 5, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 2, fret: 5, beats: 2.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Rock lives in Box 1",
+                    explain: "Most rock licks come from the minor pentatonic Box 1. The bend on string 3, fret 7 is everywhere. So is the repeating lick on strings 1 and 2. Learn where these licks sit in the box so you can find them fast.",
+                    facts: [
+                        "Bend string 3, fret 7 up to E.",
+                        "Repeat licks on strings 1 and 2 at frets 5 and 8.",
+                    ],
+                    tips: [
+                        "Wide vibrato: shake the note a whole step for a big rock sound.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", shape: Some(1), first_fret: 3, last_fret: 10)),
+                ),
+                Activity(
+                    title: "The repeating lick",
+                    instructions: "Three notes, looped. Start slow, then speed up.",
+                    activity: PlayNotes(tempo: 80.0, notes: [
+                        (string: 1, fret: 5, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 2, fret: 5, beats: 0.5),
+                        (string: 1, fret: 5, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 2, fret: 5, beats: 0.5),
+                        (string: 1, fret: 5, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 2, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Bend up to E",
+                    instructions: "Bend string 3, fret 7 a whole step. Then try it while string 2, fret 5 rings.",
+                    activity: BendCheck(string: 3, fret: 7, steps: 2),
+                ),
+                Activity(
+                    title: "Wide vibrato",
+                    instructions: "Shake string 2, fret 8 wider than before, but keep it steady.",
+                    activity: VibratoCheck(string: 2, fret: 8),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What's a unison bend?",
+                            choices: ["Bending one string up to match a note on another", "Bending two strings down", "A bend with no picking"],
+                            answer: 0,
+                            explain: "In a unison bend, you bend one string up until it matches a note held on the next string.",
+                        ),
+                        (
+                            prompt: "What makes a repeating lick?",
+                            choices: ["A few notes looped over and over", "One long note", "Random notes"],
+                            answer: 0,
+                            explain: "A repeating lick loops a few notes over and over. It's an easy way to sound fast and exciting.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.5",
+            title: "Speed Building",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["R.4"],
+            goal: "Build picking speed safely with a tempo ladder.",
+            practice: "Five minutes a day for two weeks. Play 1-2-3-4 at a slow tempo until it's perfect. Then add 5 bpm. Write down your tempo each day.",
+            steps: [
+                Learn(
+                    title: "Slow is fast",
+                    explain: "Speed comes from clean, relaxed playing, not from forcing it. Use a metronome. Play a drill perfectly three times in a row. Then add 5 beats per minute. If it gets sloppy, slow back down. Little steps every day add up fast.",
+                    facts: [
+                        "Alternate pick: down, up, down, up.",
+                        "Keep fingers close to the strings. Small moves are fast moves.",
+                        "Use the Practice tab's metronome to climb the ladder.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 6, fret: 1, beats: 0.5), (string: 6, fret: 2, beats: 0.5), (string: 6, fret: 3, beats: 0.5), (string: 6, fret: 4, beats: 0.5),
+                        (string: 5, fret: 1, beats: 0.5), (string: 5, fret: 2, beats: 0.5), (string: 5, fret: 3, beats: 0.5), (string: 5, fret: 4, beats: 0.5),
+                    ])),
+                ),
+                Learn(
+                    title: "The speed ladder",
+                    explain: "Start with a tempo where you play perfectly. Play for one minute. If every note is clean, raise the tempo by 5. If you make mistakes, go back down. Little steps each day add up to big speed over weeks.",
+                    facts: [
+                        "Clean first, then fast.",
+                        "Small, relaxed movements are faster than big ones.",
+                    ],
+                    tips: [
+                        "Tension slows you down. Shake out your hands between tries.",
+                    ],
+                    visual: Some(BeatPulse(bpm: 80.0)),
+                ),
+                Activity(
+                    title: "1-2-3-4 at a slow tempo",
+                    instructions: "One finger per fret. Alternate picking.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 1, beats: 0.5), (string: 6, fret: 2, beats: 0.5), (string: 6, fret: 3, beats: 0.5), (string: 6, fret: 4, beats: 0.5),
+                        (string: 5, fret: 1, beats: 0.5), (string: 5, fret: 2, beats: 0.5), (string: 5, fret: 3, beats: 0.5), (string: 5, fret: 4, beats: 0.5),
+                        (string: 4, fret: 1, beats: 0.5), (string: 4, fret: 2, beats: 0.5), (string: 4, fret: 3, beats: 0.5), (string: 4, fret: 4, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "One step up the ladder",
+                    instructions: "The same drill, a little faster.",
+                    activity: PlayNotes(tempo: 80.0, notes: [
+                        (string: 6, fret: 1, beats: 0.5), (string: 6, fret: 2, beats: 0.5), (string: 6, fret: 3, beats: 0.5), (string: 6, fret: 4, beats: 0.5),
+                        (string: 5, fret: 1, beats: 0.5), (string: 5, fret: 2, beats: 0.5), (string: 5, fret: 3, beats: 0.5), (string: 5, fret: 4, beats: 0.5),
+                        (string: 4, fret: 1, beats: 0.5), (string: 4, fret: 2, beats: 0.5), (string: 4, fret: 3, beats: 0.5), (string: 4, fret: 4, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "When should you speed up?",
+                            choices: ["After three clean times in a row", "Right away", "Only when it's sloppy"],
+                            answer: 0,
+                            explain: "Speed up only after three clean times in a row. Clean playing comes first, then speed.",
+                        ),
+                        (
+                            prompt: "How much should you add each step?",
+                            choices: ["About 5 beats per minute", "50 beats per minute", "Double the speed"],
+                            answer: 0,
+                            explain: "Small steps of about 5 BPM keep your playing clean while you get faster.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.6",
+            title: "Legato and Tapping",
+            thread: Technique,
+            minutes: 20,
+            prerequisites: ["R.5"],
+            goal: "Play three notes per string with hammer-ons, and try a simple tap.",
+            practice: "Five minutes a day for a week. Play the legato pattern on each string. Then try a tap, pull, hammer pattern on string 1.",
+            steps: [
+                Learn(
+                    title: "Three notes, one pick",
+                    explain: "Put three notes on each string. Pick the first one, then hammer on the next two. It sounds smooth and fast with very little picking. Tapping goes one step further: your picking hand taps a note high on the neck, then pulls off to your fretting fingers.",
+                    facts: [
+                        "Pick, hammer, hammer. Then move to the next string.",
+                        "Tap with the middle finger so you can keep holding the pick.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 6, fret: 5), (string: 6, fret: 7, tech: Some(Hammer)), (string: 6, fret: 8, tech: Some(Hammer)),
+                        (string: 5, fret: 5), (string: 5, fret: 7, tech: Some(Hammer)), (string: 5, fret: 8, tech: Some(Hammer)),
+                    ])),
+                ),
+                Learn(
+                    title: "Tap, pull, hammer",
+                    explain: "Here's a classic tapping pattern on string 1. Tap fret 12 with a picking-hand finger. Pull it off to fret 5. Then hammer on to fret 8. Repeat: tap, pull, hammer. It makes a fast, flowing stream of notes.",
+                    facts: [
+                        "Frets 12, 5, 8 make A minor sounds.",
+                        "Tap with your middle finger so you can keep holding the pick.",
+                    ],
+                    tips: [
+                        "Mute the other strings with your fretting hand so they stay quiet.",
+                    ],
+                    visual: Some(Tab([(string: 1, fret: 12), (string: 1, fret: 5, tech: Some(Pull)), (string: 1, fret: 8, tech: Some(Hammer)), (string: 1, fret: 12), (string: 1, fret: 5, tech: Some(Pull)), (string: 1, fret: 8, tech: Some(Hammer))])),
+                ),
+                Activity(
+                    title: "Legato up A minor",
+                    instructions: "One pick per string, then hammer.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 5), (string: 6, fret: 7, tech: Some(Hammer)), (string: 6, fret: 8, tech: Some(Hammer)),
+                        (string: 5, fret: 5), (string: 5, fret: 7, tech: Some(Hammer)), (string: 5, fret: 8, tech: Some(Hammer)),
+                        (string: 4, fret: 5), (string: 4, fret: 7, tech: Some(Hammer)), (string: 4, fret: 9, tech: Some(Hammer), beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Your first tap",
+                    instructions: "Tick each step as you get it.",
+                    activity: Checklist(items: [
+                        "Hold string 2, fret 5 with finger 1.",
+                        "Tap string 2, fret 12 with your picking hand's middle finger.",
+                        "Pull the tapping finger off so fret 5 rings.",
+                        "Hammer fret 8, pull off to 5, and tap again.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In 3-notes-per-string legato, how many times do you pick on each string?",
+                            choices: ["Once", "Three times", "Never"],
+                            answer: 0,
+                            explain: "You pick the first note on each string, then hammer on the next two. One pick per string.",
+                        ),
+                        (
+                            prompt: "In tapping, which hand taps the high note?",
+                            choices: ["The picking hand", "The fretting hand", "Neither"],
+                            answer: 0,
+                            explain: "The picking hand taps the high note on the fretboard, then pulls off to the fretting hand's notes.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.7",
+            title: "Intro to Sweep Picking",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["R.6"],
+            goal: "Sweep a small three-string triad smoothly.",
+            practice: "Five minutes a day for a week. Sweep the A minor shape very slowly. Each note should sound alone, not like a strum.",
+            steps: [
+                Learn(
+                    title: "One smooth push",
+                    explain: "Sweep picking plays one note per string in a single smooth push of the pick, like a slow strum. Only one note sounds at a time. Lift each fretting finger right after its note so the notes don't ring together. Start with three strings.",
+                    facts: [
+                        "A minor triad: string 3 fret 9, string 2 fret 10, string 1 fret 8.",
+                        "Push down through the strings, then pull back up.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 9), (string: 2, fret: 10), (string: 1, fret: 8), (string: 2, fret: 10), (string: 3, fret: 9, beats: 2.0)])),
+                ),
+                Learn(
+                    title: "A small sweep to start",
+                    explain: "Start with just three strings. Hold an A minor shape: string 3 fret 2, string 2 fret 1, and string 1 open. Push the pick down across all three in one smooth motion. Lift each finger right after its note so the notes don't blend.",
+                    facts: [
+                        "The notes are A, C, and E.",
+                        "One pick motion plays all three notes.",
+                    ],
+                    tips: [
+                        "It's not a strum. You should hear three separate notes.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 2), (string: 2, fret: 1), (string: 1, fret: 0, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Slow sweep",
+                    instructions: "One note at a time, in one motion.",
+                    activity: PlayNotes(tempo: 60.0, notes: [(string: 3, fret: 9), (string: 2, fret: 10), (string: 1, fret: 8), (string: 2, fret: 10), (string: 3, fret: 9, beats: 2.0)]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In sweep picking, how many notes sound at once?",
+                            choices: ["One", "All of them", "Two"],
+                            answer: 0,
+                            explain: "Only one note sounds at a time. Lift each finger after its note so they don't ring together.",
+                        ),
+                        (
+                            prompt: "How does the pick move in a sweep?",
+                            choices: ["One smooth push across the strings", "Down-up on every note", "It doesn't move"],
+                            answer: 0,
+                            explain: "The pick moves in one smooth push across the strings, like a slow strum, playing one note per string.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.8",
+            title: "Dialing In Rock Tone",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["R.7"],
+            goal: "Set gain, pickups, and EQ for a clear rock sound.",
+            practice: "Ten minutes over a few days. Try each pickup with clean and drive sounds. Write down your favorite settings.",
+            steps: [
+                Learn(
+                    title: "Less gain, more power",
+                    explain: "Gain makes your sound crunchy. Too much gain turns into mush, and your chords get lost. Turn it up until the sound bites, then back off a little. Use the bridge pickup for sharp riffs and the neck pickup for smooth solos.",
+                    facts: [
+                        "Bass, middle, and treble knobs shape the sound (EQ).",
+                        "A little more middle helps a guitar cut through a band.",
+                        "See the Tone & Gear track for much more.",
+                    ],
+                ),
+                Learn(
+                    title: "Pick your pickup",
+                    explain: "Electric guitars have pickups under the strings. The one near the neck sounds warm and round. The one near the bridge sounds bright and sharp. Rock rhythm usually uses the bridge pickup. Many solos use the neck pickup for a smooth sound.",
+                    facts: [
+                        "Neck pickup: warm. Bridge pickup: bright.",
+                        "The middle setting mixes both.",
+                    ],
+                    tips: [
+                        "Turn the gain down a little. Too much gain sounds fuzzy and hides your playing.",
+                    ],
+                    visual: Some(GuitarParts),
+                ),
+                Learn(
+                    title: "Tone knob tricks",
+                    explain: "Turn the guitar's tone knob down for a dark, smooth lead sound. Turn it all the way up for bright rhythm parts. Then set the amp's bass, middle, and treble. Rock usually sounds best with the middle knob turned up a little.",
+                    facts: [
+                        "Too much bass sounds muddy.",
+                        "Too much treble sounds harsh.",
+                    ],
+                    visual: Some(ChordPair("E5", "A5")),
+                ),
+                Activity(
+                    title: "Tone checklist",
+                    instructions: "Try each one on your guitar and amp (or app).",
+                    activity: Checklist(items: [
+                        "Find the gain spot where chords are crunchy but still clear.",
+                        "Play a riff on the bridge pickup.",
+                        "Play a solo on the neck pickup.",
+                        "Turn the middle knob up and listen for the difference.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What happens with too much gain?",
+                            choices: ["Chords turn to mush", "The guitar goes out of tune", "Nothing"],
+                            answer: 0,
+                            explain: "Too much gain smears the notes together, so chords turn to mush.",
+                        ),
+                        (
+                            prompt: "Which pickup is sharper and brighter?",
+                            choices: ["The bridge pickup", "The neck pickup"],
+                            answer: 0,
+                            explain: "The bridge pickup sounds sharper and brighter. The neck pickup sounds warmer and smoother.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "R.9",
+            title: "Rock Capstone: Your Rock Song",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["R.8"],
+            goal: "Record your own rock song: a verse riff, power-chord chorus, and a solo.",
+            practice: "Fifteen minutes a day for a week. Write a riff, a verse, and a chorus. Practice, then record the whole song.",
+            steps: [
+                Learn(
+                    title: "Write it, then rock it",
+                    explain: "Make a rock song of your own. Write a verse riff on the low strings. Make a chorus with big power chords. Then add a short solo using Box 1, bends, and vibrato. Record it over the backing, or build it in the Song Builder first.",
+                    facts: [
+                        "Contrast is king: a tight verse, then a big, open chorus.",
+                        "Leave a rest before the chorus hits.",
+                    ],
+                ),
+                Learn(
+                    title: "Build from a riff",
+                    explain: "Many rock songs start with one great riff. Use power chords and rests. Play the riff for the verse. For the chorus, change to new power chords and strum bigger. End by playing the riff one last time.",
+                    facts: [
+                        "Riff, verse, chorus, riff.",
+                        "Try E5, G5, and A5 to start.",
+                    ],
+                    tips: [
+                        "Keep it simple. The best riffs are easy to remember.",
+                    ],
+                    visual: Some(ChordPair("E5", "A5")),
+                ),
+                Learn(
+                    title: "A riff to start from",
+                    explain: "Here's a riff you can borrow and change. Play open E twice, then fret 3, then fret 5 on string 6. Change the rhythm or add a note, and it becomes your riff!",
+                    facts: [
+                        "Use rests to make it punchy.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0), (string: 6, fret: 0), (string: 6, fret: 3), (string: 6, fret: 5, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Record your song",
+                    instructions: "Start the backing, then press Record.",
+                    activity: Record(chords: ["E5", "G5", "A5", "C5"], pattern: Chug, bpm: 110.0),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What makes a chorus stand out from a verse?",
+                            choices: ["Contrast: bigger, more open chords", "Playing it exactly the same", "Leaving it out"],
+                            answer: 0,
+                            explain: "A chorus stands out through contrast, like bigger, more open chords after a tight verse.",
+                        ),
+                        (
+                            prompt: "What tuning makes one-finger power chords?",
+                            choices: ["Drop D", "Standard", "Open G"],
+                            answer: 0,
+                            explain: "Drop D makes the bottom three strings a power chord you can play with one finger.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

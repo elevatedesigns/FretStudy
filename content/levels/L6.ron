@@ -1,0 +1,1005 @@
+// Level 6 — The Whole Neck. See docs/02-Curriculum-Part3-Levels-5-6.md.
+Level(
+    number: 6,
+    title: "The Whole Neck",
+    goal: "All five pentatonic shapes, major pentatonic, CAGED, triads, 16th-note strumming, and fingerpicking.",
+    weeks: "8–10 weeks",
+    lessons: [
+        Lesson(
+            id: "L6.1",
+            title: "Relative Minor: Same Notes, Different Home",
+            thread: TheoryEar,
+            minutes: 12,
+            prerequisites: ["L5.13"],
+            goal: "Find the relative minor of any major key.",
+            practice: "Five minutes a day for a week. Play C, F, G, then Am, Dm, Em. Notice how the same chords sound brighter or darker depending on where you start and end.",
+            steps: [
+                Learn(
+                    title: "Two houses, same furniture",
+                    explain: "C major and A minor use the exact same seven notes. They are like two houses with the same furniture but a different front door. In C major, C feels like home. In A minor, A feels like home. Every major key has a minor key that shares its notes. It lives on the 6th note of the scale.",
+                    facts: [
+                        "Find it fast: count down three frets from the major root.",
+                        "C → Am. G → Em. D → Bm. A → F♯m. E → C♯m. F → Dm.",
+                        "That's why A minor pentatonic has the same notes as C major pentatonic.",
+                    ],
+                    visual: Some(NumberWheel(key: "C")),
+                ),
+                Learn(
+                    title: "Count down three frets",
+                    explain: "Here's how to find any relative minor. Start on the major key's root and count down three frets. From C, three frets down is A. So A minor is C major's relative minor. From G, three frets down is E. So E minor goes with G major.",
+                    facts: [
+                        "C major ↔ A minor. G major ↔ E minor.",
+                        "D major ↔ B minor. F major ↔ D minor.",
+                    ],
+                    tips: [
+                        "The 6 chord in any major key is its relative minor.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 5, fret: 0), (string: 5, fret: 3)], first_fret: 0, last_fret: 5, show_names: true)),
+                ),
+                Activity(
+                    title: "Bright or dark?",
+                    instructions: "Major chords are bright. Minor chords are darker. Can you tell?",
+                    activity: EarQuiz(kind: MajorMinor, rounds: 6),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What is the relative minor of C major?",
+                            choices: ["A minor", "E minor", "D minor"],
+                            answer: 0,
+                            explain: "The relative minor lives on the 6th note of the major scale. Count C D E F G A: the 6th is A, so A minor.",
+                        ),
+                        (
+                            prompt: "What is the relative minor of G major?",
+                            choices: ["E minor", "B minor", "A minor"],
+                            answer: 0,
+                            explain: "Count up G major: G A B C D E. The 6th note is E, so the relative minor is E minor.",
+                        ),
+                        (
+                            prompt: "What is the relative minor of D major?",
+                            choices: ["B minor", "F♯ minor", "E minor"],
+                            answer: 0,
+                            explain: "Count up D major: D E F♯ G A B. The 6th note is B, so the relative minor is B minor.",
+                        ),
+                        (
+                            prompt: "Which note of the major scale is the relative minor's home?",
+                            choices: ["The 6th", "The 2nd", "The 5th"],
+                            answer: 0,
+                            explain: "Start the major scale on its 6th note and you get its relative minor, which uses the very same notes.",
+                        ),
+                        (
+                            prompt: "E minor is the relative minor of which major key?",
+                            choices: ["G major", "C major", "E major"],
+                            answer: 0,
+                            explain: "Go three frets (three half steps) up from E: F, F♯, G. So E minor and G major share all their notes.",
+                        ),
+                        (
+                            prompt: "Do C major and A minor use the same notes?",
+                            choices: ["Yes, the same seven notes", "No, they share only one note"],
+                            answer: 0,
+                            explain: "Yes. A minor is just C major's notes with A as the home note.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.2",
+            title: "The Major Pentatonic",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L6.1"],
+            goal: "Play the major pentatonic with the box shape you know, and solo over a major-key song.",
+            practice: "Five minutes a day for a week. Play the major pentatonic in A and G. Solo over a happy backing track and end on the root.",
+            steps: [
+                Learn(
+                    title: "Same box, sunny sound",
+                    explain: "Take the minor box you know. Give it a new home note, and it sounds happy and sunny! That's the major pentatonic. It's the sound of country, pop, and classic rock solos. Same shape, new starting point.",
+                    facts: [
+                        "The recipe: 1, 2, 3, 5, 6. G major pentatonic is G A B D E.",
+                        "Shape trick: play Box 1 three frets lower than the major root.",
+                        "A major pentatonic = Box 1 at fret 2. The root A is under your pinky on string 6.",
+                        "Use major pentatonic over happy songs. Use minor over sad songs and the blues.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "major_pentatonic", shape: Some(1), first_fret: 1, last_fret: 7)),
+                ),
+                Learn(
+                    title: "Slide the box down three frets",
+                    explain: "Here's a neat trick. Take the minor pentatonic box and slide it down three frets. Now it's the major pentatonic! For A major, play Box 1 starting at fret 2 instead of fret 5. The shape is the same, but the home note changes.",
+                    facts: [
+                        "A minor pentatonic: Box 1 at fret 5.",
+                        "A major pentatonic: Box 1 at fret 2.",
+                    ],
+                    tips: [
+                        "Land on A to sound sunny and finished. Listen for the happy sound.",
+                    ],
+                    visual: Some(ScaleCompare(root: "A", a: "major_pentatonic", b: "minor_pentatonic", first_fret: 1, last_fret: 9)),
+                ),
+                Activity(
+                    title: "A major pentatonic",
+                    instructions: "Play the box at fret 2. Listen for the happy sound.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 2), (string: 6, fret: 5), (string: 5, fret: 2), (string: 5, fret: 4),
+                        (string: 4, fret: 2), (string: 4, fret: 4), (string: 3, fret: 2), (string: 3, fret: 4),
+                        (string: 2, fret: 2), (string: 2, fret: 5), (string: 1, fret: 2), (string: 1, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Solo in G major",
+                    instructions: "Play G major pentatonic near the nut over G, C, and D. End your ideas on G.",
+                    activity: Jam(key: "G", scale: "major_pentatonic", shape: Some(1), chords: ["G", "C", "D", "G"], pattern: Eighths, bpm: 80.0),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What is the major pentatonic recipe?",
+                            choices: ["1, 2, 3, 5, 6", "1, ♭3, 4, 5, ♭7", "1, 3, 5"],
+                            answer: 0,
+                            explain: "Major pentatonic is the major scale without the 4th and 7th: 1, 2, 3, 5, 6.",
+                        ),
+                        (
+                            prompt: "G major pentatonic has the same notes as…",
+                            choices: ["E minor pentatonic", "A minor pentatonic", "G minor pentatonic"],
+                            answer: 0,
+                            explain: "E is G's relative minor, so E minor pentatonic and G major pentatonic have the same five notes: G A B D E.",
+                        ),
+                        (
+                            prompt: "Where does Box 1 go for A major pentatonic?",
+                            choices: ["Fret 2, three frets below A", "Fret 5", "Fret 8"],
+                            answer: 0,
+                            explain: "A major pentatonic uses the notes of F♯ minor pentatonic. F♯ is three frets below A, at fret 2 on string 6.",
+                        ),
+                        (
+                            prompt: "Which scale fits a happy, major-key song best?",
+                            choices: ["Major pentatonic", "Minor pentatonic", "The blues scale"],
+                            answer: 0,
+                            explain: "Major pentatonic has the major 3rd, so it sounds sunny and fits happy, major-key songs.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.3",
+            title: "Pentatonic Shapes 2 and 3",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["L6.2"],
+            goal: "Play A minor pentatonic shapes 2 and 3, and slide between boxes.",
+            practice: "Five minutes a day for a week. Play Box 1, then Box 2, then Box 3. Each day, slide from one box to the next without stopping.",
+            steps: [
+                Learn(
+                    title: "Puzzle pieces up the neck",
+                    explain: "The scale doesn't stop at Box 1. Its notes keep going up the neck in five shapes. They link like puzzle pieces. The right side of one box is the left side of the next. Shape 2 starts where Box 1's top notes are.",
+                    facts: [
+                        "Shape 2 in A sits at frets 7 to 10.",
+                        "Its low note on string 6 is C, at fret 8.",
+                        "Slide to move from one box to the next.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", shape: Some(2), first_fret: 4, last_fret: 12)),
+                    tips: [
+                        "The top notes of one box are the bottom notes of the next. Use them as stepping stones.",
+                        "Learn one box well before adding the next.",
+                    ],
+                ),
+                Activity(
+                    title: "Shape 2",
+                    instructions: "Up shape 2 from string 6.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 8), (string: 6, fret: 10), (string: 5, fret: 7), (string: 5, fret: 10),
+                        (string: 4, fret: 7), (string: 4, fret: 10), (string: 3, fret: 7), (string: 3, fret: 9),
+                        (string: 2, fret: 8), (string: 2, fret: 10), (string: 1, fret: 8), (string: 1, fret: 10, beats: 2.0),
+                    ]),
+                ),
+                Learn(
+                    title: "Shape 3",
+                    explain: "Shape 3 is the next piece. It sits at frets 9 to 13. Its low note on string 6 is D, at fret 10. Notice the dots it shares with shape 2.",
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", shape: Some(3), first_fret: 7, last_fret: 14)),
+                ),
+                Activity(
+                    title: "Shape 3",
+                    instructions: "Up shape 3 from string 6.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 10), (string: 6, fret: 12), (string: 5, fret: 10), (string: 5, fret: 12),
+                        (string: 4, fret: 10), (string: 4, fret: 12), (string: 3, fret: 9), (string: 3, fret: 12),
+                        (string: 2, fret: 10), (string: 2, fret: 13), (string: 1, fret: 10), (string: 1, fret: 12, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Slide from box to box",
+                    instructions: "Play in Box 1, slide up into shape 2, then into shape 3.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 3, fret: 5), (string: 3, fret: 7), (string: 3, fret: 9, tech: Some(Slide)), (string: 2, fret: 10),
+                        (string: 2, fret: 13, tech: Some(Slide)), (string: 1, fret: 12, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How do the five shapes fit together?",
+                            choices: ["Like puzzle pieces that share notes", "They don't touch at all", "They all sit at the same fret"],
+                            answer: 0,
+                            explain: "The top notes of one shape are the bottom notes of the next, so they lock together like puzzle pieces.",
+                        ),
+                        (
+                            prompt: "In A, what note starts shape 2 on string 6?",
+                            choices: ["C (fret 8)", "A (fret 5)", "E (fret 12)"],
+                            answer: 0,
+                            explain: "Shape 2 starts on the scale's next note after A, which is C. On string 6, C is at fret 8.",
+                        ),
+                        (
+                            prompt: "What helps you move from one box to the next?",
+                            choices: ["A slide", "A bend", "A capo"],
+                            answer: 0,
+                            explain: "A slide carries your finger up the string into the next box without stopping the sound.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.4",
+            title: "Pentatonic Shapes 4 and 5: The Whole Neck",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["L6.3"],
+            goal: "Play shapes 4 and 5 and see the whole neck as one scale.",
+            practice: "Five minutes a day for two weeks. Play all five boxes in order up the neck. Then try a solo that uses two boxes.",
+            steps: [
+                Learn(
+                    title: "Shape 4",
+                    explain: "Shape 4 sits at frets 12 to 15. Its low note on string 6 is E, at fret 12. That is the same E as your open string, just higher.",
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", shape: Some(4), first_fret: 10, last_fret: 17)),
+                ),
+                Activity(
+                    title: "Shape 4",
+                    instructions: "Up shape 4 from string 6.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 12), (string: 6, fret: 15), (string: 5, fret: 12), (string: 5, fret: 15),
+                        (string: 4, fret: 12), (string: 4, fret: 14), (string: 3, fret: 12), (string: 3, fret: 14),
+                        (string: 2, fret: 13), (string: 2, fret: 15), (string: 1, fret: 12), (string: 1, fret: 15, beats: 2.0),
+                    ]),
+                ),
+                Learn(
+                    title: "Shape 5, low and high",
+                    explain: "Shape 5 sits at frets 15 to 17. It also lives down low, at frets 2 to 5. After shape 5 comes Box 1 again, one octave up. Now you have the whole neck!",
+                    facts: [
+                        "Low shape 5 starts on G, at string 6, fret 3.",
+                        "To play in another key, slide the whole map so the roots land on the new key.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", shape: Some(5), first_fret: 0, last_fret: 7)),
+                ),
+                Activity(
+                    title: "Low shape 5",
+                    instructions: "Up shape 5 near the nut.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 3), (string: 6, fret: 5), (string: 5, fret: 3), (string: 5, fret: 5),
+                        (string: 4, fret: 2), (string: 4, fret: 5), (string: 3, fret: 2), (string: 3, fret: 5),
+                        (string: 2, fret: 3), (string: 2, fret: 5), (string: 1, fret: 3), (string: 1, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Learn(
+                    title: "The whole map",
+                    explain: "Here is A minor pentatonic over the whole neck. Every red square is an A. Find the five shapes hiding in the map.",
+                    visual: Some(ScaleBox(root: "A", scale: "minor_pentatonic", first_fret: 0, last_fret: 17)),
+                    tips: [
+                        "After fret 12, the boxes repeat. Box 1 at fret 17 is the same as Box 1 at fret 5.",
+                        "Find the root notes in each box first. They tie the whole map together.",
+                    ],
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What comes after shape 5, going up?",
+                            choices: ["Box 1 again, an octave higher", "Shape 6", "The end of the scale"],
+                            answer: 0,
+                            explain: "The five shapes repeat. After shape 5 comes Box 1 again, twelve frets (an octave) higher.",
+                        ),
+                        (
+                            prompt: "How many pentatonic shapes are there?",
+                            choices: ["5", "3", "7"],
+                            answer: 0,
+                            explain: "There are five shapes, one starting on each of the scale's five notes.",
+                        ),
+                        (
+                            prompt: "How do you play the shapes in a new key?",
+                            choices: ["Slide the whole map so the roots land on the new key", "Learn all new shapes", "Use only open strings"],
+                            answer: 0,
+                            explain: "The shapes don't change. Slide the whole pattern until its roots sit on the new key's note.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.5",
+            title: "The CAGED System",
+            thread: Chords,
+            minutes: 25,
+            prerequisites: ["L6.4"],
+            goal: "Play one major chord in five places using the C, A, G, E, and D shapes.",
+            practice: "Five minutes a day for a week. Play C in all five CAGED shapes, from low to high. Then try G.",
+            steps: [
+                Learn(
+                    title: "Five shapes, one chord",
+                    explain: "You already know five open chord shapes: C, A, G, E, and D. Here's the big secret. Each one can move up the neck. And they line up in that order, C-A-G-E-D, to make one chord in five places. Learn this and the neck stops being a mystery.",
+                    facts: [
+                        "C major: C shape (open), A shape (fret 3), G shape (frets 5–8), E shape (fret 8), D shape (fret 10).",
+                        "Then the C shape comes back at fret 12.",
+                        "Click a shape to light it up and hear it.",
+                    ],
+                    visual: Some(Caged(root: "C")),
+                ),
+                Learn(
+                    title: "Same order, any key",
+                    explain: "The order always stays C-A-G-E-D. Only the first shape changes. For G major, start with the E shape at fret 3. Then come the D, C, A, and G shapes.",
+                    visual: Some(Caged(root: "G")),
+                ),
+                Learn(
+                    title: "Find the root in each shape",
+                    explain: "Every CAGED shape has a root note you already know. In the C shape, it's on string 5. In the A shape, it's also on string 5. In the G and E shapes, it's on string 6. In the D shape, it's on string 4. Find the root first, then build the shape around it.",
+                    facts: [
+                        "C and A shapes: root on string 5.",
+                        "G and E shapes: root on string 6. D shape: root on string 4.",
+                    ],
+                    tips: [
+                        "You don't have to play the full shape. Grab three or four strings and it still works.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 5, fret: 3), (string: 6, fret: 8), (string: 4, fret: 10), (string: 5, fret: 15)], first_fret: 0, last_fret: 15, show_names: true)),
+                ),
+                Activity(
+                    title: "C in five places",
+                    instructions: "Play C major in each shape, low to high. Tick each one.",
+                    activity: Checklist(items: [
+                        "C shape (open C)",
+                        "A shape (barre at fret 3)",
+                        "G shape (frets 5 to 8, top strings are fine)",
+                        "E shape (barre at fret 8)",
+                        "D shape (top strings, frets 10 to 13)",
+                    ]),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum the A-shape and E-shape C chords.",
+                    activity: ChordCheck(chords: ["C", "C-Abarre", "C-barre"]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What is the order of the CAGED shapes up the neck?",
+                            choices: ["C, A, G, E, D", "A, B, C, D, E", "E, A, D, G, C"],
+                            answer: 0,
+                            explain: "Up the neck, the open-chord shapes line up in the order C, A, G, E, D, then start again.",
+                        ),
+                        (
+                            prompt: "After the D shape, which shape comes next?",
+                            choices: ["C again", "E again", "None"],
+                            answer: 0,
+                            explain: "The order is a loop. After the D shape comes the C shape again, an octave higher.",
+                        ),
+                        (
+                            prompt: "An E-shape barre at fret 5 is which chord?",
+                            choices: ["A major", "E major", "C major"],
+                            answer: 0,
+                            explain: "String 6, fret 5 is A.",
+                        ),
+                        (
+                            prompt: "For G major, which shape is at fret 3?",
+                            choices: ["The E shape", "The C shape", "The D shape"],
+                            answer: 0,
+                            explain: "G is at fret 3 on string 6, and the E shape has its root on string 6. So the E shape sits at fret 3.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.6",
+            title: "Triads and Inversions",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["L6.5"],
+            goal: "Play major triads on the top three strings and name their inversions.",
+            practice: "Five minutes a day for a week. Play C, F, and G as triads on strings 3-2-1 in all three positions. Use the Chords screen's Inversions tab to check.",
+            steps: [
+                Learn(
+                    title: "The smallest real chord",
+                    explain: "A triad is the smallest real chord. It has just three notes: the root, the 3rd, and the 5th. You can stack them in any order. Root on the bottom, 3rd on the bottom, or 5th on the bottom. Each order is called an inversion. On the top three strings, triads make bright little chords.",
+                    facts: [
+                        "Root position: the root is on the bottom.",
+                        "1st inversion: the 3rd is on the bottom.",
+                        "2nd inversion: the 5th is on the bottom.",
+                    ],
+                    visual: Some(Shape(frets: "xxx553", fingers: "---341", name: "C triad, root position (C E G)")),
+                ),
+                Learn(
+                    title: "C up the neck",
+                    explain: "Here are the other two orders of C. The notes are the same, just stacked in a new way. The 1st inversion has E on the bottom. The 2nd inversion has G on the bottom.",
+                    facts: [
+                        "1st inversion (E G C): string 3 fret 9, string 2 fret 8, string 1 fret 8.",
+                        "2nd inversion (G C E): open G, string 2 fret 1, open E.",
+                        "Writing C/E means a C chord with E on the bottom.",
+                    ],
+                    visual: Some(Shape(frets: "xxx988", fingers: "---311", name: "C triad, 1st inversion (E G C)")),
+                ),
+                Learn(
+                    title: "Three ways to stack C",
+                    explain: "A triad has three notes, so it can be stacked three ways. Root position has C on the bottom. First inversion has E on the bottom. Second inversion has G on the bottom. All three are still C major. They just sound a little higher or lower.",
+                    facts: [
+                        "Root position: C E G.",
+                        "1st inversion: E G C. 2nd inversion: G C E.",
+                    ],
+                    tips: [
+                        "Look at the Chords screen. Pick any chord and open the Inversions tab to see all of them.",
+                    ],
+                    visual: Some(Shape(frets: "xxx010", fingers: "----1-", name: "C triad, 2nd inversion (G C E)")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum just the top three strings for each triad.",
+                    activity: ChordCheck(chords: ["C-tri", "F-tri", "G-tri"]),
+                ),
+                Activity(
+                    title: "C, F, G with triads",
+                    instructions: "Stay near frets 5 to 8. Your hand barely moves!",
+                    activity: StrumAlong(chords: ["C-tri", "F-tri", "G-tri", "C-tri"], beats_per_chord: 4, pattern: Eighths, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How many notes are in a triad?",
+                            choices: ["3", "4", "5"],
+                            answer: 0,
+                            explain: "A triad has three notes: the root, the 3rd, and the 5th.",
+                        ),
+                        (
+                            prompt: "In a 1st inversion, which note is on the bottom?",
+                            choices: ["The 3rd", "The root", "The 5th"],
+                            answer: 0,
+                            explain: "In 1st inversion, the 3rd moves to the bottom. In 2nd inversion, the 5th is on the bottom.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Shape(frets: "xxx565", fingers: "---121")),
+                            choices: ["F", "C", "Am"],
+                            answer: 0,
+                            explain: "The notes are C (string 3, fret 5), F (string 2, fret 6), and A (string 1, fret 5). C F A makes an F chord.",
+                        ),
+                        (
+                            prompt: "What does C/E mean?",
+                            choices: ["A C chord with E on the bottom", "Play C, then E", "C minor"],
+                            answer: 0,
+                            explain: "The letter after the slash is the bass note. C/E means play a C chord with E as the lowest note.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.7",
+            title: "Major Scale Positions",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["L6.6"],
+            goal: "Play the G major scale in one position and play it in 3rds.",
+            practice: "Five minutes a day for a week. Play G major in two octaves, then in 3rds. Say the note names as you go.",
+            steps: [
+                Learn(
+                    title: "The full Do-Re-Mi ladder",
+                    explain: "The pentatonic was a ladder with five notes. The major scale is the full ladder with seven notes. It's the Do-Re-Mi one! Here is G major near the nut. Its root sits on string 6, fret 3, inside the E-shape G chord.",
+                    facts: [
+                        "G major: G A B C D E F♯.",
+                        "Finger 1 covers fret 2. Each finger gets its own fret.",
+                        "Red squares are G, the root.",
+                    ],
+                    visual: Some(ScaleBox(root: "G", scale: "major", first_fret: 0, last_fret: 6)),
+                    tips: [
+                        "Use one finger per fret. Finger 1 plays fret 2, finger 2 fret 3, and so on.",
+                        "Start and end on G every time.",
+                    ],
+                ),
+                Activity(
+                    title: "G major, two octaves",
+                    instructions: "Play the scale from low G to high G.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 6, fret: 3), (string: 6, fret: 5), (string: 5, fret: 2), (string: 5, fret: 3), (string: 5, fret: 5),
+                        (string: 4, fret: 2), (string: 4, fret: 4), (string: 4, fret: 5), (string: 3, fret: 2), (string: 3, fret: 4),
+                        (string: 3, fret: 5), (string: 2, fret: 3), (string: 2, fret: 5), (string: 1, fret: 2), (string: 1, fret: 3, beats: 2.0),
+                    ]),
+                ),
+                Learn(
+                    title: "Scales in 3rds",
+                    explain: "Don't just run up and down. Skip a note, then step back. G to B, A to C, B to D. This is called playing in 3rds. It makes the scale sound like music, not a ladder.",
+                    visual: Some(Tab([
+                        (string: 6, fret: 3), (string: 5, fret: 2), (string: 6, fret: 5), (string: 5, fret: 3),
+                        (string: 5, fret: 2), (string: 5, fret: 5), (string: 5, fret: 3), (string: 4, fret: 2),
+                    ])),
+                ),
+                Activity(
+                    title: "3rds up the scale",
+                    instructions: "Two notes at a time, skipping one in between.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 6, fret: 3), (string: 5, fret: 2), (string: 6, fret: 5), (string: 5, fret: 3),
+                        (string: 5, fret: 2), (string: 5, fret: 5), (string: 5, fret: 3), (string: 4, fret: 2),
+                        (string: 5, fret: 5), (string: 4, fret: 4), (string: 4, fret: 2), (string: 4, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How many different notes are in a major scale?",
+                            choices: ["7", "5", "12"],
+                            answer: 0,
+                            explain: "A major scale has seven different notes, and then the 8th note is the root again.",
+                        ),
+                        (
+                            prompt: "Which note is in G major but not in G major pentatonic?",
+                            choices: ["C", "D", "B"],
+                            answer: 0,
+                            explain: "G major pentatonic is G A B D E. The full G major scale adds C and F♯, so C isn't in the pentatonic.",
+                        ),
+                        (
+                            prompt: "In 3rds, what comes after \"G to B\"?",
+                            choices: ["A to C", "B to D", "G to A"],
+                            answer: 0,
+                            explain: "In 3rds, you skip one note, then start one step higher: G–B, then A–C, then B–D.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.8",
+            title: "Shifting Positions Smoothly",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["L6.7"],
+            goal: "Move your hand up and down the neck without gaps in the sound.",
+            practice: "Three minutes a day for a week. Do the shifting drill with your eyes on the target fret. Then try it with your eyes closed.",
+            steps: [
+                Learn(
+                    title: "Move the whole hand",
+                    explain: "A position is the fret your first finger covers. Fifth position means finger 1 is at fret 5. To shift, move your whole arm from the shoulder. Keep your hand in the same shape. Let your thumb ride along the back of the neck with your hand.",
+                    facts: [
+                        "Positions are often written with Roman numerals. V means 5th position.",
+                        "Look ahead to where you're going before you move.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 1), (string: 1, fret: 4), (string: 1, fret: 5), (string: 1, fret: 8), (string: 1, fret: 9), (string: 1, fret: 12)], first_fret: 0, last_fret: 12, show_names: false)),
+                    tips: [
+                        "Loosen your grip as you move, then press again when you land.",
+                        "Look at where you're going, not where you are.",
+                    ],
+                ),
+                Learn(
+                    title: "Use a guide finger",
+                    explain: "When you shift, keep one finger lightly touching the string. Slide it along to the new fret. That finger is your guide. It helps your hand land in the right place every time. Then press down when you arrive.",
+                    facts: [
+                        "Shift on the last note before the new position.",
+                        "Your thumb moves with your hand.",
+                    ],
+                    tips: [
+                        "Shift early. If you wait too long, you'll be late for the next note.",
+                    ],
+                    visual: Some(Tab([(string: 1, fret: 5), (string: 1, fret: 7), (string: 1, fret: 8), (string: 1, fret: 10, tech: Some(Slide)), (string: 1, fret: 12, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Shifting drill",
+                    instructions: "Four notes in each position, then shift. No gaps!",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 1, fret: 1), (string: 1, fret: 2), (string: 1, fret: 3), (string: 1, fret: 4),
+                        (string: 1, fret: 5), (string: 1, fret: 6), (string: 1, fret: 7), (string: 1, fret: 8),
+                        (string: 1, fret: 9), (string: 1, fret: 10), (string: 1, fret: 11), (string: 1, fret: 12, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What does \"5th position\" mean?",
+                            choices: ["Finger 1 covers fret 5", "You play string 5", "Five fingers are down"],
+                            answer: 0,
+                            explain: "A position is named for the fret your first finger covers. In 5th position, finger 1 is at fret 5.",
+                        ),
+                        (
+                            prompt: "Where should a shift come from?",
+                            choices: ["The whole arm, from the shoulder", "Just the fingertips", "The picking hand"],
+                            answer: 0,
+                            explain: "Move the whole arm from the shoulder and keep the hand's shape. That makes shifts smooth and accurate.",
+                        ),
+                        (
+                            prompt: "What does your thumb do when you shift?",
+                            choices: ["It travels along with the hand", "It stays at the nut", "It lets go of the neck"],
+                            answer: 0,
+                            explain: "The thumb rides along the back of the neck with your hand, so the hand keeps its shape.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.9",
+            title: "Sixteenth-Note Strumming and Accents",
+            thread: Rhythm,
+            minutes: 20,
+            prerequisites: ["L6.8"],
+            goal: "Strum sixteenth notes with accents and ghost strums.",
+            practice: "Five minutes a day for a week. Strum steady sixteenths on E minor at 60 bpm. Then add the funk accents.",
+            steps: [
+                Learn(
+                    title: "Four in every beat",
+                    explain: "Now the beat splits into four. Count \"1-e-and-a, 2-e-and-a.\" Your hand moves twice as fast, so keep it loose. Down on the numbers and \"and.\" Up on the \"e\" and \"a.\" Choose which strums are loud and which ones miss the strings. That is the secret of funk and pop grooves.",
+                    facts: [
+                        "A sixteenth note is one quarter of a beat.",
+                        "Accents are louder hits. Ghost strums miss the strings but keep your hand moving.",
+                        "Funk players mute the strings with the fretting hand for a scratchy sound.",
+                    ],
+                    visual: Some(StrumGrid(Sixteenths)),
+                    tips: [
+                        "Count \"1 e and a, 2 e and a.\" Every syllable is one strum.",
+                        "Keep your hand moving even when you skip a strum.",
+                    ],
+                ),
+                Activity(
+                    title: "Steady sixteenths",
+                    instructions: "Down-up on every slot. Keep your wrist loose.",
+                    activity: StrumAlong(chords: ["A-barre", "G-barre"], beats_per_chord: 4, pattern: Sixteenths, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Learn(
+                    title: "A funk groove",
+                    explain: "Here the hand never stops. But only some strums hit the strings. The gray arrows are ghosts. They miss on purpose.",
+                    visual: Some(StrumGrid(Funk16)),
+                ),
+                Activity(
+                    title: "Funk it up",
+                    instructions: "Play the funk groove on A minor.",
+                    activity: StrumAlong(chords: ["Am-barre"], beats_per_chord: 4, pattern: Funk16, tempos: [60.0, 70.0], repeats: 4),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How do you count sixteenth notes?",
+                            choices: ["1 e & a, 2 e & a", "1 & 2 &", "1 trip let"],
+                            answer: 0,
+                            explain: "Each beat splits into four: 1 e & a, 2 e & a.",
+                        ),
+                        (
+                            prompt: "Which way do you strum on the \"e\" and \"a\"?",
+                            choices: ["Up", "Down", "You stop"],
+                            answer: 0,
+                            explain: "With sixteenths, down-strums land on the number and the \"&\", and up-strums land on the \"e\" and \"a\".",
+                        ),
+                        (
+                            prompt: "What is a ghost strum?",
+                            choices: ["The hand moves but misses the strings", "A very loud strum", "A strum with no pick"],
+                            answer: 0,
+                            explain: "A ghost strum keeps the hand swinging but misses the strings. It keeps the groove steady.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.10",
+            title: "Fingerstyle Basics: p-i-m-a",
+            thread: Technique,
+            minutes: 20,
+            prerequisites: ["L6.9"],
+            goal: "Fingerpick a pattern with your thumb and three fingers.",
+            practice: "Five minutes a day for a week. Play p-i-m-a on C, Am, F, and G. Keep your thumb on the bass strings.",
+            steps: [
+                Learn(
+                    title: "Every finger has a lane",
+                    explain: "Put the pick down! Each finger on your picking hand gets a job. Your thumb (p) plays the bass strings: 6, 5, and 4. Your index (i) plays string 3. Your middle (m) plays string 2. Your ring finger (a) plays string 1. It's like each finger has its own lane on a track.",
+                    facts: [
+                        "The letters come from Spanish: pulgar, índice, medio, anular.",
+                        "Pick from the big knuckle. Keep your wrist relaxed and your hand still.",
+                        "Keep your thumb a little in front of your fingers.",
+                        "Go slow! Clean beats fast.",
+                    ],
+                    visual: Some(StrumGrid(Pima)),
+                ),
+                Learn(
+                    title: "Which string for the thumb?",
+                    explain: "Your thumb plays the root of the chord. That's the lowest note with the chord's name. For C and Am, the root is on string 5. For G and E minor, it's on string 6. For D, it's on string 4. Then i, m, and a play strings 3, 2, and 1.",
+                    facts: [
+                        "p = thumb, i = index, m = middle, a = ring.",
+                        "Fingers stay in their lanes: i on 3, m on 2, a on 1.",
+                    ],
+                    tips: [
+                        "Rest your fingers lightly on their strings. That way they always know where to go.",
+                    ],
+                    visual: Some(ChordPair("C", "Am")),
+                ),
+                Activity(
+                    title: "p-i-m-a on four chords",
+                    instructions: "Thumb on the bass, then i-m-a up and m-i back down.",
+                    activity: StrumAlong(chords: ["Am", "C", "D", "F"], beats_per_chord: 4, pattern: Pima, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Which strings does the thumb (p) play?",
+                            choices: ["The bass strings: 6, 5, and 4", "Only string 1", "Every string"],
+                            answer: 0,
+                            explain: "The thumb (p) handles the bass strings: 6, 5, and 4.",
+                        ),
+                        (
+                            prompt: "Which finger plays string 2?",
+                            choices: ["m (middle)", "i (index)", "a (ring)"],
+                            answer: 0,
+                            explain: "Each finger has a string: i plays 3, m plays 2, and a plays 1.",
+                        ),
+                        (
+                            prompt: "Which finger plays string 1?",
+                            choices: ["a (ring)", "p (thumb)", "m (middle)"],
+                            answer: 0,
+                            explain: "The ring finger (a) plays string 1, the highest string.",
+                        ),
+                        (
+                            prompt: "Where should the picking motion come from?",
+                            choices: ["The big knuckle, with a relaxed hand", "The elbow", "The shoulder"],
+                            answer: 0,
+                            explain: "Pluck from the big knuckle with a relaxed hand. That gives a clear, even sound without strain.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.11",
+            title: "Travis Picking",
+            thread: Technique,
+            minutes: 20,
+            prerequisites: ["L6.10"],
+            goal: "Keep a steady alternating thumb while your fingers play between the beats.",
+            practice: "Ten minutes a day for two weeks. Travis picking takes time! Play thumb only for three days, then add one finger at a time.",
+            steps: [
+                Learn(
+                    title: "A thumb that never stops",
+                    explain: "Your thumb becomes a drummer that never stops. It goes back and forth between two bass strings on every beat. Your fingers sneak notes in between the thumb hits. It sounds like two guitar players at once! This style is named after Merle Travis.",
+                    facts: [
+                        "For C, the thumb rocks between string 5 and string 4.",
+                        "For G, the thumb rocks between string 6 and string 4.",
+                        "Learn the thumb by itself first, until it runs on autopilot.",
+                    ],
+                    visual: Some(StrumGrid(Travis)),
+                    tips: [
+                        "Your thumb goes back and forth between two bass strings, like a clock ticking.",
+                        "If you get lost, stop the fingers and keep the thumb going.",
+                    ],
+                ),
+                Learn(
+                    title: "Which bass strings?",
+                    explain: "The thumb plays two bass strings, back and forth. For C, it plays string 5 then string 4, and your finger 3 hops to string 6 sometimes. For G and E, the thumb plays string 6 then string 4. For D, it's string 4 then string 3.",
+                    facts: [
+                        "C: strings 5 and 4.",
+                        "G and E: strings 6 and 4. D: strings 4 and 3.",
+                    ],
+                    tips: [
+                        "Rest the side of your hand on the bass strings to make them thump.",
+                    ],
+                    visual: Some(ChordPair("C", "G")),
+                ),
+                Activity(
+                    title: "Thumb only",
+                    instructions: "Play only the bass notes for now: string 5, string 4, string 5, string 4 on C.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 5, fret: 3), (string: 4, fret: 2), (string: 5, fret: 3), (string: 4, fret: 2),
+                        (string: 5, fret: 3), (string: 4, fret: 2), (string: 5, fret: 3), (string: 4, fret: 2),
+                    ]),
+                ),
+                Activity(
+                    title: "Add the fingers",
+                    instructions: "Keep the thumb steady. Fingers play on the \"and.\"",
+                    activity: StrumAlong(chords: ["C", "G", "Am", "F"], beats_per_chord: 4, pattern: Travis, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "In Travis picking, what does the thumb do?",
+                            choices: ["Plays every beat, rocking between two bass strings", "Rests on the guitar", "Plays only string 1"],
+                            answer: 0,
+                            explain: "In Travis picking the thumb plays every beat, rocking between two bass strings, like a steady drummer.",
+                        ),
+                        (
+                            prompt: "When do the fingers play?",
+                            choices: ["In between the thumb notes, on the \"and\"", "Only on beat 1", "Never"],
+                            answer: 0,
+                            explain: "The fingers play between the thumb notes, on the \"and\" of each beat.",
+                        ),
+                        (
+                            prompt: "What should you practice first?",
+                            choices: ["The thumb by itself", "The fastest speed", "Only the fingers"],
+                            answer: 0,
+                            explain: "Practice the thumb alone until it runs by itself. Then the fingers can join without throwing it off.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.12",
+            title: "Ear Lab: Recognizing Progressions",
+            thread: TheoryEar,
+            minutes: 10,
+            prerequisites: ["L6.11"],
+            goal: "Name common chord progressions by ear.",
+            practice: "Five minutes a day for a week. Listen to a song and hum the home note. Then guess if the next chord is the 4 or the 5.",
+            steps: [
+                Learn(
+                    title: "Find home first",
+                    explain: "Many songs use the same few chord trips. To name one, first find the home chord. Minor chords, like the 6 chord, sound darker. The 5 chord leans toward home, like it wants to sit down.",
+                    facts: [
+                        "1–4–5–1: the classic. It sounds like a folk or rock song.",
+                        "1–5–6–4: a huge pop progression.",
+                        "6–4–1–5: the same chords, but it starts on the dark one.",
+                    ],
+                    visual: Some(NumberWheel(key: "G")),
+                ),
+                Learn(
+                    title: "What each chord sounds like",
+                    explain: "Each number has its own feeling. The 1 chord sounds like home. The 4 chord sounds like leaving home for a trip. The 5 chord sounds like it wants to come back. The 6 chord sounds sad or thoughtful. Learn these feelings and you can name progressions by ear.",
+                    facts: [
+                        "1: home. 4: going away. 5: wants to go home. 6: a little sad.",
+                    ],
+                    tips: [
+                        "Hum the home note while the music plays. When the chord fights with your hum, it's not the 1.",
+                    ],
+                    visual: Some(ChordPair("G", "D")),
+                ),
+                Activity(
+                    title: "Name that progression",
+                    instructions: "Listen to four chords. Which numbers were they?",
+                    activity: EarQuiz(kind: Progressions, rounds: 8),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What should you listen for first?",
+                            choices: ["The home chord", "The loudest note", "The fastest strum"],
+                            answer: 0,
+                            explain: "Find the home chord first. Once you know home, the other chords are easier to name.",
+                        ),
+                        (
+                            prompt: "Which chord in a major key sounds darker?",
+                            choices: ["The 6 chord (minor)", "The 1 chord", "The 4 chord"],
+                            answer: 0,
+                            explain: "The 6 chord is minor, so it sounds darker than the 1, 4, and 5 chords, which are major.",
+                        ),
+                        (
+                            prompt: "In G, what are the chords of 1–5–6–4?",
+                            choices: ["G, D, Em, C", "G, C, D, G", "Em, C, G, D"],
+                            answer: 0,
+                            explain: "In G, the 1 is G, the 5 is D, the 6 is E minor, and the 4 is C.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L6.13",
+            title: "Level 6 Song: Canon in D",
+            thread: Song,
+            minutes: 25,
+            prerequisites: ["L6.12"],
+            goal: "Play Pachelbel's Canon in D, strummed and then fingerpicked.",
+            practice: "Ten minutes a day for a week. Strum the eight chords along with the music. Then fingerpick them with p-i-m-a.",
+            steps: [
+                Learn(
+                    title: "A very old hit",
+                    explain: "Pachelbel wrote this music more than 300 years ago. People still play it at weddings today! It walks through eight chords: D, A, Bm, F♯m, G, D, G, A. In numbers, that's 1-5-6-3-4-1-4-5. You'll need two barre chords: Bm and F♯m.",
+                    facts: [
+                        "Bm is an A-shape minor barre at fret 2.",
+                        "F♯m is an E-shape minor barre at fret 2.",
+                        "Level 1: strum it. Level 2: fingerpick it.",
+                    ],
+                    visual: Some(ChordPair("Bm", "F#m")),
+                ),
+                Learn(
+                    title: "The eight-chord pattern",
+                    explain: "Canon in D uses eight chords: D, A, Bm, F sharp minor, G, D, G, A. Then it repeats again and again. Learn it in two halves. The first half is D, A, Bm, F sharp minor. The second half is G, D, G, A.",
+                    facts: [
+                        "In numbers: 1, 5, 6, 3, 4, 1, 4, 5.",
+                        "Each chord gets two beats in our version.",
+                    ],
+                    tips: [
+                        "The bass note walks down step by step. Listen for it!",
+                    ],
+                    visual: Some(ChordPair("D", "A")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Check the two barre chords first.",
+                    activity: ChordCheck(chords: ["Bm", "F#m"]),
+                ),
+                Activity(
+                    title: "Level 1: strummed",
+                    instructions: "Two beats per chord. Keep it gentle.",
+                    activity: StrumAlong(chords: ["D", "A", "Bm", "F#m", "G", "D", "G", "A"], beats_per_chord: 2, pattern: Eighths, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Activity(
+                    title: "Level 2: fingerpicked",
+                    instructions: "One bar per chord with p-i-m-a.",
+                    activity: StrumAlong(chords: ["D", "A", "Bm", "F#m", "G", "D", "G", "A"], beats_per_chord: 4, pattern: Pima, tempos: [60.0, 70.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 70,
+                    questions: [
+                        (
+                            prompt: "What is the relative minor of D major?",
+                            choices: ["B minor", "F♯ minor", "E minor"],
+                            answer: 0,
+                            explain: "Count D E F♯ G A B: the 6th note of D major is B, so the relative minor is B minor.",
+                        ),
+                        (
+                            prompt: "Which scale sounds happy over a major-key song?",
+                            choices: ["Major pentatonic", "Minor pentatonic", "The blues scale"],
+                            answer: 0,
+                            explain: "Major pentatonic has the major 3rd, so it sounds happy over major-key songs.",
+                        ),
+                        (
+                            prompt: "What is the CAGED order?",
+                            choices: ["C, A, G, E, D", "C, D, E, G, A", "G, E, D, C, A"],
+                            answer: 0,
+                            explain: "C, A, G, E, D, the same order as the word CAGED.",
+                        ),
+                        (
+                            prompt: "In a 2nd inversion triad, which note is on the bottom?",
+                            choices: ["The 5th", "The root", "The 3rd"],
+                            answer: 0,
+                            explain: "In 2nd inversion the 5th is the lowest note. (1st inversion puts the 3rd on the bottom.)",
+                        ),
+                        (
+                            prompt: "How many sixteenth notes fit in one beat?",
+                            choices: ["4", "2", "3"],
+                            answer: 0,
+                            explain: "Sixteenth notes split each beat into four: 1 e & a.",
+                        ),
+                        (
+                            prompt: "In p-i-m-a, which finger plays string 3?",
+                            choices: ["i (index)", "a (ring)", "p (thumb)"],
+                            answer: 0,
+                            explain: "i (index) plays string 3, m plays string 2, and a plays string 1.",
+                        ),
+                        (
+                            prompt: "Canon in D uses chords 1-5-6-3-4-1-4-5. In D, what is the 6 chord?",
+                            choices: ["Bm", "G", "F♯m"],
+                            answer: 0,
+                            explain: "Count up D major: D E F♯ G A B. The 6th note is B, and the 6 chord is minor, so Bm.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("F#m")),
+                            choices: ["F♯ minor", "F major", "A major"],
+                            answer: 0,
+                            explain: "An E-minor shape barred at fret 2, root on string 6. String 6, fret 2 is F♯, so it's F♯ minor.",
+                        ),
+                        (
+                            prompt: "Which pentatonic shape comes after Box 1, going up?",
+                            choices: ["Shape 2", "Shape 5", "Shape 3"],
+                            answer: 0,
+                            explain: "The shapes go in order up the neck: after Box 1 comes shape 2.",
+                        ),
+                        (
+                            prompt: "What does a 1–4–5–1 progression sound like?",
+                            choices: ["A classic folk or rock song", "A spooky movie", "Just one chord"],
+                            answer: 0,
+                            explain: "1–4–5–1 is the sound of countless folk, country, and rock songs: home, away, and back home.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

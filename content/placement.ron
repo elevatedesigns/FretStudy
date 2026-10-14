@@ -1,0 +1,273 @@
+// Placement assessment bank. See docs/03-Placement-Assessment.md.
+// Stage A claims point to a level; Stage B/C items are checkpoint questions per level.
+PlacementBank(
+    claims: [
+        (id: "tune", text: "Tune my guitar", level: 1),
+        (id: "open5", text: "Play G, C, D, Em, and Am", level: 2),
+        (id: "tab", text: "Read guitar tab", level: 2),
+        (id: "strum", text: "Strum along with a song without stopping", level: 3),
+        (id: "barre", text: "Play an F barre chord or Bm", level: 4),
+        (id: "penta", text: "Play the minor pentatonic scale", level: 5),
+        (id: "solo", text: "Make up a solo over a blues", level: 5),
+        (id: "caged", text: "Play scales and chords all over the neck (CAGED)", level: 6),
+        (id: "travis", text: "Fingerpick a pattern (like Travis picking)", level: 6),
+        (id: "modes", text: "Explain what a ii–V–I or a mode is", level: 7),
+    ],
+    items: [
+        // ---------------- Level 0: Get Ready ----------------
+        (id: "P0-1", level: 0, thread: Chords, question: (
+            prompt: "In this chord box, what does the X above string 6 mean?",
+            visual: Some(Chord("C")),
+            choices: ["Don't play that string", "Play it open", "Play it extra loud"],
+            answer: 0,
+        )),
+        (id: "P0-2", level: 0, thread: Notes, question: (
+            prompt: "What is the name of string 2 (the second-thinnest)?",
+            choices: ["G", "B", "A"],
+            answer: 1,
+        )),
+        (id: "P0-3", level: 0, thread: Notes, question: (
+            prompt: "Which string and fret does this tab show?",
+            visual: Some(Tab([(string: 2, fret: 3)])),
+            choices: ["String 2, fret 3", "String 3, fret 2", "String 5, fret 3"],
+            answer: 0,
+        )),
+        (id: "P0-5", level: 0, thread: Technique, question: (
+            prompt: "Which finger is finger 3?",
+            choices: ["Ring finger", "Middle finger", "Pinky"],
+            answer: 0,
+        )),
+        (id: "P0-6", level: 0, thread: Rhythm, question: (
+            prompt: "At 60 BPM, how often does the metronome click?",
+            choices: ["Once every second", "Twice every second", "Once every minute"],
+            answer: 0,
+        )),
+        // ---------------- Level 1: First Strums ----------------
+        (id: "P1-1", level: 1, thread: Chords, question: (
+            prompt: "Name this chord.",
+            visual: Some(Shape(frets: "022000", fingers: "-23---")),
+            choices: ["E minor", "A minor", "E major"],
+            answer: 0,
+        )),
+        (id: "P1-2", level: 1, thread: Chords, question: (
+            prompt: "Name this chord.",
+            visual: Some(Shape(frets: "xx0212", fingers: "---213")),
+            choices: ["D", "D7", "Dm"],
+            answer: 1,
+        )),
+        (id: "P1-3", level: 1, thread: TheoryEar, question: (
+            prompt: "Two chords play. Which one sounds minor (sadder)?",
+            audio: Some(Chords(["G-easy", "Em"])),
+            choices: ["The first", "The second"],
+            answer: 1,
+        )),
+        (id: "P1-4", level: 1, thread: Notes, question: (
+            prompt: "In first position, where is G on string 1?",
+            choices: ["Fret 3", "Fret 1", "Open"],
+            answer: 0,
+        )),
+        (id: "P1-5", level: 1, thread: Rhythm, question: (
+            prompt: "Strumming quarter notes in 4/4, how many strums are in one measure?",
+            choices: ["4", "8", "2"],
+            answer: 0,
+        )),
+        // ---------------- Level 2: Open Chord Foundations ----------------
+        (id: "P2-1", level: 2, thread: Chords, question: (
+            prompt: "Name this chord.",
+            visual: Some(Shape(frets: "x02210", fingers: "--231-")),
+            choices: ["A minor", "C major", "A major"],
+            answer: 0,
+        )),
+        (id: "P2-2", level: 2, thread: Chords, question: (
+            prompt: "Name this chord.",
+            visual: Some(Shape(frets: "xx0231", fingers: "---231")),
+            choices: ["D major", "D minor", "D7"],
+            answer: 1,
+        )),
+        (id: "P2-3", level: 2, thread: TheoryEar, question: (
+            prompt: "Which pair of letters has NO sharp or flat between them?",
+            choices: ["C and D", "E and F", "G and A", "A and B"],
+            answer: 1,
+        )),
+        (id: "P2-4", level: 2, thread: Rhythm, question: (
+            prompt: "In eighth-note strumming, you strum down on the numbers and up on the…",
+            visual: Some(StrumGrid(Eighths)),
+            choices: ["\"and\"s", "rests", "accents"],
+            answer: 0,
+        )),
+        (id: "P2-6", level: 2, thread: Chords, question: (
+            prompt: "To turn A major into A minor, which note changes?",
+            choices: ["The 3rd (string 2 drops one fret)", "The root (string 5)", "Nothing changes"],
+            answer: 0,
+        )),
+        (id: "P2-7", level: 2, thread: Notes, question: (
+            prompt: "On the treble staff, the five lines (bottom to top) are…",
+            choices: ["E G B D F", "F A C E G", "A B C D E"],
+            answer: 0,
+        )),
+        // ---------------- Level 3: Rhythm & Reading ----------------
+        (id: "P3-1", level: 3, thread: Chords, question: (
+            prompt: "Name this chord.",
+            visual: Some(Shape(frets: "020100", fingers: "-2-1--")),
+            choices: ["E7", "E minor", "A7"],
+            answer: 0,
+        )),
+        (id: "P3-2", level: 3, thread: Rhythm, question: (
+            prompt: "Which strum pattern is this?",
+            visual: Some(StrumGrid(OldFaithful)),
+            choices: ["D D U U D U", "D U D U D U D U", "D D D D"],
+            answer: 0,
+        )),
+        (id: "P3-3", level: 3, thread: TheoryEar, question: (
+            prompt: "In the key of D, the 1, 4, and 5 chords are…",
+            choices: ["D, G, A", "D, E, F♯", "D, A, B"],
+            answer: 0,
+        )),
+        (id: "P3-4", level: 3, thread: Notes, question: (
+            prompt: "In first position, where is C on string 5?",
+            choices: ["Fret 3", "Fret 2", "Fret 1"],
+            answer: 0,
+        )),
+        (id: "P3-5", level: 3, thread: Technique, question: (
+            prompt: "Tuning by ear: to tune string 2 (B), you press string 3 (G) at which fret?",
+            choices: ["4", "5", "7"],
+            answer: 0,
+        )),
+        (id: "P3-6", level: 3, thread: Rhythm, question: (
+            prompt: "A quarter rest sits on beat 3. What do you do on beat 3?",
+            choices: ["Stay silent (mute the strings)", "Strum twice", "Hold the chord ringing"],
+            answer: 0,
+        )),
+        // ---------------- Level 4: Movable Shapes ----------------
+        (id: "P4-1", level: 4, thread: Chords, question: (
+            prompt: "Name this barre chord (the barre is at fret 3).",
+            visual: Some(Shape(frets: "355433", fingers: "134211")),
+            choices: ["G", "A", "F"],
+            answer: 0,
+        )),
+        (id: "P4-2", level: 4, thread: Chords, question: (
+            prompt: "Name this chord.",
+            visual: Some(Shape(frets: "x24432", fingers: "-13421")),
+            choices: ["B minor", "B major", "A minor"],
+            answer: 0,
+        )),
+        (id: "P4-3", level: 4, thread: Chords, question: (
+            prompt: "The capo is on fret 2 and you play a G shape. What chord do people hear?",
+            choices: ["A", "G", "B"],
+            answer: 0,
+        )),
+        (id: "P4-4", level: 4, thread: TheoryEar, question: (
+            prompt: "What is the major scale's step recipe?",
+            choices: ["W W H W W W H", "W H W W H W W", "H W W W H W W"],
+            answer: 0,
+        )),
+        (id: "P4-5", level: 4, thread: TheoryEar, question: (
+            prompt: "In the key of G, what is the 6 chord?",
+            choices: ["E minor", "C", "D"],
+            answer: 0,
+        )),
+        (id: "P4-7", level: 4, thread: Notes, question: (
+            prompt: "Where is C on string 6?",
+            choices: ["Fret 8", "Fret 3", "Fret 5"],
+            answer: 0,
+        )),
+        (id: "P4-8", level: 4, thread: Rhythm, question: (
+            prompt: "For palm muting, where does the edge of your picking hand rest?",
+            choices: ["Lightly on the strings at the bridge", "On the 12th fret", "Under the strings"],
+            answer: 0,
+        )),
+        // ---------------- Level 5: Lead Guitar Basics ----------------
+        (id: "P5-1", level: 5, thread: Notes, question: (
+            prompt: "Which formula is the minor pentatonic scale?",
+            choices: ["1 ♭3 4 5 ♭7", "1 2 3 5 6", "1 2 ♭3 4 5 ♭6 ♭7"],
+            answer: 0,
+        )),
+        (id: "P5-2", level: 5, thread: Chords, question: (
+            prompt: "The 12-bar blues uses which chords?",
+            choices: ["1, 4, and 5", "1, 2, and 6", "Only the 1 chord"],
+            answer: 0,
+        )),
+        (id: "P5-3", level: 5, thread: Technique, question: (
+            prompt: "In tab, \"7b9\" means…",
+            choices: ["Bend fret 7 up a whole step (to sound like fret 9)", "Slide from 7 to 9", "Hammer on from 7 to 9"],
+            answer: 0,
+        )),
+        (id: "P5-4", level: 5, thread: Notes, question: (
+            prompt: "The blues scale adds which note to the minor pentatonic?",
+            choices: ["♭5", "♮7", "2"],
+            answer: 0,
+        )),
+        (id: "P5-5", level: 5, thread: Rhythm, question: (
+            prompt: "In a shuffle, eighth notes are played…",
+            choices: ["Long-short, long-short", "Perfectly even", "Short-long, short-long"],
+            answer: 0,
+        )),
+        // ---------------- Level 6: The Whole Neck ----------------
+        (id: "P6-1", level: 6, thread: TheoryEar, question: (
+            prompt: "What is the relative minor of G major?",
+            choices: ["E minor", "A minor", "B minor"],
+            answer: 0,
+        )),
+        (id: "P6-2", level: 6, thread: Chords, question: (
+            prompt: "Going up the neck, what is the order of the CAGED shapes?",
+            choices: ["C–A–G–E–D", "C–D–E–G–A", "E–A–D–G–C"],
+            answer: 0,
+        )),
+        (id: "P6-3", level: 6, thread: Notes, question: (
+            prompt: "This is A minor pentatonic. Which shape number is it? (Box 1 starts at fret 5.)",
+            visual: Some(Neck(notes: [
+                (string: 6, fret: 8), (string: 6, fret: 10), (string: 5, fret: 7), (string: 5, fret: 10),
+                (string: 4, fret: 7), (string: 4, fret: 10), (string: 3, fret: 7), (string: 3, fret: 9),
+                (string: 2, fret: 8), (string: 2, fret: 10), (string: 1, fret: 8), (string: 1, fret: 10),
+            ], first_fret: 4, last_fret: 12, show_names: true)),
+            choices: ["Shape 2", "Shape 4", "Shape 1"],
+            answer: 0,
+        )),
+        (id: "P6-4", level: 6, thread: Technique, question: (
+            prompt: "In fingerstyle, which finger is \"m\"?",
+            choices: ["Middle", "Thumb", "Ring"],
+            answer: 0,
+        )),
+        (id: "P6-5", level: 6, thread: Chords, question: (
+            prompt: "The notes E, G, C (low to high) are which inversion of a C chord?",
+            choices: ["1st inversion", "Root position", "2nd inversion"],
+            answer: 0,
+        )),
+        (id: "P6-6", level: 6, thread: Rhythm, question: (
+            prompt: "How do you count sixteenth notes?",
+            choices: ["1 e & a", "1 & 2 &", "1 trip let"],
+            answer: 0,
+        )),
+        // ---------------- Level 7: Harmony & Expression ----------------
+        (id: "P7-1", level: 7, thread: TheoryEar, question: (
+            prompt: "In a major key, which chord is naturally a dominant 7th?",
+            choices: ["The 5 chord (V7)", "The 1 chord", "The 4 chord"],
+            answer: 0,
+        )),
+        (id: "P7-2", level: 7, thread: TheoryEar, question: (
+            prompt: "Dorian is like natural minor, but with a raised…",
+            choices: ["6th", "3rd", "5th"],
+            answer: 0,
+        )),
+        (id: "P7-3", level: 7, thread: Chords, question: (
+            prompt: "Spell a Dm7 chord.",
+            choices: ["D F A C", "D F♯ A C", "D F A C♯"],
+            answer: 0,
+        )),
+        (id: "P7-5", level: 7, thread: TheoryEar, question: (
+            prompt: "In A minor, why is the E chord often major?",
+            choices: ["It borrows the raised 7th (G♯) from harmonic minor", "It's a typo", "Because E is the root"],
+            answer: 0,
+        )),
+        (id: "P7-6", level: 7, thread: Notes, question: (
+            prompt: "When the chord changes during a solo, which notes are the safest to land on?",
+            choices: ["The new chord's chord tones", "Any note one fret away", "Only the open strings"],
+            answer: 0,
+        )),
+        (id: "P7-7", level: 7, thread: Technique, question: (
+            prompt: "Playing notes short and detached is called…",
+            choices: ["Staccato", "Legato", "Vibrato"],
+            answer: 0,
+        )),
+    ],
+)

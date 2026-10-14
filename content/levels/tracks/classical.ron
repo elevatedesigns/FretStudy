@@ -1,0 +1,534 @@
+// Style Track C — Classical. See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 14,
+    title: "🎼 Classical",
+    track: Some("Classical"),
+    goal: "Classical posture, rest and free strokes, reading in first position, two-part reading, Giuliani arpeggios, tremolo, rasgueado, and a Minuet.",
+    weeks: "8–10 weeks",
+    lessons: [
+        Lesson(
+            id: "C.1",
+            title: "Classical Posture",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["L6.10"],
+            goal: "Sit and hold the guitar the classical way.",
+            practice: "Two minutes before every practice for a week. Check your posture with the checklist, then play a few slow notes.",
+            steps: [
+                Learn(
+                    title: "Sit tall, neck up",
+                    explain: "Classical players rest the guitar on the left leg (right leg for lefties). They raise that foot on a small footstool, so the neck points up at a slant. This frees both hands. Nylon strings feel softer and sound warm.",
+                    facts: [
+                        "Sit on the front edge of the chair.",
+                        "The neck points up about halfway between flat and straight up.",
+                        "The headstock is about level with your eyes.",
+                    ],
+                ),
+                Learn(
+                    title: "Your plucking hand",
+                    explain: "Rest your forearm on the top edge of the guitar. Your hand hangs over the strings near the sound hole. Your thumb sits a little ahead of your fingers, toward the neck. Keep your wrist gently bent, like holding a ball.",
+                    facts: [
+                        "Thumb: plays strings 4, 5, and 6.",
+                        "Fingers: play strings 1, 2, and 3.",
+                    ],
+                    tips: [
+                        "Don't rest your palm on the strings. It would stop them from ringing.",
+                    ],
+                    visual: Some(Hand),
+                ),
+                Learn(
+                    title: "Your fretting hand",
+                    explain: "Put your thumb behind the neck, near the middle. Your fingers curve like a bridge over the strings. Press with the very tips, close to the fret. Keep your palm off the neck so your fingers can reach every string.",
+                    facts: [
+                        "Thumb behind the neck, not over the top.",
+                    ],
+                    visual: Some(Shape(frets: "x32010", fingers: "-32-1-", name: "C major")),
+                ),
+                Activity(
+                    title: "Posture check",
+                    instructions: "Tick each one.",
+                    activity: Checklist(items: [
+                        "I'm sitting on the front edge of my chair.",
+                        "My foot is raised on a stool or a stack of books.",
+                        "The neck points up at a slant.",
+                        "My back is tall and my shoulders are loose.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In classical posture, which way does the neck point?",
+                            choices: ["Up at a slant", "Straight down", "Flat and level"],
+                            answer: 0,
+                            explain: "The neck points up at a slant. That frees both hands and puts the frets in easy reach.",
+                        ),
+                        (
+                            prompt: "What raises the leg under the guitar?",
+                            choices: ["A footstool", "A strap", "A capo"],
+                            answer: 0,
+                            explain: "A footstool raises the leg the guitar rests on, which tilts the neck up.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "C.2",
+            title: "Rest Stroke and Free Stroke",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["C.1"],
+            goal: "Play rest strokes and free strokes, alternating i and m.",
+            practice: "Five minutes a day for a week. Walk i and m with rest stroke on each string. Then use free stroke on a chord.",
+            steps: [
+                Learn(
+                    title: "Two ways to pluck",
+                    explain: "In a rest stroke, your finger plucks the string and comes to rest on the next string. It sounds full and strong, great for melodies. In a free stroke, your finger swings up into the air. It's lighter, great for chords. Classical players walk their index and middle fingers, i and m, like legs.",
+                    facts: [
+                        "Rest stroke: melody. Free stroke: arpeggios and chords.",
+                        "Never pluck twice in a row with the same finger. Alternate i, m, i, m.",
+                    ],
+                ),
+                Learn(
+                    title: "Which stroke when?",
+                    explain: "Use rest stroke for melody notes you want to sound loud and full. Your finger comes to rest on the next string. Use free stroke for chords and arpeggios. Your finger lifts into your palm, so other strings keep ringing.",
+                    facts: [
+                        "Rest stroke: strong, singing melody.",
+                        "Free stroke: chords that ring together.",
+                    ],
+                    tips: [
+                        "Always switch fingers: i, m, i, m. Don't use the same finger twice in a row.",
+                    ],
+                    visual: Some(StrumGrid(Pima)),
+                ),
+                Learn(
+                    title: "Alternate i and m",
+                    explain: "Walk your fingers like legs: i, m, i, m. Each finger takes a turn. This keeps notes even and lets you play fast without getting tired. Try it on one open string first.",
+                    visual: Some(Tab([(string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0), (string: 2, fret: 0), (string: 2, fret: 0), (string: 2, fret: 0), (string: 2, fret: 0)])),
+                ),
+                Activity(
+                    title: "Walk i and m",
+                    instructions: "Rest strokes on the open high E: i, m, i, m. Then on B.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0),
+                        (string: 2, fret: 0), (string: 2, fret: 0), (string: 2, fret: 0), (string: 2, fret: 0),
+                        (string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3), (string: 1, fret: 1),
+                        (string: 1, fret: 0, beats: 4.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In a rest stroke, where does the finger stop?",
+                            choices: ["On the next string", "In the air", "On the guitar body"],
+                            answer: 0,
+                            explain: "In a rest stroke, the finger pushes through the string and comes to rest on the next string.",
+                        ),
+                        (
+                            prompt: "Which fingers walk in classical melody playing?",
+                            choices: ["i and m", "p and a", "Only the thumb"],
+                            answer: 0,
+                            explain: "Classical players alternate i (index) and m (middle) like walking legs.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "C.3",
+            title: "Reading in First Position",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["C.2"],
+            goal: "Read notes on the staff for strings 1, 2, and 3 in first position.",
+            practice: "Five minutes a day for a week. Name the notes on the staff out loud before you play them. Then play the reading piece slowly.",
+            steps: [
+                Learn(
+                    title: "From the staff to the strings",
+                    explain: "Classical guitar music is written on a staff. The higher a note sits, the higher it sounds. Each line and space is a letter. Here are the first-position notes on the top three strings, from G up to G. Read each one, then find it.",
+                    facts: [
+                        "Lines from the bottom: E G B D F (\"Every Good Boy Does Fine\").",
+                        "Spaces from the bottom: F A C E (it spells \"face\").",
+                        "Guitar music sounds one octave lower than written.",
+                    ],
+                    visual: Some(Staff(notes: [
+                        (string: 3, fret: 0), (string: 3, fret: 2), (string: 2, fret: 0), (string: 2, fret: 1),
+                        (string: 2, fret: 3), (string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3, beats: 2.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Lines and spaces",
+                    explain: "The staff has five lines and four spaces. The spaces spell a word: F, A, C, E. Just remember FACE! The lines, bottom to top, are E, G, B, D, F. Say \"Every Good Boy Does Fine\" to remember them.",
+                    facts: [
+                        "Spaces: F A C E.",
+                        "Lines: E G B D F.",
+                    ],
+                    tips: [
+                        "Guitar music sounds one octave lower than it looks. That's normal!",
+                    ],
+                    visual: Some(Staff(notes: [(string: 4, fret: 3), (string: 3, fret: 2), (string: 2, fret: 1), (string: 1, fret: 0, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Note hunt: strings 1 to 3",
+                    instructions: "Find each note in first position.",
+                    activity: NoteHunt(strings: [1, 2, 3], max_fret: 3, rounds: 10),
+                ),
+                Learn(
+                    title: "A little reading piece",
+                    explain: "Now read a short tune. Say each note's name, then play it. Watch the note lengths: black notes get one beat, open notes get two.",
+                    visual: Some(Staff(notes: [
+                        (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0), (string: 2, fret: 3),
+                        (string: 2, fret: 1), (string: 2, fret: 0), (string: 3, fret: 2, beats: 2.0),
+                        (string: 3, fret: 0), (string: 3, fret: 2), (string: 2, fret: 0), (string: 2, fret: 1),
+                        (string: 2, fret: 3), (string: 2, fret: 0), (string: 2, fret: 1, beats: 2.0),
+                    ])),
+                ),
+                Activity(
+                    title: "Play the reading piece",
+                    instructions: "Read from the staff. Turn on Standard notation in the diagram settings to see it here too.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0), (string: 2, fret: 3),
+                        (string: 2, fret: 1), (string: 2, fret: 0), (string: 3, fret: 2, beats: 2.0),
+                        (string: 3, fret: 0), (string: 3, fret: 2), (string: 2, fret: 0), (string: 2, fret: 1),
+                        (string: 2, fret: 3), (string: 2, fret: 0), (string: 2, fret: 1, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "On the staff, the lines from the bottom are…",
+                            choices: ["E G B D F", "F A C E", "A B C D E"],
+                            answer: 0,
+                            explain: "The five lines, from the bottom, are E G B D F (\"Every Good Boy Does Fine\").",
+                        ),
+                        (
+                            prompt: "The spaces from the bottom spell…",
+                            choices: ["FACE", "EGBDF", "CAGE"],
+                            answer: 0,
+                            explain: "The four spaces, from the bottom, spell F A C E.",
+                        ),
+                        (
+                            prompt: "Compared to how it's written, guitar sounds…",
+                            choices: ["One octave lower", "One octave higher", "Exactly the same"],
+                            answer: 0,
+                            explain: "Guitar music is written one octave higher than it sounds, so it fits neatly on the treble staff.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "C.4",
+            title: "Two-Part Reading",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["C.3"],
+            goal: "Read and play a bass line with a melody.",
+            practice: "Five minutes a day for a week. Play just the bass, then just the melody. Then put them together slowly.",
+            steps: [
+                Learn(
+                    title: "Bass and melody",
+                    explain: "Much classical music has two parts. The thumb plays the low bass notes. The fingers play the melody up high. On the staff, bass notes have stems pointing down. Melody notes have stems pointing up. Start by playing each part alone.",
+                    facts: [
+                        "Bass notes are on strings 4, 5, and 6 (often open).",
+                        "Play the bass with p and the melody with i and m.",
+                    ],
+                    visual: Some(Staff(notes: [
+                        (string: 5, fret: 3), (string: 2, fret: 1), (string: 1, fret: 0), (string: 2, fret: 1),
+                        (string: 6, fret: 3), (string: 2, fret: 3), (string: 1, fret: 1), (string: 2, fret: 3),
+                        (string: 5, fret: 3), (string: 2, fret: 1), (string: 1, fret: 0), (string: 2, fret: 1, beats: 2.0),
+                    ])),
+                    tips: [
+                        "Practice each part alone first. Then put them together slowly.",
+                    ],
+                ),
+                Learn(
+                    title: "Stems up, stems down",
+                    explain: "In two-part music, melody notes have stems pointing up. Bass notes have stems pointing down. Your thumb plays the down-stem notes. Your fingers play the up-stem notes. It's like two people playing at once.",
+                    facts: [
+                        "Stems up: fingers (melody).",
+                        "Stems down: thumb (bass).",
+                    ],
+                    tips: [
+                        "Let the bass notes ring under the melody. Don't stop them early.",
+                    ],
+                    visual: Some(Tab([(string: 5, fret: 3), (string: 2, fret: 1), (string: 4, fret: 2), (string: 2, fret: 0), (string: 6, fret: 3), (string: 1, fret: 3, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Bass, then melody",
+                    instructions: "Thumb on the low notes, fingers on the high ones.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 5, fret: 3), (string: 2, fret: 1), (string: 1, fret: 0), (string: 2, fret: 1),
+                        (string: 6, fret: 3), (string: 2, fret: 3), (string: 1, fret: 1), (string: 2, fret: 3),
+                        (string: 5, fret: 3), (string: 2, fret: 1), (string: 1, fret: 0), (string: 2, fret: 1, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Which finger plays the bass part?",
+                            choices: ["The thumb (p)", "The ring finger (a)", "The index (i)"],
+                            answer: 0,
+                            explain: "The thumb (p) plays the bass part on the low strings.",
+                        ),
+                        (
+                            prompt: "In two-part music, which way do melody stems usually point?",
+                            choices: ["Up", "Down", "Sideways"],
+                            answer: 0,
+                            explain: "Melody stems point up and bass stems point down, so you can see the two parts.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "C.5",
+            title: "Giuliani Arpeggio Studies",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["C.4"],
+            goal: "Play p-i-m-a arpeggio patterns smoothly over C and G7.",
+            practice: "Five minutes a day for a week. Play the Giuliani study on C and G7, very slowly. Then speed up a little each day.",
+            steps: [
+                Learn(
+                    title: "The classical workout",
+                    explain: "Mauro Giuliani wrote 120 short arpeggio exercises, about 200 years ago. Each one uses a different picking pattern over the same two chords, C and G7. They train every finger to play evenly. Here is a classic one: p, i, m, a, m, i.",
+                    facts: [
+                        "Hold the chord the whole bar so every note rings.",
+                        "Every finger should sound just as loud as the others.",
+                    ],
+                    visual: Some(StrumGrid(Pima)),
+                ),
+                Learn(
+                    title: "Fingers get ready early",
+                    explain: "Before you pluck, set each finger on its string: thumb on the bass, i on 3, m on 2, a on 1. This is called planting. Then pluck one at a time. Planting keeps your fingers in the right place and makes the study feel smooth.",
+                    facts: [
+                        "Giuliani wrote 120 arpeggio studies for students.",
+                        "Each one uses the same few chords in a new pattern.",
+                    ],
+                    tips: [
+                        "Keep your hand still. Only your fingers should move.",
+                    ],
+                    visual: Some(ChordPair("C", "G7")),
+                ),
+                Activity(
+                    title: "Giuliani on C and G7",
+                    instructions: "Even and smooth. Slow is fine.",
+                    activity: StrumAlong(chords: ["C", "G7", "G7", "C"], beats_per_chord: 4, pattern: Pima, tempos: [60.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What do Giuliani's studies train?",
+                            choices: ["Even picking-hand fingers", "Bending strings", "Fast strumming"],
+                            answer: 0,
+                            explain: "Giuliani's studies train the picking hand's fingers to play evenly and smoothly.",
+                        ),
+                        (
+                            prompt: "Which two chords do they use?",
+                            choices: ["C and G7", "E and A", "Am and Dm"],
+                            answer: 0,
+                            explain: "The Giuliani studies use the same two chords, C and G7, so you can focus on the picking pattern.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "C.6",
+            title: "Planting and Tremolo",
+            thread: Technique,
+            minutes: 20,
+            prerequisites: ["C.5"],
+            goal: "Plant your fingers for accuracy and try the p-a-m-i tremolo.",
+            practice: "Five minutes a day for a week. Play p-a-m-i on string 1 slowly with the metronome. Make every note the same volume.",
+            steps: [
+                Learn(
+                    title: "Plant, then play",
+                    explain: "Planting means setting your fingers on their strings before you play them. It makes your picking accurate. Tremolo is a famous classical sound. The thumb plays a bass note, then the a, m, and i fingers pluck one high string fast. It sounds like one long, shimmering note.",
+                    facts: [
+                        "Tremolo order: p, a, m, i. Then repeat.",
+                        "Keep the three finger notes perfectly even.",
+                    ],
+                    visual: Some(StrumGrid(Tremolo)),
+                ),
+                Learn(
+                    title: "Tremolo, one finger at a time",
+                    explain: "Tremolo is p, a, m, i. The thumb plays a bass note. Then a, m, and i play the same melody note three times fast. At full speed, the melody sounds like one long, shimmering note. Start very slowly and keep it even.",
+                    facts: [
+                        "Order: p, a, m, i.",
+                        "a, m, and i all play the same string.",
+                    ],
+                    tips: [
+                        "Listen for evenness. Speed comes later.",
+                    ],
+                    visual: Some(Tab([(string: 5, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0), (string: 4, fret: 2), (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0)])),
+                ),
+                Activity(
+                    title: "Slow tremolo",
+                    instructions: "Thumb on the bass, then a-m-i on string 1.",
+                    activity: StrumAlong(chords: ["Am", "E", "Am", "E"], beats_per_chord: 4, pattern: Tremolo, tempos: [40.0, 50.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What's the tremolo finger order?",
+                            choices: ["p, a, m, i", "p, i, m, a", "i, m, i, m"],
+                            answer: 0,
+                            explain: "Tremolo goes thumb, then ring, middle, index: p, a, m, i.",
+                        ),
+                        (
+                            prompt: "What is planting?",
+                            choices: ["Setting fingers on their strings before playing", "Tapping your foot", "Holding a chord"],
+                            answer: 0,
+                            explain: "Planting means setting each finger on its string just before you play it, for accuracy.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "C.7",
+            title: "Rasgueado",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["C.6"],
+            goal: "Strum the flamenco way, flicking each finger out.",
+            practice: "Five minutes a day for a week. Do the four-finger flick on E and Am. Keep it soft at first, then louder.",
+            steps: [
+                Learn(
+                    title: "The flamenco flick",
+                    explain: "Rasgueado is a flamenco strum. Curl your fingers into your palm. Then flick them out one at a time across the strings: little finger, ring, middle, index. It sounds like a fast, rolling burst. Use your fingernails.",
+                    facts: [
+                        "Flick in order: pinky, ring (a), middle (m), then index (i).",
+                        "Am, G, F, E is the classic flamenco chord walk.",
+                    ],
+                    visual: Some(StrumGrid(Sixteenths)),
+                ),
+                Learn(
+                    title: "Fan your fingers out",
+                    explain: "Curl your fingers into a loose fist. Flick them out one by one, starting with the pinky: e, a, m, i. Each finger brushes all the strings. It sounds like a fast drum roll on the guitar. That's the flamenco rasgueado!",
+                    facts: [
+                        "Order: pinky, ring, middle, index.",
+                        "Hit the strings with the backs of your nails.",
+                    ],
+                    tips: [
+                        "Move only your fingers. Keep your wrist still.",
+                    ],
+                    visual: Some(ChordPair("E", "Am")),
+                ),
+                Activity(
+                    title: "Flamenco chord walk",
+                    instructions: "Strum each chord with a rasgueado on beat 1.",
+                    activity: StrumAlong(chords: ["Am", "G", "F", "E"], beats_per_chord: 4, pattern: Sixteenths, tempos: [60.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In a rasgueado, the fingers…",
+                            choices: ["Flick out one at a time", "Pluck one string", "Stay curled"],
+                            answer: 0,
+                            explain: "In a rasgueado, the fingers flick out one after another across the strings, making a rolling burst.",
+                        ),
+                        (
+                            prompt: "What is the classic flamenco chord walk?",
+                            choices: ["Am, G, F, E", "C, F, G, C", "G, D, Em, C"],
+                            answer: 0,
+                            explain: "Am, G, F, E is the classic flamenco walk down, called the Andalusian cadence.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "C.8",
+            title: "Classical Capstone: Minuet in G",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["C.7"],
+            goal: "Read and play the opening of the Minuet in G.",
+            practice: "Ten minutes a day for two weeks. Learn the minuet in four-bar pieces. Add one piece each day, then play it all.",
+            steps: [
+                Learn(
+                    title: "A famous minuet",
+                    explain: "This minuet is about 300 years old. It's from a notebook Bach made for his family, and it was likely written by Christian Petzold. It's in 3/4 time: three beats in each bar. Read it from the staff. The key of G has one sharp, F sharp.",
+                    facts: [
+                        "Count \"1 2 3, 1 2 3.\" A minuet is a dance.",
+                        "The last note lasts all three beats.",
+                    ],
+                    visual: Some(Staff(key: Some("G"), bar: 3, notes: [
+                        (string: 2, fret: 3), (string: 3, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 2, fret: 1, beats: 0.5),
+                        (string: 2, fret: 3), (string: 3, fret: 0), (string: 3, fret: 0),
+                        (string: 1, fret: 0), (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 3, beats: 0.5), (string: 1, fret: 0, beats: 0.5), (string: 1, fret: 2, beats: 0.5),
+                        (string: 1, fret: 3), (string: 3, fret: 0), (string: 3, fret: 0),
+                        (string: 2, fret: 1), (string: 2, fret: 3, beats: 0.5), (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5),
+                        (string: 2, fret: 0), (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5), (string: 3, fret: 0, beats: 0.5),
+                        (string: 4, fret: 4), (string: 3, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5),
+                        (string: 3, fret: 2, beats: 3.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Section by section",
+                    explain: "The Minuet in G has two halves, A and B. Each half repeats. Learn the first four bars until they feel easy. Then learn the next four. Put them together, and keep going. Small pieces are easier to remember.",
+                    facts: [
+                        "It's in 3/4 time: count 1, 2, 3.",
+                        "It's in G major, with one sharp: F sharp.",
+                    ],
+                    tips: [
+                        "Practice the hard bars on their own, even if they are in the middle.",
+                    ],
+                    visual: Some(ScaleSteps(root: "G")),
+                ),
+                Activity(
+                    title: "Play the minuet",
+                    instructions: "Slowly, with rest strokes on the melody.",
+                    activity: PlayNotes(tempo: 70.0, bar: 3, notes: [
+                        (string: 2, fret: 3), (string: 3, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 2, fret: 1, beats: 0.5),
+                        (string: 2, fret: 3), (string: 3, fret: 0), (string: 3, fret: 0),
+                        (string: 1, fret: 0), (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 3, beats: 0.5), (string: 1, fret: 0, beats: 0.5), (string: 1, fret: 2, beats: 0.5),
+                        (string: 1, fret: 3), (string: 3, fret: 0), (string: 3, fret: 0),
+                        (string: 2, fret: 1), (string: 2, fret: 3, beats: 0.5), (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5),
+                        (string: 2, fret: 0), (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5), (string: 3, fret: 0, beats: 0.5),
+                        (string: 4, fret: 4), (string: 3, fret: 0, beats: 0.5), (string: 3, fret: 2, beats: 0.5), (string: 2, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5),
+                        (string: 3, fret: 2, beats: 3.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Record your minuet",
+                    instructions: "When it feels good, record a take.",
+                    activity: Record(chords: []),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How many beats are in each bar of a minuet?",
+                            choices: ["3", "4", "2"],
+                            answer: 0,
+                            explain: "A minuet is a dance in 3/4 time: three beats in every bar.",
+                        ),
+                        (
+                            prompt: "Which note is sharp in the key of G?",
+                            choices: ["F♯", "C♯", "G♯"],
+                            answer: 0,
+                            explain: "The key of G has one sharp: F♯.",
+                        ),
+                        (
+                            prompt: "Which stroke gives a melody a full, strong sound?",
+                            choices: ["The rest stroke", "The free stroke", "The rasgueado"],
+                            answer: 0,
+                            explain: "The rest stroke gives a fuller, stronger sound, which helps a melody sing out.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

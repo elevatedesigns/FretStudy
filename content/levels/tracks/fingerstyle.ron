@@ -1,0 +1,497 @@
+// Style Track F — Fingerstyle & Folk. See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 12,
+    title: "🌿 Fingerstyle & Folk",
+    track: Some("Fingerstyle"),
+    goal: "Thumb independence, melody with bass, crosspicking, harmonics, piano-style guitar, bossa nova, and DADGAD.",
+    weeks: "6–8 weeks",
+    lessons: [
+        Lesson(
+            id: "F.1",
+            title: "Thumb Independence",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["L6.11"],
+            goal: "Keep a steady thumb while your fingers play off the beat.",
+            practice: "Five minutes a day for a week. Keep the thumb steady on quarter notes. Add one finger note per bar, then two.",
+            steps: [
+                Learn(
+                    title: "Two players in one hand",
+                    explain: "Your thumb keeps steady quarter notes, like a clock. Your fingers play their own little rhythm on top, often between the thumb notes. At first your fingers will want to copy your thumb. Go slow until each one does its own job.",
+                    facts: [
+                        "Say \"thumb, thumb, thumb, thumb\" out loud while you play.",
+                        "If the thumb stops, slow down until it doesn't.",
+                    ],
+                    visual: Some(StrumGrid(Travis)),
+                ),
+                Learn(
+                    title: "Count it out loud",
+                    explain: "Your thumb is the drummer. It plays on every beat: 1, 2, 3, 4. Your fingers add notes in between, on the \"and.\" Say \"one and two and\" out loud. Thumb on the numbers, fingers on the \"and.\"",
+                    facts: [
+                        "Thumb: 1, 2, 3, 4.",
+                        "Fingers: the \"and\" between beats.",
+                    ],
+                    tips: [
+                        "If you lose it, stop the fingers and keep the thumb going.",
+                    ],
+                    visual: Some(StrumGrid(Travis)),
+                ),
+                Activity(
+                    title: "Thumb and fingers on C, G, Am, F",
+                    instructions: "Keep the thumb even. Fingers on the \"and.\"",
+                    activity: StrumAlong(chords: ["C", "G", "Am", "F"], beats_per_chord: 4, pattern: Travis, tempos: [60.0, 75.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What does the thumb play?",
+                            choices: ["Steady quarter notes", "Only the melody", "Nothing"],
+                            answer: 0,
+                            explain: "The thumb plays steady quarter notes, one on every beat, like a clock that never stops.",
+                        ),
+                        (
+                            prompt: "What should you do if the thumb stops?",
+                            choices: ["Slow down", "Speed up", "Skip the thumb"],
+                            answer: 0,
+                            explain: "If the thumb stops, you're going too fast. Slow down until it keeps going on its own.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "F.2",
+            title: "Melody and Bass Together",
+            thread: Song,
+            minutes: 20,
+            prerequisites: ["F.1"],
+            goal: "Play a melody on the high strings with a bass note on each beat 1.",
+            practice: "Ten minutes a day for a week. Play the melody alone, then the bass alone. Then put them together slowly.",
+            steps: [
+                Learn(
+                    title: "A whole song on one guitar",
+                    explain: "Here's the trick of solo guitar. Play the melody on the high strings. On each beat 1, pinch a bass note with your thumb at the same time. Now one guitar sounds like a singer and a band! Start with a tune everyone knows.",
+                    facts: [
+                        "\"Twinkle, Twinkle, Little Star\" in C.",
+                        "Bass notes: C (string 5, fret 3) under C chords, F (string 4, fret 3) under F, G (string 6, fret 3) under G.",
+                    ],
+                    visual: Some(Staff(notes: [
+                        (string: 2, fret: 1), (string: 2, fret: 1), (string: 1, fret: 3), (string: 1, fret: 3),
+                        (string: 1, fret: 5), (string: 1, fret: 5), (string: 1, fret: 3, beats: 2.0),
+                        (string: 1, fret: 1), (string: 1, fret: 1), (string: 1, fret: 0), (string: 1, fret: 0),
+                        (string: 2, fret: 3), (string: 2, fret: 3), (string: 2, fret: 1, beats: 2.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Melody notes are in the chord",
+                    explain: "Many melody notes are already in the chord shape. Hold the chord, and pluck the melody on the high strings. Pluck the bass with your thumb. When the melody needs a note outside the chord, lift or add one finger for just that note.",
+                    facts: [
+                        "Melody: strings 1, 2, or 3.",
+                        "Bass: strings 4, 5, or 6.",
+                    ],
+                    tips: [
+                        "Play the melody a little louder than the bass so it stands out.",
+                    ],
+                    visual: Some(ChordPair("C", "G")),
+                ),
+                Activity(
+                    title: "The melody first",
+                    instructions: "Play the melody alone until it's easy.",
+                    activity: PlayNotes(tempo: 80.0, notes: [
+                        (string: 2, fret: 1), (string: 2, fret: 1), (string: 1, fret: 3), (string: 1, fret: 3),
+                        (string: 1, fret: 5), (string: 1, fret: 5), (string: 1, fret: 3, beats: 2.0),
+                        (string: 1, fret: 1), (string: 1, fret: 1), (string: 1, fret: 0), (string: 1, fret: 0),
+                        (string: 2, fret: 3), (string: 2, fret: 3), (string: 2, fret: 1, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Add the bass",
+                    instructions: "Tick each step as you get it.",
+                    activity: Checklist(items: [
+                        "Bar 1: pinch low C with the first melody note.",
+                        "Bar 2: pinch F under the A notes, then C under the G.",
+                        "Bar 3: pinch F with the first F, then C under the E notes.",
+                        "Bar 4: pinch G under the D notes, then C at the end.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "When does the bass note play?",
+                            choices: ["On beat 1, together with the melody", "Only at the end", "Never"],
+                            answer: 0,
+                            explain: "The bass note plays on beat 1, pinched together with the melody note, so the guitar sounds like a whole band.",
+                        ),
+                        (
+                            prompt: "Which finger plays the bass?",
+                            choices: ["The thumb", "The ring finger", "The pinky"],
+                            answer: 0,
+                            explain: "The thumb (p) plays the bass notes on the low strings.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "F.3",
+            title: "Crosspicking and Bass Lines",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["F.2"],
+            goal: "Roll the pick across three strings in a repeating pattern.",
+            practice: "Five minutes a day for a week. Play the G roll with a steady pattern. Then try it on C and D.",
+            steps: [
+                Learn(
+                    title: "Rolling across the strings",
+                    explain: "Crosspicking rolls the pick across three strings over and over. It makes a flowing, ringing sound, like a banjo roll. Hold a chord and let every note ring. Keep the pattern even.",
+                    facts: [
+                        "Pattern on a G chord: string 4, string 3, string 2, then repeat.",
+                        "Walk the bass between chords: G, then A, then B into C.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 4, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5), (string: 2, fret: 0, beats: 0.5),
+                        (string: 4, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5), (string: 2, fret: 0, beats: 0.5),
+                        (string: 4, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5),
+                    ])),
+                    tips: [
+                        "Keep the roll steady first. Speed comes after.",
+                    ],
+                ),
+                Learn(
+                    title: "The roll pattern",
+                    explain: "A roll plucks three strings in a row, over and over: thumb, index, middle. Because three doesn't divide evenly into four beats, the pattern rolls across the beat. It sounds like a banjo or a running stream.",
+                    facts: [
+                        "Pattern: p, i, m, p, i, m, p, i.",
+                        "Eight notes fill one bar of eighth notes.",
+                    ],
+                    tips: [
+                        "Hold the whole chord so every string rings.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 3), (string: 3, fret: 0), (string: 2, fret: 0), (string: 4, fret: 0), (string: 3, fret: 0), (string: 2, fret: 0), (string: 6, fret: 3), (string: 3, fret: 0)])),
+                ),
+                Activity(
+                    title: "A G-chord roll",
+                    instructions: "Hold G and roll strings 4, 3, 2.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 4, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5), (string: 2, fret: 0, beats: 0.5),
+                        (string: 4, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5), (string: 2, fret: 0, beats: 0.5),
+                        (string: 4, fret: 0, beats: 0.5), (string: 3, fret: 0, beats: 0.5),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What does crosspicking sound like?",
+                            choices: ["A flowing, rolling sound", "A loud strum", "A single long note"],
+                            answer: 0,
+                            explain: "Crosspicking rolls across the strings, so the notes ring into each other with a flowing sound.",
+                        ),
+                        (
+                            prompt: "What helps connect chords in folk playing?",
+                            choices: ["A walking bass line", "Stopping between chords", "Bending notes"],
+                            answer: 0,
+                            explain: "A walking bass line steps from one chord's bass note to the next, linking the chords smoothly.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "F.4",
+            title: "Natural Harmonics",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["F.3"],
+            goal: "Ring bell-like harmonics at frets 12, 7, and 5.",
+            practice: "Three minutes a day for a week. Ring harmonics at frets 12, 7, and 5 on every string. Listen for clear bell tones.",
+            steps: [
+                Learn(
+                    title: "Bell tones",
+                    explain: "Touch a string very lightly right over the fret wire. Don't press it down! Pick it, then lift your finger. You'll hear a soft bell tone called a harmonic. The best spots are right over frets 12, 7, and 5.",
+                    facts: [
+                        "Fret 12 harmonic: the same note as fret 12, an octave up.",
+                        "Fret 7: an octave and a 5th up. Fret 5: two octaves up.",
+                        "Picking near the bridge makes harmonics louder.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 12), (string: 5, fret: 12), (string: 4, fret: 12), (string: 3, fret: 7), (string: 2, fret: 7), (string: 1, fret: 5)], first_fret: 0, last_fret: 12, show_names: false)),
+                ),
+                Learn(
+                    title: "Where the bells live",
+                    explain: "The strongest harmonics are right over frets 12, 7, and 5. Touch the string lightly, right above the fret wire. Don't press it down! Pluck, then lift your finger. The harmonic at fret 12 is the open string an octave up.",
+                    facts: [
+                        "Fret 12: one octave up.",
+                        "Fret 7: an octave and a 5th up. Fret 5: two octaves up.",
+                    ],
+                    tips: [
+                        "Pluck a little closer to the bridge. Harmonics ring louder there.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 5), (string: 2, fret: 5), (string: 3, fret: 5), (string: 1, fret: 7), (string: 2, fret: 7), (string: 3, fret: 7), (string: 1, fret: 12), (string: 2, fret: 12), (string: 3, fret: 12)], first_fret: 0, last_fret: 12, show_names: false)),
+                ),
+                Activity(
+                    title: "Ring the bells",
+                    instructions: "Try each one. Touch lightly, pick, and let go.",
+                    activity: Checklist(items: [
+                        "All six strings at fret 12.",
+                        "All six strings at fret 7.",
+                        "All six strings at fret 5.",
+                        "A little melody: 12, 7, 5 on strings 3, 2, 1.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Where do you touch the string for a harmonic?",
+                            choices: ["Right over the fret wire", "In the middle between frets", "On the tuning peg"],
+                            answer: 0,
+                            explain: "Touch the string right above the metal fret wire, not between the frets.",
+                        ),
+                        (
+                            prompt: "Should you press the string down for a harmonic?",
+                            choices: ["No, just touch it lightly", "Yes, as hard as you can"],
+                            answer: 0,
+                            explain: "Just touch the string lightly, then let go after you pick. Pressing it down gives a normal note instead.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "F.5",
+            title: "Piano-Style Guitar",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["F.4"],
+            goal: "Play bass notes and chord plucks like a pianist's two hands.",
+            practice: "Five minutes a day for a week. Play bass then pinch on four chords. Keep the bass on the beat.",
+            steps: [
+                Learn(
+                    title: "Left hand, right hand",
+                    explain: "A piano player's left hand plays bass and the right hand plays chords. You can do both with one picking hand. The thumb plays the bass. The fingers pluck the chord together, like a piano. Keep your fingernails smooth for a clean sound.",
+                    facts: [
+                        "Thumb on beats 1 and 3. Fingers pluck on beats 2 and 4.",
+                        "File your nails smooth so they don't snag the strings.",
+                    ],
+                    visual: Some(StrumGrid(BoomChuck)),
+                ),
+                Learn(
+                    title: "Bass, then pinch",
+                    explain: "Piano players use their left hand for bass and their right hand for chords. On guitar, your thumb plays the bass. Then your fingers pluck three strings together, like a little chord. Bass, chord, bass, chord.",
+                    facts: [
+                        "Thumb: the chord's root.",
+                        "Fingers: i, m, a together on strings 3, 2, 1.",
+                    ],
+                    tips: [
+                        "Try alternating the bass between two strings for a bouncy feel.",
+                    ],
+                    visual: Some(ChordPair("Am", "F")),
+                ),
+                Activity(
+                    title: "Piano style on four chords",
+                    instructions: "Bass, pluck, bass, pluck.",
+                    activity: StrumAlong(chords: ["C", "Am", "F", "G"], beats_per_chord: 4, pattern: BoomChuck, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In piano style, what does the thumb play?",
+                            choices: ["The bass", "The melody only", "Nothing"],
+                            answer: 0,
+                            explain: "Like a pianist's left hand, the thumb plays the bass while the fingers play the chords.",
+                        ),
+                        (
+                            prompt: "Why keep your nails smooth?",
+                            choices: ["So they don't snag the strings", "So the guitar stays in tune", "It doesn't matter"],
+                            answer: 0,
+                            explain: "Rough nails catch on the strings and sound scratchy. Smooth nails give a clean tone.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "F.6",
+            title: "Bossa Nova and Latin Rhythms",
+            thread: Rhythm,
+            minutes: 20,
+            prerequisites: ["F.5"],
+            goal: "Play a bossa nova pattern on 7th chords.",
+            practice: "Five minutes a day for a week. Play the bossa rhythm on Dm7 and G7. Keep the thumb steady and relaxed.",
+            steps: [
+                Learn(
+                    title: "The Brazilian groove",
+                    explain: "Bossa nova comes from Brazil. The thumb plays a steady bass on beats 1 and 3: the root, then the 5th. The fingers pluck the chord on off-beats that skip around the thumb. It sounds relaxed and smooth. Soft 7th chords fit it best.",
+                    facts: [
+                        "Thumb: 1 and 3. Fingers: the \"and\" of 2 and the \"and\" of 3.",
+                        "Am7, Dm7, G7, and Cmaj7 are a classic set.",
+                    ],
+                    visual: Some(StrumGrid(Bossa)),
+                ),
+                Learn(
+                    title: "Thumb steady, fingers dancing",
+                    explain: "In bossa nova, your thumb plays bass notes on beats 1 and 3, like a heartbeat. Your fingers pluck chord notes in a pattern that skips around the beat. The pattern feels a little off-balance. That's what makes it groove!",
+                    facts: [
+                        "Bossa nova started in Brazil.",
+                        "It often uses 7th chords for a soft, jazzy sound.",
+                    ],
+                    tips: [
+                        "Play quietly. Bossa nova sounds best soft and smooth.",
+                    ],
+                    visual: Some(ChordPair("Dm7-5", "G7-6")),
+                ),
+                Activity(
+                    title: "Bossa on 7th chords",
+                    instructions: "Keep it soft and steady.",
+                    activity: StrumAlong(chords: ["Am7", "Dm7-5", "G7-6", "Cmaj7-5"], beats_per_chord: 4, pattern: Bossa, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In bossa nova, when does the thumb play?",
+                            choices: ["Beats 1 and 3", "Every eighth note", "Never"],
+                            answer: 0,
+                            explain: "In bossa nova, the thumb plays the bass on beats 1 and 3 while the fingers play off-beat chords.",
+                        ),
+                        (
+                            prompt: "Where does bossa nova come from?",
+                            choices: ["Brazil", "Spain", "Ireland"],
+                            answer: 0,
+                            explain: "Bossa nova comes from Brazil. It mixes samba rhythms with jazz chords.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "F.7",
+            title: "DADGAD Basics",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["F.6"],
+            tuning: Some("dadgad"),
+            goal: "Tune to DADGAD and play its open, ringing shapes.",
+            practice: "Five minutes a day for a week. Tune to DADGAD and play the melody. Let the open strings ring as long as you can.",
+            steps: [
+                Learn(
+                    title: "A ringing, Celtic sound",
+                    explain: "In DADGAD, the open strings are D, A, D, G, A, and D. Strum them all and you get a floating sound that isn't major or minor. It's great for Celtic and folk music. Many shapes need just one or two fingers, and the open strings ring around them.",
+                    facts: [
+                        "From standard: lower strings 6, 2, and 1 by a whole step.",
+                        "The open strum is a D sus 4 sound.",
+                    ],
+                    visual: Some(Shape(frets: "000000", fingers: "------", name: "Open DADGAD")),
+                ),
+                Learn(
+                    title: "Let it ring",
+                    explain: "In DADGAD, open strings blend with almost everything. Play a melody on one or two strings, and let the other open strings keep ringing. Notes overlap and blur together, like bells in a church. That's the Celtic sound.",
+                    facts: [
+                        "Open strings from 6 to 1: D A D G A D.",
+                        "Strum them open for a floating Dsus4 chord.",
+                    ],
+                    tips: [
+                        "Lift your fingers only when you must. More ringing is better.",
+                    ],
+                    visual: Some(Shape(frets: "000000", fingers: "------", name: "DADGAD: D A D G A D")),
+                ),
+                Activity(
+                    title: "Tune to DADGAD",
+                    instructions: "Lower strings 6, 2, and 1. The tuner follows DADGAD.",
+                    activity: Tune,
+                ),
+                Learn(
+                    title: "A one-finger D",
+                    explain: "Put one finger on string 3, fret 2. That turns the G into an A. Now strum: it sounds like a big, open D chord.",
+                    visual: Some(Shape(frets: "000200", fingers: "---1--", name: "D5 sound in DADGAD")),
+                ),
+                Activity(
+                    title: "A DADGAD melody",
+                    instructions: "Let the open strings ring under each note.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 1, fret: 0), (string: 1, fret: 2), (string: 1, fret: 4), (string: 1, fret: 5),
+                        (string: 1, fret: 4), (string: 1, fret: 2), (string: 1, fret: 0, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What are the open strings in DADGAD, from 6 to 1?",
+                            choices: ["D A D G A D", "E A D G B E", "D G D G B D"],
+                            answer: 0,
+                            explain: "DADGAD tunes the strings, from thick to thin, to D A D G A D.",
+                        ),
+                        (
+                            prompt: "What kind of music is DADGAD famous for?",
+                            choices: ["Celtic and folk", "Heavy metal only", "Opera"],
+                            answer: 0,
+                            explain: "DADGAD's open, ringing sound is famous in Celtic and folk music.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "F.8",
+            title: "Fingerstyle Capstone: Your Arrangement",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["F.7"],
+            goal: "Record a solo fingerstyle arrangement of a public-domain song.",
+            practice: "Fifteen minutes a day for a week. Pick a song, arrange it, and practice. Record it at the end of the week.",
+            steps: [
+                Learn(
+                    title: "Make it your own",
+                    explain: "Pick an old song that everyone knows, like \"Amazing Grace,\" \"Shenandoah,\" or \"Twinkle, Twinkle.\" Put the melody on top and a bass note on each beat 1. Add harmonics, a bossa feel, or a walking bass if you like. Then record it.",
+                    facts: [
+                        "Start with melody alone, then add the bass.",
+                        "Play it slowly and let it breathe.",
+                    ],
+                ),
+                Learn(
+                    title: "How to arrange a song",
+                    explain: "First, learn the melody on the high strings. Second, find the chords. Third, add the bass under each melody note with your thumb. Fourth, pick a picking pattern for the parts with no melody. Then make it yours!",
+                    facts: [
+                        "Pick a slow song with a simple melody.",
+                        "Public-domain folk songs are a great start.",
+                    ],
+                    tips: [
+                        "Keep it simple first. You can add fancy parts later.",
+                    ],
+                    visual: Some(StrumGrid(Travis)),
+                ),
+                Learn(
+                    title: "Pick a pattern",
+                    explain: "Choose one picking pattern for the whole song at first. Travis picking works for folk songs. Arpeggios work for slow, gentle songs. Once it feels easy, change the pattern in the chorus.",
+                    visual: Some(StrumGrid(Pima)),
+                ),
+                Activity(
+                    title: "Record your arrangement",
+                    instructions: "Press Record when you're ready.",
+                    activity: Record(chords: []),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In a solo arrangement, where does the melody go?",
+                            choices: ["On top, on the high strings", "Only in the bass", "Nowhere"],
+                            answer: 0,
+                            explain: "The melody goes on top, on the high strings, so it sings out over the bass.",
+                        ),
+                        (
+                            prompt: "What makes a harmonic?",
+                            choices: ["Touching the string lightly over a fret", "Bending a string", "Strumming hard"],
+                            answer: 0,
+                            explain: "A harmonic comes from touching the string lightly over certain frets (like 12, 7, or 5) and plucking it.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

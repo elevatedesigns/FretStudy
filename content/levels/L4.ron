@@ -1,0 +1,907 @@
+// Level 4 — Movable Shapes. See docs/02-Curriculum-Part2-Levels-3-4.md.
+Level(
+    number: 4,
+    title: "Movable Shapes",
+    goal: "Power chords, barre chords, capo, notes on strings 6 and 5, the major scale, keys, and the Number System.",
+    weeks: "6–8 weeks",
+    lessons: [
+        Lesson(
+            id: "L4.1",
+            title: "Notes on the 6th String",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L3.13"],
+            goal: "Find any natural note on string 6, all the way up the neck.",
+            practice: "Three minutes a day for a week. Play the Note hunt for string 6. Then pick a random fret and name the note before you check it.",
+            steps: [
+                Learn(
+                    title: "A map of the fattest string",
+                    explain: "Barre chords and power chords get their names from the note on the fattest string. So we need a map of string 6. Use the dots on your guitar as landmarks. Fret 5 is A. Fret 7 is B. Fret 12 is E again.",
+                    facts: [
+                        "String 6: E open, F 1, G 3, A 5, B 7, C 8, D 10, E 12.",
+                        "Sharps and flats fill the gaps (like F♯ at fret 2).",
+                        "String 1 has the exact same note names as string 6.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 0), (string: 6, fret: 1), (string: 6, fret: 3), (string: 6, fret: 5), (string: 6, fret: 7), (string: 6, fret: 8), (string: 6, fret: 10), (string: 6, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Learn(
+                    title: "Use the dots as landmarks",
+                    explain: "You don't have to count every fret. The dots on your guitar are landmarks. On string 6, the dot at fret 5 is A, the dot at 7 is B, and the double dot at 12 is E again. Find the nearest landmark, then count one or two frets from there.",
+                    facts: [
+                        "Fret 3: G. Fret 5: A. Fret 7: B. Fret 12: E.",
+                        "C is one fret above B, at fret 8.",
+                    ],
+                    tips: [
+                        "Remember the half steps: E to F and B to C are only one fret apart. Everything else is two.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 3), (string: 6, fret: 5), (string: 6, fret: 7), (string: 6, fret: 8), (string: 6, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Activity(
+                    title: "Note hunt: string 6",
+                    instructions: "Find each note on string 6. Use the dot landmarks!",
+                    activity: NoteHunt(strings: [6], max_fret: 12, rounds: 10),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What note is string 6, fret 5?",
+                            choices: ["A", "G", "B"],
+                            answer: 0,
+                            explain: "Count up string 6: E (open), F (1), G (3), A (5). The dot at fret 5 is your A landmark.",
+                        ),
+                        (
+                            prompt: "Where is C on string 6?",
+                            choices: ["Fret 8", "Fret 3", "Fret 10"],
+                            answer: 0,
+                            explain: "From A at fret 5, B is at fret 7, and C is one fret higher at fret 8 (B and C are next-door neighbors).",
+                        ),
+                        (
+                            prompt: "What note is at fret 12 on string 6?",
+                            choices: ["E", "D", "F"],
+                            answer: 0,
+                            explain: "Fret 12 is an octave above the open string, so it's E again, just higher.",
+                        ),
+                        (
+                            prompt: "Which string has the same note names as string 6?",
+                            choices: ["String 1", "String 5", "String 3"],
+                            answer: 0,
+                            explain: "Strings 1 and 6 are both E, two octaves apart, so their note names line up fret for fret.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.2",
+            title: "Notes on the 5th String",
+            thread: Notes,
+            minutes: 12,
+            prerequisites: ["L4.1"],
+            goal: "Find any natural note on string 5.",
+            practice: "Three minutes a day for a week. Play the Note hunt for strings 5 and 6 together. Find each note on both strings.",
+            steps: [
+                Learn(
+                    title: "The A string map",
+                    explain: "String 5 starts on A. Its notes are A open, B at 2, C at 3, D at 5, E at 7, F at 8, G at 10, and A again at 12. Here's a shortcut: any note on string 6 is also on string 5, five frets lower.",
+                    visual: Some(Neck(notes: [(string: 5, fret: 0), (string: 5, fret: 2), (string: 5, fret: 3), (string: 5, fret: 5), (string: 5, fret: 7), (string: 5, fret: 8), (string: 5, fret: 10), (string: 5, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                    tips: [
+                        "Use the dots again: fret 5 is D, fret 7 is E, and fret 12 is A.",
+                    ],
+                ),
+                Learn(
+                    title: "Five frets apart",
+                    explain: "Here's a shortcut. Any note on string 6 is also on string 5, five frets lower. A is string 6, fret 5, and also open string 5. C is string 6, fret 8, and also string 5, fret 3. Knowing both strings lets you find every root for barre chords.",
+                    facts: [
+                        "String 5 landmarks: D at 5, E at 7, A at 12.",
+                        "Same note, next string: five frets lower (except near the B string).",
+                    ],
+                    visual: Some(Neck(notes: [(string: 5, fret: 0), (string: 5, fret: 2), (string: 5, fret: 3), (string: 5, fret: 5), (string: 5, fret: 7), (string: 5, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Activity(
+                    title: "Note hunt: string 5",
+                    instructions: "Find each note on string 5.",
+                    activity: NoteHunt(strings: [5], max_fret: 12, rounds: 8),
+                ),
+                Activity(
+                    title: "Note hunt: strings 5 and 6",
+                    instructions: "Now either string counts.",
+                    activity: NoteHunt(strings: [5, 6], max_fret: 12, rounds: 8),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Where is D on string 5?",
+                            choices: ["Fret 5", "Fret 3", "Fret 7"],
+                            answer: 0,
+                            explain: "String 5 is A. B is at fret 2, C at fret 3, and D at fret 5.",
+                        ),
+                        (
+                            prompt: "What note is string 5, fret 7?",
+                            choices: ["E", "F", "D"],
+                            answer: 0,
+                            explain: "String 5 is A. Up the string: B (2), C (3), D (5), E (7).",
+                        ),
+                        (
+                            prompt: "A on string 6 is at fret 5. Where is the same A on string 5?",
+                            choices: ["Open (fret 0)", "Fret 5", "Fret 10"],
+                            answer: 0,
+                            explain: "Five frets lower on string 5: fret 5 minus 5 is fret 0.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.3",
+            title: "Power Chords",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L4.2"],
+            goal: "Play power chords anywhere, with the root on string 6 or 5.",
+            practice: "Five minutes a day for five days. Slide a power chord from fret 3 to 5 to 7 and back, naming each one. Then play the rock riff.",
+            steps: [
+                Learn(
+                    title: "A strong little chord",
+                    explain: "A power chord has only two different notes: the root and the 5th. With no happy or sad note, it isn't major or minor. It's just strong! It's the same shape everywhere. Slide it up and down and it changes names.",
+                    facts: [
+                        "Finger 1 on the root. Fingers 3 and 4 two frets higher on the next two strings.",
+                        "The name comes from the note under finger 1. G5 has its root on string 6, fret 3.",
+                        "Let finger 1 lightly touch the strings you don't play, to keep them quiet.",
+                    ],
+                    visual: Some(ChordPair("G5", "C5")),
+                ),
+                Learn(
+                    title: "One shape, any power chord",
+                    explain: "The power chord shape works everywhere. Put finger 1 on the root. Put fingers 3 and 4 two frets higher, on the next two strings. Now slide the whole shape. The note under finger 1 tells you the name: fret 5 on string 6 is A, so that's A5.",
+                    facts: [
+                        "Root on string 6: name it from the string 6 map.",
+                        "Root on string 5: name it from the string 5 map.",
+                    ],
+                    tips: [
+                        "Mute the strings you don't play by letting finger 1 lightly touch them.",
+                        "Only strum the two or three strings in the shape.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 5), (string: 5, fret: 7), (string: 4, fret: 7)], first_fret: 3, last_fret: 9, show_names: true)),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum E5, A5, and G5.",
+                    activity: ChordCheck(chords: ["E5", "A5", "G5"]),
+                ),
+                Activity(
+                    title: "A rock riff",
+                    instructions: "E5, G5, A5, E5 with downstrokes.",
+                    activity: StrumAlong(chords: ["E5", "G5", "A5", "E5"], beats_per_chord: 4, pattern: Quarters, tempos: [80.0, 100.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "A power chord has which two notes?",
+                            choices: ["The root and the 5th", "The root and the 3rd", "The 3rd and the 5th"],
+                            answer: 0,
+                            explain: "A power chord is just the root and the 5th (often with the root doubled on top). It has no 3rd.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("G5")),
+                            choices: ["G5", "C5", "A5"],
+                            answer: 0,
+                            explain: "The root (finger 1) is on string 6, fret 3. String 6, fret 3 is G, so it's G5.",
+                        ),
+                        (
+                            prompt: "Where does finger 1 go for B5 with the root on string 5?",
+                            choices: ["Fret 2", "Fret 7", "Fret 4"],
+                            answer: 0,
+                            explain: "With the root on string 5, the chord is named for that note. String 5, fret 2 is B, so B5 starts at fret 2.",
+                        ),
+                        (
+                            prompt: "Is a power chord major or minor?",
+                            choices: ["Neither", "Major", "Minor"],
+                            answer: 0,
+                            explain: "Major or minor comes from the 3rd. A power chord has no 3rd, so it's neither, just strong.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.4",
+            title: "Palm Muting and the Rock Chug",
+            thread: Rhythm,
+            minutes: 12,
+            prerequisites: ["L4.3"],
+            goal: "Palm mute power chords for a tight rock sound.",
+            practice: "Five minutes a day for four days. Chug eighth notes on E5 with the palm mute, then switch to G5 and A5. Try with the mute and without, and listen to the difference.",
+            steps: [
+                Learn(
+                    title: "The chug",
+                    explain: "Rest the side of your picking hand lightly on the strings, right where they meet the bridge. Now strum. You get a tight chug instead of a big ring. Too far toward the neck and the notes die. Find the sweet spot.",
+                    facts: [
+                        "In tab, palm muting is marked P.M. with a dashed line.",
+                        "Rock rhythm often uses all downstrokes on eighth notes.",
+                    ],
+                    visual: Some(StrumGrid(Chug)),
+                ),
+                Learn(
+                    title: "Finding the mute spot",
+                    explain: "Rest the edge of your picking hand on the strings, right where they leave the bridge. Too far toward the neck and the notes go dead. Too far back and nothing is muted. Move your hand a little at a time until the notes sound short and chunky.",
+                    facts: [
+                        "Palm mute is marked P.M. in tab.",
+                        "The chug is eighth notes, all downstrokes.",
+                    ],
+                    tips: [
+                        "Keep your hand relaxed. Pressing too hard makes the strings go sharp and out of tune.",
+                    ],
+                    visual: Some(StrumGrid(Chug)),
+                ),
+                Activity(
+                    title: "Chug it",
+                    instructions: "Palm-muted downstrokes: E5, E5, G5, A5.",
+                    activity: StrumAlong(chords: ["E5", "E5", "G5", "A5"], beats_per_chord: 4, pattern: Chug, tempos: [80.0, 100.0, 120.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "Where does your hand rest for palm muting?",
+                            choices: ["Lightly on the strings at the bridge", "On the 12th fret", "Under the strings"],
+                            answer: 0,
+                            explain: "Rest the edge of your picking hand lightly on the strings right where they leave the bridge. Too far forward and the notes die.",
+                        ),
+                        (
+                            prompt: "How is palm muting marked in tab?",
+                            choices: ["P.M.", "H", "x"],
+                            answer: 0,
+                            explain: "Tab writes P.M. (palm mute) over the notes, often with a dashed line showing how long to keep muting.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.5",
+            title: "Getting Ready for Barre Chords: Fmaj7 and the Mini-F",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L3.13"],
+            goal: "Climb toward F in small steps.",
+            practice: "Five minutes a day for a week. Play the mini-F and Fmaj7, and switch to C and back. Check every string for a clean sound.",
+            steps: [
+                Learn(
+                    title: "Small steps up a big hill",
+                    explain: "The F chord is a big hill every guitarist climbs. We'll climb it in small steps. First Fmaj7, with no barre at all! Then a little F where your first finger lies flat across just two strings.",
+                    facts: [
+                        "Roll finger 1 a little onto its bony side.",
+                        "Keep it close to the fret.",
+                        "Pull back gently with your arm instead of squeezing with your thumb.",
+                    ],
+                    visual: Some(ChordPair("Fmaj7", "F-mini")),
+                ),
+                Learn(
+                    title: "Your first small barre",
+                    explain: "In the mini-F, finger 1 lies flat across strings 1 and 2 at fret 1. That's a small barre. Roll your finger a little onto its side, close to the fret wire. Then add finger 2 on string 3 and finger 3 on string 4.",
+                    facts: [
+                        "Mini-F: top four strings only.",
+                        "Fmaj7 is the same idea, with string 1 open.",
+                    ],
+                    tips: [
+                        "If string 1 buzzes, roll finger 1 a tiny bit toward the headstock so the bony edge presses the string.",
+                        "Your thumb goes behind the neck, roughly behind finger 2.",
+                    ],
+                    visual: Some(ChordPair("F-mini", "Fmaj7")),
+                ),
+                Activity(
+                    title: "Buzz check: mini-F",
+                    instructions: "Pluck each string. Both strings under your flat finger should ring.",
+                    activity: StringCheck(chord: "F-mini"),
+                ),
+                Activity(
+                    title: "One-minute changes: C and mini-F",
+                    instructions: "Back and forth for one minute.",
+                    activity: ChangeTrainer(a: "C", b: "F-mini", target: 15),
+                ),
+                Activity(
+                    title: "Strum along",
+                    instructions: "C, Fmaj7, C, G.",
+                    activity: StrumAlong(chords: ["C", "Fmaj7", "C", "G"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Fmaj7")),
+                            choices: ["F major 7", "F", "C"],
+                            answer: 0,
+                            explain: "A small shape on the top four strings with string 1 open: frets 3, 2, 1, 0. Those notes are F A C E, which makes F major 7.",
+                        ),
+                        (
+                            prompt: "In the mini-F, how many strings does finger 1 press?",
+                            visual: Some(Chord("F-mini")),
+                            choices: ["Two", "One", "Six"],
+                            answer: 0,
+                            explain: "In the mini-F, finger 1 lies flat across strings 2 and 1 at fret 1. That small barre is a warm-up for the full F.",
+                        ),
+                        (
+                            prompt: "For a good barre, you should…",
+                            choices: ["Roll finger 1 onto its bony side, close to the fret", "Squeeze as hard as you can with your thumb", "Press in the middle of the fret space"],
+                            answer: 0,
+                            explain: "Roll finger 1 a little onto its bony side and keep it right behind the fret. That takes much less squeezing.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.6",
+            title: "The Full F Barre Chord",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["L4.5"],
+            goal: "Play F with a full barre.",
+            practice: "Five minutes a day for two weeks. Barre chords take time! Start at fret 5 (A major), then move down a fret each day until you reach F at fret 1.",
+            steps: [
+                Learn(
+                    title: "Your finger becomes a capo",
+                    explain: "Your first finger becomes a clamp across all six strings. Your other three fingers make an E chord shape in front of it. That's why it's called an E-shape barre chord. It's an E chord, moved up!",
+                    facts: [
+                        "Barre chords are easier higher up the neck. Start at fret 5 (that's A), then work down to fret 1.",
+                        "Build it up: barre only, then add one finger at a time. Check each string.",
+                        "This takes weeks, not days. That's normal!",
+                    ],
+                    visual: Some(ChordPair("E", "F")),
+                    tips: [
+                        "Pull back gently with your arm instead of squeezing with your thumb. It takes much less strength.",
+                        "Check each string. Usually only one or two need fixing.",
+                    ],
+                ),
+                Learn(
+                    title: "Start at fret 5",
+                    explain: "The same shape at fret 5 is an A chord. The strings are easier to press here.",
+                    visual: Some(Chord("A-barre")),
+                ),
+                Activity(
+                    title: "Buzz check: A at fret 5",
+                    instructions: "Pluck each string of the barre chord at fret 5.",
+                    activity: StringCheck(chord: "A-barre"),
+                ),
+                Activity(
+                    title: "Buzz check: F",
+                    instructions: "Now at fret 1.",
+                    activity: StringCheck(chord: "F"),
+                ),
+                Activity(
+                    title: "Strum along",
+                    instructions: "C, F, G, C.",
+                    activity: StrumAlong(chords: ["C", "F", "G", "C"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "The F barre chord is which open shape, moved up?",
+                            choices: ["E", "A", "C"],
+                            answer: 0,
+                            explain: "The F barre is the E chord shape moved up one fret, with finger 1 acting like a new nut.",
+                        ),
+                        (
+                            prompt: "Where is it easiest to practice barre chords at first?",
+                            choices: ["Around fret 5", "At fret 1", "At fret 12"],
+                            answer: 0,
+                            explain: "Around fret 5 the strings sit lower and the frets are closer, so barres are easier. Fret 1 is the hardest spot.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("F")),
+                            choices: ["F", "E", "G"],
+                            answer: 0,
+                            explain: "An E shape with finger 1 barring all six strings at fret 1. The root on string 6, fret 1 is F.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.7",
+            title: "Moving the E-Shape: Major, Minor, 7",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L4.6", "L4.1"],
+            goal: "Play E-shape barre chords anywhere, in major, minor, and 7 forms.",
+            practice: "Five minutes a day for a week. Play A, Am, and A7 at fret 5. Then play G at fret 3 and C at fret 8.",
+            steps: [
+                Learn(
+                    title: "One shape, twelve chords",
+                    explain: "Wherever your barre goes, the note on the fattest string tells you the chord's name. Lift one finger, and major becomes minor.",
+                    facts: [
+                        "Major: the full E shape. Minor: lift finger 2. Seven: lift finger 4.",
+                        "Barre at fret 3 = G. At fret 5 = A. At fret 8 = C.",
+                    ],
+                    visual: Some(ChordPair("F", "Fm")),
+                ),
+                Learn(
+                    title: "A and A minor at fret 5",
+                    explain: "Same fret, one finger different.",
+                    visual: Some(ChordPair("A-barre", "Am-barre")),
+                ),
+                Learn(
+                    title: "Three flavors from one shape",
+                    explain: "The E-shape barre comes in three flavors. Major is the full shape. Lift finger 2 and it becomes minor. Lift finger 4 instead and it becomes a 7th chord. One shape, three sounds, and it moves anywhere on the neck!",
+                    facts: [
+                        "Major: E shape. Minor: E minor shape. 7: E7 shape.",
+                        "The barre fret names the chord, from the string 6 map.",
+                    ],
+                    tips: [
+                        "When you lift a finger, the barre has to hold that string down. Press a little harder there.",
+                    ],
+                    visual: Some(ChordPair("A-barre", "Am-barre")),
+                ),
+                Activity(
+                    title: "Barre chords only",
+                    instructions: "Am at fret 5, F at fret 1, C at fret 8, G at fret 3.",
+                    activity: StrumAlong(chords: ["Am-barre", "F", "C-barre", "G-barre"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "An E-shape major barre is at fret 5. What chord is it?",
+                            choices: ["A", "G", "B"],
+                            answer: 0,
+                            explain: "The root is on string 6. String 6, fret 5 is A, so the chord is A major.",
+                        ),
+                        (
+                            prompt: "To turn an E-shape major barre into minor, you…",
+                            choices: ["Lift finger 2", "Lift finger 4", "Add finger 4"],
+                            answer: 0,
+                            explain: "In the E shape, finger 2 holds the 3rd. Lift it and the barre plays the minor 3rd instead, making the chord minor.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Fm")),
+                            choices: ["F minor", "F", "F7"],
+                            answer: 0,
+                            explain: "It's the E minor shape barred at fret 1: no finger 2 on string 3. The root on string 6, fret 1 is F, so it's F minor.",
+                        ),
+                        (
+                            prompt: "Where is a G E-shape barre chord?",
+                            choices: ["Fret 3", "Fret 5", "Fret 7"],
+                            answer: 0,
+                            explain: "String 6, fret 3 is G, so the E-shape G chord is barred at fret 3.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.8",
+            title: "The A-Shape Barre (Root on String 5)",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["L4.7", "L4.2"],
+            goal: "Play A-shape barre chords, named by the note on string 5.",
+            practice: "Five minutes a day for a week. Play Bm and C (A-shape at fret 3). Then switch between an E-shape and an A-shape chord at the same fret.",
+            steps: [
+                Learn(
+                    title: "Another movable shape",
+                    explain: "Same idea as the E-shape, but now it's an A shape moved up. Its name comes from the note on string 5. With both shapes, you can play any chord in two places.",
+                    facts: [
+                        "B minor (Bm) has its barre at fret 2.",
+                        "C at fret 3 is the same chord as C at fret 8 with the E-shape.",
+                    ],
+                    visual: Some(ChordPair("Bm", "C-Abarre")),
+                ),
+                Learn(
+                    title: "A-shape fingers",
+                    explain: "In the A-shape barre, finger 1 barres from string 5 to string 1. Then fingers 2, 3, and 4 sit two frets higher, on strings 4, 3, and 2. Many players use one finger to barre those three strings instead. Try both and keep what works for you.",
+                    facts: [
+                        "The root is on string 5, under finger 1.",
+                        "Minor A-shape: like an A minor shape, moved up.",
+                    ],
+                    tips: [
+                        "Don't play string 6. Let the tip of finger 1 touch it to keep it quiet.",
+                    ],
+                    visual: Some(ChordPair("Bm", "C-Abarre")),
+                ),
+                Activity(
+                    title: "Buzz check: Bm",
+                    instructions: "Pluck each string of B minor.",
+                    activity: StringCheck(chord: "Bm"),
+                ),
+                Activity(
+                    title: "Key of D with a real Bm",
+                    instructions: "Bm, G, D, A.",
+                    activity: StrumAlong(chords: ["Bm", "G", "D", "A"], beats_per_chord: 4, pattern: OldFaithful, tempos: [60.0, 70.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "An A-shape chord takes its name from which string?",
+                            choices: ["String 5", "String 6", "String 1"],
+                            answer: 0,
+                            explain: "In the A shape, the lowest root is on string 5. The note under finger 1 on string 5 names the chord.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Bm")),
+                            choices: ["B minor", "B", "A minor"],
+                            answer: 0,
+                            explain: "An A-minor shape barred at fret 2, root on string 5. String 5, fret 2 is B, so it's B minor.",
+                        ),
+                        (
+                            prompt: "An A-shape major barre at fret 3 is…",
+                            choices: ["C", "D", "B♭"],
+                            answer: 0,
+                            explain: "String 5, fret 3 is C, so an A-shape barre at fret 3 is C major.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.9",
+            title: "The Capo: Change Keys Instantly",
+            thread: Chords,
+            minutes: 12,
+            prerequisites: ["L4.6"],
+            goal: "Use a capo and figure out what chords really sound like.",
+            practice: "Five minutes a day for three days. Put a capo on fret 2 and play songs you know. Figure out what key they sound in.",
+            steps: [
+                Learn(
+                    title: "A moving nut",
+                    explain: "A capo is a clamp that acts like a moving nut. Put it on fret 2 and every chord shape you know sounds two half steps higher. You keep playing easy shapes, and the song moves to a new key. That often makes it easier to sing.",
+                    facts: [
+                        "Real chord = shape name + capo frets. Capo 2 + G shape = A.",
+                        "Put the capo just behind the fret, straight across. Check your tuning after.",
+                        "With a capo, chord-box frets count from the capo.",
+                    ],
+                    visual: Some(Capo(fret: 2, chord: "G")),
+                    tips: [
+                        "Clamp the capo just behind the fret, straight across. Tilted capos make notes go out of tune.",
+                        "Retune quickly after adding a capo. It can pull strings a little sharp.",
+                    ],
+                ),
+                Learn(
+                    title: "More capo math",
+                    explain: "Capo 3 plus a C shape sounds like E♭. Capo 5 plus a D shape sounds like G.",
+                    visual: Some(Capo(fret: 3, chord: "C")),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Capo on fret 2, you play a G shape. What do people hear?",
+                            choices: ["A", "G", "B"],
+                            answer: 0,
+                            explain: "A capo raises everything by its fret number. Two half steps above G is A.",
+                        ),
+                        (
+                            prompt: "Capo on fret 5, you play a D shape. What do people hear?",
+                            choices: ["G", "D", "A"],
+                            answer: 0,
+                            explain: "Five half steps above D: D♯, E, F, F♯, G. So it sounds like G.",
+                        ),
+                        (
+                            prompt: "Capo on fret 3, you play a C shape. What do people hear?",
+                            choices: ["E♭", "C", "F"],
+                            answer: 0,
+                            explain: "Three half steps above C: C♯, D, E♭. So it sounds like E♭.",
+                        ),
+                        (
+                            prompt: "Where does the capo go?",
+                            choices: ["Just behind the fret, straight across", "On top of the fret wire", "Over the soundhole"],
+                            answer: 0,
+                            explain: "Put the capo just behind the fret and straight across, like a finger would. On top of the fret it buzzes.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.10",
+            title: "The Major Scale: W W H W W W H",
+            thread: TheoryEar,
+            minutes: 20,
+            prerequisites: ["L3.13"],
+            goal: "Build any major scale from its recipe.",
+            practice: "Five minutes a day for five days. Play C major and G major on one string, then in first position. Say the step pattern as you go: whole, whole, half.",
+            steps: [
+                Learn(
+                    title: "The Do-Re-Mi ladder",
+                    explain: "A major scale is a ladder of eight notes. It sounds like Do Re Mi Fa Sol La Ti Do. Every major scale uses the same steps: whole, whole, half, whole, whole, whole, half. Start on any note and follow the steps. You get that note's major scale!",
+                    facts: [
+                        "C major: C D E F G A B C. No sharps or flats.",
+                        "G major: G A B C D E F♯ G.",
+                        "Use every letter exactly once. That's why F major has B♭, not A♯.",
+                    ],
+                    visual: Some(ScaleSteps(root: "G")),
+                    tips: [
+                        "Sing do, re, mi as you play. If a note sounds wrong, you skipped a step.",
+                    ],
+                ),
+                Learn(
+                    title: "C major",
+                    explain: "In C major, the half steps land on E to F and B to C, so no sharps or flats are needed.",
+                    visual: Some(ScaleSteps(root: "C")),
+                ),
+                Learn(
+                    title: "Steps you can see",
+                    explain: "On one string, a whole step is two frets and a half step is one fret. So the major scale on one string looks like this: 0, 2, 4, 5, 7, 9, 11, 12. The two short jumps are the half steps. Play it on string 3 starting from G and you get G major.",
+                    facts: [
+                        "Frets: 0, 2, 4, 5, 7, 9, 11, 12.",
+                        "Half steps come after the 3rd and 7th notes.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 3, fret: 0), (string: 3, fret: 2), (string: 3, fret: 4), (string: 3, fret: 5), (string: 3, fret: 7), (string: 3, fret: 9), (string: 3, fret: 11), (string: 3, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Activity(
+                    title: "G major on one string",
+                    instructions: "Play the G major scale up string 3: frets 0, 2, 4, 5, 7, 9, 11, 12. See the steps!",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 3, fret: 0), (string: 3, fret: 2), (string: 3, fret: 4), (string: 3, fret: 5),
+                        (string: 3, fret: 7), (string: 3, fret: 9), (string: 3, fret: 11), (string: 3, fret: 12, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What is the major scale's step recipe?",
+                            choices: ["W W H W W W H", "W H W W H W W", "H W W W H W W"],
+                            answer: 0,
+                            explain: "Whole, whole, half, whole, whole, whole, half. The half steps come between notes 3–4 and 7–8.",
+                        ),
+                        (
+                            prompt: "Which note in G major is sharp?",
+                            choices: ["F♯", "C♯", "B♯"],
+                            answer: 0,
+                            explain: "Following W W H W W W H from G gives G A B C D E F♯ G. The 7th note has to be F♯.",
+                        ),
+                        (
+                            prompt: "What are the notes of D major?",
+                            choices: ["D E F♯ G A B C♯", "D E F G A B C", "D E F♯ G A B C"],
+                            answer: 0,
+                            explain: "Following W W H W W W H from D gives D E F♯ G A B C♯. F and C both need sharps.",
+                        ),
+                        (
+                            prompt: "What is the 4th note of F major?",
+                            choices: ["B♭", "A♯", "B"],
+                            answer: 0,
+                            explain: "Each letter once: F G A B♭. A♯ would use the letter A twice.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.11",
+            title: "Keys and Key Signatures",
+            thread: TheoryEar,
+            minutes: 12,
+            prerequisites: ["L4.10"],
+            goal: "Know what a key is and read a key signature.",
+            practice: "Three minutes a day for a week. Pick a key (C, G, D, A, or F) and say its notes. Then name its sharps or flats.",
+            steps: [
+                Learn(
+                    title: "A family of seven notes",
+                    explain: "A key is a family of seven notes that a song mostly uses. They come from its major scale. The key signature is a little cheat sheet at the start of sheet music. It shows which notes are always sharp or flat.",
+                    facts: [
+                        "C: no sharps or flats. G: F♯. D: F♯ and C♯. A: three sharps. E: four sharps. F: B♭.",
+                        "Sharps always come in this order: F C G D A E B.",
+                        "With sharps, the key is one half step above the last sharp.",
+                    ],
+                    visual: Some(ScaleSteps(root: "D")),
+                ),
+                Learn(
+                    title: "Sharps keys and flat keys",
+                    explain: "Each key keeps its own set of sharps or flats. G major has one sharp: F sharp. D major has two: F sharp and C sharp. Going the other way, F major has one flat: B flat. A key signature is just a reminder at the start of the music.",
+                    facts: [
+                        "C: none. G: F♯. D: F♯ C♯. A: F♯ C♯ G♯.",
+                        "F: B♭. B♭: B♭ E♭.",
+                    ],
+                    tips: [
+                        "Sharps are always added in the same order: F, C, G, D, A, E, B. Remember \"Father Charles Goes Down And Ends Battle.\"",
+                    ],
+                    visual: Some(ScaleSteps(root: "G")),
+                ),
+                Learn(
+                    title: "Why keys matter",
+                    explain: "When you know a song's key, you know which chords and notes will fit. Songs in G use G, C, D, and E minor most of the time. Knowing the key is like knowing which team a player is on.",
+                    facts: [
+                        "The key's home chord is the 1 chord.",
+                        "Most songs start and end on the 1.",
+                    ],
+                    visual: Some(NumberWheel(key: "G")),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Which key has two sharps (F♯ and C♯)?",
+                            choices: ["D", "G", "A"],
+                            answer: 0,
+                            explain: "D major has F♯ and C♯. G has only F♯, and A has three sharps.",
+                        ),
+                        (
+                            prompt: "Which key has one flat (B♭)?",
+                            choices: ["F", "C", "B♭"],
+                            answer: 0,
+                            explain: "F major is F G A B♭ C D E. B has to be flat to keep the half step after A.",
+                        ),
+                        (
+                            prompt: "The last sharp is G♯. What's the key?",
+                            choices: ["A", "G", "E"],
+                            answer: 0,
+                            explain: "One half step above G♯ is A.",
+                        ),
+                        (
+                            prompt: "How many sharps or flats does C major have?",
+                            choices: ["None", "One", "Two"],
+                            answer: 0,
+                            explain: "C major is all white piano keys: C D E F G A B. No sharps, no flats.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.12",
+            title: "The Number System",
+            thread: TheoryEar,
+            minutes: 20,
+            prerequisites: ["L4.11"],
+            goal: "Build the 7 chords of any key and read progressions as numbers.",
+            practice: "Five minutes a day for a week. Play 1–5–6–4 in G, C, and D, saying the numbers out loud. Then try 1–4–5 and 6–4–1–5.",
+            steps: [
+                Learn(
+                    title: "Jersey numbers for chords",
+                    explain: "Build a chord on every note of the major scale and you get seven chords. They are always the same types in every key: 1 major, 2 minor, 3 minor, 4 major, 5 major, 6 minor, and 7 diminished. So musicians just say numbers. It's 1, 5, 6, 4 in G! means G, D, E minor, C.",
+                    facts: [
+                        "Famous progressions: 1–4–5, 1–5–6–4, 1–6–4–5, and 6–4–1–5.",
+                        "Changing key while keeping the numbers is called transposing.",
+                    ],
+                    visual: Some(NumberWheel(key: "C")),
+                    tips: [
+                        "Numbers 2, 3, and 6 are always minor in a major key.",
+                        "Number 7 is rare and sounds tense. You can skip it for now.",
+                    ],
+                ),
+                Learn(
+                    title: "Same numbers, new key",
+                    explain: "Here's the key of G. The numbers are the same. Only the letters changed.",
+                    visual: Some(NumberWheel(key: "G")),
+                    tips: [
+                        "Change the key, but keep the numbers. The song sounds the same, just higher or lower.",
+                    ],
+                ),
+                Activity(
+                    title: "1–5–6–4 in G",
+                    instructions: "G, D, Em, C.",
+                    activity: StrumAlong(chords: ["G", "D", "Em", "C"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 80.0, 90.0], repeats: 2),
+                ),
+                Activity(
+                    title: "1–5–6–4 in C",
+                    instructions: "C, G, Am, F.",
+                    activity: StrumAlong(chords: ["C", "G", "Am", "F"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "In the key of D, what is the 6 chord?",
+                            choices: ["B minor", "B", "A"],
+                            answer: 0,
+                            explain: "Count up D major: D E F♯ G A B. The 6th note is B, and the 6 chord is minor, so B minor.",
+                        ),
+                        (
+                            prompt: "In any major key, the 2 chord is…",
+                            choices: ["Minor", "Major", "Diminished"],
+                            answer: 0,
+                            explain: "The chords of a major key always go major, minor, minor, major, major, minor, diminished. So the 2 chord is minor.",
+                        ),
+                        (
+                            prompt: "Play 1–4–5 in A. Which chords?",
+                            choices: ["A, D, E", "A, B, C♯", "A, E, F♯"],
+                            answer: 0,
+                            explain: "In A, count A (1), B (2), C♯ (3), D (4), E (5). The 1, 4, and 5 chords are A, D, and E.",
+                        ),
+                        (
+                            prompt: "1–5–6–4 in C is…",
+                            choices: ["C, G, Am, F", "C, F, G, Am", "C, G, A, F"],
+                            answer: 0,
+                            explain: "In C, the 1 is C, the 5 is G, the 6 is A minor, and the 4 is F.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L4.13",
+            title: "Level 4 Song: House of the Rising Sun",
+            thread: Song,
+            minutes: 25,
+            prerequisites: ["L4.6", "L4.12"],
+            goal: "Fingerpick a classic in 6/8 with a real F barre chord.",
+            practice: "Ten minutes a day for a week. Play the chords in 6/8 with the arpeggio pattern. Count 1 2 3 4 5 6 and lean on 1 and 4.",
+            steps: [
+                Learn(
+                    title: "A song in 6/8",
+                    explain: "House of the Rising Sun is an old folk song in A minor. It counts in sixes: 1 2 3 4 5 6, with a little lean on 1 and 4. Pick the bass note on 1, then walk up the strings and back down.",
+                    facts: [
+                        "Chords: Am C D F | Am C E E | Am C D F | Am E Am E.",
+                        "The E is major in an A minor song. It borrows one note to pull harder back home. You'll learn why in Level 7.",
+                    ],
+                    visual: Some(StrumGrid(Arpeggio68)),
+                ),
+                Learn(
+                    title: "The arpeggio pattern",
+                    explain: "Instead of strumming, pick the strings one at a time. Start with the bass note, then go up and back down: bass, 3, 2, 1, 2, 3. That's six notes, one for each count of 6/8. It sounds like gentle waves rolling in.",
+                    facts: [
+                        "Count: 1 2 3 4 5 6.",
+                        "The bass note always lands on 1.",
+                    ],
+                    tips: [
+                        "Hold the whole chord down while you pick. Every note should keep ringing.",
+                        "Go slowly. Smooth and even matters more than fast.",
+                    ],
+                    visual: Some(StrumGrid(Arpeggio68)),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each chord of the song.",
+                    activity: ChordCheck(chords: ["Am", "C", "D", "F", "E"]),
+                ),
+                Activity(
+                    title: "One-minute changes: Am and F",
+                    instructions: "The hardest change in the song.",
+                    activity: ChangeTrainer(a: "Am", b: "F", target: 15),
+                ),
+                Activity(
+                    title: "Play the song",
+                    instructions: "Bass on 1, then up and back down: one note per count.",
+                    activity: StrumAlong(chords: ["Am", "C", "D", "F", "Am", "C", "E", "E", "Am", "C", "D", "F", "Am", "E", "Am", "E"], beats_per_chord: 6, pattern: Arpeggio68, tempos: [120.0, 150.0, 180.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 80,
+                    questions: [
+                        (
+                            prompt: "How do you count 6/8?",
+                            visual: Some(StrumGrid(Arpeggio68)),
+                            choices: ["1 2 3 4 5 6", "1 and 2 and", "1 e and a"],
+                            answer: 0,
+                            explain: "6/8 has six eighth notes in a bar, so you count all six: 1 2 3 4 5 6, leaning on 1 and 4.",
+                        ),
+                        (
+                            prompt: "Name this barre chord.",
+                            visual: Some(Chord("Bm")),
+                            choices: ["B minor", "B", "F"],
+                            answer: 0,
+                            explain: "It's an A-minor shape barred at fret 2 with the root on string 5. String 5, fret 2 is B, so it's B minor.",
+                        ),
+                        (
+                            prompt: "Where is C on string 6?",
+                            choices: ["Fret 8", "Fret 3", "Fret 5"],
+                            answer: 0,
+                            explain: "On string 6: E (open), F (1), G (3), A (5), B (7), C (8).",
+                        ),
+                        (
+                            prompt: "Capo 2 plus a G shape sounds like…",
+                            choices: ["A", "B", "G"],
+                            answer: 0,
+                            explain: "A capo on fret 2 raises a G shape by two half steps, so it sounds like A.",
+                        ),
+                        (
+                            prompt: "In the key of C, what is the 5 chord?",
+                            choices: ["G", "F", "A minor"],
+                            answer: 0,
+                            explain: "In C, count C (1), D (2), E (3), F (4), G (5). The 5 chord is G.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

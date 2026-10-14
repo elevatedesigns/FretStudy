@@ -1,0 +1,529 @@
+// Style Track J — Jazz. See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 13,
+    title: "🎷 Jazz",
+    track: Some("Jazz"),
+    goal: "Shell voicings, the ii–V–I, triads on every string set, swing comping, chord melody, guide tones, jazz blues, and building vocabulary.",
+    weeks: "8–10 weeks",
+    lessons: [
+        Lesson(
+            id: "J.1",
+            title: "Shell Voicings",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L7.5"],
+            goal: "Play 3-note jazz chords: root, 3rd, and 7th.",
+            practice: "Five minutes a day for a week. Play the shells for G7, Cmaj7, Dm7, and F7. Say the root, 3rd, and 7th for each.",
+            steps: [
+                Learn(
+                    title: "The sound of jazz in three notes",
+                    explain: "Jazz players often use just three notes: the root, the 3rd, and the 7th. These are called shell voicings. The 3rd and 7th tell your ear what kind of chord it is. The 5th can go, because it adds little. Shells are light and easy to move.",
+                    facts: [
+                        "Root on string 6: root, 7th on string 4, 3rd on string 3.",
+                        "Root on string 5: root, 7th on string 3, 3rd on string 2.",
+                        "Mute the strings in between with the side of your fingers.",
+                    ],
+                    visual: Some(ChordPair("G7-shell", "Cmaj7-shell")),
+                ),
+                Learn(
+                    title: "Only three notes",
+                    explain: "A shell voicing plays just three notes: the root, the 3rd, and the 7th. The 3rd says major or minor. The 7th gives the jazzy color. The 5th is left out, because it doesn't add much. Fewer notes means easier shapes and a cleaner sound.",
+                    facts: [
+                        "Root on string 6 or 5.",
+                        "3rd and 7th on the middle strings.",
+                    ],
+                    tips: [
+                        "Mute the strings you don't play with the sides of your fingers.",
+                    ],
+                    visual: Some(ChordPair("G7-shell", "Cmaj7-shell")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each shell. Only three strings should sound.",
+                    activity: ChordCheck(chords: ["Dm7-shell", "G7-shell", "Cmaj7-shell"]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Which notes make a shell voicing?",
+                            choices: ["Root, 3rd, and 7th", "Root, 5th, and octave", "Only the root"],
+                            answer: 0,
+                            explain: "A shell voicing uses just the root, 3rd, and 7th, the notes that tell you what kind of chord it is.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("G7-shell")),
+                            choices: ["G7", "Gmaj7", "Gm7"],
+                            answer: 0,
+                            explain: "Root G on string 6, fret 3, with F (the ♭7) and B (the 3rd). That's G7.",
+                        ),
+                        (
+                            prompt: "Which note can a shell leave out?",
+                            choices: ["The 5th", "The 3rd", "The 7th"],
+                            answer: 0,
+                            explain: "The 5th adds little to the chord's flavor, so shells leave it out. The 3rd and 7th are the important ones.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.2",
+            title: "The ii–V–I",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["J.1"],
+            goal: "Play the 2–5–1 progression and hear it in any key.",
+            practice: "Five minutes a day for a week. Play 2–5–1 in C with shells. Then move it to F and G.",
+            steps: [
+                Learn(
+                    title: "Jazz's favorite trip home",
+                    explain: "The 2–5–1 is the most common move in jazz. In C, it's Dm7, G7, then Cmaj7. Each chord pulls to the next, so it feels like coming home. Here's a pro tip: you can lead into any chord with its own 2 and 5.",
+                    facts: [
+                        "In C: Dm7 → G7 → Cmaj7.",
+                        "In F: Gm7 → C7 → Fmaj7.",
+                        "Roman numerals write it ii–V–I.",
+                    ],
+                    visual: Some(NumberWheel(key: "C", sevenths: true)),
+                ),
+                Learn(
+                    title: "Each chord leads to the next",
+                    explain: "In a 2–5–1, each chord pulls toward the next one. Dm7 wants to go to G7. G7 wants to go home to Cmaj7. That's why jazz players use it so much. It sounds like walking up to your front door.",
+                    facts: [
+                        "In C: Dm7, G7, Cmaj7.",
+                        "In F: Gm7, C7, Fmaj7.",
+                    ],
+                    tips: [
+                        "Keep your hand in one spot. The shells are close together on the neck.",
+                    ],
+                    visual: Some(ChordPair("Dm7-shell", "G7-shell")),
+                ),
+                Activity(
+                    title: "2–5–1 in C",
+                    instructions: "Four even strums per chord, in the Freddie Green style.",
+                    activity: StrumAlong(chords: ["Dm7-shell", "G7-shell", "Cmaj7-shell", "Cmaj7-shell"], beats_per_chord: 4, pattern: Quarters, tempos: [80.0, 110.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In C, what's the 2–5–1?",
+                            choices: ["Dm7, G7, Cmaj7", "C, F, G", "Am, Dm, E"],
+                            answer: 0,
+                            explain: "In C, the 2 chord is Dm7, the 5 is G7, and the 1 is Cmaj7.",
+                        ),
+                        (
+                            prompt: "In F, what's the 2 chord?",
+                            choices: ["Gm7", "Dm7", "Am7"],
+                            answer: 0,
+                            explain: "Count up F major: F (1), G (2). The 2 chord is minor, so Gm7.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.3",
+            title: "Triads on Four String Sets",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["J.2"],
+            goal: "Find root-position and inverted triads on the middle strings too.",
+            practice: "Five minutes a day for a week. Find C, F, and G triads on all four string sets. Use the Inversions tab on the Chords screen to check.",
+            steps: [
+                Learn(
+                    title: "Same triad, new strings",
+                    explain: "You played triads on strings 3, 2, and 1. The same three notes can live on strings 4-3-2, 5-4-3, and 6-5-4. Each set has a root position and two inversions. Learning them all lets you find a chord anywhere on the neck.",
+                    facts: [
+                        "C on strings 4-3-2: E on the bottom at string 4, fret 2.",
+                        "Move each shape up one string set: the notes change, the idea stays.",
+                    ],
+                    visual: Some(Shape(frets: "xx2010", fingers: "--2-1-", name: "C triad on strings 4-3-2 (E G C)")),
+                ),
+                Learn(
+                    title: "Triads on the middle strings",
+                    explain: "Here's C major on strings 4, 3, and 2. Lay finger 1 across all three strings at fret 5. The notes are G, C, and E. That's C major in 2nd inversion. Small shapes like this cut through a band without getting in the way.",
+                    facts: [
+                        "String sets: 6-5-4, 5-4-3, 4-3-2, 3-2-1.",
+                        "Each set has three shapes per triad.",
+                    ],
+                    tips: [
+                        "Open the Chords screen and pick the Inversions tab. It shows every triad shape.",
+                    ],
+                    visual: Some(Shape(frets: "xx555x", fingers: "--111-", name: "C triad on strings 4-3-2 (G C E)")),
+                ),
+                Activity(
+                    title: "Find C everywhere",
+                    instructions: "Tick each spot as you find C, E, and G together.",
+                    activity: Checklist(items: [
+                        "Strings 3-2-1, frets 5-5-3.",
+                        "Strings 4-3-2, frets 2-0-1.",
+                        "Strings 4-3-2, frets 10-9-8.",
+                        "Strings 5-4-3, frets 3-2-0.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How many inversions does a triad have on each string set (counting root position)?",
+                            choices: ["3", "1", "6"],
+                            answer: 0,
+                            explain: "Each string set has three versions: root position, 1st inversion, and 2nd inversion.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Shape(frets: "xx2010", fingers: "--2-1-")),
+                            choices: ["C", "Am", "Em"],
+                            answer: 0,
+                            explain: "E on string 4, open G on string 3, and C on string 2. E G C is a C chord in 1st inversion.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.4",
+            title: "Swing Comping",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["J.3"],
+            goal: "Comp with steady quarter notes and the Charleston rhythm.",
+            practice: "Five minutes a day for a week. Comp the Charleston on a 2–5–1. Keep each chord short and crisp.",
+            steps: [
+                Learn(
+                    title: "Backing up the band",
+                    explain: "Comping means playing chords behind a soloist. One way is four short strums every bar, like a ticking clock. Another is the Charleston: a stab on beat 1 and another on the \"and\" of 2. Keep the chords short so the soloist has room.",
+                    facts: [
+                        "Short, crisp strums: let go of the chord right after each one.",
+                        "Swing the eighth notes: long-short.",
+                    ],
+                    visual: Some(StrumGrid(Charleston)),
+                ),
+                Learn(
+                    title: "Short and crisp",
+                    explain: "Jazz comping uses short chords. Strum the chord, then loosen your fretting hand right away. The chord stops, like a quick clap. Short chords leave room for the melody and the soloist.",
+                    facts: [
+                        "Comp = accompany. You back up the band.",
+                        "Charleston rhythm: beat 1, then the \"and\" of 2.",
+                    ],
+                    tips: [
+                        "Don't lift your fingers off the strings. Just loosen them.",
+                    ],
+                    visual: Some(StrumGrid(Charleston)),
+                ),
+                Activity(
+                    title: "Charleston on a 2–5–1",
+                    instructions: "Two short stabs per bar.",
+                    activity: StrumAlong(chords: ["Dm7-shell", "G7-shell", "Cmaj7-shell", "Cmaj7-shell"], beats_per_chord: 4, pattern: Charleston, tempos: [90.0, 120.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What does comping mean?",
+                            choices: ["Playing chords behind a soloist", "Playing the melody", "Tuning up"],
+                            answer: 0,
+                            explain: "Comping means accompanying: playing chords behind the soloist or singer.",
+                        ),
+                        (
+                            prompt: "Where do the Charleston stabs land?",
+                            choices: ["Beat 1 and the \"and\" of 2", "Every beat", "Only beat 4"],
+                            answer: 0,
+                            explain: "The Charleston rhythm hits on beat 1 and the \"and\" of beat 2.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.5",
+            title: "Chord Melody",
+            thread: Song,
+            minutes: 20,
+            prerequisites: ["J.4"],
+            goal: "Put the melody note on top of each chord.",
+            practice: "Ten minutes a day for a week. Play a simple melody, then add one chord under each long note.",
+            steps: [
+                Learn(
+                    title: "Melody on top",
+                    explain: "In chord melody, you play the song's melody as the highest note of each chord. Find a chord shape where the melody note sits on string 1 or 2. Strum or pinch the whole thing. Between chords, play single melody notes.",
+                    facts: [
+                        "Start with the melody alone. Then add a chord under the long notes.",
+                        "Triads on the top strings make great chord-melody shapes.",
+                    ],
+                    visual: Some(Shape(frets: "xxx553", fingers: "---341", name: "C with G on top")),
+                ),
+                Learn(
+                    title: "Melody on the top string",
+                    explain: "In chord melody, the melody is always the highest note. Find each melody note on string 1 or 2. Then build a small chord under it, using shells or triads. Play the chord where the melody note is long. Play single notes in between.",
+                    facts: [
+                        "The melody must be the top note.",
+                        "Use small 3-note chords.",
+                    ],
+                    tips: [
+                        "Sing the melody while you play. It helps you hear it in the chords.",
+                    ],
+                    visual: Some(Tab([(string: 1, fret: 3), (string: 1, fret: 5), (string: 1, fret: 7), (string: 1, fret: 8, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Chord-melody steps",
+                    instructions: "Try it with the first line of \"Twinkle, Twinkle\" in C.",
+                    activity: Checklist(items: [
+                        "Play the melody alone on strings 1 and 2.",
+                        "Under the first C, play a C chord.",
+                        "Under the A notes, play an F chord with A on top.",
+                        "End on a C chord with C on top.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In chord melody, where does the melody go?",
+                            choices: ["On top of each chord", "In the bass", "It's left out"],
+                            answer: 0,
+                            explain: "In chord melody, the melody is the top note of each chord.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.6",
+            title: "Arpeggios and Guide Tones",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["J.5"],
+            goal: "Solo over a 2–5–1 by landing on each chord's 3rd and 7th.",
+            practice: "Five minutes a day for a week. Play just the 3rds and 7ths through a 2–5–1. Then solo, landing on them.",
+            steps: [
+                Learn(
+                    title: "The guide tones",
+                    explain: "The 3rd and 7th of each chord are its guide tones. In a 2–5–1 they move by tiny steps. The 7th of Dm7 is C. It slides down to B, the 3rd of G7. Then the 7th of G7, F, slides down to E, the 3rd of Cmaj7. Follow that line and your solo sounds like jazz.",
+                    facts: [
+                        "Dm7 = D F A C. G7 = G B D F. Cmaj7 = C E G B.",
+                        "Guide-tone line: C → B, then F → E.",
+                    ],
+                    visual: Some(Decoder(examples: ["Dm7", "G7", "Cmaj7"])),
+                ),
+                Learn(
+                    title: "Tiny moves, big sound",
+                    explain: "Look at the guide tones in Dm7, G7, and Cmaj7. The C in Dm7 slides down one fret to B in G7. The F in Dm7 stays as F in G7. Then F slides down to E in Cmaj7, and B stays. Only one note moves each time, and only by one fret!",
+                    facts: [
+                        "Dm7: F and C. G7: F and B. Cmaj7: E and B.",
+                        "Guide tones = 3rds and 7ths.",
+                    ],
+                    tips: [
+                        "Play these two-note shapes alone. You'll hear the chords without the roots.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 3, fret: 5), (string: 3, fret: 4), (string: 2, fret: 6), (string: 2, fret: 5)], first_fret: 2, last_fret: 8, show_names: true)),
+                ),
+                Activity(
+                    title: "Chase the chord tones",
+                    instructions: "The colored dots are the current chord's notes. Land on its 3rd or 7th.",
+                    activity: Jam(key: "C", scale: "major", chords: ["Dm7-shell", "G7-shell", "Cmaj7-shell", "Cmaj7-shell"], pattern: Charleston, bpm: 90.0, chord_tones: true),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What are guide tones?",
+                            choices: ["The 3rd and 7th of each chord", "The root and 5th", "Any note"],
+                            answer: 0,
+                            explain: "Guide tones are each chord's 3rd and 7th. They show where the harmony is going.",
+                        ),
+                        (
+                            prompt: "In a 2–5–1 in C, the 7th of Dm7 (C) moves to…",
+                            choices: ["B, the 3rd of G7", "D, the root of Dm7", "G, the 5th of C"],
+                            answer: 0,
+                            explain: "C (the 7th of Dm7) slides down a half step to B, the 3rd of G7.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.7",
+            title: "Jazz Blues",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["J.6"],
+            goal: "Comp through a jazz blues in F with shell voicings.",
+            practice: "Ten minutes a day for a week. Comp the jazz blues in F with shells. Then solo using the F blues scale.",
+            steps: [
+                Learn(
+                    title: "The blues, dressed up",
+                    explain: "A jazz blues is the 12-bar blues with extra chords. It adds a diminished passing chord and leads back home with a 2–5. In F, it goes F7, B♭7, F7, F7, B♭7, B diminished, F7, D7, Gm7, C7, F7, and C7.",
+                    facts: [
+                        "Bdim7 in bar 6 walks the bass from B♭ up to F7.",
+                        "Bars 8 to 10: D7 leads to Gm7, and Gm7 to C7 is a 2–5 home to F.",
+                    ],
+                    visual: Some(ChordPair("F7-shell", "Bb7-shell")),
+                ),
+                Learn(
+                    title: "Dress up the blues",
+                    explain: "Jazz blues uses the same 12-bar map, but adds more chords. Bars 8, 9, and 10 often become a 2–5–1 back home. Instead of plain 7 chords, jazz players use shells and add color notes. It's still the blues, just wearing a nice suit.",
+                    facts: [
+                        "1: F7. 4: B♭7. 5: C7.",
+                        "Bar 9 is Gm7, bar 10 is C7.",
+                    ],
+                    tips: [
+                        "Practice the changes slowly with the metronome on beats 2 and 4.",
+                    ],
+                    visual: Some(ChordPair("F7-shell", "Bb7-shell")),
+                ),
+                Activity(
+                    title: "Jazz blues in F",
+                    instructions: "Four even strums per bar.",
+                    activity: StrumAlong(chords: ["F7-shell", "Bb7-shell", "F7-shell", "F7-shell", "Bb7-shell", "Bdim7", "F7-shell", "D7-shell", "Gm7-shell", "C7-shell", "F7-shell", "C7-shell"], beats_per_chord: 4, pattern: Quarters, tempos: [90.0, 120.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What chord is in bar 6 of this jazz blues?",
+                            choices: ["B diminished 7", "B♭7", "C7"],
+                            answer: 0,
+                            explain: "Bar 6 has the B diminished 7th chord, which walks the bass up from B♭ toward F7.",
+                        ),
+                        (
+                            prompt: "Gm7 to C7 to F is a…",
+                            choices: ["2–5–1 in F", "1–4–5 in F", "12-bar blues"],
+                            answer: 0,
+                            explain: "Gm7 is the 2, C7 is the 5, and F is the 1 in the key of F: a 2–5–1.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.8",
+            title: "Building Vocabulary",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["J.7"],
+            goal: "Learn a short 2–5–1 lick and change it in three ways.",
+            practice: "Five minutes a day for a week. Learn one lick in three keys. Then change one note or rhythm and make it yours.",
+            steps: [
+                Learn(
+                    title: "Learn chunks, then change them",
+                    explain: "Jazz players learn short chunks of melody, like words. Then they change them: start on a new beat, play them faster, or move them to a new key. Mix the chunks and you're improvising. Here's a chunk for a 2–5–1 in C.",
+                    facts: [
+                        "Learn it slowly, then sing it.",
+                        "Try it in F and G too.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 3, fret: 7, beats: 0.5), (string: 2, fret: 6, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 1, fret: 7, beats: 0.5),
+                        (string: 2, fret: 6), (string: 2, fret: 8), (string: 2, fret: 5, beats: 2.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Learn it in every key",
+                    explain: "A lick is like a phrase you can say in any conversation. Learn it in one key first. Then move it up two frets and play it again. Keep going until you can play it anywhere. Soon it will come out in your solos without thinking.",
+                    facts: [
+                        "Most licks fit over one chord type.",
+                        "Move the lick with the chord.",
+                    ],
+                    tips: [
+                        "Change the rhythm before you change the notes. It's an easy way to make it new.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 7), (string: 3, fret: 5), (string: 4, fret: 7), (string: 4, fret: 5), (string: 5, fret: 7), (string: 4, fret: 5, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Play the chunk",
+                    instructions: "Slow and clean.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 3, fret: 7, beats: 0.5), (string: 2, fret: 6, beats: 0.5), (string: 2, fret: 8, beats: 0.5), (string: 1, fret: 7, beats: 0.5),
+                        (string: 2, fret: 6), (string: 2, fret: 8), (string: 2, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Change it",
+                    instructions: "Tick each way you changed the chunk.",
+                    activity: Checklist(items: [
+                        "Started it on beat 2 instead of beat 1.",
+                        "Played it twice as fast.",
+                        "Moved it up five frets (to F).",
+                        "Mixed it with a lick of your own.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How do jazz players build a vocabulary?",
+                            choices: ["Learn short chunks and change them", "Only play scales", "Never repeat anything"],
+                            answer: 0,
+                            explain: "Players learn short chunks (licks), then change and combine them, like learning words to make sentences.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "J.9",
+            title: "Jazz Capstone: Head, Comp, Solo",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["J.8"],
+            goal: "Record yourself comping and soloing over a jazz blues.",
+            practice: "Fifteen minutes a day for a week. Play the head, comp a chorus, solo a chorus, then play the head again. Record it.",
+            steps: [
+                Learn(
+                    title: "Your jazz blues",
+                    explain: "Make up a short melody (the head) over the jazz blues in F. Play it once. Then solo for a chorus using guide tones and your chunks. Record it, listen back, and try again.",
+                    facts: [
+                        "Head, then solo, then the head again: that's the jazz form.",
+                    ],
+                ),
+                Learn(
+                    title: "The jazz plan",
+                    explain: "Jazz tunes follow a plan. First, play the melody, called the head. Next, players take turns soloing over the chords while others comp. Finally, play the head again to end. Every chorus follows the same chord changes.",
+                    facts: [
+                        "Head, solos, head.",
+                        "Each solo is one or more choruses.",
+                    ],
+                    tips: [
+                        "Keep track of where you are. Count the bars if you need to.",
+                    ],
+                    visual: Some(TwelveBar(key: "F")),
+                ),
+                Learn(
+                    title: "Trading roles",
+                    explain: "During the head, play the melody. During a solo, play single notes from the scale and chord tones. When someone else solos, comp with short shell chords. Listening to the other players is just as important as playing.",
+                    facts: [
+                        "Comp quietly so the soloist can be heard.",
+                    ],
+                    tips: [
+                        "Nod or look up when your solo ends. It tells the band to move on.",
+                    ],
+                    visual: Some(ChordPair("F7-shell", "C7-shell")),
+                ),
+                Activity(
+                    title: "Record over the jazz blues",
+                    instructions: "Start the backing, then press Record.",
+                    activity: Record(chords: ["F7-shell", "Bb7-shell", "F7-shell", "F7-shell", "Bb7-shell", "Bdim7", "F7-shell", "D7-shell", "Gm7-shell", "C7-shell", "F7-shell", "C7-shell"], pattern: Charleston, bpm: 100.0),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What is the usual jazz form?",
+                            choices: ["Head, solos, then the head again", "Solo only", "Chords only"],
+                            answer: 0,
+                            explain: "Jazz usually plays the head (melody), then solos over the form, then the head again.",
+                        ),
+                        (
+                            prompt: "What are the guide tones of G7?",
+                            choices: ["B and F", "G and D", "A and C"],
+                            answer: 0,
+                            explain: "G7 is G B D F. Its 3rd is B and its 7th is F, so those are the guide tones.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

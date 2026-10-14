@@ -1,0 +1,610 @@
+// Level 0 — Get Ready. See docs/02-Curriculum-Part1-Levels-0-2.md.
+Level(
+    number: 0,
+    title: "Get Ready",
+    goal: "Know your guitar, hold it comfortably, tune it, and read chord boxes and tab.",
+    weeks: "about 1 week",
+    lessons: [
+        Lesson(
+            id: "L0.1",
+            title: "Meet Your Guitar",
+            thread: Technique,
+            minutes: 8,
+            goal: "Name the main parts of a guitar and know the three main kinds.",
+            practice: "Five minutes a day for two days. Point to each part of your guitar and say its name out loud, then play the Find it game until you get every part on the first try.",
+            steps: [
+                Learn(
+                    title: "The parts of a guitar",
+                    explain: "A guitar is a wooden box with six strings on it. When a string shakes, it makes a sound. The long skinny part is the neck. The metal bars across the neck are frets. Think of frets like stairs. Every fret you climb toward the body makes the note one step higher.",
+                    facts: [
+                        "Tap any part of the guitar to learn its name.",
+                        "Tuning pegs tighten or loosen the strings.",
+                        "The nut and the bridge hold the strings up off the wood.",
+                    ],
+                    visual: Some(GuitarParts),
+                ),
+                Learn(
+                    title: "Three kinds of guitars",
+                    explain: "There are three main kinds. A steel-string acoustic is bright and loud. A classical guitar has soft nylon strings that are gentle on your fingertips. An electric guitar has thin strings and plugs into an amp. Every lesson here works on all three.",
+                    more: Some("Steel-string acoustics need no amp and are great for strumming. Classical (nylon) guitars have a wider neck and are traditional for fingerstyle and classical music. Electric guitars are the easiest to press and bend, but need an amplifier or headphones amp."),
+                ),
+                Learn(
+                    title: "How a guitar makes sound",
+                    explain: "When you pluck a string, it shakes back and forth very fast. On an acoustic guitar, the wooden body makes that shake louder, like a drum. Pressing a string down at a fret makes the shaking part shorter, and a shorter string sounds higher. That's how one string can play lots of notes.",
+                    facts: [
+                        "Open string: the whole string shakes, so it's the lowest note on that string.",
+                        "Fret 12 is halfway down the string, so it sounds the same note, but higher.",
+                        "Electric guitars use pickups (magnets) and an amp instead of a hollow body.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 0), (string: 1, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Learn(
+                    title: "Looking after your guitar",
+                    explain: "A guitar is made of wood and metal, so it likes the same things you do: not too hot, not too cold, and not too dry. Keep it in its case or on a stand when you're done. Wipe the strings with a soft cloth so they last longer and sound bright.",
+                    facts: [
+                        "Never leave a guitar in a hot car or next to a heater.",
+                        "Hold it by the neck, not by the tuning pegs.",
+                    ],
+                    tips: [
+                        "Wash your hands before playing. Dirt and sweat make strings dull and rusty.",
+                        "If a string breaks, don't worry. Strings are cheap and easy to change (see the Tone & Gear track).",
+                    ],
+                    visual: Some(GuitarParts),
+                ),
+                Activity(
+                    title: "Find it!",
+                    instructions: "FretStudy will name a part. Tap it on the guitar.",
+                    activity: PartsGame(rounds: 8),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What are the metal bars across the neck called?",
+                            choices: ["Strings", "Frets", "Tuning pegs"],
+                            answer: 1,
+                            explain: "Frets are the metal bars. Each one is like a stair step for the notes.",
+                        ),
+                        (
+                            prompt: "What do the tuning pegs do?",
+                            choices: ["Make the guitar louder", "Hold the guitar on a strap", "Tighten or loosen the strings"],
+                            answer: 2,
+                            explain: "Turning a tuning peg makes a string tighter (higher) or looser (lower).",
+                        ),
+                        (
+                            prompt: "Which guitar has soft nylon strings?",
+                            choices: ["Classical guitar", "Electric guitar", "Steel-string acoustic"],
+                            answer: 0,
+                            explain: "Classical guitars use nylon strings. They're gentle on new fingertips.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L0.2",
+            title: "Holding the Guitar and the Pick",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["L0.1"],
+            goal: "Sit with good posture, hold a pick, and place your fretting hand without squeezing.",
+            practice: "Five minutes a day for three days. Sit, hold the guitar, and check your posture with the checklist. Then pick each open string ten times, slowly, with the pick pointing at the string.",
+            steps: [
+                Learn(
+                    title: "Hug the guitar",
+                    explain: "Hug the guitar like a friend. Its back touches your belly and chest. If you are sitting, rest the curvy middle of the guitar on your leg. Point the neck up a little, not down. Keep your shoulders loose.",
+                    facts: [
+                        "Standing up? Use a strap so the guitar sits about where it does when you sit.",
+                        "If anything hurts, stop, shake out your hands, and try again more gently.",
+                    ],
+                    tips: [
+                        "Don't tip the guitar back to see the strings. Lean forward a tiny bit instead.",
+                        "Keep your shoulders loose. If they rise up, take a breath and drop them.",
+                    ],
+                ),
+                Learn(
+                    title: "Your fretting hand",
+                    explain: "Your fretting hand holds the neck like a baseball. Your thumb goes behind the neck. Your fingers stay in front. Each finger has a number and a color. Pointer is 1, middle is 2, ring is 3, and pinky is 4.",
+                    facts: [
+                        "Keep your wrist fairly straight.",
+                        "Leave a little space between your palm and the neck.",
+                        "Press with your fingertips, not the flat pads.",
+                    ],
+                    visual: Some(Hand),
+                ),
+                Learn(
+                    title: "Holding a pick",
+                    explain: "Pinch the pick between your thumb and the side of your pointer finger. Only the tip should peek out. If too much sticks out, it is hard to control.",
+                    more: Some("Hold the pick firmly enough that it doesn't fall, but loosely enough that it can give a little when it hits the strings. About a quarter inch (a few millimeters) of the tip should show."),
+                ),
+                Learn(
+                    title: "Pick down and up",
+                    explain: "Pick the string by pushing the pick through it, toward the floor. That's a downstroke. Then come back up through the same string. That's an upstroke. Keep the moves small, like flicking a crumb off the table. Only the tip of the pick should touch the string.",
+                    facts: [
+                        "Down is marked with a square bracket shape in music. Up is marked with a V.",
+                        "Small moves are faster and cleaner than big ones.",
+                    ],
+                    tips: [
+                        "Gripping the pick too tightly makes your hand tired. Hold it just firmly enough that it doesn't slip.",
+                        "If the pick spins in your fingers, show less of its tip.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0), (string: 6, fret: 0), (string: 5, fret: 0), (string: 5, fret: 0), (string: 4, fret: 0), (string: 4, fret: 0)])),
+                ),
+                Activity(
+                    title: "Posture check",
+                    instructions: "Grab your guitar and a mirror. Check each one off when it's true.",
+                    activity: Checklist(items: [
+                        "The guitar's back touches my belly and chest.",
+                        "The neck points a little up, not down.",
+                        "My thumb is behind the neck, not wrapped over the top.",
+                        "My fretting wrist is fairly straight.",
+                        "I'm holding the pick with just the tip showing.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "Where does your fretting-hand thumb go?",
+                            choices: ["Behind the neck", "On top of the strings", "Inside the soundhole"],
+                            answer: 0,
+                            explain: "Your thumb rests behind the neck, like you're holding a baseball.",
+                        ),
+                        (
+                            prompt: "Which finger is finger number 3?",
+                            choices: ["Pointer", "Ring finger", "Pinky"],
+                            answer: 1,
+                            explain: "Pointer is 1, middle is 2, ring is 3, pinky is 4.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L0.3",
+            title: "String Names, Fret Numbers, Finger Numbers",
+            thread: Notes,
+            minutes: 10,
+            prerequisites: ["L0.2"],
+            goal: "Name strings 1–6 and their letters, count frets, and use finger numbers.",
+            practice: "Five minutes a day for three days. Say the string names from thick to thin (E A D G B E) while you pluck each one. Then play the Find that string game.",
+            steps: [
+                Learn(
+                    title: "Strings have numbers and names",
+                    explain: "The skinniest string is number 1. The fattest string is number 6. From fattest to skinniest, their names are E A D G B E. Remember it with Eddie Ate Dynamite, Good Bye Eddie.",
+                    facts: [
+                        "High and low mean the sound, not where the string is.",
+                        "The high E string is the one closest to the floor.",
+                    ],
+                    visual: Some(Strings),
+                ),
+                Learn(
+                    title: "Counting frets",
+                    explain: "Frets are counted from the tuning pegs toward the body. Fret 1 is the space closest to the pegs. Press just behind the metal fret, not on top of it.",
+                    visual: Some(Neck(notes: [(string: 2, fret: 1), (string: 3, fret: 2), (string: 4, fret: 3)], first_fret: 0, last_fret: 5, show_names: true)),
+                ),
+                Learn(
+                    title: "Press right behind the fret",
+                    explain: "To play a fret, press the string with your fingertip just behind the metal fret wire, not on top of it. Close to the wire is easiest. You need less force there, and the note sounds clear instead of buzzy.",
+                    facts: [
+                        "Use the very tip of your finger, with the finger curved like an arch.",
+                        "Fret 1 is closest to the headstock. The numbers get bigger toward the body.",
+                    ],
+                    tips: [
+                        "A buzzing note usually means you're too far from the fret wire or not pressing hard enough.",
+                        "A dead, thudding note usually means you're pressing on top of the fret wire.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 1), (string: 2, fret: 1), (string: 3, fret: 2)], first_fret: 0, last_fret: 4, show_names: true)),
+                ),
+                Learn(
+                    title: "A trick to remember the strings",
+                    explain: "From the thickest string to the thinnest, the strings are E, A, D, G, B, E. A silly sentence helps you remember them: Eddie Ate Dynamite, Good Bye Eddie. Make up your own if you like!",
+                    facts: [
+                        "String 6 is the thickest and lowest. String 1 is the thinnest and highest.",
+                        "Both outside strings are E, two octaves apart.",
+                    ],
+                    visual: Some(Strings),
+                ),
+                Activity(
+                    title: "Find that string",
+                    instructions: "FretStudy names a string. Click it on the neck. If your microphone is on, you can pluck it on your guitar instead.",
+                    activity: StringGame(rounds: 6),
+                ),
+                Check(
+                    pass_percent: 80,
+                    questions: [
+                        (
+                            prompt: "What is the name of string 2?",
+                            visual: Some(Strings),
+                            choices: ["G", "B", "E"],
+                            answer: 1,
+                            explain: "From string 1 to string 6, the names are E B G D A E. String 2 is B.",
+                        ),
+                        (
+                            prompt: "Which string is the thickest?",
+                            choices: ["String 1", "String 6", "String 3"],
+                            answer: 1,
+                            explain: "String 6 (low E) is the thickest and sounds the lowest.",
+                        ),
+                        (
+                            prompt: "Which fret is closest to the tuning pegs?",
+                            choices: ["Fret 1", "Fret 12", "Fret 5"],
+                            answer: 0,
+                            explain: "Frets are counted from the pegs. Fret 1 comes first.",
+                        ),
+                        (
+                            prompt: "Which finger is number 4?",
+                            choices: ["Thumb", "Pointer", "Pinky"],
+                            answer: 2,
+                            explain: "Pinky is finger 4. The thumb is T.",
+                        ),
+                        (
+                            prompt: "Where should your fingertip press?",
+                            choices: ["Right on top of the metal fret", "Just behind the metal fret", "In the middle of two frets, far from both"],
+                            answer: 1,
+                            explain: "Just behind the fret wire is the sweet spot. It takes the least pressure and sounds clean.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L0.4",
+            title: "Tuning Up",
+            thread: Technique,
+            minutes: 12,
+            prerequisites: ["L0.3"],
+            goal: "Tune all six strings with the built-in tuner.",
+            practice: "Tune up every time you pick up your guitar. It takes about a minute, and soon you'll do it without thinking.",
+            steps: [
+                Learn(
+                    title: "Why we tune",
+                    explain: "Tuning is like a team wearing the same jersey. Each string has to match its exact note. Turning a tuning peg makes the string tighter for a higher sound, or looser for a lower sound. Turn slowly and watch the needle.",
+                    facts: [
+                        "Standard tuning, fattest to skinniest: E A D G B E.",
+                        "Tune up to the note. If you go too high, go below it and come back up.",
+                        "Pluck once and let it ring while you turn.",
+                        "Guitars drift out of tune. Check every time you play.",
+                    ],
+                    more: Some("The exact pitches are E2, A2, D3, G3, B3, and E4. The needle shows cents: 100 cents is one fret. Within 5 cents counts as in tune."),
+                ),
+                Learn(
+                    title: "Tighter is higher",
+                    explain: "Each string is wound around a tuning peg. Turn the peg one way and the string gets tighter, so the note goes higher. Turn it the other way and the note goes lower. Turn slowly, a little at a time, while the string rings.",
+                    facts: [
+                        "Strings, thick to thin: E A D G B E.",
+                        "Low E is about 82 waves per second (82 Hz). High E is about 330.",
+                    ],
+                    tips: [
+                        "Always tune UP to the note. If you go too high, go below it and come back up. The string stays in tune longer.",
+                        "Make sure you're turning the peg for the string you're plucking!",
+                    ],
+                    visual: Some(Strings),
+                ),
+                Learn(
+                    title: "Reading the tuner",
+                    explain: "Pluck one string and let it ring. The tuner shows the note it hears and a needle. Needle on the left means the string is too low, so tighten it. Needle on the right means too high, so loosen it. When the needle is in the green middle, that string is in tune.",
+                    facts: [
+                        "Pluck firmly, then let the string ring. Don't touch it while the tuner listens.",
+                        "Tune all six strings, then check them all again. Changing one can pull the others a little.",
+                    ],
+                    tips: [
+                        "If the tuner shows the wrong letter, the string may be very far off. Turn the peg slowly and watch the letter change.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 0), (string: 5, fret: 0), (string: 4, fret: 0), (string: 3, fret: 0), (string: 2, fret: 0), (string: 1, fret: 0)], first_fret: 0, last_fret: 3, show_names: true)),
+                ),
+                Learn(
+                    title: "Tuning by ear",
+                    explain: "No tuner? You can tune the strings to each other. Press string 6 at fret 5. That note should match open string 5. Do the same up the guitar: fret 5 on string 5 matches open string 4, and so on. There's one exception: for string 2, press string 3 at fret 4.",
+                    facts: [
+                        "Fret 5 on strings 6, 5, 4, and 2. Fret 4 on string 3.",
+                        "Listen for a wobble (a slow wah-wah). The wobble stops when the two notes match.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 5), (string: 5, fret: 5), (string: 4, fret: 5), (string: 3, fret: 4), (string: 2, fret: 5)], first_fret: 0, last_fret: 7, show_names: true)),
+                ),
+                Activity(
+                    title: "Tune all six strings",
+                    instructions: "Turn on the microphone, then pluck one string and let it ring. Each string gets a check mark when it's in tune.",
+                    activity: Tune,
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "The needle says the string is too low. What do you do?",
+                            choices: ["Tighten the string slowly", "Loosen the string", "Press harder"],
+                            answer: 0,
+                            explain: "Tighter makes the note higher. Turn slowly and watch the needle.",
+                        ),
+                        (
+                            prompt: "You went past the note and now it's too high. What's best?",
+                            choices: ["Leave it", "Go a little below the note, then come back up", "Pluck harder"],
+                            answer: 1,
+                            explain: "Tuning up to the note helps the string stay in tune.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L0.5",
+            title: "Reading Chord Boxes",
+            thread: Chords,
+            minutes: 8,
+            prerequisites: ["L0.3"],
+            goal: "Read a chord diagram and place your fingers from it.",
+            practice: "Five minutes a day for two days. Pick any chord in the Chords tab, read its box out loud (\"string 5, fret 2, finger 2\"), and place your fingers one at a time.",
+            steps: [
+                Learn(
+                    title: "A picture of the neck, standing up",
+                    explain: "A chord box is a picture of the guitar neck standing up. The lines going up and down are strings. The fat string is on the left. The lines going across are frets. A dot means put a finger here. The number in the dot tells you which finger.",
+                    facts: [
+                        "An O on top means play that string open (no finger).",
+                        "An X on top means don't play that string.",
+                        "The thick line at the top is the nut.",
+                    ],
+                    visual: Some(Chord("Em")),
+                ),
+                Learn(
+                    title: "Fingers, X, and O",
+                    explain: "A chord box tells you three things. Dots show where your fingers go, and the number on each dot is the finger to use. An O above a string means play it open, with no finger. An X means don't play that string at all.",
+                    facts: [
+                        "Finger 1 is your pointer, 2 is your middle, 3 is your ring, and 4 is your pinky.",
+                        "The thick line at the top is the nut. If there's no thick line, a number shows which fret the box starts on.",
+                    ],
+                    tips: [
+                        "Don't mix up the box with tab! In a box the strings stand up and down, with the thickest string on the left.",
+                    ],
+                    visual: Some(Chord("D")),
+                ),
+                Learn(
+                    title: "From the box to your hand",
+                    explain: "Hold the guitar and look at the neck from above. Now turn the chord box in your mind so it matches. Place the finger on the thickest string first, then work toward the thin strings. Pluck each string one at a time to check that every note rings.",
+                    facts: [
+                        "Place fingers low string to high string.",
+                        "Check each string. A muffled string means a finger is touching it.",
+                    ],
+                    visual: Some(Chord("Em")),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "In this E minor chord, which finger goes on string 5?",
+                            visual: Some(Chord("Em")),
+                            choices: ["Finger 1", "Finger 2", "Finger 3"],
+                            answer: 1,
+                            explain: "The dot on string 5 (second line from the left) has a 2 in it.",
+                        ),
+                        (
+                            prompt: "What does an X above a string mean?",
+                            visual: Some(Chord("C")),
+                            choices: ["Play it extra loud", "Don't play that string", "Play it open"],
+                            answer: 1,
+                            explain: "X means skip that string. An O means play it open.",
+                        ),
+                        (
+                            prompt: "In this C chord, what fret is finger 3 on?",
+                            visual: Some(Chord("C")),
+                            choices: ["Fret 1", "Fret 2", "Fret 3"],
+                            answer: 2,
+                            explain: "Count down from the nut: finger 3 sits in the third space, fret 3.",
+                        ),
+                        (
+                            prompt: "In a chord box, which side is the fattest string on?",
+                            choices: ["Left", "Right"],
+                            answer: 0,
+                            explain: "Fat string on the left, skinny string on the right (unless you turn on left-handed mode).",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L0.6",
+            title: "Reading Tab",
+            thread: Notes,
+            minutes: 8,
+            prerequisites: ["L0.3"],
+            goal: "Read tablature (tab) and play single notes from it.",
+            practice: "Five minutes a day for three days. Play the open strings from the tab slowly, saying each string number out loud. Then try reading the tab without looking at your hand.",
+            steps: [
+                Learn(
+                    title: "Tab is a treasure map",
+                    explain: "Tab is a treasure map for guitar. It has six lines, one for each string. The top line is the skinniest string. The numbers tell you which fret to press. A zero means play the string open. Read it left to right, like a book.",
+                    facts: [
+                        "Numbers stacked straight up and down are played together.",
+                        "FretStudy adds rhythm marks under the tab so you know how long each note lasts.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0), (string: 5, fret: 0), (string: 4, fret: 0), (string: 3, fret: 0), (string: 2, fret: 0), (string: 1, fret: 0)])),
+                ),
+                Learn(
+                    title: "Numbers are frets",
+                    explain: "In tab, the six lines are the six strings, with the thinnest string on top. A number on a line tells you which fret to press on that string. A 0 means play the string open. Read from left to right, just like a book.",
+                    facts: [
+                        "Top line = string 1 (high E). Bottom line = string 6 (low E).",
+                        "A 3 on the second line means string 2, fret 3.",
+                    ],
+                    tips: [
+                        "Tab is upside down from how you look at the guitar! The top line is the string closest to the floor.",
+                        "Tab shows where to play, but not always how long. Listen to the song, or look at the spacing.",
+                    ],
+                    visual: Some(Tab([(string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0), (string: 1, fret: 1, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Play the open strings",
+                    instructions: "Play each open string from the tab, fattest to skinniest and back. The microphone listens for each note, or press Next if your mic is off.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 0), (string: 5, fret: 0), (string: 4, fret: 0), (string: 3, fret: 0), (string: 2, fret: 0), (string: 1, fret: 0),
+                        (string: 2, fret: 0), (string: 3, fret: 0), (string: 4, fret: 0), (string: 5, fret: 0), (string: 6, fret: 0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Which string is the top line of tab?",
+                            choices: ["String 1, the skinniest", "String 6, the fattest"],
+                            answer: 0,
+                            explain: "The top line is string 1, so tab looks like the neck map.",
+                        ),
+                        (
+                            prompt: "In this tab, which string and fret is the note?",
+                            visual: Some(Tab([(string: 2, fret: 3)])),
+                            choices: ["String 2, fret 3", "String 3, fret 2", "String 5, fret 3"],
+                            answer: 0,
+                            explain: "The 3 sits on the second line from the top, so it's string 2, fret 3.",
+                        ),
+                        (
+                            prompt: "What does a 0 in tab mean?",
+                            choices: ["Don't play", "Play the string open", "Play fret 10"],
+                            answer: 1,
+                            explain: "Zero means no finger: play the string open.",
+                        ),
+                        (
+                            prompt: "Which way do you read tab?",
+                            choices: ["Right to left", "Left to right", "Bottom to top"],
+                            answer: 1,
+                            explain: "Left to right, just like reading a book.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L0.7",
+            title: "Feeling the Beat",
+            thread: Rhythm,
+            minutes: 8,
+            goal: "Tap a steady beat with a metronome and count 1 2 3 4.",
+            practice: "Five minutes a day for three days. Turn on the metronome in Practice, tap your foot, and count \"1, 2, 3, 4\" out loud along with it. Try 60, then 70, then 80 BPM.",
+            steps: [
+                Learn(
+                    title: "Music has a heartbeat",
+                    explain: "Music has a heartbeat called the beat. Most songs count it in groups of four: 1, 2, 3, 4, 1, 2, 3, 4. A metronome is a clock that clicks the beat for you. BPM means beats per minute. At 60 BPM, it clicks once every second.",
+                    facts: [
+                        "One group of four beats is called a measure (or a bar).",
+                        "Beat 1 is the strongest. The metronome clicks a little higher on beat 1.",
+                    ],
+                    visual: Some(BeatPulse(bpm: 70.0)),
+                ),
+                Learn(
+                    title: "Counting to four",
+                    explain: "Most songs group beats into fours. Count \"1, 2, 3, 4\" over and over, with each number landing right on a beat. Beat 1 feels a little stronger, like the start of a sentence. A group of four beats is called a bar.",
+                    facts: [
+                        "Tap your foot on every number.",
+                        "Saying the numbers out loud helps your brain lock onto the beat.",
+                    ],
+                    tips: [
+                        "Speeding up is the most common mistake. Stay with the clicks, even when it feels slow.",
+                    ],
+                    visual: Some(StrumGrid(Quarters)),
+                ),
+                Learn(
+                    title: "Fast and slow: BPM",
+                    explain: "The speed of the beat is called the tempo. We measure it in beats per minute, or BPM. 60 BPM is one beat every second, like a clock ticking. 120 BPM is twice as fast. Practicing slowly is the fastest way to get good!",
+                    facts: [
+                        "Slow songs: about 60 to 80 BPM. Medium: about 90 to 110. Fast: 120 and up.",
+                    ],
+                    visual: Some(BeatPulse(bpm: 100.0)),
+                ),
+                Activity(
+                    title: "Tap the beat",
+                    instructions: "Tap the big button (or press the space bar) right on each click. Try to get 8 good taps in a row.",
+                    activity: TapBeat(bpm: 70.0, taps: 8),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "What does BPM stand for?",
+                            choices: ["Beats per minute", "Big pick motion", "Bars per measure"],
+                            answer: 0,
+                            explain: "BPM is beats per minute. Higher BPM means a faster song.",
+                        ),
+                        (
+                            prompt: "In most songs, how many beats are in one measure?",
+                            choices: ["2", "4", "10"],
+                            answer: 1,
+                            explain: "Most songs count 1, 2, 3, 4 in each measure.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L0.8",
+            title: "Level 0 Check",
+            thread: Song,
+            minutes: 6,
+            prerequisites: ["L0.4", "L0.5", "L0.6", "L0.7"],
+            goal: "Show what you know about your guitar before strumming your first chord.",
+            practice: "Before Level 1, spend a few minutes reviewing any Level 0 lesson that felt hard. Then you're ready to play your first chord!",
+            steps: [
+                Learn(
+                    title: "You're ready!",
+                    explain: "You know the parts of the guitar. You can tune it, read a chord box, read tab, and keep a beat. Let's check, and then it's time to make music.",
+                    visual: Some(GuitarParts),
+                ),
+                Learn(
+                    title: "Quick review: strings and frets",
+                    explain: "Let's look back. The strings go E A D G B E, from thick to thin, and their numbers go 6 to 1. Frets are counted from the headstock. Press just behind the fret wire with your fingertip.",
+                    facts: [
+                        "String 1 is the thinnest. String 6 is the thickest.",
+                        "Fret 12 is an octave above the open string.",
+                    ],
+                    visual: Some(Strings),
+                    tips: [
+                        "Mixing up string numbers? Remember: string 1 is the thinnest, closest to the floor.",
+                    ],
+                ),
+                Learn(
+                    title: "Quick review: boxes and tab",
+                    explain: "A chord box stands the neck up, with dots for your fingers, O for open, and X for skip. Tab lays the strings down flat, with the thinnest on top, and numbers for frets. Both are maps of the same guitar.",
+                    facts: [
+                        "Box: shows a chord all at once.",
+                        "Tab: shows notes one after another, left to right.",
+                    ],
+                    visual: Some(Chord("Em")),
+                ),
+                Check(
+                    pass_percent: 80,
+                    questions: [
+                        (
+                            prompt: "What are the string names from fattest to skinniest?",
+                            choices: ["E A D G B E", "E B G D A E", "A B C D E F"],
+                            answer: 0,
+                            explain: "Eddie Ate Dynamite, Good Bye Eddie: E A D G B E.",
+                        ),
+                        (
+                            prompt: "In this chord box, which strings are played open?",
+                            visual: Some(Chord("C")),
+                            choices: ["Strings 3 and 1", "Strings 6 and 5", "Strings 4 and 2"],
+                            answer: 0,
+                            explain: "The O marks sit above strings 3 and 1. String 6 has an X, so you don't play it.",
+                        ),
+                        (
+                            prompt: "In this tab, which note do you play?",
+                            visual: Some(Tab([(string: 1, fret: 3)])),
+                            choices: ["String 1, fret 3", "String 6, fret 3", "String 3, fret 1"],
+                            answer: 0,
+                            explain: "The top line is string 1, and the number says fret 3.",
+                        ),
+                        (
+                            prompt: "Which finger is number 2?",
+                            choices: ["Pointer", "Middle", "Ring"],
+                            answer: 1,
+                            explain: "Pointer 1, middle 2, ring 3, pinky 4.",
+                        ),
+                        (
+                            prompt: "At 60 BPM, how often does the metronome click?",
+                            choices: ["Once every second", "Twice every second", "Once every minute"],
+                            answer: 0,
+                            explain: "60 beats per minute is one beat every second.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

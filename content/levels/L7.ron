@@ -1,0 +1,945 @@
+// Level 7 — Harmony & Expression. See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 7,
+    title: "Harmony & Expression",
+    goal: "7th-chord harmony, chord-tone soloing, modes, playing by ear, expression, and writing your own song.",
+    weeks: "8+ weeks",
+    lessons: [
+        Lesson(
+            id: "L7.1",
+            title: "Seventh Chords: The Four Main Flavors",
+            thread: TheoryEar,
+            minutes: 15,
+            prerequisites: ["L6.13"],
+            goal: "Know the four kinds of 7th chords, how they're built, and which ones live in a major key.",
+            practice: "Five minutes a day for a week. Play Cmaj7, C7, Cm7, and Cm7♭5 back to back. Describe how each one feels in one word.",
+            steps: [
+                Learn(
+                    title: "One more note on top",
+                    explain: "Take a triad: 1, 3, 5. Stack one more note on top, the 7th. Now you have a 7th chord. There are four main flavors. Major 7 sounds dreamy. The plain \"7\" chord sounds bluesy and wants to move. Minor 7 sounds smooth and cool. The last one sounds spooky. Type a chord name below to see its recipe.",
+                    facts: [
+                        "maj7 = 1 3 5 7 (dreamy). Cmaj7 = C E G B.",
+                        "7 = 1 3 5 ♭7 (bluesy, the dominant 7th). C7 = C E G B♭.",
+                        "m7 = 1 ♭3 5 ♭7 (cool). Cm7 = C E♭ G B♭.",
+                        "m7♭5 = 1 ♭3 ♭5 ♭7 (spooky, half-diminished). Cm7♭5 = C E♭ G♭ B♭.",
+                    ],
+                    visual: Some(Decoder(examples: ["Cmaj7", "C7", "Cm7", "Cm7b5"])),
+                ),
+                Learn(
+                    title: "The 7th chords of a key",
+                    explain: "Every major key has a set of 7th chords, always in the same order. In C they are Cmaj7, Dm7, Em7, Fmaj7, G7, Am7, and Bm7♭5. Only the 5 chord is a plain 7 chord. That's why the 5 chord pulls home so hard!",
+                    facts: [
+                        "The pattern: 1 maj7, 2 m7, 3 m7, 4 maj7, 5 7, 6 m7, 7 m7♭5.",
+                        "Click a tile to hear it.",
+                    ],
+                    visual: Some(NumberWheel(key: "C", sevenths: true)),
+                ),
+                Learn(
+                    title: "Build them from the triad",
+                    explain: "Start with a triad and add one note on top. Major triad plus a major 7th makes maj7. Major triad plus a flat 7th makes a dominant 7. Minor triad plus a flat 7th makes m7. A diminished triad plus a flat 7th makes m7♭5.",
+                    facts: [
+                        "maj7: 1 3 5 7 (dreamy).",
+                        "7: 1 3 5 ♭7 (bluesy). m7: 1 ♭3 5 ♭7 (smooth).",
+                    ],
+                    tips: [
+                        "The maj7 note is just one fret below the root. The ♭7 is two frets below.",
+                    ],
+                    visual: Some(ChordPair("Fmaj7-6", "F7-6")),
+                ),
+                Activity(
+                    title: "Dreamy or bluesy?",
+                    instructions: "Is it a major 7 or a plain 7 chord? Listen to the top note.",
+                    activity: EarQuiz(kind: Sevenths, rounds: 8),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Which notes are in Dm7 (1 ♭3 5 ♭7)?",
+                            choices: ["D F A C", "D F♯ A C", "D F A C♯"],
+                            answer: 0,
+                            explain: "From D: the ♭3 is F, the 5 is A, and the ♭7 is C. So Dm7 is D F A C.",
+                        ),
+                        (
+                            prompt: "What is the recipe for a major 7 chord?",
+                            choices: ["1 3 5 7", "1 3 5 ♭7", "1 ♭3 5 ♭7"],
+                            answer: 0,
+                            explain: "A major 7 chord is a major triad (1 3 5) plus the major 7th: 1 3 5 7. For C that's C E G B.",
+                        ),
+                        (
+                            prompt: "In a major key, which chord is naturally a plain (dominant) 7 chord?",
+                            choices: ["The 5 chord", "The 1 chord", "The 4 chord"],
+                            answer: 0,
+                            explain: "Stack 3rds on each note of a major scale and only the 5 chord comes out as a dominant 7 (like G7 in C).",
+                        ),
+                        (
+                            prompt: "In the key of C, what is the 2 chord with a 7th added?",
+                            choices: ["Dm7", "Dmaj7", "D7"],
+                            answer: 0,
+                            explain: "The 2 chord of a major key is minor, and with a 7th it's a minor 7. In C, that's Dm7: D F A C.",
+                        ),
+                        (
+                            prompt: "Which flavor sounds bluesy and wants to move?",
+                            choices: ["The dominant 7 (like G7)", "The major 7", "The minor 7"],
+                            answer: 0,
+                            explain: "A dominant 7 has a major 3rd and a ♭7. That clash wants to resolve, so it sounds bluesy and restless.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.2",
+            title: "Movable 7th Chord Shapes",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["L7.1"],
+            goal: "Play maj7, 7, m7, and m7♭5 shapes with the root on string 6 or 5.",
+            practice: "Five minutes a day for a week. Play 1–6–2–5 in C with the movable shapes. Then move the same shapes to G.",
+            steps: [
+                Learn(
+                    title: "Root on string 6",
+                    explain: "These shapes skip string 5. Mute it with the side of your first finger. Put the root on string 6, then play strings 4, 3, and 2. Only one note moves between the flavors. That note is the 7th.",
+                    facts: [
+                        "Fmaj7: 1 x 2 2 1 x. F7: 1 x 1 2 1 x. Fm7: 1 x 1 1 1 x.",
+                        "From maj7 to 7, the 7th drops one fret.",
+                        "From 7 to m7, the 3rd drops one fret.",
+                    ],
+                    visual: Some(ChordPair("Fmaj7-6", "F7-6")),
+                    tips: [
+                        "Keep fingers close to the frets. 7th chord shapes have big stretches.",
+                        "Mute the unused strings with the sides of your fingers.",
+                    ],
+                ),
+                Learn(
+                    title: "Root on string 5",
+                    explain: "Now put the root on string 5 and play the four strings above it. Slide any of these shapes up or down, and the root's name becomes the chord's name.",
+                    facts: [
+                        "Cmaj7: x 3 5 4 5 3. C7: x 3 5 3 5 3. Cm7: x 3 5 3 4 3.",
+                        "Cm7♭5: x 3 4 3 4 x.",
+                    ],
+                    visual: Some(ChordPair("Cmaj7-5", "Cm7-5")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each shape. Keep the muted strings quiet.",
+                    activity: ChordCheck(chords: ["Fmaj7-6", "F7-6", "Fm7-6", "Cmaj7-5", "Cm7-5", "Cm7b5-5"]),
+                ),
+                Activity(
+                    title: "1–6–2–5 in C",
+                    instructions: "Cmaj7, Am7, Dm7, G7. Your hand stays between frets 3 and 7.",
+                    activity: StrumAlong(chords: ["Cmaj7-5", "Am7-6", "Dm7-5", "G7-6"], beats_per_chord: 4, pattern: Quarters, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("F7-6")),
+                            choices: ["F7", "Fmaj7", "Fm7"],
+                            answer: 0,
+                            explain: "Root on string 6 at fret 1 (F), with the ♭7 (E♭) on string 4, fret 1. That makes F7.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Cm7-5")),
+                            choices: ["Cm7", "C7", "Cmaj7"],
+                            answer: 0,
+                            explain: "Root C on string 5, fret 3, with a ♭3 (E♭) on string 2, fret 4 and a ♭7 (B♭). That's Cm7.",
+                        ),
+                        (
+                            prompt: "Going from maj7 to a plain 7 chord, which note moves?",
+                            choices: ["The 7th drops one fret", "The root moves up", "The 5th drops two frets"],
+                            answer: 0,
+                            explain: "Lowering the major 7th by one fret makes it a ♭7, and maj7 becomes a plain 7 chord.",
+                        ),
+                        (
+                            prompt: "In C, what are the chords of 1–6–2–5 with 7ths?",
+                            choices: ["Cmaj7, Am7, Dm7, G7", "C7, A7, D7, G7", "Cm7, Am7, Dm7, Gm7"],
+                            answer: 0,
+                            explain: "In C, the 1 is Cmaj7, the 6 is Am7, the 2 is Dm7, and the 5 is G7.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.3",
+            title: "Chord-Tone Soloing and Arpeggios",
+            thread: Notes,
+            minutes: 20,
+            prerequisites: ["L7.2"],
+            goal: "Aim your solo at the notes of each chord, landing on chord tones on beat 1.",
+            practice: "Five minutes a day for a week. Play the A minor arpeggio up and down. Then solo over Am and land on a chord tone each time the chord changes.",
+            steps: [
+                Learn(
+                    title: "Let the chord tones guide you",
+                    explain: "When the chord changes, the safest notes are the ones inside the chord. Those are its root, 3rd, 5th, and 7th. Land on the chord's 3rd right when the chord changes. Your solo will sound like it knows where the song is going! Playing a chord's notes one at a time is called an arpeggio.",
+                    facts: [
+                        "Am = A C E. Dm = D F A. E7 = E G♯ B D.",
+                        "The 3rds to aim for: C over Am, F over Dm, G♯ over E7.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 6, fret: 5), (string: 6, fret: 8), (string: 5, fret: 7), (string: 4, fret: 7),
+                        (string: 3, fret: 5), (string: 2, fret: 5), (string: 1, fret: 5, beats: 2.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Target notes",
+                    explain: "When the chord changes, aim for one of its notes. Over A minor, land on A, C, or E. Over D minor, land on D, F, or A. Your solo will sound like it follows the music, because it does!",
+                    facts: [
+                        "Chord tones are the safest landing spots.",
+                        "Other notes are fine in between. Just land on a chord tone.",
+                    ],
+                    tips: [
+                        "Look ahead. Know which chord is coming so you can aim for it.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 5, fret: 0), (string: 5, fret: 3), (string: 5, fret: 7), (string: 4, fret: 7), (string: 3, fret: 5), (string: 2, fret: 5)], first_fret: 0, last_fret: 8, show_names: true)),
+                ),
+                Activity(
+                    title: "A minor arpeggio",
+                    instructions: "Play only A, C, and E, from low to high.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 6, fret: 5), (string: 6, fret: 8), (string: 5, fret: 7), (string: 4, fret: 7),
+                        (string: 3, fret: 5), (string: 2, fret: 5), (string: 1, fret: 5, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Chord tones follow the music",
+                    instructions: "Start the backing. The colored dots change with each chord. Land on a colored dot on beat 1 of every bar.",
+                    activity: Jam(key: "A", scale: "harmonic_minor", chords: ["Am", "Dm", "E7", "Am"], pattern: Eighths, bpm: 70.0, chord_tones: true),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What is an arpeggio?",
+                            choices: ["A chord's notes played one at a time", "A very fast scale", "A strum pattern"],
+                            answer: 0,
+                            explain: "An arpeggio plays a chord's notes one after another instead of strumming them together.",
+                        ),
+                        (
+                            prompt: "What is the 3rd of Dm?",
+                            choices: ["F", "A", "E"],
+                            answer: 0,
+                            explain: "D minor is D F A. Its 3rd is F.",
+                        ),
+                        (
+                            prompt: "Over E7, which note is its 3rd?",
+                            choices: ["G♯", "G", "A"],
+                            answer: 0,
+                            explain: "E7 is E G♯ B D. Its 3rd is G♯, the note that makes it major.",
+                        ),
+                        (
+                            prompt: "Which notes are the safest landing spots when the chord changes?",
+                            choices: ["The chord's own notes", "Notes just outside the scale", "Only the highest notes"],
+                            answer: 0,
+                            explain: "The chord's own notes (root, 3rd, 5th, 7th) always fit, so they're the safest notes to land on.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.4",
+            title: "Mixing Major and Minor Pentatonic",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L7.3"],
+            goal: "Mix the happy and sad pentatonic scales over a blues, using the ♭3 to 3 slide.",
+            practice: "Five minutes a day for a week. Over an A blues, play the ♭3 to 3 slide (C to C sharp). Then mix one major lick and one minor lick.",
+            steps: [
+                Learn(
+                    title: "Both ladders at once",
+                    explain: "Blues players use the happy ladder and the sad ladder at the same time. The crunchy rub between them is the blues sound! The favorite move is to slide from the minor 3rd up to the major 3rd. In A, that's C sliding up to C sharp.",
+                    facts: [
+                        "A major pentatonic: A B C♯ E F♯ (sweet).",
+                        "A minor pentatonic: A C D E G (gritty).",
+                        "Try major notes over the 1 chord. Switch to minor over the 4 chord.",
+                    ],
+                    visual: Some(ScaleCompare(root: "A", a: "major_pentatonic", b: "minor_pentatonic", first_fret: 2, last_fret: 10)),
+                    tips: [
+                        "Major pentatonic sounds best over the 1 chord. Use minor over the 4 and 5.",
+                        "Sliding from C to C sharp sounds like classic blues.",
+                    ],
+                ),
+                Learn(
+                    title: "Which scale when?",
+                    explain: "Here is an easy rule for a blues in A. When A7 is playing, mix in the major pentatonic. It sounds sweet and bouncy. When D7 or E7 is playing, use the minor pentatonic. It sounds tough and bluesy. Switching makes your solo follow the chords.",
+                    facts: [
+                        "Major pentatonic: sweet. Minor pentatonic: tough.",
+                        "The C♯ note says A major. The C note says A minor.",
+                    ],
+                    tips: [
+                        "Listen for when the chord changes. That's your cue to switch.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "major_pentatonic", first_fret: 2, last_fret: 10)),
+                ),
+                Activity(
+                    title: "The ♭3 to 3 slide",
+                    instructions: "Slide from C to C♯ on string 3, then land on A.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 3, fret: 5), (string: 3, fret: 6, tech: Some(Slide)), (string: 2, fret: 5), (string: 4, fret: 7, beats: 3.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Mix them over the blues",
+                    instructions: "Solo over a 12-bar in A. Use the slide at least once.",
+                    activity: Jam(key: "A", scale: "minor_pentatonic", shape: Some(1), chords: ["A7", "A7", "A7", "A7", "D7", "D7", "A7", "A7", "E7", "D7", "A7", "E7"], pattern: Swing8, bpm: 85.0),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What's the favorite move between minor and major pentatonic?",
+                            choices: ["Slide from the ♭3 up to the 3", "Bend the root down", "Skip the 5th"],
+                            answer: 0,
+                            explain: "Blues players love sliding from the minor 3rd up to the major 3rd. That rub is the sound of the blues.",
+                        ),
+                        (
+                            prompt: "In A, the ♭3 is C. What is the 3?",
+                            choices: ["C♯", "D", "B"],
+                            answer: 0,
+                            explain: "C♯ is one fret above C. That's the major 3rd of A.",
+                        ),
+                        (
+                            prompt: "Which scale sounds sweeter over the 1 chord?",
+                            choices: ["Major pentatonic", "Minor pentatonic"],
+                            answer: 0,
+                            explain: "Over the 1 chord, major pentatonic matches the chord's major 3rd, so it sounds sweet.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.5",
+            title: "Modes: Same Notes, New Mood",
+            thread: TheoryEar,
+            minutes: 25,
+            prerequisites: ["L7.4"],
+            goal: "Hear and play the Dorian and Mixolydian modes, and know what makes each one special.",
+            practice: "Five minutes a day for a week. Play A Dorian and A Mixolydian over their jam tracks. Listen for the one note that makes each mode special.",
+            steps: [
+                Learn(
+                    title: "Seven moods from one scale",
+                    explain: "Remember the relative minor? Same notes, new home. Modes take that idea all the way. Start the major scale from each of its seven notes, and you get seven moods. You don't need all of them. Three get used all the time. One special note gives each mode its color.",
+                    facts: [
+                        "Dorian: 1 2 ♭3 4 5 6 ♭7. A cool minor with a bright 6th. Funk, jazz, rock.",
+                        "Mixolydian: 1 2 3 4 5 6 ♭7. A bluesy major. Blues, rock, country.",
+                        "Aeolian: 1 2 ♭3 4 5 ♭6 ♭7. The natural minor scale. Sad.",
+                        "Others: Lydian (♯4, dreamy), Phrygian (♭2, Spanish), Locrian (unstable).",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "dorian", first_fret: 4, last_fret: 10)),
+                ),
+                Learn(
+                    title: "The special note in each mode",
+                    explain: "Each mode has one note that gives it its mood. In Dorian, it's the natural 6th. That makes minor sound a little brighter. In Mixolydian, it's the flat 7th. That makes major sound bluesy. Lean on that special note in your solos.",
+                    facts: [
+                        "A Dorian: A B C D E F♯ G. The F♯ is special.",
+                        "A Mixolydian: A B C♯ D E F♯ G. The G is special.",
+                    ],
+                    tips: [
+                        "Hold the special note longer than the others so people can hear it.",
+                    ],
+                    visual: Some(ScaleCompare(root: "A", a: "dorian", b: "natural_minor", first_fret: 4, last_fret: 10)),
+                ),
+                Activity(
+                    title: "Dorian or Aeolian?",
+                    instructions: "Listen for the 6th note. Bright or sad?",
+                    activity: EarQuiz(kind: DorianAeolian, rounds: 8),
+                ),
+                Activity(
+                    title: "Jam in A Dorian",
+                    instructions: "Am to D is the classic Dorian sound. Solo with the dots.",
+                    activity: Jam(key: "A", scale: "dorian", chords: ["Am", "D"], pattern: Eighths, bpm: 90.0),
+                ),
+                Learn(
+                    title: "Mixolydian: bluesy major",
+                    explain: "Mixolydian is the major scale with one note lowered: the 7th. It sounds like rock and roll. A to G is the classic sound.",
+                    visual: Some(ScaleBox(root: "A", scale: "mixolydian", first_fret: 4, last_fret: 10)),
+                ),
+                Activity(
+                    title: "Mixolydian or Ionian?",
+                    instructions: "Listen for the 7th note. Bluesy or plain?",
+                    activity: EarQuiz(kind: MixolydianIonian, rounds: 8),
+                ),
+                Activity(
+                    title: "Jam in A Mixolydian",
+                    instructions: "A to G, back and forth. Lean on the G.",
+                    activity: Jam(key: "A", scale: "mixolydian", chords: ["A", "G"], pattern: Eighths, bpm: 100.0),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What is Dorian's special note?",
+                            choices: ["A bright 6th in a minor scale", "A ♭2", "A ♯4"],
+                            answer: 0,
+                            explain: "Dorian is a minor scale whose 6th is raised, which gives it a brighter, cooler sound than natural minor.",
+                        ),
+                        (
+                            prompt: "What makes Mixolydian different from the major scale?",
+                            choices: ["Its 7th is lowered (♭7)", "Its 3rd is lowered", "It has only five notes"],
+                            answer: 0,
+                            explain: "Mixolydian is the major scale with the 7th lowered by one fret, which makes it sound bluesy.",
+                        ),
+                        (
+                            prompt: "Which mode is the same as the natural minor scale?",
+                            choices: ["Aeolian", "Dorian", "Lydian"],
+                            answer: 0,
+                            explain: "Aeolian is the mode name for the natural minor scale.",
+                        ),
+                        (
+                            prompt: "Which mode is the plain major scale?",
+                            choices: ["Ionian", "Locrian", "Phrygian"],
+                            answer: 0,
+                            explain: "Ionian is the mode name for the plain major scale.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.6",
+            title: "Minor Keys and the Harmonic Minor Secret",
+            thread: TheoryEar,
+            minutes: 15,
+            prerequisites: ["L7.5"],
+            goal: "Know the chords of a minor key and why the 5 chord is often major.",
+            practice: "Five minutes a day for a week. Play Am–Dm–E–Am with a major E chord. Then play it with Em and hear the difference.",
+            steps: [
+                Learn(
+                    title: "The chords of A minor",
+                    explain: "A minor key has its own family of chords. In A minor they are Am, B°, C, Dm, Em, F, and G. These are the same chords as C major, just with a new home: Am.",
+                    facts: [
+                        "Minor key pattern: 1 minor, 2 diminished, 3 major, 4 minor, 5 minor, 6 major, 7 major.",
+                        "Click a tile to hear it.",
+                    ],
+                    visual: Some(NumberWheel(key: "A", minor: true)),
+                ),
+                Learn(
+                    title: "Borrow one happy note",
+                    explain: "In minor songs, the 5 chord often borrows one happy note. Em becomes E major. Its G turns into G sharp. That one note pushes much harder toward home. Remember the E chord in House of the Rising Sun? This is why it's there! The scale with that raised 7th is called harmonic minor.",
+                    facts: [
+                        "A harmonic minor: A B C D E F G♯.",
+                        "Natural, harmonic, and melodic are the three minor scales.",
+                    ],
+                    visual: Some(ScaleBox(root: "A", scale: "harmonic_minor", first_fret: 4, last_fret: 10)),
+                    tips: [
+                        "The G sharp in E major pulls up strongly to A. That's why it sounds so final.",
+                        "Play the harmonic minor slowly. The big gap between F and G sharp sounds exotic.",
+                    ],
+                ),
+                Activity(
+                    title: "Minor v or major V?",
+                    instructions: "Which 5 chord pulls home harder?",
+                    activity: EarQuiz(kind: MinorFive, rounds: 6),
+                ),
+                Activity(
+                    title: "A minor with a major V",
+                    instructions: "Am, Dm, E, Am. Feel the E pull you home.",
+                    activity: StrumAlong(chords: ["Am", "Dm", "E", "Am"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What is the 5 chord in A minor, before borrowing?",
+                            choices: ["Em", "E", "Dm"],
+                            answer: 0,
+                            explain: "In natural A minor (A B C D E F G), the chord built on E is E G B: E minor.",
+                        ),
+                        (
+                            prompt: "Why do minor songs often use E major instead of Em in A minor?",
+                            choices: ["G♯ pulls harder toward home", "It's easier to play", "Em isn't in the key"],
+                            answer: 0,
+                            explain: "E major has G♯, one fret below A. That note leans hard into the home note, so the pull home is stronger.",
+                        ),
+                        (
+                            prompt: "What changes in harmonic minor?",
+                            choices: ["The 7th goes up a half step", "The 3rd goes up", "The 5th goes down"],
+                            answer: 0,
+                            explain: "Harmonic minor raises the 7th by a half step. In A minor, G becomes G♯.",
+                        ),
+                        (
+                            prompt: "Which major key shares its chords with A minor?",
+                            choices: ["C major", "A major", "E major"],
+                            answer: 0,
+                            explain: "A minor is C major's relative minor. They share all seven notes and the same chords.",
+                        ),
+                        (
+                            prompt: "In A minor, what is the 2 chord?",
+                            choices: ["B diminished", "B minor", "B major"],
+                            answer: 0,
+                            explain: "The 2 chord in a minor key is diminished: in A minor, B D F is B diminished.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.7",
+            title: "Color Chords: 6, add9, 9, sus, 11, 13",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["L7.6"],
+            goal: "Read any chord symbol and add color tones to plain chords.",
+            practice: "Five minutes a day for a week. Play C, then Cadd9, Cmaj9, C6, and C9. Pick your favorite color and use it in a song.",
+            steps: [
+                Learn(
+                    title: "Add a splash of color",
+                    explain: "A color tone is one extra scale note added to a chord. The 9th is the 2nd, one octave up. The 11th is the 4th. The 13th is the 6th. To spice up a major chord, add a 9. To spice up a minor chord, try a minor 11.",
+                    facts: [
+                        "add9 = 1 3 5 9. 6 = 1 3 5 6.",
+                        "9 = 1 3 5 ♭7 9. maj9 = 1 3 5 7 9.",
+                        "sus4 = 1 4 5. sus2 = 1 2 5. No 3rd at all!",
+                    ],
+                    visual: Some(ChordPair("Cadd9", "Cmaj9")),
+                ),
+                Learn(
+                    title: "Read any chord symbol",
+                    explain: "Here's how to read any chord name. Find the root's major scale. Then follow the recipe. Stuck on a chord? Build it, look it up, or make it simpler. Just drop the color tones and play the plain chord.",
+                    visual: Some(Decoder(examples: ["C6", "C9", "Am9", "A13", "F#m11", "Dsus4"])),
+                ),
+                Learn(
+                    title: "Number tells you the note",
+                    explain: "The number in a chord name tells you which note to add. 6 adds the 6th note of the scale. 9 adds the 2nd note, an octave up. 11 adds the 4th, and 13 adds the 6th, both up high. The word add means just that note, with no 7th.",
+                    facts: [
+                        "add9 = triad + 9. 9 = triad + ♭7 + 9.",
+                        "sus4 replaces the 3rd with the 4th.",
+                    ],
+                    tips: [
+                        "On the Chords screen, use \"Find any chord\" to see the notes inside any chord.",
+                    ],
+                    visual: Some(ChordPair("C6", "C9")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each color chord.",
+                    activity: ChordCheck(chords: ["Cadd9", "Cmaj9", "Am9", "C9"]),
+                ),
+                Activity(
+                    title: "A colorful progression",
+                    instructions: "Cmaj9, Am9, Fmaj7, G. Same song, more color!",
+                    activity: StrumAlong(chords: ["Cmaj9", "Am9", "Fmaj7", "G"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "The 9th is the same letter as which scale note?",
+                            choices: ["The 2nd", "The 4th", "The 6th"],
+                            answer: 0,
+                            explain: "The 9th is the 2nd note, an octave higher. In C, both are D.",
+                        ),
+                        (
+                            prompt: "The 13th is the same letter as which scale note?",
+                            choices: ["The 6th", "The 3rd", "The 7th"],
+                            answer: 0,
+                            explain: "The 13th is the 6th note, an octave higher. In C, both are A.",
+                        ),
+                        (
+                            prompt: "Which notes are in Cm7?",
+                            choices: ["C E♭ G B♭", "C E G B", "C E G B♭"],
+                            answer: 0,
+                            explain: "Minor 7 is 1 ♭3 5 ♭7. From C that's C, E♭, G, B♭.",
+                        ),
+                        (
+                            prompt: "You can't play a chord in a song. What's an easy fix?",
+                            choices: ["Drop the color tones and play the plain chord", "Skip that bar", "Play a different song"],
+                            answer: 0,
+                            explain: "Color tones only add spice. Drop them and the plain chord still fits the song.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("C9")),
+                            choices: ["C9", "Cadd9", "Cmaj7"],
+                            answer: 0,
+                            explain: "The shape has C, E, B♭, D, and G on top: a dominant 7 with a 9th added. That's C9.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.8",
+            title: "Outside the Key",
+            thread: TheoryEar,
+            minutes: 20,
+            prerequisites: ["L7.7"],
+            goal: "Spot guest chords: secondary dominants, borrowed chords, and walking bass lines.",
+            practice: "Five minutes a day for a week. Play C–A7–Dm–G7 and C–Fm–C. Listen for the surprise each outside chord brings.",
+            steps: [
+                Learn(
+                    title: "Inviting a cousin to the party",
+                    explain: "Songs sometimes borrow a chord from outside the family, like inviting a cousin to the party. One kind is a 7 chord that pulls to a chord other than home. In C, A7 pulls to Dm. E7 pulls to Am. Each one acts like a little 5 chord for its target.",
+                    facts: [
+                        "A7 → Dm: \"5 of 2.\" E7 → Am: \"5 of 6.\"",
+                        "Borrowed from C minor: B♭ (the ♭7) and Fm (the minor 4).",
+                        "Write guest chords as numbers too: ♭7, or 5/2.",
+                    ],
+                    visual: Some(ChordPair("A7", "Dm")),
+                    tips: [
+                        "A secondary dominant is the 5 chord of the next chord. A7 leads to D minor.",
+                        "Borrowed chords come from the minor key with the same root, like Fm in C.",
+                    ],
+                ),
+                Activity(
+                    title: "A secondary dominant",
+                    instructions: "C, A7, Dm, G. Hear A7 pull to Dm.",
+                    activity: StrumAlong(chords: ["C", "A7", "Dm", "G"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Activity(
+                    title: "A borrowed chord",
+                    instructions: "C, B♭, F, C. The B♭ is the guest.",
+                    activity: StrumAlong(chords: ["C", "Bb", "F", "C"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 90.0], repeats: 2),
+                ),
+                Learn(
+                    title: "Walking bass",
+                    explain: "You can link chords with bass notes that walk down like stairs. C, then C with B in the bass, then Am, then Am with G in the bass, then F. A slash in a chord name shows the bass note: C/B.",
+                    visual: Some(Tab([(string: 5, fret: 3), (string: 5, fret: 2), (string: 5, fret: 0), (string: 6, fret: 3), (string: 6, fret: 1, beats: 2.0)])),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Which chord is the guest in C – G – Am – B♭?",
+                            choices: ["B♭", "G", "Am"],
+                            answer: 0,
+                            explain: "C, G, and Am all belong to C major. B♭ comes from outside the key, so it's the guest.",
+                        ),
+                        (
+                            prompt: "In C, where does A7 like to go?",
+                            choices: ["Dm", "G", "E"],
+                            answer: 0,
+                            explain: "A7 is the 5 of D minor, so it pulls toward Dm, just like G7 pulls toward C.",
+                        ),
+                        (
+                            prompt: "What does C/B mean?",
+                            choices: ["A C chord with B in the bass", "C, then B", "C minor"],
+                            answer: 0,
+                            explain: "The note after the slash is the bass note: a C chord with B as the lowest note.",
+                        ),
+                        (
+                            prompt: "Which chord is borrowed from C minor?",
+                            choices: ["Fm", "F", "G"],
+                            answer: 0,
+                            explain: "C minor's 4 chord is F minor. Borrowing it into C major gives that bittersweet sound.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.9",
+            title: "Figuring Out Songs by Ear",
+            thread: TheoryEar,
+            minutes: 20,
+            prerequisites: ["L7.8"],
+            goal: "Find a song's key and chords by ear.",
+            practice: "Ten minutes a day for a week. Pick one song you love. Find the home note, then figure out the chords one at a time.",
+            steps: [
+                Learn(
+                    title: "Be a song detective",
+                    explain: "Here's how to figure out a song. First, hum the home note and find it on string 6 or 5. That's the key. Next, find the bass notes. Then guess chords from the key's family. Try the 1, 4, 5, and 6 first. Play along to check. Loop the hard parts slowly.",
+                    facts: [
+                        "Most songs start and end on the 1 chord.",
+                        "The 6 chord sounds dark. The 5 chord leans toward home.",
+                        "More intervals: a major 6th sounds like \"My Bonnie Lies Over the Ocean.\"",
+                    ],
+                    visual: Some(NumberWheel(key: "G")),
+                ),
+                Learn(
+                    title: "Step by step",
+                    explain: "First, find the home note by humming along. Next, find the bass notes. Those tell you the chord roots. Then decide if each chord sounds happy (major) or sad (minor). Finally, check your guess with the number system.",
+                    facts: [
+                        "Most songs use the 1, 4, 5, and 6 chords.",
+                        "The bass note is usually the chord's root.",
+                    ],
+                    tips: [
+                        "Slow the song down if you can. Work on just a few seconds at a time.",
+                    ],
+                    visual: Some(NumberWheel(key: "D")),
+                ),
+                Activity(
+                    title: "Cases in G",
+                    instructions: "Listen to four chords. Tap their numbers in order.",
+                    activity: Detective(key: "G", rounds: 6),
+                ),
+                Activity(
+                    title: "Cases in D",
+                    instructions: "Same game, new key.",
+                    activity: Detective(key: "D", rounds: 4),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What's the first step to figuring out a song?",
+                            choices: ["Find the home note (the key)", "Learn the solo", "Play it fast"],
+                            answer: 0,
+                            explain: "Find the home note first. Once you know the key, you know which chords to try.",
+                        ),
+                        (
+                            prompt: "Which chords should you try first?",
+                            choices: ["The 1, 4, 5, and 6", "The 2 and 3", "Chords outside the key"],
+                            answer: 0,
+                            explain: "The 1, 4, 5, and 6 chords show up in most songs, so try them first.",
+                        ),
+                        (
+                            prompt: "What should you do with a hard part?",
+                            choices: ["Loop it slowly", "Skip it", "Play it faster"],
+                            answer: 0,
+                            explain: "Loop the hard part slowly until it's clean, then speed it up bit by bit.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.10",
+            title: "Expression: Dynamics, Articulation, Phrasing",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["L7.9"],
+            goal: "Play the same notes soft, loud, and short, and record yourself to listen back.",
+            practice: "Five minutes a day for a week. Play a melody three ways: soft, loud, and growing from soft to loud. Record each one.",
+            steps: [
+                Learn(
+                    title: "Read it with feeling",
+                    explain: "Playing the right notes is like reading the words right. Expression is reading them with feeling, like an actor. Play some parts soft and some loud. Make some notes short and some smooth. Sing what you play. Then record yourself and listen back.",
+                    facts: [
+                        "p = soft. f = loud. Change how hard you pick.",
+                        "Legato = smooth and connected. Staccato = short and bouncy.",
+                        "Phrases are like sentences. Give them a beginning, a middle, and an end.",
+                    ],
+                    visual: Some(Tab([
+                        (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0),
+                        (string: 1, fret: 1), (string: 1, fret: 0), (string: 2, fret: 3), (string: 2, fret: 1, beats: 2.0),
+                    ])),
+                ),
+                Learn(
+                    title: "Musical words",
+                    explain: "Music uses Italian words to show feeling. Piano (p) means soft. Forte (f) means loud. Crescendo means get louder little by little. Staccato means short, bouncy notes. Legato means smooth and connected.",
+                    facts: [
+                        "p = soft, f = loud, mf = medium loud.",
+                        "Staccato: a dot over the note. Legato: a curved line.",
+                    ],
+                    tips: [
+                        "Play soft by picking gently near the neck. Play loud by picking firmly near the bridge.",
+                    ],
+                    visual: Some(Durations),
+                ),
+                Activity(
+                    title: "Three ways",
+                    instructions: "Play the passage three times: soft, loud, then short and loud. The mic compares them.",
+                    activity: Expression(notes: [
+                        (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3), (string: 1, fret: 0),
+                        (string: 1, fret: 1), (string: 1, fret: 0), (string: 2, fret: 3), (string: 2, fret: 1, beats: 2.0),
+                    ]),
+                ),
+                Activity(
+                    title: "Record yourself",
+                    instructions: "Record a short solo or song. Listen back. What would you change?",
+                    activity: Record(chords: []),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What does \"f\" mean in music?",
+                            choices: ["Loud", "Fast", "Finger"],
+                            answer: 0,
+                            explain: "f stands for forte, the Italian word for loud. p (piano) means soft.",
+                        ),
+                        (
+                            prompt: "What does staccato mean?",
+                            choices: ["Short and bouncy", "Smooth and connected", "Very slow"],
+                            answer: 0,
+                            explain: "Staccato notes are short and bouncy. Legato notes are smooth and connected.",
+                        ),
+                        (
+                            prompt: "What's a great way to hear your own expression?",
+                            choices: ["Record yourself and listen back", "Play faster", "Only play loud"],
+                            answer: 0,
+                            explain: "When you record yourself and listen back, you hear what a listener hears, so it's easy to spot what to change.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.11",
+            title: "Write Your Own Song",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["L7.10"],
+            goal: "Build an 8-bar verse and an 8-bar chorus in the Song Builder.",
+            practice: "Ten minutes a day for a week. Write a 4-chord verse and a different 4-chord chorus. Hum melodies over them and record your best one.",
+            steps: [
+                Learn(
+                    title: "Start simple",
+                    explain: "Pick a key. Then build your song from chord numbers. Make the verse and the chorus feel different. Try a new set of chords, a new strum, or higher notes. Most songs go verse, chorus, verse, chorus, bridge, chorus.",
+                    facts: [
+                        "Verse: tells the story. Chorus: the big, catchy part.",
+                        "Write a melody from the pentatonic or major scale. End phrases on chord tones.",
+                        "Use a capo to fit your voice.",
+                    ],
+                    visual: Some(NumberWheel(key: "G")),
+                ),
+                Learn(
+                    title: "Verse and chorus",
+                    explain: "Most songs have a verse and a chorus. The verse tells the story, and the words change each time. The chorus is the big part everyone remembers. It repeats the same words. Make the chorus feel bigger: play louder, strum harder, or sing higher.",
+                    facts: [
+                        "A simple song: verse, chorus, verse, chorus.",
+                        "Try starting the chorus on the 4 chord for a lift.",
+                    ],
+                    tips: [
+                        "Don't wait for a perfect idea. Write something now and fix it later.",
+                    ],
+                    visual: Some(ChordPair("C", "G")),
+                ),
+                Activity(
+                    title: "Build your song",
+                    instructions: "Open the Song Builder, make an 8-bar verse and an 8-bar chorus, and save it.",
+                    activity: SongBuilder(verse_bars: 8, chorus_bars: 8),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How can you make the chorus feel different from the verse?",
+                            choices: ["New chords, a new strum, or higher notes", "Play it exactly the same", "Leave it silent"],
+                            answer: 0,
+                            explain: "Change something: the chords, the strum, or how high you play. Contrast makes the chorus stand out.",
+                        ),
+                        (
+                            prompt: "Which is a common song form?",
+                            choices: ["Verse, chorus, verse, chorus, bridge, chorus", "Chorus only", "Bridge, bridge, bridge"],
+                            answer: 0,
+                            explain: "Verse, chorus, verse, chorus, bridge, chorus is one of the most common song forms.",
+                        ),
+                        (
+                            prompt: "What can help a song fit your singing voice?",
+                            choices: ["A capo", "A louder strum", "More chords"],
+                            answer: 0,
+                            explain: "A capo moves every chord up in pitch without new shapes, so you can find the key that fits your voice.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L7.12",
+            title: "Level 7 Capstone: My Song",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["L7.11"],
+            goal: "Record your own song's rhythm part, then a solo over it using chord tones.",
+            practice: "Fifteen minutes a day for a week. Practice your song each day. On the last day, record it from start to finish.",
+            steps: [
+                Learn(
+                    title: "Your song, recorded",
+                    explain: "This is your Level 7 capstone. Open your song in the Song Builder. Record yourself playing the chords. Then record a solo over one section. Aim for chord tones when the chords change. Your takes are saved on this computer.",
+                    facts: [
+                        "Wear headphones so the mic only hears your guitar.",
+                        "Use Show file to find a take and share it however you like.",
+                    ],
+                    visual: Some(NumberWheel(key: "G", sevenths: true)),
+                    tips: [
+                        "Play it through a few times before recording to warm up.",
+                        "Mistakes are okay. Keep going and finish the song.",
+                    ],
+                ),
+                Learn(
+                    title: "Use what you know",
+                    explain: "Your song can show off everything you learned. Try a 7th chord for color. Add a fingerpicked part in the verse. Solo over the chorus with the pentatonic. You don't need all of it. Pick two or three ideas you love.",
+                    facts: [
+                        "A strong song has a clear verse and chorus.",
+                        "End on the 1 chord so it sounds finished.",
+                    ],
+                    tips: [
+                        "Play your song for someone. A listener helps you hear it in a new way.",
+                    ],
+                    visual: Some(ChordPair("Cmaj7-5", "Am7-6")),
+                ),
+                Activity(
+                    title: "Your song",
+                    instructions: "Finish your song in the Song Builder and record over it there.",
+                    activity: SongBuilder(verse_bars: 8, chorus_bars: 8),
+                ),
+                Activity(
+                    title: "Solo practice over a 1–6–2–5",
+                    instructions: "Warm up your chord-tone solo here, then record a take.",
+                    activity: Record(chords: ["Cmaj7-5", "Am7-6", "Dm7-5", "G7-6"], pattern: Eighths, bpm: 80.0),
+                ),
+                Check(
+                    pass_percent: 70,
+                    questions: [
+                        (
+                            prompt: "What is the recipe for a minor 7 chord?",
+                            choices: ["1 ♭3 5 ♭7", "1 3 5 7", "1 3 5 ♭7"],
+                            answer: 0,
+                            explain: "Minor 7 is a minor triad (1 ♭3 5) plus the ♭7.",
+                        ),
+                        (
+                            prompt: "In C, what are the 7th chords for 2–5–1?",
+                            choices: ["Dm7, G7, Cmaj7", "D7, G7, C7", "Dmaj7, Gmaj7, Cmaj7"],
+                            answer: 0,
+                            explain: "In C, the 2 is Dm7, the 5 is G7, and the 1 is Cmaj7.",
+                        ),
+                        (
+                            prompt: "Which mode is a minor scale with a bright 6th?",
+                            choices: ["Dorian", "Aeolian", "Mixolydian"],
+                            answer: 0,
+                            explain: "Dorian is minor with a raised 6th. That's what gives it its bright, cool color.",
+                        ),
+                        (
+                            prompt: "Which mode is a major scale with a ♭7?",
+                            choices: ["Mixolydian", "Lydian", "Ionian"],
+                            answer: 0,
+                            explain: "Mixolydian is major with a lowered 7th, the sound of lots of rock and blues.",
+                        ),
+                        (
+                            prompt: "In A minor songs, the 5 chord is often…",
+                            choices: ["E major, for a stronger pull home", "E minor only", "G major"],
+                            answer: 0,
+                            explain: "Using E major (with G♯) gives a stronger pull back to A minor than E minor does.",
+                        ),
+                        (
+                            prompt: "Which notes are in C9?",
+                            choices: ["C E G B♭ D", "C E G D", "C E G B D"],
+                            answer: 0,
+                            explain: "C9 is C7 (C E G B♭) plus the 9th (D).",
+                        ),
+                        (
+                            prompt: "Which is the guest chord in G – C – F – G?",
+                            choices: ["F", "C", "G"],
+                            answer: 0,
+                            explain: "In G major, the chords are G, Am, Bm, C, D, Em, and F♯dim. F isn't one of them, so it's the guest.",
+                        ),
+                        (
+                            prompt: "When a chord changes, where should your solo land?",
+                            choices: ["On a chord tone, like the 3rd", "On any note outside the key", "Nowhere, stop playing"],
+                            answer: 0,
+                            explain: "When the chord changes, landing on one of its notes (like the 3rd) makes your solo follow the song.",
+                        ),
+                        (
+                            prompt: "What's the ♭3 to 3 move in A?",
+                            choices: ["C sliding up to C♯", "A sliding up to B", "E sliding down to D"],
+                            answer: 0,
+                            explain: "In A, the ♭3 is C and the 3 is C♯. Sliding C up to C♯ is the classic blues move.",
+                        ),
+                        (
+                            prompt: "What does staccato mean?",
+                            choices: ["Short and bouncy", "Smooth", "Loud"],
+                            answer: 0,
+                            explain: "Staccato means short and bouncy, the opposite of smooth legato.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

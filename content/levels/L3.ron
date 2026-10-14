@@ -1,0 +1,940 @@
+// Level 3 — Rhythm & Reading. See docs/02-Curriculum-Part2-Levels-3-4.md.
+Level(
+    number: 3,
+    title: "Rhythm & Reading",
+    goal: "Strum real patterns, play 7th and sus chords, know every first-position note, and understand 1–4–5.",
+    weeks: "4–6 weeks",
+    lessons: [
+        Lesson(
+            id: "L3.1",
+            title: "Your First Strum Pattern: Old Faithful",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["L2.11"],
+            goal: "Play the most common strum pattern: D D U U D U.",
+            practice: "Five minutes a day for a week. Strum Old Faithful on one chord at 60 BPM, saying \"down, down-up, up-down-up.\" Then add changes between G, C, and D.",
+            steps: [
+                Learn(
+                    title: "Miss on purpose",
+                    explain: "Keep your hand swinging down and up like always. But on beat 3, miss the strings on purpose on the way down. Then catch them on the way up. Your hand never stops. You just choose when to touch the strings. That skip makes the rhythm bounce!",
+                    facts: [
+                        "Count: 1, 2 and, (3) and, 4 and.",
+                        "Strums: down, down-up, (miss)-up, down-up.",
+                        "The dashed arrow is a ghost strum: your hand moves but doesn't hit the strings.",
+                    ],
+                    visual: Some(StrumGrid(OldFaithful)),
+                ),
+                Learn(
+                    title: "Count it out",
+                    explain: "Old Faithful is down, down-up, up-down-up. Count \"1, 2 and, and 4 and.\" On beat 3 your hand still swings down, but it misses the strings. That missing strum is what gives the pattern its bounce. Say it out loud as you play.",
+                    facts: [
+                        "Strums: 1 (down), 2 (down), and (up), and (up), 4 (down), and (up).",
+                        "Beat 3 is a ghost: the hand moves, but no sound.",
+                    ],
+                    tips: [
+                        "If you stop your hand on beat 3, the pattern falls apart. Keep swinging!",
+                        "Practice it slowly on muted strings first, so you only think about the rhythm.",
+                    ],
+                    visual: Some(StrumGrid(OldFaithful)),
+                ),
+                Activity(
+                    title: "One chord",
+                    instructions: "Old Faithful on E minor.",
+                    activity: StrumAlong(chords: ["Em"], beats_per_chord: 4, pattern: OldFaithful, tempos: [60.0, 70.0], repeats: 4),
+                ),
+                Activity(
+                    title: "With changes",
+                    instructions: "G, Em, C, D with Old Faithful.",
+                    activity: StrumAlong(chords: ["G", "Em", "C", "D"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 80.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "Which pattern is this?",
+                            visual: Some(StrumGrid(OldFaithful)),
+                            choices: ["D D U U D U", "D U D U D U D U", "D D D D"],
+                            answer: 0,
+                            explain: "Down, down-up, up-down-up: D D U U D U. It's called Old Faithful because it fits so many songs.",
+                        ),
+                        (
+                            prompt: "What does your hand do on beat 3?",
+                            choices: ["Keeps moving, but misses the strings", "Stops completely", "Strums extra hard"],
+                            answer: 0,
+                            explain: "On beat 3 your hand still swings down, but it misses the strings. Keeping the hand moving keeps your rhythm steady.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.2",
+            title: "The Boom-Chuck: Bass Note + Strum",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["L3.1"],
+            goal: "Pick a chord's bass note, then strum. Switch between two bass notes.",
+            practice: "Five minutes a day for five days. Boom-chuck on C, then G, then switch between them every bar. Keep the bass notes clear and the strums light.",
+            steps: [
+                Learn(
+                    title: "Two players at once",
+                    explain: "Pretend you're two players at once: a bass player and a strummer. Pick the lowest note of the chord on beat 1. Strum on beat 2. Pick a different bass note on beat 3. Strum on beat 4. Boom, chuck, boom, chuck!",
+                    facts: [
+                        "The first bass note is the chord's root, its name note.",
+                        "G: string 6 fret 3, then the open D string.",
+                        "C: string 5 fret 3, then string 4 fret 2.",
+                        "D: the open D string, then the G string.",
+                    ],
+                    visual: Some(StrumGrid(BoomChuck)),
+                ),
+                Learn(
+                    title: "Find the bass notes",
+                    explain: "Every chord has a root, the note it's named after. For boom-chuck, the root is your first bass note. On C, that's string 5, fret 3. The second bass note is usually on the next string or two over. Then the strum fills in the rest.",
+                    facts: [
+                        "C: root on string 5. G: root on string 6. D: root on open string 4.",
+                        "Pick bass notes with a small, strong downstroke.",
+                    ],
+                    tips: [
+                        "Don't strum the bass strings on the \"chuck.\" Brush just the top three or four strings.",
+                        "Keep the chord held down the whole time, even while picking the bass.",
+                    ],
+                    visual: Some(Chord("C")),
+                ),
+                Activity(
+                    title: "Boom-chuck on C",
+                    instructions: "Bass, strum, other bass, strum.",
+                    activity: StrumAlong(chords: ["C"], beats_per_chord: 4, pattern: BoomChuck, tempos: [70.0, 80.0], repeats: 4),
+                ),
+                Activity(
+                    title: "Boom-chuck with changes",
+                    instructions: "G, C, G, D7.",
+                    activity: StrumAlong(chords: ["G", "C", "G", "D7"], beats_per_chord: 4, pattern: BoomChuck, tempos: [70.0, 80.0, 90.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "In a C chord, where is the root bass note?",
+                            visual: Some(Chord("C")),
+                            choices: ["String 5, fret 3", "String 6, open", "String 1, open"],
+                            answer: 0,
+                            explain: "C's root is the note C. The lowest C in the chord is on string 5, fret 3, so that's the bass note.",
+                        ),
+                        (
+                            prompt: "In boom-chuck, what happens on beats 2 and 4?",
+                            choices: ["Strum", "Pick a bass note", "Rest"],
+                            answer: 0,
+                            explain: "Boom-chuck means bass note on 1 and 3 (the \"boom\") and a strum on 2 and 4 (the \"chuck\").",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.3",
+            title: "Seventh Chords: E7, A7, G7, C7, B7",
+            thread: Chords,
+            minutes: 20,
+            prerequisites: ["L2.11"],
+            goal: "Play the five common open 7th chords.",
+            practice: "Five minutes a day for a week. Play each 7th chord, then the chord it wants to go to: E7 to A, A7 to D, B7 to E, G7 to C, C7 to F-mini (or just C7 to C for now).",
+            steps: [
+                Learn(
+                    title: "A spicy extra note",
+                    explain: "A 7th chord is a regular chord plus one extra spicy note. It makes the chord want to move somewhere, like D7 wanting to go to G. Blues music is full of 7th chords.",
+                    facts: [
+                        "E7 is E with one finger lifted.",
+                        "A7 is A with the middle finger lifted.",
+                    ],
+                    visual: Some(ChordPair("E", "E7")),
+                ),
+                Learn(
+                    title: "A7 and G7",
+                    explain: "A7 pulls toward D. G7 pulls toward C.",
+                    visual: Some(ChordPair("A7", "G7")),
+                ),
+                Learn(
+                    title: "C7 and B7",
+                    explain: "C7 is C plus your pinky. B7 uses all four fingers. Go slow!",
+                    facts: [
+                        "C7 pulls toward F. B7 pulls toward E.",
+                    ],
+                    more: Some("A dominant 7th chord adds the flat 7th: the note a whole step below the root's octave. Each one pulls to the chord a 4th above it."),
+                    visual: Some(ChordPair("C7", "B7")),
+                    tips: [
+                        "B7 uses all four fingers. Place them low string to high string, and take your time.",
+                        "C7 is C plus your pinky on string 3, fret 3. Lift nothing else.",
+                    ],
+                ),
+                Learn(
+                    title: "Where 7th chords like to go",
+                    explain: "A 7th chord sounds like it's leaning forward, waiting to move. Each one has a favorite chord to land on. E7 wants to go to A. A7 wants to go to D. G7 wants to go to C. Play the 7th chord, then its landing chord, and hear the pull.",
+                    facts: [
+                        "Count up four letters to find the landing chord: E, F, G, A. So E7 lands on A.",
+                        "This pull is why 7th chords are everywhere in blues and country.",
+                    ],
+                    visual: Some(ChordPair("E7", "A")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each 7th chord. The mic checks every string.",
+                    activity: ChordCheck(chords: ["E7", "A7", "G7", "C7", "B7"]),
+                ),
+                Activity(
+                    title: "A taste of the blues",
+                    instructions: "E, E, A7, E, B7, A7, E, B7.",
+                    activity: StrumAlong(chords: ["E", "E", "A7", "E", "B7", "A7", "E", "B7"], beats_per_chord: 4, pattern: Quarters, tempos: [70.0, 80.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("B7")),
+                            choices: ["B7", "A7", "E7"],
+                            answer: 0,
+                            explain: "Four fingers spread over strings 5 to 1, with string 2 open, make B7. It's the hardest of the 7th chords.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("G7")),
+                            choices: ["G7", "G", "C7"],
+                            answer: 0,
+                            explain: "It's the G shape with finger 1 on string 1, fret 1 instead of fret 3. That lower top note (F) turns G into G7.",
+                        ),
+                        (
+                            prompt: "Which chord does G7 want to go to?",
+                            choices: ["C", "D", "E"],
+                            answer: 0,
+                            explain: "G7 is the 5 chord in the key of C, so it pulls strongly back home to C.",
+                        ),
+                        (
+                            prompt: "How do you turn E into E7?",
+                            choices: ["Lift one finger", "Add a barre", "Move to fret 7"],
+                            answer: 0,
+                            explain: "Lift finger 3 off string 4 and that string rings open as D. That D is the 7th, so E becomes E7.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.4",
+            title: "Sus and Add Chords: Pretty Shapes",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L3.3"],
+            goal: "Play sus2, sus4, and add9 shapes for color and movement.",
+            practice: "Five minutes a day for five days. Play D, then Dsus4, then D again. Then A, Asus2, A. Listen to the chord float and land.",
+            steps: [
+                Learn(
+                    title: "A floating sound",
+                    explain: "Sus is short for suspended, like a ball hanging in the air. A sus chord swaps the happy or sad note for a different note, so it sounds neither happy nor sad. It floats! Then you drop back to the normal chord and it lands.",
+                    facts: [
+                        "Sus2 swaps the 3rd for the 2nd. Sus4 swaps it for the 4th.",
+                        "Classic move: D, Dsus4, D, Dsus2, D.",
+                    ],
+                    visual: Some(ChordPair("Dsus4", "Dsus2")),
+                ),
+                Learn(
+                    title: "Cadd9 and Em7",
+                    explain: "These two sound great next to G and Dsus4. Look closely: in both chords your pinky sits on string 2, fret 3. It can stay put when you switch!",
+                    visual: Some(ChordPair("Cadd9", "Em7")),
+                ),
+                Learn(
+                    title: "Floating and landing",
+                    explain: "A sus chord sounds like it's floating. It usually lands back on the plain chord. Try it: play Dsus4 by adding your pinky to the D chord, then lift the pinky to land on D. Songwriters love this move because it adds motion without changing chords.",
+                    facts: [
+                        "Dsus4: add the pinky on string 1, fret 3.",
+                        "Dsus2: lift the finger on string 1, so it rings open.",
+                    ],
+                    tips: [
+                        "Keep the rest of the chord held down. Only one finger moves.",
+                    ],
+                    visual: Some(ChordPair("Dsus4", "D")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each sus chord.",
+                    activity: ChordCheck(chords: ["Asus2", "Asus4", "Dsus2", "Dsus4", "Esus4"]),
+                ),
+                Activity(
+                    title: "A modern pop sound",
+                    instructions: "G, Cadd9, Em7, Dsus4.",
+                    activity: StrumAlong(chords: ["G", "Cadd9", "Em7", "Dsus4"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What does sus stand for?",
+                            choices: ["Suspended", "Super strong", "Sustained"],
+                            answer: 0,
+                            explain: "Sus is short for suspended. The 3rd is replaced by a 4th or 2nd, so the chord seems to hang in the air.",
+                        ),
+                        (
+                            prompt: "A sus chord sounds…",
+                            choices: ["Neither happy nor sad, like it's floating", "Very sad", "Out of tune"],
+                            answer: 0,
+                            explain: "A sus chord has no 3rd, and the 3rd is what makes a chord happy or sad. So it floats, waiting to land.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Dsus4")),
+                            choices: ["Dsus4", "D", "Dsus2"],
+                            answer: 0,
+                            explain: "It's the D shape with the pinky added on string 1, fret 3. That G is the 4th, so the chord is Dsus4.",
+                        ),
+                        (
+                            prompt: "Listen: D, then Dsus4. Which one floats?",
+                            audio: Some(Chords(["D", "Dsus4"])),
+                            choices: ["The first", "The second"],
+                            answer: 1,
+                            explain: "The second chord, Dsus4, floats because it has a 4th instead of a 3rd. D (the first) sounds settled.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.5",
+            title: "Rests and Ties: Playing the Silence",
+            thread: Rhythm,
+            minutes: 12,
+            prerequisites: ["L3.1"],
+            goal: "Read rests and ties and play them cleanly.",
+            practice: "Five minutes a day for four days. Strum one chord with the metronome. Strum on beats 1 and 2, then mute on 3 and 4. Then try a held note that lasts a whole bar.",
+            steps: [
+                Learn(
+                    title: "Sound and silence",
+                    explain: "Music is made of sound and silence. A rest means be quiet now. Guitar strings keep ringing unless you stop them, so you have to mute them on purpose. A tie is a curved line that glues two notes together. Hold the first one and don't play the second.",
+                    facts: [
+                        "Rests last as long as notes: whole 4 beats, half 2, quarter 1, eighth half a beat.",
+                        "To mute: relax your fretting fingers (keep them touching), or rest your palm on the strings.",
+                        "A dot after a note adds half its length. A dotted half note lasts 3 beats.",
+                    ],
+                    visual: Some(Durations),
+                ),
+                Learn(
+                    title: "Dots and ties",
+                    explain: "A dot after a note makes it longer by half. A half note lasts 2 beats, so a dotted half note lasts 3. A tie is a curved line joining two notes. Play the first one and just keep holding it through the second.",
+                    facts: [
+                        "Dotted half note: 3 beats.",
+                        "Tied notes: play once, hold for both.",
+                    ],
+                    tips: [
+                        "Count out loud during long notes. It's easy to cut them short.",
+                    ],
+                    visual: Some(Staff(notes: [(string: 2, fret: 1, beats: 3.0), (string: 2, fret: 3), (string: 1, fret: 0, beats: 2.0), (string: 2, fret: 3, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Steady beat warm-up",
+                    instructions: "Tap the beat. Feel each click, even the ones where you'd rest.",
+                    activity: TapBeat(bpm: 80.0, taps: 8),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How many beats does a half rest last?",
+                            choices: ["2", "4", "1"],
+                            answer: 0,
+                            explain: "A half rest is a silence as long as a half note: 2 beats.",
+                        ),
+                        (
+                            prompt: "How do you make the guitar quiet for a rest?",
+                            choices: ["Mute the strings with your hand", "Strum softly", "Keep strumming"],
+                            answer: 0,
+                            explain: "Lay your hand lightly on the strings to stop them ringing. That's how a rest stays silent.",
+                        ),
+                        (
+                            prompt: "A tie connects two notes. What do you do?",
+                            choices: ["Play the first and hold it through the second", "Play both", "Skip both"],
+                            answer: 0,
+                            explain: "A tie joins two notes into one longer note. Play the first one and keep holding it through the second.",
+                        ),
+                        (
+                            prompt: "How long is a dotted half note?",
+                            choices: ["3 beats", "2 beats", "4 beats"],
+                            answer: 0,
+                            explain: "A dot adds half the note's length. A half note is 2 beats, half of that is 1, so 2 + 1 = 3 beats.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.6",
+            title: "Alternate Picking and the 1-2-3-4 Warm-Up",
+            thread: Technique,
+            minutes: 12,
+            prerequisites: ["L2.11"],
+            goal: "Pick single notes down-up and train each finger.",
+            practice: "Five minutes a day for a week. Play the 1-2-3-4 warm-up on every string at 60 BPM, then 70. Keep each finger close to the strings when it lifts.",
+            steps: [
+                Learn(
+                    title: "Use both directions",
+                    explain: "When you pick only down, it's like running with one leg. Alternate picking means down, up, down, up. You use both directions, so you never waste a move. The 1-2-3-4 warm-up trains each finger to do its own job.",
+                    facts: [
+                        "On each string, play frets 1, 2, 3, 4 with fingers 1, 2, 3, 4.",
+                        "Leave fingers down as you climb. Keep them hovering close.",
+                        "Start slow. Speed comes later.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 1), (string: 6, fret: 2), (string: 6, fret: 3), (string: 6, fret: 4), (string: 5, fret: 1), (string: 5, fret: 2), (string: 5, fret: 3), (string: 5, fret: 4)])),
+                ),
+                Learn(
+                    title: "One finger for each fret",
+                    explain: "In the warm-up, each finger gets its own fret: finger 1 on fret 1, finger 2 on fret 2, and so on. Play frets 1, 2, 3, and 4 on string 6, then move to string 5. Pick down, up, down, up the whole time.",
+                    facts: [
+                        "Leave each finger down until you need it again.",
+                        "Alternate picking: every note switches direction.",
+                    ],
+                    tips: [
+                        "The pinky is weak at first. That's what this warm-up is for. Keep it curved and close to the string.",
+                        "Stay slow until every note is clean. Speed comes later.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 1), (string: 6, fret: 2), (string: 6, fret: 3), (string: 6, fret: 4), (string: 5, fret: 1), (string: 5, fret: 2), (string: 5, fret: 3), (string: 5, fret: 4, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "The 1-2-3-4 warm-up",
+                    instructions: "Frets 1-2-3-4 on every string, fattest to skinniest. Down, up, down, up.",
+                    activity: PlayNotes(tempo: 60.0, notes: [
+                        (string: 6, fret: 1, beats: 0.5), (string: 6, fret: 2, beats: 0.5), (string: 6, fret: 3, beats: 0.5), (string: 6, fret: 4, beats: 0.5),
+                        (string: 5, fret: 1, beats: 0.5), (string: 5, fret: 2, beats: 0.5), (string: 5, fret: 3, beats: 0.5), (string: 5, fret: 4, beats: 0.5),
+                        (string: 4, fret: 1, beats: 0.5), (string: 4, fret: 2, beats: 0.5), (string: 4, fret: 3, beats: 0.5), (string: 4, fret: 4, beats: 0.5),
+                        (string: 3, fret: 1, beats: 0.5), (string: 3, fret: 2, beats: 0.5), (string: 3, fret: 3, beats: 0.5), (string: 3, fret: 4, beats: 0.5),
+                        (string: 2, fret: 1, beats: 0.5), (string: 2, fret: 2, beats: 0.5), (string: 2, fret: 3, beats: 0.5), (string: 2, fret: 4, beats: 0.5),
+                        (string: 1, fret: 1, beats: 0.5), (string: 1, fret: 2, beats: 0.5), (string: 1, fret: 3, beats: 0.5), (string: 1, fret: 4, beats: 0.5),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "What is alternate picking?",
+                            choices: ["Down, up, down, up", "Only downstrokes", "Using two picks"],
+                            answer: 0,
+                            explain: "Alternate picking switches direction every note: down, up, down, up. It's smooth and fast.",
+                        ),
+                        (
+                            prompt: "In the warm-up, which finger plays fret 3?",
+                            choices: ["Finger 3", "Finger 1", "Finger 4"],
+                            answer: 0,
+                            explain: "In first position, each finger has its own fret: finger 1 on fret 1, finger 2 on fret 2, finger 3 on fret 3.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.7",
+            title: "Notes on Strings 3 and 4",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L2.10"],
+            goal: "Play the first-position notes on strings 3 and 4.",
+            practice: "Five minutes a day for four days. Play the Note hunt for strings 3 and 4, then play the climbing melody while saying the note names.",
+            steps: [
+                Learn(
+                    title: "Five more notes",
+                    explain: "Same rules as before: each finger gets its own fret. String 3 has G open and A at fret 2. String 4 has D open, E at fret 2, and F at fret 3.",
+                    visual: Some(Neck(notes: [(string: 3, fret: 0), (string: 3, fret: 2), (string: 4, fret: 0), (string: 4, fret: 2), (string: 4, fret: 3)], first_fret: 0, last_fret: 5, show_names: true)),
+                ),
+                Learn(
+                    title: "The map of strings 3 and 4",
+                    explain: "String 4 is D. Fret 2 is E, and fret 3 is F. String 3 is G, and fret 2 is A. Put these with the notes you know on strings 1 and 2, and you can read music all the way from D up to G!",
+                    facts: [
+                        "String 4: D (open), E (2), F (3).",
+                        "String 3: G (open), A (2).",
+                    ],
+                    tips: [
+                        "E and F are next to each other, only one fret apart. That's why E is fret 2 and F is fret 3.",
+                        "Say the note names out loud as you play. Your ears and eyes learn together.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 4, fret: 0), (string: 4, fret: 2), (string: 4, fret: 3), (string: 3, fret: 0), (string: 3, fret: 2)], first_fret: 0, last_fret: 4, show_names: true)),
+                ),
+                Activity(
+                    title: "Note hunt",
+                    instructions: "Find each note on strings 3 and 4.",
+                    activity: NoteHunt(strings: [3, 4], max_fret: 3, rounds: 8),
+                ),
+                Activity(
+                    title: "Climbing melody",
+                    instructions: "Up from D to A and back down.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 4, fret: 0), (string: 4, fret: 2), (string: 4, fret: 3), (string: 3, fret: 0),
+                        (string: 3, fret: 2, beats: 2.0), (string: 3, fret: 0), (string: 4, fret: 3),
+                        (string: 4, fret: 2), (string: 4, fret: 0, beats: 3.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What note is string 3, fret 2?",
+                            choices: ["A", "B", "G"],
+                            answer: 0,
+                            explain: "String 3 is G when open. Two frets up (a whole step) is A.",
+                        ),
+                        (
+                            prompt: "What note is string 4, fret 3?",
+                            choices: ["F", "E", "G"],
+                            answer: 0,
+                            explain: "String 4 is D. Fret 2 is E, and fret 3 is F, because E and F are only a half step apart.",
+                        ),
+                        (
+                            prompt: "What is open string 3?",
+                            choices: ["G", "D", "B"],
+                            answer: 0,
+                            explain: "From thick to thin the strings are E A D G B E, so string 3 is G.",
+                        ),
+                        (
+                            prompt: "Where is E on string 4?",
+                            choices: ["Fret 2", "Fret 1", "Open"],
+                            answer: 0,
+                            explain: "String 4 is D. A whole step (two frets) up from D is E, at fret 2.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.8",
+            title: "Notes on Strings 5 and 6: The Whole Map",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L3.7"],
+            goal: "Know every natural note in first position.",
+            practice: "Five minutes a day for five days. Play the C major scale from low C to high C, saying each note. Then try it backward.",
+            steps: [
+                Learn(
+                    title: "The bass strings",
+                    explain: "String 5 has A open, B at fret 2, and C at fret 3. String 6 has E open, F at fret 1, and G at fret 3. Now you know every plain note in first position!",
+                    facts: [
+                        "From low E up to G on string 1, the notes go E F G A B C D E F G A B C D E F G.",
+                        "That's the C major scale running through first position.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 0), (string: 6, fret: 1), (string: 6, fret: 3), (string: 5, fret: 0), (string: 5, fret: 2), (string: 5, fret: 3)], first_fret: 0, last_fret: 5, show_names: true)),
+                ),
+                Learn(
+                    title: "The low strings",
+                    explain: "String 6 is E, the lowest note on the guitar. Fret 1 is F and fret 3 is G. String 5 is A, with B at fret 2 and C at fret 3. Now you know every natural note in first position, on all six strings!",
+                    facts: [
+                        "String 6: E (open), F (1), G (3).",
+                        "String 5: A (open), B (2), C (3).",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 0), (string: 6, fret: 1), (string: 6, fret: 3), (string: 5, fret: 0), (string: 5, fret: 2), (string: 5, fret: 3)], first_fret: 0, last_fret: 4, show_names: true)),
+                ),
+                Learn(
+                    title: "The C major scale in first position",
+                    explain: "Start on C at string 5, fret 3. Then climb: D, E, F, G, A, B, and C again. Every note is a natural, so there are no sharps or flats. It's the same Do-Re-Mi ladder you know from singing.",
+                    facts: [
+                        "C D E F G A B C.",
+                        "Low C is string 5, fret 3. High C is string 2, fret 1.",
+                    ],
+                    tips: [
+                        "Use finger 3 for fret 3 and finger 2 for fret 2. Your hand never moves.",
+                    ],
+                    visual: Some(Tab([(string: 5, fret: 3), (string: 4, fret: 0), (string: 4, fret: 2), (string: 4, fret: 3), (string: 3, fret: 0), (string: 3, fret: 2), (string: 2, fret: 0), (string: 2, fret: 1, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Note hunt",
+                    instructions: "Find each note on strings 5 and 6.",
+                    activity: NoteHunt(strings: [5, 6], max_fret: 3, rounds: 8),
+                ),
+                Activity(
+                    title: "The C major scale",
+                    instructions: "From C on string 5 up to the next C on string 2.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 5, fret: 3), (string: 4, fret: 0), (string: 4, fret: 2), (string: 4, fret: 3),
+                        (string: 3, fret: 0), (string: 3, fret: 2), (string: 2, fret: 0), (string: 2, fret: 1, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What note is string 5, fret 3?",
+                            choices: ["C", "B", "D"],
+                            answer: 0,
+                            explain: "String 5 is A. Fret 2 is B, and fret 3 is C, because B and C are only a half step apart.",
+                        ),
+                        (
+                            prompt: "What note is string 6, fret 1?",
+                            choices: ["F", "E", "G"],
+                            answer: 0,
+                            explain: "String 6 is E. One fret up is F, because E and F have no sharp between them.",
+                        ),
+                        (
+                            prompt: "Where is B on string 5?",
+                            choices: ["Fret 2", "Fret 3", "Open"],
+                            answer: 0,
+                            explain: "String 5 is A. A whole step (two frets) up from A is B, at fret 2.",
+                        ),
+                        (
+                            prompt: "Which scale runs through first position with no sharps or flats?",
+                            choices: ["C major", "G major", "E major"],
+                            answer: 0,
+                            explain: "C major is all natural notes (C D E F G A B), so in first position you never need a sharp or flat.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.9",
+            title: "Sharps and Flats in First Position",
+            thread: Notes,
+            minutes: 10,
+            prerequisites: ["L3.8", "L2.9"],
+            goal: "Find sharps and flats in first position.",
+            practice: "Five minutes a day for three days. Pick a string and play every fret from 0 to 4, naming each note with its sharp name going up and its flat name coming down.",
+            steps: [
+                Learn(
+                    title: "One fret up, one fret down",
+                    explain: "A sharp is one fret higher. A flat is one fret lower. F♯ is one fret above F. B♭ is one fret below B.",
+                    facts: [
+                        "F♯ is on string 1 fret 2, string 4 fret 4, and string 6 fret 2.",
+                        "To flat an open string, go to the next lower string and play fret 4. The G string is different: its B is at fret 4, so B♭ is at G string fret 3.",
+                        "In sheet music, a sharp or flat lasts until the end of the measure.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 2), (string: 4, fret: 4), (string: 6, fret: 2), (string: 3, fret: 3), (string: 5, fret: 1)], first_fret: 0, last_fret: 5, show_names: true)),
+                    tips: [
+                        "E and B have no sharp. One fret up from E is F, and one fret up from B is C.",
+                    ],
+                ),
+                Learn(
+                    title: "Sharps going up, flats coming down",
+                    explain: "Between most natural notes there's one fret. Coming up from F, that fret is called F sharp. Coming down from G, the same fret is called G flat. On string 1, it's fret 2. Find the in-between notes on each string the same way.",
+                    facts: [
+                        "On string 1: F (1), F♯ or G♭ (2), G (3).",
+                        "No in-between note: E to F, and B to C.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 1), (string: 1, fret: 2), (string: 1, fret: 3), (string: 2, fret: 1), (string: 2, fret: 2), (string: 2, fret: 3)], first_fret: 0, last_fret: 4, show_names: true)),
+                ),
+                Activity(
+                    title: "Note hunt: everywhere",
+                    instructions: "Sharps and flats on all six strings, frets 0 to 4.",
+                    activity: NoteHunt(strings: [1, 2, 3, 4, 5, 6], max_fret: 4, naturals_only: false, rounds: 8),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Where is F♯ on string 1?",
+                            choices: ["Fret 2", "Fret 1", "Fret 3"],
+                            answer: 0,
+                            explain: "String 1 is E. F is at fret 1, so F sharp (one fret higher) is at fret 2.",
+                        ),
+                        (
+                            prompt: "Where is B♭ on string 3 (the G string)?",
+                            choices: ["Fret 3", "Fret 4", "Fret 2"],
+                            answer: 0,
+                            explain: "String 3 is G. A is at fret 2, so B flat (one fret lower than B, one fret higher than A) is at fret 3.",
+                        ),
+                        (
+                            prompt: "What does a sharp do?",
+                            choices: ["Raises a note one fret", "Lowers a note one fret", "Makes it louder"],
+                            answer: 0,
+                            explain: "A sharp (♯) raises a note by one fret, a half step. A flat (♭) lowers it by one fret.",
+                        ),
+                        (
+                            prompt: "E♭ is one fret below E. Where is it on string 2?",
+                            choices: ["Fret 4", "Fret 2", "Fret 1"],
+                            answer: 0,
+                            explain: "Open-string flat rule: go to the next lower string and play fret 4.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.10",
+            title: "Tuning by Ear: The 5th-Fret Method",
+            thread: Technique,
+            minutes: 12,
+            prerequisites: ["L3.8"],
+            goal: "Tune the guitar to itself without a tuner.",
+            practice: "Tune by ear first, then check with the tuner, every day for a week. Your ears will get faster and more exact.",
+            steps: [
+                Learn(
+                    title: "Strings that match",
+                    explain: "If one string is right, it can help tune the others. Press string 6 at fret 5 and you get an A, the same note as open string 5. Make them match! Keep going down the line. There's one trick: the G string uses fret 4 to match the B string.",
+                    facts: [
+                        "Fret 5 on strings 6, 5, 4, and 2. Fret 4 on string 3.",
+                        "Always turn the open string, not the one you're pressing.",
+                        "When two notes are almost the same, you hear a slow wah-wah wobble. Tune until it stops.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 5), (string: 5, fret: 0), (string: 5, fret: 5), (string: 4, fret: 0), (string: 4, fret: 5), (string: 3, fret: 0), (string: 3, fret: 4), (string: 2, fret: 0), (string: 2, fret: 5), (string: 1, fret: 0)], first_fret: 0, last_fret: 7, show_names: true)),
+                ),
+                Learn(
+                    title: "Listen for the wobble",
+                    explain: "When two notes are almost the same, you hear a slow wobble, like wah-wah-wah. The closer they get, the slower the wobble. When it stops, the notes match. Turn the peg very slowly and listen for the wobble to fade away.",
+                    facts: [
+                        "Fast wobble: far apart. Slow wobble: close. No wobble: in tune.",
+                        "Let both notes ring together while you turn the peg.",
+                    ],
+                    tips: [
+                        "Tune up to the note, not down. If you pass it, go below and come back up.",
+                        "If you can't hear a wobble at all, the string is far off. Use the tuner to get close first.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 6, fret: 5), (string: 5, fret: 0)], first_fret: 0, last_fret: 7, show_names: true)),
+                ),
+                Activity(
+                    title: "Tune by ear, then check",
+                    instructions: "Tune each string to the one below it by ear. Then use the tuner to see how close you got.",
+                    activity: Tune,
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "To tune string 2 (B), you press string 3 at which fret?",
+                            choices: ["4", "5", "7"],
+                            answer: 0,
+                            explain: "The G string at fret 4 plays B. That's the note string 2 should match. (It's the one string that isn't fret 5.)",
+                        ),
+                        (
+                            prompt: "Which string do you turn the peg for?",
+                            choices: ["The open string", "The string you're pressing"],
+                            answer: 0,
+                            explain: "Turn the peg of the open string you're tuning. The pressed string is your reference, so leave it alone.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.11",
+            title: "Chord Families and the Magic 1–4–5",
+            thread: TheoryEar,
+            minutes: 15,
+            prerequisites: ["L3.3"],
+            goal: "Know that songs use a family of chords, and the most important are 1, 4, and 5.",
+            practice: "Five minutes a day for a week. Play 1–4–5–1 in G, D, and A. Say the numbers out loud as you change chords.",
+            steps: [
+                Learn(
+                    title: "Chord families",
+                    explain: "Chords live in families called keys. Every family has a leader, the 1 chord, which feels like home. Two best friends always come along: the 4 chord and the 5 chord. The 5 chord really wants to lead you back home. Thousands of songs use just 1, 4, and 5!",
+                    facts: [
+                        "Count up the letters from the key's name. In G: G is 1, A is 2, B is 3, C is 4, D is 5.",
+                        "Key of G: G, C, D. Key of D: D, G, A. Key of A: A, D, E.",
+                        "The family also has a minor 6 chord. In G it's E minor.",
+                    ],
+                    visual: Some(NumberWheel(key: "G")),
+                ),
+                Learn(
+                    title: "The key of D",
+                    explain: "Same pattern, new family. Click each chord to hear it.",
+                    visual: Some(NumberWheel(key: "D")),
+                ),
+                Learn(
+                    title: "The family tree of a key",
+                    explain: "Each key has a family of chords. Give them numbers by counting up the scale. In the key of G, G is 1, C is 4, and D is 5. These three chords are the most important ones in the family. Thousands of songs use just these three!",
+                    facts: [
+                        "Key of G: 1 = G, 4 = C, 5 = D.",
+                        "Key of D: 1 = D, 4 = G, 5 = A.",
+                    ],
+                    tips: [
+                        "Don't memorize every key at once. Learn G, D, and A first, since they use chords you already know.",
+                    ],
+                    visual: Some(NumberWheel(key: "G")),
+                ),
+                Activity(
+                    title: "1–4–5–1 in G",
+                    instructions: "G, C, D7, G.",
+                    activity: StrumAlong(chords: ["G", "C", "D7", "G"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 80.0], repeats: 2),
+                ),
+                Activity(
+                    title: "1–4–5–1 in A",
+                    instructions: "A, D, E7, A.",
+                    activity: StrumAlong(chords: ["A", "D", "E7", "A"], beats_per_chord: 4, pattern: OldFaithful, tempos: [70.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "In the key of D, what is the 5 chord?",
+                            choices: ["A", "G", "E"],
+                            answer: 0,
+                            explain: "Count up the D major scale: D (1), E (2), F♯ (3), G (4), A (5). So the 5 chord is A.",
+                        ),
+                        (
+                            prompt: "In the key of A, what is the 4 chord?",
+                            choices: ["D", "E", "B"],
+                            answer: 0,
+                            explain: "Count up the A major scale: A (1), B (2), C♯ (3), D (4). So the 4 chord is D.",
+                        ),
+                        (
+                            prompt: "Which chord feels like home?",
+                            choices: ["The 1 chord", "The 5 chord", "The 4 chord"],
+                            answer: 0,
+                            explain: "The 1 chord is the key's home base. Songs usually start and end there.",
+                        ),
+                        (
+                            prompt: "In the key of G, what is the minor 6 chord?",
+                            choices: ["E minor", "A minor", "D minor"],
+                            answer: 0,
+                            explain: "Count up G major: G A B C D E. The 6th note is E, and the 6 chord in a major key is minor: E minor.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.12",
+            title: "Ear Lab: Hearing Chord Changes",
+            thread: TheoryEar,
+            minutes: 10,
+            prerequisites: ["L3.11"],
+            goal: "Hear when a chord changes, and whether it moved to 4 or 5.",
+            practice: "Two minutes a day: play the 4 or 5 game in the Ear Gym. Then try to hear the chord changes in a song you like.",
+            steps: [
+                Learn(
+                    title: "Follow the bass",
+                    explain: "Listen to the bass, the lowest sound. When it moves, the chord usually changed. Going to 5 sounds like uh-oh, we need to go home. Going to 4 sounds like let's take a little trip.",
+                    facts: [
+                        "Count bars out loud while you listen: 1-2-3-4, 2-2-3-4…",
+                        "Songs have parts: intro, verse, chorus, bridge, and outro.",
+                    ],
+                    visual: Some(NumberWheel(key: "G")),
+                    tips: [
+                        "Hum the lowest note you hear. When your hum has to move, the chord changed.",
+                    ],
+                ),
+                Learn(
+                    title: "The bass tells the story",
+                    explain: "When the chord changes, the lowest note usually changes too. Listen to the bass, not the whole chord. In the key of G, the bass goes up a little for the 4 chord (C) and up more for the 5 chord (D). The 5 chord also sounds like it wants to go home.",
+                    facts: [
+                        "1 to 4: a small, gentle step.",
+                        "1 to 5: a bigger step that leans back toward home.",
+                    ],
+                    visual: Some(ChordPair("C", "D")),
+                ),
+                Activity(
+                    title: "4 or 5?",
+                    instructions: "After G, did the music go to the 4 chord or the 5 chord?",
+                    activity: EarQuiz(kind: FourOrFive, rounds: 8),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Listen: G, then… Did it go to 4 or 5?",
+                            audio: Some(Chords(["G", "D"])),
+                            choices: ["4", "5"],
+                            answer: 1,
+                            explain: "It went to D, the 5 chord in G.",
+                        ),
+                        (
+                            prompt: "Listen: G, then… Did it go to 4 or 5?",
+                            audio: Some(Chords(["G", "C"])),
+                            choices: ["4", "5"],
+                            answer: 0,
+                            explain: "It went to C, the 4 chord in G.",
+                        ),
+                        (
+                            prompt: "Which part of a song usually repeats the same words each time?",
+                            choices: ["The chorus", "The verse", "The intro"],
+                            answer: 0,
+                            explain: "The chorus is the catchy part that comes back with the same words. Verses usually change the words each time.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L3.13",
+            title: "Level 3 Song: When the Saints Go Marching In",
+            thread: Song,
+            minutes: 20,
+            prerequisites: ["L3.2", "L3.3", "L3.8"],
+            goal: "Play a classic three ways: strummed, boom-chuck, and melody.",
+            practice: "Ten minutes a day for a week. Play the song three ways: boom-chuck, strummed, and as a melody. Then play along with the app.",
+            steps: [
+                Learn(
+                    title: "When the Saints",
+                    explain: "When the Saints Go Marching In is an old American song. Listen for G7 pulling to C in the middle. That's the 7th-chord pull you learned!",
+                    facts: [
+                        "Chords, one per bar: G G G G | G G D D | G G7 C C | G D G G.",
+                        "The melody uses G, A, B, C, and D on strings 3 and 2.",
+                    ],
+                    visual: Some(ChordPair("G7", "C")),
+                ),
+                Learn(
+                    title: "The melody's first notes",
+                    explain: "The melody starts with four notes that climb: G, B, C, D. Then it does it again. Play them on strings 3 and 2. Once your fingers know these four notes, you know most of the song!",
+                    facts: [
+                        "G is open string 3. B is open string 2.",
+                        "C is string 2, fret 1. D is string 2, fret 3.",
+                    ],
+                    tips: [
+                        "Hold the long D for all four beats. Count it out.",
+                    ],
+                    visual: Some(Tab([(string: 3, fret: 0), (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3, beats: 4.0)])),
+                ),
+                Activity(
+                    title: "Boom-chuck it",
+                    instructions: "Play the whole chart with boom-chuck.",
+                    activity: StrumAlong(chords: ["G", "G", "G", "G", "G", "G", "D", "D", "G", "G7", "C", "C", "G", "D", "G", "G"], beats_per_chord: 4, pattern: BoomChuck, tempos: [80.0, 90.0, 100.0], repeats: 1),
+                ),
+                Activity(
+                    title: "Strum it",
+                    instructions: "Now with Old Faithful.",
+                    activity: StrumAlong(chords: ["G", "G", "G", "G", "G", "G", "D", "D", "G", "G7", "C", "C", "G", "D", "G", "G"], beats_per_chord: 4, pattern: OldFaithful, tempos: [80.0, 90.0], repeats: 1),
+                ),
+                Activity(
+                    title: "Play the melody",
+                    instructions: "Oh when the saints… go marching in.",
+                    activity: PlayNotes(tempo: 100.0, notes: [
+                        (string: 3, fret: 0), (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3, beats: 4.0),
+                        (string: 3, fret: 0), (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3, beats: 4.0),
+                        (string: 3, fret: 0), (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3, beats: 2.0),
+                        (string: 2, fret: 0, beats: 2.0), (string: 3, fret: 0, beats: 2.0), (string: 2, fret: 0, beats: 2.0), (string: 3, fret: 2, beats: 4.0),
+                        (string: 2, fret: 0), (string: 2, fret: 0), (string: 3, fret: 2), (string: 3, fret: 0, beats: 3.0),
+                        (string: 3, fret: 0), (string: 2, fret: 0, beats: 2.0), (string: 2, fret: 3), (string: 2, fret: 3), (string: 2, fret: 1, beats: 3.0),
+                        (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3, beats: 2.0), (string: 2, fret: 0, beats: 2.0),
+                        (string: 3, fret: 0, beats: 2.0), (string: 3, fret: 2, beats: 2.0), (string: 3, fret: 0, beats: 4.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 80,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("C7")),
+                            choices: ["C7", "C", "G7"],
+                            answer: 0,
+                            explain: "It's the C shape with the pinky added on string 3, fret 3. That B♭ is the 7th, so the chord is C7.",
+                        ),
+                        (
+                            prompt: "Which pattern is this?",
+                            visual: Some(StrumGrid(BoomChuck)),
+                            choices: ["Boom-chuck", "Old Faithful", "All down-strums"],
+                            answer: 0,
+                            explain: "A bass note, a strum, the other bass note, a strum: that's boom-chuck.",
+                        ),
+                        (
+                            prompt: "What note is string 5, fret 2?",
+                            choices: ["B", "C", "A"],
+                            answer: 0,
+                            explain: "String 5 is A. Two frets up (a whole step) is B.",
+                        ),
+                        (
+                            prompt: "In the key of G, the 1, 4, and 5 chords are…",
+                            choices: ["G, C, D", "G, A, B", "G, D, E"],
+                            answer: 0,
+                            explain: "In G, count G (1), A (2), B (3), C (4), D (5). So the 1, 4, and 5 chords are G, C, and D.",
+                        ),
+                        (
+                            prompt: "To tune string 2, press string 3 at fret…",
+                            choices: ["4", "5", "3"],
+                            answer: 0,
+                            explain: "Press string 3 at fret 4 to play B, then tune open string 2 to match it.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

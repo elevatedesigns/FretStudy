@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=FretStudy
+Comment=Learn guitar step by step
+Exec=fretstudy
+Icon=fretstudy
+Categories=Education;Music;
+Terminal=false

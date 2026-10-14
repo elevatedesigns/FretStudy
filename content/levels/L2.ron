@@ -1,0 +1,859 @@
+// Level 2 — Open Chord Foundations. See docs/02-Curriculum-Part1-Levels-0-2.md.
+Level(
+    number: 2,
+    title: "Open Chord Foundations",
+    goal: "Play the full open chords every guitarist uses, strum down-up eighth notes, and learn half and whole steps.",
+    weeks: "4–6 weeks",
+    lessons: [
+        Lesson(
+            id: "L2.1",
+            title: "Clean Chords: The Buzz Detective",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["L1.9"],
+            goal: "Fix buzzing and muted strings on your own.",
+            practice: "Every time you learn a chord, play it once string by string. Two minutes a day finds buzzes before they become habits.",
+            steps: [
+                Learn(
+                    title: "Be a detective",
+                    explain: "When a string buzzes or goes thunk, something is in its way. Be a detective. Pluck each string one at a time and find the bad one. Then check the four usual suspects.",
+                    facts: [
+                        "Suspect 1: Is your finger right behind the fret, not in the middle of the space?",
+                        "Suspect 2: Are you on your fingertip, not the flat part?",
+                        "Suspect 3: Is another finger leaning on the string?",
+                        "Suspect 4: Are you pressing enough? (Not crazy hard — just enough.)",
+                        "Sore fingertips are normal for the first few weeks. Sharp pain is not. Rest if it hurts.",
+                    ],
+                    more: Some("Most buzzes come from finger placement, not weak hands. Try pressing lighter until it buzzes, then add just a little more. That's the right amount. Keep your fretting-hand nails short."),
+                    visual: Some(Chord("D7")),
+                ),
+                Learn(
+                    title: "The three causes of a buzz",
+                    explain: "Almost every bad note comes from one of three things. One: your finger is too far from the fret wire. Two: you aren't pressing quite hard enough. Three: another finger is touching that string. Pluck the strings one at a time, find the bad one, and fix just that finger.",
+                    facts: [
+                        "Buzz: move closer to the fret, or press a little harder.",
+                        "Muted, thuddy note: a finger is leaning on it. Curve your fingers more.",
+                    ],
+                    tips: [
+                        "Squeezing harder isn't always the answer. Moving closer to the fret usually works better, with less effort.",
+                        "Check your thumb. If it's high over the neck, your fingers lie flat. Drop the thumb behind the neck.",
+                    ],
+                    visual: Some(Chord("D7")),
+                ),
+                Activity(
+                    title: "Detective work: D7",
+                    instructions: "Hold D7 and pluck each string. When one doesn't ring, check the four suspects.",
+                    activity: StringCheck(chord: "D7"),
+                ),
+                Activity(
+                    title: "Detective work: easy C",
+                    instructions: "Now easy C, string by string.",
+                    activity: StringCheck(chord: "C-easy"),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "A string goes thunk. What's the first thing to do?",
+                            choices: ["Pluck each string to find the bad one", "Buy new strings", "Strum harder"],
+                            answer: 0,
+                            explain: "Find which string is the problem first. Then check the four suspects.",
+                        ),
+                        (
+                            prompt: "Where should your fingertip press?",
+                            choices: ["Right behind the fret", "On top of the fret wire", "Far from the fret, in the middle"],
+                            answer: 0,
+                            explain: "Right behind the fret takes the least pressure and sounds clean.",
+                        ),
+                        (
+                            prompt: "Your fingertips are a little sore after practice. Is that okay?",
+                            choices: ["Yes, that's normal at first", "No, stop playing guitar"],
+                            answer: 0,
+                            explain: "Calluses form over a few weeks. Sharp pain is different: rest if it hurts.",
+                        ),
+                        (
+                            prompt: "A finger is leaning on the next string. What helps?",
+                            choices: ["Arch your fingers so only the tips touch", "Press with the flat of your finger", "Move your thumb over the top"],
+                            answer: 0,
+                            explain: "Arched fingers stay out of the way of their neighbors.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.2",
+            title: "Full G and Full C",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L2.1"],
+            goal: "Upgrade to the full-size G and C chords.",
+            practice: "Five minutes a day for five days. Switch between full G and full C, four strums each. Check both chords string by string at the start of each session.",
+            steps: [
+                Learn(
+                    title: "Bigger, fuller chords",
+                    explain: "Remember easy G and easy C? Now we add the bass notes, the deep notes, to make them sound big and full.",
+                    facts: [
+                        "G uses all six strings.",
+                        "C skips string 6. Look for the X.",
+                        "C looks like a staircase: fingers 1, 2, and 3 step down one fret and one string each.",
+                    ],
+                    more: Some("Some players finger G with fingers 3, 2, and 4 instead of 2, 1, and 3. That version makes switching to C easier. Pick the one that feels better."),
+                    visual: Some(ChordPair("G", "C")),
+                ),
+                Learn(
+                    title: "Full G, finger by finger",
+                    explain: "Full G uses all six strings. Put finger 2 on string 6, fret 3. Put finger 1 on string 5, fret 2. Put finger 3 on string 1, fret 3. Strings 4, 3, and 2 ring open. Strum all six strings for a big, ringing sound.",
+                    facts: [
+                        "G has a low G on string 6 and a high G on string 1.",
+                        "The open strings in the middle make G sound so full.",
+                    ],
+                    tips: [
+                        "Keep finger 1 curved so it doesn't touch open string 4.",
+                    ],
+                    visual: Some(Chord("G")),
+                ),
+                Learn(
+                    title: "Full C, finger by finger",
+                    explain: "Full C uses five strings. Put finger 3 on string 5, fret 3. Put finger 2 on string 4, fret 2. Put finger 1 on string 2, fret 1. Don't play string 6. Start your strum on string 5.",
+                    facts: [
+                        "The fingers make a slanted staircase: 3, 2, then 1.",
+                        "Strings 3 and 1 ring open.",
+                    ],
+                    tips: [
+                        "This one stretches your hand. Bring your elbow in toward your body to help your fingers reach.",
+                    ],
+                    visual: Some(Chord("C")),
+                ),
+                Activity(
+                    title: "Buzz check: G",
+                    instructions: "Pluck each string of G.",
+                    activity: StringCheck(chord: "G"),
+                ),
+                Activity(
+                    title: "Buzz check: C",
+                    instructions: "Pluck each string of C (not string 6).",
+                    activity: StringCheck(chord: "C"),
+                ),
+                Activity(
+                    title: "One-minute changes: G and C",
+                    instructions: "Switch back and forth for one minute. Try to beat your best score each day.",
+                    activity: ChangeTrainer(a: "G", b: "C", target: 20),
+                ),
+                Activity(
+                    title: "Strum along",
+                    instructions: "G, C, G, then D7. One down-strum on every beat.",
+                    activity: StrumAlong(chords: ["G", "C", "G", "D7"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("G")),
+                            choices: ["G", "C", "D"],
+                            answer: 0,
+                            explain: "Fingers on strings 6 and 5 down low, finger 3 on string 1, fret 3, and all six strings ring. That's the full G chord.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("C")),
+                            choices: ["C", "G", "A minor"],
+                            answer: 0,
+                            explain: "Fret 3 on string 5, fret 2 on string 4, fret 1 on string 2, and string 6 is not played. That's C.",
+                        ),
+                        (
+                            prompt: "Which string do you NOT play in a C chord?",
+                            visual: Some(Chord("C")),
+                            choices: ["String 6", "String 1", "String 3"],
+                            answer: 0,
+                            explain: "The X above string 6 means skip it.",
+                        ),
+                        (
+                            prompt: "Which finger plays string 6 in G (the 2-1-3 fingering)?",
+                            visual: Some(Chord("G")),
+                            choices: ["Finger 2", "Finger 1", "Finger 3"],
+                            answer: 0,
+                            explain: "In the 2-1-3 fingering, finger 2 plays string 6, fret 3. Finger 1 plays string 5, fret 2, and finger 3 plays string 1, fret 3.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.3",
+            title: "D and A",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L2.2"],
+            goal: "Play D major and A major.",
+            practice: "Five minutes a day for five days. Switch between D and A with four strums each. Try D to G and A to D too.",
+            steps: [
+                Learn(
+                    title: "An arrowhead and a bench",
+                    explain: "D looks like a little arrowhead. It points at the tuning pegs. For A, three fingers line up side by side on one fret. They squeeze in like three kids on one bench.",
+                    facts: [
+                        "D: strum only the top four strings.",
+                        "A: strum five strings (skip string 6). Make sure string 1 still rings.",
+                        "Try A with fingers 1-2-3 or 2-1-3. Use whichever fits your hand.",
+                    ],
+                    visual: Some(ChordPair("D", "A")),
+                ),
+                Learn(
+                    title: "D: the arrowhead",
+                    explain: "D looks like a little arrowhead pointing at the floor. Put finger 1 on string 3, fret 2. Put finger 3 on string 2, fret 3. Put finger 2 on string 1, fret 2. Strum just the top four strings, starting on open string 4.",
+                    facts: [
+                        "Strings 6 and 5 aren't played.",
+                        "The open D string is the root.",
+                    ],
+                    tips: [
+                        "Finger 3 is the highest. Make sure it doesn't lean on string 1.",
+                    ],
+                    visual: Some(Chord("D")),
+                ),
+                Learn(
+                    title: "A: three on a bench",
+                    explain: "A has three fingers sitting in a row on fret 2, like three kids on a bench. Use fingers 1, 2, and 3 on strings 4, 3, and 2. Strum five strings, starting on open string 5. The fingers have to squeeze in, so lean them a little.",
+                    facts: [
+                        "String 5 open is the root, A.",
+                        "String 1 rings open on top.",
+                    ],
+                    tips: [
+                        "If string 1 is muted, finger 3 is touching it. Some players use fingers 2, 1, 3 instead to make room.",
+                    ],
+                    visual: Some(Chord("A")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum each chord once and let it ring. The mic checks every string.",
+                    activity: ChordCheck(chords: ["D", "A"]),
+                ),
+                Activity(
+                    title: "One-minute changes: D and A",
+                    instructions: "Back and forth for one minute.",
+                    activity: ChangeTrainer(a: "D", b: "A", target: 20),
+                ),
+                Activity(
+                    title: "Strum along",
+                    instructions: "D, A, D, G.",
+                    activity: StrumAlong(chords: ["D", "A", "D", "G"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("D")),
+                            choices: ["D", "D7", "A"],
+                            answer: 0,
+                            explain: "Three fingers make a little triangle on strings 3, 2, and 1, and string 4 rings open. That's D major.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("A")),
+                            choices: ["A", "E", "D"],
+                            answer: 0,
+                            explain: "Three fingers in a row on fret 2 (strings 4, 3, and 2), with string 5 ringing open. That's A major.",
+                        ),
+                        (
+                            prompt: "How many strings do you strum for D?",
+                            visual: Some(Chord("D")),
+                            choices: ["Four", "Five", "Six"],
+                            answer: 0,
+                            explain: "D starts on the open string 4, so you strum only four strings: 4, 3, 2, and 1. Strings 5 and 6 stay quiet.",
+                        ),
+                        (
+                            prompt: "In the A chord, what fret are all three fingers on?",
+                            visual: Some(Chord("A")),
+                            choices: ["Fret 2", "Fret 1", "Fret 3"],
+                            answer: 0,
+                            explain: "All three fingers sit side by side on fret 2. They just squeeze in next to each other.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.4",
+            title: "E and Am: Same Shape, New Spot!",
+            thread: Chords,
+            minutes: 12,
+            prerequisites: ["L2.3"],
+            goal: "Play E major and A minor, and notice they're the same hand shape.",
+            practice: "Five minutes a day for four days. Switch between E and Am. Notice how your hand keeps the same shape and just moves over one string.",
+            steps: [
+                Learn(
+                    title: "Learn one, get one free",
+                    explain: "Here's a secret. E major and A minor are the exact same finger shape. You just move the whole shape over by one string!",
+                    facts: [
+                        "E: play all six strings.",
+                        "Am: skip string 6.",
+                    ],
+                    visual: Some(ChordPair("E", "Am")),
+                ),
+                Learn(
+                    title: "E major",
+                    explain: "E major is E minor plus one more finger. Put finger 2 on string 5, fret 2, and finger 3 on string 4, fret 2. Now add finger 1 on string 3, fret 1. Strum all six strings. That one note turns the sad E minor into a bright E major.",
+                    facts: [
+                        "E minor: two fingers. E major: three.",
+                        "The new note, G sharp, is the 3rd of the chord.",
+                    ],
+                    visual: Some(Chord("E")),
+                ),
+                Learn(
+                    title: "A minor: the same shape, moved",
+                    explain: "Keep your E major shape. Now move all three fingers over one string, toward the floor. Finger 1 is on string 2, and fingers 2 and 3 are on strings 4 and 3. That's A minor! Skip string 6 and strum from string 5.",
+                    facts: [
+                        "Same shape, new strings, new chord.",
+                        "A minor sounds dark and soft.",
+                    ],
+                    tips: [
+                        "Move the whole hand as one piece. Don't place the fingers one at a time.",
+                    ],
+                    visual: Some(Chord("Am")),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum E, then Am. The mic checks every string.",
+                    activity: ChordCheck(chords: ["E", "Am"]),
+                ),
+                Activity(
+                    title: "One-minute changes: Am and E",
+                    instructions: "Same shape, so this one gets fast! Aim for 25.",
+                    activity: ChangeTrainer(a: "Am", b: "E", target: 25),
+                ),
+                Activity(
+                    title: "A spooky progression",
+                    instructions: "Am, C, G, Am.",
+                    activity: StrumAlong(chords: ["Am", "C", "G", "Am"], beats_per_chord: 4, pattern: Quarters, tempos: [60.0, 70.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("E")),
+                            choices: ["E", "E minor", "A minor"],
+                            answer: 0,
+                            explain: "It's the E minor shape plus finger 1 on string 3, fret 1. That one extra note makes it E major.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Am")),
+                            choices: ["A minor", "A", "C"],
+                            answer: 0,
+                            explain: "It looks like E major, moved over one string. With string 6 left out, the root is A, and the sound is minor: A minor.",
+                        ),
+                        (
+                            prompt: "How do you get from E to Am?",
+                            choices: ["Move the same shape over one string", "Lift all your fingers", "Add your pinky"],
+                            answer: 0,
+                            explain: "E and Am use the same finger shape. Slide the whole shape over one string toward the floor and you have Am.",
+                        ),
+                        (
+                            prompt: "Listen. Major or minor?",
+                            audio: Some(Chords(["Am"])),
+                            choices: ["Major", "Minor"],
+                            answer: 1,
+                            explain: "That was A minor. It sounded dark and a little sad, which is the sound of a minor chord.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.5",
+            title: "Dm, and Why Minor Sounds Sad",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["L2.4", "L1.8"],
+            goal: "Play D minor, and see that major to minor changes just one note.",
+            practice: "Five minutes a day for four days. Play D then Dm, back and forth, and listen to the mood change. Then switch between Dm and Am.",
+            steps: [
+                Learn(
+                    title: "D minor",
+                    explain: "D minor uses the top four strings, like D. Your first finger reaches to string 1, fret 1.",
+                    visual: Some(Chord("Dm")),
+                    tips: [
+                        "Dm is a stretch for finger 1, which sits on string 1, fret 1. Keep it on its tip.",
+                        "Strum only the top four strings.",
+                    ],
+                ),
+                Learn(
+                    title: "One note makes the mood",
+                    explain: "Every basic chord has three notes: the root (its name), the 3rd, and the 5th. To turn major into minor, move the 3rd down one fret. That tiny move changes happy to sad!",
+                    facts: [
+                        "D to Dm: string 1 goes from fret 2 to fret 1.",
+                        "E to Em: string 3 goes from fret 1 to open.",
+                        "A to Am: string 2 goes from fret 2 to fret 1.",
+                        "Turn on Note jobs colors: the blue dot is the 3rd. It's the one that moves.",
+                    ],
+                    more: Some("A major chord has 4 half steps from the root to the 3rd. A minor chord has 3. That one half step is the whole difference."),
+                    visual: Some(ChordPair("D", "Dm")),
+                ),
+                Activity(
+                    title: "Major or minor?",
+                    instructions: "Listen to each chord. Bright or dark?",
+                    activity: EarQuiz(kind: MajorMinor, rounds: 8),
+                ),
+                Activity(
+                    title: "Strum check",
+                    instructions: "Strum D, then Dm. Hear the mood change.",
+                    activity: ChordCheck(chords: ["D", "Dm"]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Dm")),
+                            choices: ["D minor", "D", "D7"],
+                            answer: 0,
+                            explain: "Strings 3, 2, and 1 are fretted with string 4 open, and the high string is only at fret 1. That's D minor.",
+                        ),
+                        (
+                            prompt: "To turn A into A minor, which string changes?",
+                            choices: ["String 2", "String 5", "String 4"],
+                            answer: 0,
+                            explain: "String 2 moves from fret 2 down to fret 1.",
+                        ),
+                        (
+                            prompt: "Which note changes when major becomes minor?",
+                            choices: ["The 3rd", "The root", "The 5th"],
+                            answer: 0,
+                            explain: "The 3rd decides the mood. Lower it one fret and a happy major chord turns into a sad minor chord. The root and 5th stay put.",
+                        ),
+                        (
+                            prompt: "Listen. Major or minor?",
+                            audio: Some(Chords(["Dm"])),
+                            choices: ["Major", "Minor"],
+                            answer: 1,
+                            explain: "That chord sounded dark and sad, so it's minor. Major chords sound bright and happy.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.6",
+            title: "Eighth-Note Strumming: Down-Up",
+            thread: Rhythm,
+            minutes: 15,
+            prerequisites: ["L1.2", "L2.2"],
+            goal: "Strum eighth notes: down on the beat, up on the and.",
+            practice: "Five minutes a day for a week. Strum down-up eighth notes on one chord at 60 BPM, counting \"1 and 2 and.\" Then add chord changes.",
+            steps: [
+                Learn(
+                    title: "Like a pendulum",
+                    explain: "Now we count 1 and 2 and 3 and 4 and. Strum down on the numbers and up on the ands. Your hand swings like a clock pendulum and never stops. On the up-strum, you only need to catch the top few strings.",
+                    facts: [
+                        "An eighth note is half a beat.",
+                        "Down-strums always land on numbers. Up-strums always land on and.",
+                        "The secret to great strumming: keep your hand moving.",
+                    ],
+                    visual: Some(StrumGrid(Eighths)),
+                ),
+                Learn(
+                    title: "Counting \"and\"",
+                    explain: "Now each beat gets two strums. Count \"1 and 2 and 3 and 4 and.\" Strum down on the numbers and up on the \"and\" in between. Your hand moves down and up like a pendulum, and it never stops, even when you change chords.",
+                    facts: [
+                        "Down on the beat, up between beats.",
+                        "These shorter strums are called eighth notes.",
+                    ],
+                    tips: [
+                        "Up-strums can be lighter. They only need to catch the top few strings.",
+                        "If the timing slips, go back to just down-strums, then add the ups again.",
+                    ],
+                    visual: Some(StrumGrid(Eighths)),
+                ),
+                Activity(
+                    title: "Down-up on one chord",
+                    instructions: "Strum G with down-up eighth notes.",
+                    activity: StrumAlong(chords: ["G"], beats_per_chord: 4, pattern: Eighths, tempos: [60.0, 70.0], repeats: 4),
+                ),
+                Activity(
+                    title: "Down-up with changes",
+                    instructions: "G, C, D, G with down-up eighths.",
+                    activity: StrumAlong(chords: ["G", "C", "D", "G"], beats_per_chord: 4, pattern: Eighths, tempos: [60.0, 70.0, 80.0], repeats: 2),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "In eighth-note strumming, where do up-strums land?",
+                            visual: Some(StrumGrid(Eighths)),
+                            choices: ["On the ands", "On the numbers", "Only on beat 4"],
+                            answer: 0,
+                            explain: "Your hand goes down on the numbers (1, 2, 3, 4) and up on the \"ands\" in between.",
+                        ),
+                        (
+                            prompt: "What's the secret to great strumming?",
+                            choices: ["Keep your hand moving", "Strum as hard as you can", "Stop between strums"],
+                            answer: 0,
+                            explain: "Your hand keeps moving down and up like a clock, even when it misses the strings. That's what keeps the rhythm steady.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.7",
+            title: "Smooth Switches: Anchor Fingers",
+            thread: Technique,
+            minutes: 12,
+            prerequisites: ["L2.5"],
+            goal: "Use anchor fingers to change chords faster.",
+            practice: "One-minute changes every day for a week, using two pairs: C to Am and G to D. Write down your best score for each pair.",
+            steps: [
+                Learn(
+                    title: "Don't lift what can stay",
+                    explain: "Some chords share a finger in the same spot. That finger is an anchor. Don't lift it! Let the other fingers move around it. Fewer moving fingers means faster changes.",
+                    facts: [
+                        "C to Am: fingers 1 and 2 stay put. Only finger 3 moves.",
+                        "Look for the green note under each pair of chords. It tells you the anchors.",
+                    ],
+                    visual: Some(ChordPair("C", "Am")),
+                ),
+                Learn(
+                    title: "Find the anchor",
+                    explain: "Before you switch, look at both chord boxes. Is there a finger on the same string and fret in both chords? That's an anchor. Leave it pressed down and move only the other fingers. C to Am has two anchors: fingers 1 and 2 stay put!",
+                    facts: [
+                        "C to Am: fingers 1 and 2 stay. Only finger 3 moves.",
+                        "Even without an anchor, a finger can slide along its string as a guide.",
+                    ],
+                    tips: [
+                        "Don't lift an anchor finger just because the others are moving. Keep it down.",
+                    ],
+                    visual: Some(ChordPair("C", "Am")),
+                ),
+                Activity(
+                    title: "One-minute changes: C and Am",
+                    instructions: "Keep fingers 1 and 2 down the whole time.",
+                    activity: ChangeTrainer(a: "C", b: "Am", target: 25),
+                ),
+                Activity(
+                    title: "One-minute changes: G and D",
+                    instructions: "No anchors here, so move all fingers together like a claw.",
+                    activity: ChangeTrainer(a: "G", b: "D", target: 20),
+                ),
+                Check(
+                    pass_percent: 100,
+                    questions: [
+                        (
+                            prompt: "What's an anchor finger?",
+                            choices: ["A finger that stays in the same spot for both chords", "Your thumb", "The finger you lift first"],
+                            answer: 0,
+                            explain: "An anchor finger stays on the same string and fret in both chords. It holds your hand in place while the other fingers move.",
+                        ),
+                        (
+                            prompt: "Going from C to Am, which fingers can stay down?",
+                            visual: Some(ChordPair("C", "Am")),
+                            choices: ["1 and 2", "2 and 3", "None"],
+                            answer: 0,
+                            explain: "C and Am both use finger 1 on string 2, fret 1, and finger 2 on string 4, fret 2. Keep those down and just move finger 3.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.8",
+            title: "The Musical Alphabet",
+            thread: TheoryEar,
+            minutes: 10,
+            prerequisites: ["L1.7"],
+            goal: "Know that music uses the letters A to G, and what an octave is.",
+            practice: "Two minutes a day for three days. Say the musical alphabet forward and backward, starting from different letters (\"D E F G A B C\").",
+            steps: [
+                Learn(
+                    title: "Only seven letters",
+                    explain: "Music uses only seven letters: A B C D E F G. Then it starts over at A again, just higher. When you get back to the same letter, that's called an octave. It sounds like the same note, only higher, like a kid and a grown-up singing the same song.",
+                    facts: [
+                        "After G comes A.",
+                        "The fattest and skinniest strings are both E, two octaves apart.",
+                    ],
+                    visual: Some(Alphabet),
+                    tips: [
+                        "After G, go back to A. There is no H!",
+                    ],
+                ),
+                Learn(
+                    title: "Fret 12 is an octave",
+                    explain: "Play an open string, then the same string at fret 12, where the two dots are. Same letter, just higher!",
+                    visual: Some(Neck(notes: [(string: 6, fret: 0), (string: 6, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Learn(
+                    title: "Letters on a string",
+                    explain: "On a guitar string, every fret is the next note up. Start on open string 1, which is E. Go up the string and the letters climb: F, G, A, B, C, D, then E again at fret 12. Some letters are two frets apart and some only one. You'll find out why next.",
+                    facts: [
+                        "String 1: E (0), F (1), G (3), A (5), B (7), C (8), D (10), E (12).",
+                        "Fret 12 is E again, one octave higher.",
+                    ],
+                    visual: Some(Neck(notes: [(string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3), (string: 1, fret: 5), (string: 1, fret: 7), (string: 1, fret: 8), (string: 1, fret: 10), (string: 1, fret: 12)], first_fret: 0, last_fret: 12, show_names: true)),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What letter comes after G?",
+                            choices: ["A", "H", "F"],
+                            answer: 0,
+                            explain: "The musical alphabet only goes A to G. After G, it starts over at A.",
+                        ),
+                        (
+                            prompt: "What letter is two letters above F?",
+                            choices: ["A", "G", "B"],
+                            answer: 0,
+                            explain: "Count up the musical alphabet from F: F, G, A. Two letters above F is A.",
+                        ),
+                        (
+                            prompt: "What do we call the same letter, higher?",
+                            choices: ["An octave", "A chord", "A fret"],
+                            answer: 0,
+                            explain: "An octave is the same letter, but higher (or lower). It sounds like the same note, just in a different place.",
+                        ),
+                        (
+                            prompt: "Which fret is an octave above the open string?",
+                            choices: ["Fret 12", "Fret 5", "Fret 7"],
+                            answer: 0,
+                            explain: "Fret 12 is exactly halfway along the string, so it plays the same note as the open string, one octave higher.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.9",
+            title: "Half Steps and Whole Steps",
+            thread: TheoryEar,
+            minutes: 12,
+            prerequisites: ["L2.8"],
+            goal: "Know that one fret is a half step, and find sharps and flats.",
+            practice: "Five minutes a day for three days. On string 1, play every fret from 0 to 12 and say each note name, including sharps.",
+            steps: [
+                Learn(
+                    title: "The smallest step",
+                    explain: "Each fret is a half step, the smallest step in music. Two frets make a whole step. Between most letters there's a secret note called a sharp or a flat. Sharp means one fret higher. Flat means one fret lower.",
+                    facts: [
+                        "A♯ and B♭ are the same sound with two names.",
+                        "E and F are next-door neighbors. So are B and C. No secret note between them!",
+                        "On a piano there's no black key between E and F, or B and C.",
+                    ],
+                    visual: Some(Piano),
+                ),
+                Learn(
+                    title: "See it on string 1",
+                    explain: "On string 1, E to F is a half step: one fret. F to G is a whole step: two frets. The fret in between is F♯, also called G♭.",
+                    visual: Some(Neck(notes: [(string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 2), (string: 1, fret: 3)], first_fret: 0, last_fret: 5, show_names: true)),
+                ),
+                Learn(
+                    title: "Sharps and flats",
+                    explain: "When two letters are a whole step apart, there's a note in between. It has two names. Going up, it's a sharp: F sharp is one fret above F. Going down, it's a flat: G flat is one fret below G. F sharp and G flat are the very same fret!",
+                    facts: [
+                        "Sharp (♯) means one fret higher. Flat (♭) means one fret lower.",
+                        "There's no sharp between B and C, or between E and F.",
+                    ],
+                    tips: [
+                        "Don't let the two names confuse you. It's like a person with a nickname: same person, two names.",
+                    ],
+                    visual: Some(Piano),
+                ),
+                Activity(
+                    title: "Note hunt: strings 1 and 2",
+                    instructions: "Find each note, sharps and flats too.",
+                    activity: NoteHunt(strings: [1, 2], max_fret: 4, naturals_only: false, rounds: 6),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "How many frets is a half step?",
+                            choices: ["1", "2", "12"],
+                            answer: 0,
+                            explain: "A half step is the smallest step on the guitar: one fret.",
+                        ),
+                        (
+                            prompt: "What is one half step above E?",
+                            choices: ["F", "E♯ only", "F♯"],
+                            answer: 0,
+                            explain: "E and F are neighbors with nothing between them.",
+                        ),
+                        (
+                            prompt: "A♯ and B♭ are…",
+                            choices: ["The same sound with two names", "Two different sounds", "Not real notes"],
+                            answer: 0,
+                            explain: "A♯ and B♭ are the same fret, so they make the same sound. The note just has two names, like a nickname.",
+                        ),
+                        (
+                            prompt: "How many frets is a whole step?",
+                            choices: ["2", "1", "4"],
+                            answer: 0,
+                            explain: "A whole step is two half steps, so it's two frets.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.10",
+            title: "Notes on Strings 1 and 2, Plus Reading",
+            thread: Notes,
+            minutes: 15,
+            prerequisites: ["L1.7", "L2.9"],
+            goal: "Know every first-position note on strings 1 and 2, and peek at the staff.",
+            practice: "Five minutes a day for five days. Play the Note hunt once, then play Jingle Bells slowly while saying the note names.",
+            steps: [
+                Learn(
+                    title: "Your first six notes",
+                    explain: "You already know these from Ode to Joy. String 1: E open, F at fret 1, G at fret 3. String 2: B open, C at fret 1, D at fret 3.",
+                    visual: Some(Neck(notes: [(string: 1, fret: 0), (string: 1, fret: 1), (string: 1, fret: 3), (string: 2, fret: 0), (string: 2, fret: 1), (string: 2, fret: 3)], first_fret: 0, last_fret: 5, show_names: true)),
+                    tips: [
+                        "Use one finger per fret: finger 1 for fret 1, finger 3 for fret 3.",
+                        "Say each note's name out loud as you play it. It helps you remember where it lives.",
+                    ],
+                ),
+                Learn(
+                    title: "Gold star: the music staff",
+                    explain: "Sheet music uses five lines called a staff. Notes sit on lines or in spaces. The lines, bottom to top, spell E G B D F: Every Good Boy Does Fine. The spaces spell F A C E. Higher on the staff means a higher note.",
+                    facts: [
+                        "A whole note lasts 4 beats, a half note 2, a quarter note 1.",
+                        "This part is optional. Tab works great too!",
+                    ],
+                    visual: Some(Durations),
+                ),
+                Activity(
+                    title: "Note hunt",
+                    instructions: "Find each note on strings 1 and 2.",
+                    activity: NoteHunt(strings: [1, 2], max_fret: 3, rounds: 8),
+                ),
+                Activity(
+                    title: "Jingle Bells",
+                    instructions: "The chorus of Jingle Bells. Every note is on strings 1 and 2.",
+                    activity: PlayNotes(tempo: 100.0, notes: [
+                        (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0, beats: 2.0),
+                        (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0, beats: 2.0),
+                        (string: 1, fret: 0), (string: 1, fret: 3), (string: 2, fret: 1, beats: 1.5), (string: 2, fret: 3, beats: 0.5),
+                        (string: 1, fret: 0, beats: 4.0),
+                        (string: 1, fret: 1), (string: 1, fret: 1), (string: 1, fret: 1, beats: 1.5), (string: 1, fret: 1, beats: 0.5),
+                        (string: 1, fret: 1), (string: 1, fret: 0), (string: 1, fret: 0), (string: 1, fret: 0, beats: 0.5), (string: 1, fret: 0, beats: 0.5),
+                        (string: 1, fret: 0), (string: 2, fret: 3), (string: 2, fret: 3), (string: 1, fret: 0),
+                        (string: 2, fret: 3, beats: 2.0), (string: 1, fret: 3, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 75,
+                    questions: [
+                        (
+                            prompt: "What note is string 2, fret 1?",
+                            visual: Some(Tab([(string: 2, fret: 1)])),
+                            choices: ["C", "D", "F"],
+                            answer: 0,
+                            explain: "String 2 is B when open. One fret up from B is C, because B and C have no sharp between them.",
+                        ),
+                        (
+                            prompt: "What note is string 1, fret 3?",
+                            visual: Some(Tab([(string: 1, fret: 3)])),
+                            choices: ["G", "F", "A"],
+                            answer: 0,
+                            explain: "String 1 is E. Fret 1 is F, and two frets more (fret 3) is G.",
+                        ),
+                        (
+                            prompt: "The lines of the staff spell…",
+                            choices: ["E G B D F", "F A C E", "A B C D E"],
+                            answer: 0,
+                            explain: "Every Good Boy Does Fine. The spaces spell FACE.",
+                        ),
+                        (
+                            prompt: "How many beats does a half note last?",
+                            choices: ["2", "4", "1"],
+                            answer: 0,
+                            explain: "A half note is half of a whole note. The whole note lasts 4 beats, so the half note lasts 2.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "L2.11",
+            title: "Level 2 Song: Oh, Susanna",
+            thread: Song,
+            minutes: 20,
+            prerequisites: ["L2.6", "L2.7", "L2.10"],
+            goal: "Play a full song with G, C, and D and down-up strumming.",
+            practice: "Ten minutes a day for a week. Play the verse, then the chorus, then the whole song with the app. Try singing along while you strum!",
+            steps: [
+                Learn(
+                    title: "Oh, Susanna",
+                    explain: "Oh, Susanna is a famous American folk song from long ago. It uses just three chords: G, C, and D. The verse and the chorus each last eight bars.",
+                    facts: [
+                        "Verse: G, G, G, D, G, G, D, G.",
+                        "Chorus: C, C, G, D, G, G, D, G.",
+                        "Bonus: try D7 instead of D at the end of each line to hear the pull back home.",
+                    ],
+                    visual: Some(ChordPair("G", "D")),
+                ),
+                Learn(
+                    title: "Chords in the song",
+                    explain: "Oh, Susanna uses three chords you know: G, C, and D. The verse is mostly G and D, with a quick C. The chorus starts on C, which makes it feel brighter. Practice each change on its own before you play the whole song.",
+                    facts: [
+                        "G, C, and D are the 1, 4, and 5 chords in the key of G.",
+                        "D usually comes right before G, pulling the song home.",
+                    ],
+                    tips: [
+                        "The trickiest switch is C to G. Practice it with one-minute changes.",
+                    ],
+                    visual: Some(ChordPair("C", "G")),
+                ),
+                Activity(
+                    title: "The verse",
+                    instructions: "Down-up eighth notes. One chord per bar.",
+                    activity: StrumAlong(chords: ["G", "G", "G", "D", "G", "G", "D", "G"], beats_per_chord: 4, pattern: Eighths, tempos: [70.0, 80.0, 90.0], repeats: 1),
+                ),
+                Activity(
+                    title: "The chorus",
+                    instructions: "The chorus starts on C.",
+                    activity: StrumAlong(chords: ["C", "C", "G", "D", "G", "G", "D", "G"], beats_per_chord: 4, pattern: Eighths, tempos: [70.0, 80.0, 90.0], repeats: 1),
+                ),
+                Check(
+                    pass_percent: 80,
+                    questions: [
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("E")),
+                            choices: ["E", "A", "D"],
+                            answer: 0,
+                            explain: "Fingers on strings 5 and 4 (fret 2) plus finger 1 on string 3, fret 1, and all six strings ring. That's E major.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("Dm")),
+                            choices: ["D minor", "D", "A minor"],
+                            answer: 0,
+                            explain: "A small shape on the top three strings, with string 4 open and finger 1 on the high string at fret 1. That's D minor.",
+                        ),
+                        (
+                            prompt: "Name this chord.",
+                            visual: Some(Chord("A")),
+                            choices: ["A", "A minor", "E"],
+                            answer: 0,
+                            explain: "Three fingers in a row on fret 2 of strings 4, 3, and 2, with string 5 open. That's A major.",
+                        ),
+                        (
+                            prompt: "Listen. Major or minor?",
+                            audio: Some(Chords(["E"])),
+                            choices: ["Major", "Minor"],
+                            answer: 0,
+                            explain: "That chord sounded bright and happy, so it's major. Minor chords sound darker.",
+                        ),
+                        (
+                            prompt: "Which pair of notes has no sharp or flat between them?",
+                            choices: ["B and C", "C and D", "F and G"],
+                            answer: 0,
+                            explain: "B and C are next-door neighbors with no sharp or flat between them. So are E and F.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

@@ -1,0 +1,22 @@
+[package]
+name = "fretstudy"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.104"
+audio = { version = "0.1.0", path = "../audio" }
+content = { version = "0.1.0", path = "../content" }
+eframe = "0.36.2"
+egui = "0.36.2"
+rfd = "0.15"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+store = { version = "0.1.0", path = "../store" }
+theory = { version = "0.1.0", path = "../theory" }
+
+[dev-dependencies]
+egui_kittest = { version = "0.36.2", features = ["eframe", "snapshot", "wgpu"] }
+
+[target.'cfg(windows)'.build-dependencies]
+winresource = "0.1"

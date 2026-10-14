@@ -1,0 +1,8 @@
+[package]
+name = "theory"
+description = "Pure music theory for FretStudy: notes, intervals, scales, chords, keys, and the guitar fretboard."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]

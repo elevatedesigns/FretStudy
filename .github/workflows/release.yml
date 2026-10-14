@@ -1,0 +1,114 @@
+# Builds FretStudy for macOS, Windows, and Linux and publishes them as a GitHub Release.
+# Runs when a version tag (v0.1.0, v0.2.0, ...) is pushed, or by hand from the Actions tab.
+# File names have no version in them so README links to releases/latest/download/... never break.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build and publish (e.g. v0.1.0)"
+        required: true
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+  TAG: ${{ github.event.inputs.tag || github.ref_name }}
+
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-darwin,x86_64-apple-darwin
+      - uses: Swatinem/rust-cache@v2
+      - name: Build universal app and DMG
+        run: |
+          scripts/package-macos.sh
+          mv dist/FretStudy-*.dmg dist/FretStudy-macOS.dmg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos
+          path: dist/FretStudy-macOS.dmg
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Install Inno Setup
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) {
+            choco install innosetup -y --no-progress
+          }
+      - name: Build installer and portable zip
+        shell: pwsh
+        run: |
+          ./scripts/package-windows.ps1
+          Move-Item dist\FretStudy-*-setup.exe dist\FretStudy-Windows-Setup.exe
+          New-Item -ItemType Directory -Force portable\FretStudy | Out-Null
+          Copy-Item target\release\fretstudy.exe portable\FretStudy\FretStudy.exe
+          Compress-Archive -Path portable\FretStudy -DestinationPath dist\FretStudy-Windows-Portable.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: |
+            dist/FretStudy-Windows-Setup.exe
+            dist/FretStudy-Windows-Portable.zip
+
+  linux:
+    # The oldest supported Ubuntu keeps the binary compatible with older Linux systems.
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Install system libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libasound2-dev libxkbcommon-dev libwayland-dev \
+            libx11-dev libxcursor-dev libxrandr-dev libxi-dev libgl1-mesa-dev
+      - name: Build AppImage and tarball
+        run: scripts/package-linux.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: |
+            dist/FretStudy-Linux-x86_64.AppImage
+            dist/FretStudy-Linux-x86_64.tar.gz
+
+  publish:
+    needs: [macos, windows, linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG }}
+          name: FretStudy ${{ env.TAG }}
+          make_latest: true
+          body: |
+            ## Download FretStudy
+
+            | Computer | File |
+            |---|---|
+            | **Mac** (Apple Silicon and Intel) | `FretStudy-macOS.dmg` |
+            | **Windows** 10/11 (installer) | `FretStudy-Windows-Setup.exe` |
+            | **Windows** (no install, just unzip) | `FretStudy-Windows-Portable.zip` |
+            | **Linux** (x86_64, one file) | `FretStudy-Linux-x86_64.AppImage` |
+            | **Linux** (plain binary) | `FretStudy-Linux-x86_64.tar.gz` |
+
+            The apps aren't code-signed yet, so your computer may warn you the first time.
+            See the README's "First launch" section for the one-time steps.
+          files: dist/*

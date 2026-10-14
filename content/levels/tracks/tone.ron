@@ -1,0 +1,385 @@
+// Style Track T — Tone & Gear (any time after Level 2). See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 16,
+    title: "🔊 Tone & Gear",
+    track: Some("Tone"),
+    goal: "Strings and care, guitar types, amps and pickups, drive, effects, and fixing tone problems.",
+    weeks: "Any time",
+    lessons: [
+        Lesson(
+            id: "T.1",
+            title: "Changing Strings and Basic Care",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["L2.11"],
+            goal: "Change strings and keep your guitar healthy.",
+            practice: "Once a month, clean and check your guitar. Change strings when they sound dull or won't stay in tune.",
+            steps: [
+                Learn(
+                    title: "Fresh strings, happy guitar",
+                    explain: "Old strings sound dull and won't stay in tune. Change them every few months, or sooner if you play a lot. Change one string at a time, so the neck stays balanced. Wipe the strings after you play. Keep the guitar away from heaters and very dry air.",
+                    facts: [
+                        "Steel strings: for acoustic and electric guitars. Nylon: for classical guitars only.",
+                        "Light strings are easier on beginner fingers.",
+                        "Wind a few neat turns around each tuning peg.",
+                    ],
+                ),
+                Learn(
+                    title: "Stretch and tune",
+                    explain: "New strings stretch for a day or two. That makes them go flat. After you put them on, tune up, then gently pull each string away from the neck. Tune again. Repeat a few times until they stay in tune.",
+                    facts: [
+                        "Change one string at a time so the neck stays happy.",
+                        "Wipe your strings after playing to keep them fresh.",
+                    ],
+                    tips: [
+                        "Wash your hands before playing. Clean hands make strings last longer.",
+                    ],
+                    visual: Some(Strings),
+                ),
+                Learn(
+                    title: "Wind it the right way",
+                    explain: "Wind each new string so it goes over the top of the tuning peg, toward the middle of the headstock. Leave a little slack so it wraps two or three times. Then tune up slowly.",
+                    visual: Some(GuitarParts),
+                ),
+                Activity(
+                    title: "String change steps",
+                    instructions: "Tick each step as you do it (or watch someone do it).",
+                    activity: Checklist(items: [
+                        "Loosen one old string and take it off.",
+                        "Put the new string in the bridge.",
+                        "Pull it to its peg, leaving a little slack.",
+                        "Wind it neatly and tune it up slowly.",
+                        "Stretch it gently and tune again.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Why change one string at a time?",
+                            choices: ["So the neck stays balanced", "It's faster", "It's louder"],
+                            answer: 0,
+                            explain: "Changing one string at a time keeps the tension on the neck balanced, and the guitar stays closer to tune.",
+                        ),
+                        (
+                            prompt: "Can you put steel strings on a classical (nylon) guitar?",
+                            choices: ["No, it can damage the guitar", "Yes, always"],
+                            answer: 0,
+                            explain: "Steel strings pull much harder than nylon. A classical guitar isn't built for that tension and can be damaged.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "T.2",
+            title: "Guitar Types and History",
+            thread: TheoryEar,
+            minutes: 10,
+            prerequisites: ["T.1"],
+            goal: "Know the main kinds of guitars and what each is good for.",
+            practice: "Spend ten minutes looking at your guitar. Name its type, pickups or sound hole, and its parts.",
+            steps: [
+                Learn(
+                    title: "A guitar family tree",
+                    explain: "A classical guitar has nylon strings. Its voice is warm and soft. Steel-string guitars come in sizes. Big ones are loud and boom. Small ones are sweet and quiet. An archtop is hollow, and jazz players love it. A solid-body electric needs an amp. It can sound clean or wild.",
+                    facts: [
+                        "Dreadnought: big and bold. Concert: medium. Parlor: small.",
+                        "Electric guitars have pickups that turn string wiggles into a signal.",
+                    ],
+                ),
+                Learn(
+                    title: "Acoustic or electric?",
+                    explain: "Acoustic guitars have a hollow body and a sound hole. The body makes the sound loud. Electric guitars usually have a solid body and pickups. They need an amp to be heard. Classical guitars use soft nylon strings.",
+                    facts: [
+                        "Steel-string acoustic: bright and loud.",
+                        "Nylon-string classical: soft and warm.",
+                    ],
+                    tips: [
+                        "Every type can play every style. Use what you have!",
+                    ],
+                    visual: Some(GuitarParts),
+                ),
+                Learn(
+                    title: "Strings tell the story",
+                    explain: "Steel strings are bright and loud. Nylon strings are soft and warm. Electric strings are thinner, so bends are easier. Look at your strings to see what kind of guitar you have.",
+                    visual: Some(Strings),
+                ),
+                Activity(
+                    title: "Know your guitar",
+                    instructions: "Tick the facts about your guitar.",
+                    activity: Checklist(items: [
+                        "I know if my strings are nylon or steel.",
+                        "I know my guitar's body type.",
+                        "I know if it has pickups.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Which guitar has nylon strings?",
+                            choices: ["The classical guitar", "The dreadnought", "The solid-body electric"],
+                            answer: 0,
+                            explain: "Classical guitars use nylon strings, which sound warm and soft.",
+                        ),
+                        (
+                            prompt: "Which guitar is hollow and loved by jazz players?",
+                            choices: ["The archtop", "The parlor", "The classical"],
+                            answer: 0,
+                            explain: "The archtop is hollow, with a carved, arched top, and jazz players love its sound.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "T.3",
+            title: "Amp and Guitar Together",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["T.2"],
+            goal: "Use pickups, guitar knobs, and amp channels to shape your sound.",
+            practice: "Ten minutes over a few days. Try each knob on your guitar and amp, one at a time. Write down settings you like.",
+            steps: [
+                Learn(
+                    title: "Your sound starts at the guitar",
+                    explain: "Single-coil pickups sound bright and glassy. Humbuckers sound thick and warm, with less hum. The volume knob on your guitar also changes how crunchy the amp sounds. The tone knob makes it darker. Many amps have a clean channel and a dirty channel.",
+                    facts: [
+                        "Turn the guitar's volume down a bit to clean up a crunchy amp.",
+                        "Neck pickup: warm. Bridge pickup: bright.",
+                    ],
+                ),
+                Learn(
+                    title: "Guitar knobs first",
+                    explain: "Your guitar has volume and tone knobs. Volume makes it louder or softer. Tone makes it brighter or darker. Turn the tone knob down a little for a warm sound. Change your guitar knobs before you change the amp.",
+                    facts: [
+                        "Turn volume down for a cleaner sound.",
+                        "Turn tone down for a softer, rounder sound.",
+                    ],
+                    tips: [
+                        "Change one knob at a time so you can hear what it does.",
+                    ],
+                    visual: Some(GuitarParts),
+                ),
+                Learn(
+                    title: "Amp knobs",
+                    explain: "Start with every amp knob pointing straight up, at the middle. Play a chord. Then turn one knob at a time and listen. Bass adds low sound, treble adds high sound, and middle helps you stand out.",
+                    visual: Some(Chord("G")),
+                ),
+                Activity(
+                    title: "Explore your knobs",
+                    instructions: "Tick each experiment.",
+                    activity: Checklist(items: [
+                        "Play the same chord on each pickup.",
+                        "Turn the tone knob all the way down, then up.",
+                        "With a crunchy amp, roll the guitar volume down to clean it up.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Which pickup type sounds thick and warm?",
+                            choices: ["Humbucker", "Single-coil"],
+                            answer: 0,
+                            explain: "Humbuckers use two coils, which sound thick and warm and cancel hum.",
+                        ),
+                        (
+                            prompt: "What does turning the guitar's volume down do to a crunchy amp?",
+                            choices: ["Makes it cleaner", "Makes it more distorted", "Nothing"],
+                            answer: 0,
+                            explain: "Less signal from the guitar means less distortion, so turning its volume down cleans up a crunchy amp.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "T.4",
+            title: "Drive, Compression, and Gain",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["T.3"],
+            goal: "Tell overdrive, distortion, and fuzz apart, and set gain wisely.",
+            practice: "Ten minutes over a few days. Play E5 and an open chord with low, medium, and high gain. Find the lowest gain that still sounds good.",
+            steps: [
+                Learn(
+                    title: "How much fuzz?",
+                    explain: "Overdrive is a warm crunch, like an amp turned up loud. Distortion is heavier and smoother. Fuzz is wild and buzzy. A compressor evens out loud and soft notes. With gain, less is often more. Too much makes chords mushy and hides your playing.",
+                    facts: [
+                        "Overdrive: blues and classic rock. Distortion: hard rock. Fuzz: 60s rock.",
+                        "Set the gain just high enough, then back it off a little.",
+                    ],
+                ),
+                Learn(
+                    title: "Test with a power chord",
+                    explain: "Play an E5 power chord, then a full open E chord, with drive on. The power chord sounds big and clean. The full chord can sound messy. That's why rock players use power chords with lots of gain.",
+                    facts: [
+                        "Two-note power chords handle lots of gain.",
+                        "Full chords sound best with less gain.",
+                    ],
+                    tips: [
+                        "Use compression to make quiet notes and loud notes more even.",
+                    ],
+                    visual: Some(ChordPair("E5", "E")),
+                ),
+                Learn(
+                    title: "Gain for leads",
+                    explain: "Gain makes notes ring longer, which helps solos sing. Play a bend with low gain, then high gain. The high-gain note keeps going much longer. Just don't add so much that it gets noisy.",
+                    visual: Some(Tab([(string: 3, fret: 7, tech: Some(Bend(2)), beats: 4.0)])),
+                ),
+                Activity(
+                    title: "Gain test",
+                    instructions: "If you have an amp or app, try these.",
+                    activity: Checklist(items: [
+                        "Play a big chord with low gain, then high gain.",
+                        "Find the spot where every string is still clear.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Which sounds the wildest and buzziest?",
+                            choices: ["Fuzz", "Overdrive", "A clean amp"],
+                            answer: 0,
+                            explain: "Fuzz is the wildest and buzziest. Overdrive is milder.",
+                        ),
+                        (
+                            prompt: "What does a compressor do?",
+                            choices: ["Evens out loud and soft notes", "Adds echoes", "Tunes the guitar"],
+                            answer: 0,
+                            explain: "A compressor squeezes loud and soft notes closer together, making them more even.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "T.5",
+            title: "Delay, Reverb, and EQ",
+            thread: Technique,
+            minutes: 15,
+            prerequisites: ["T.4"],
+            goal: "Use echo and space effects lightly, and cut lows to fit in a band.",
+            practice: "Ten minutes over a few days. Set a short delay and some reverb. Play a melody and listen for the echoes.",
+            steps: [
+                Learn(
+                    title: "Whipped cream on top",
+                    explain: "Delay plays your notes back as echoes. Reverb makes it sound like you're in a big room. Think of them like whipped cream: a little is great, too much hides the cake. EQ shapes the sound. In a band, turn down the lows on your guitar so the bass player has room.",
+                    facts: [
+                        "Delay = echoes. Reverb = room sound.",
+                        "Cutting lows helps a guitar sound clear in a band.",
+                    ],
+                ),
+                Learn(
+                    title: "Echoes on the beat",
+                    explain: "Delay repeats your notes like an echo. Set the delay time to match the song's beat, and the echoes fit right in. Reverb makes it sound like you're in a big room. A little of each goes a long way.",
+                    facts: [
+                        "Delay: echo. Reverb: room sound.",
+                        "EQ: bass, middle, and treble knobs.",
+                    ],
+                    tips: [
+                        "Start with the effect off, then turn it up until you just notice it.",
+                    ],
+                    visual: Some(BeatPulse(bpm: 90.0)),
+                ),
+                Learn(
+                    title: "EQ shapes the sound",
+                    explain: "EQ means bass, middle, and treble. Cut the bass to make a sound thinner. Boost the treble to make it sparkle. Small changes are best. Listen, then adjust a little more.",
+                    visual: Some(Chord("C")),
+                ),
+                Activity(
+                    title: "Effect tests",
+                    instructions: "If you have effects, try each one.",
+                    activity: Checklist(items: [
+                        "Add a little reverb, then a lot. Which sounds clearer?",
+                        "Set a delay so the echo lands on the beat.",
+                        "Turn the bass down a little and listen.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What does reverb sound like?",
+                            choices: ["Playing in a big room", "Fast echoes", "Fuzz"],
+                            answer: 0,
+                            explain: "Reverb adds the echoes of a room, so it sounds like you're playing in a big space.",
+                        ),
+                        (
+                            prompt: "In a band, why cut some lows from the guitar?",
+                            choices: ["To leave room for the bass", "To be louder", "To stay in tune"],
+                            answer: 0,
+                            explain: "Cutting some low end leaves room for the bass player, so the band sounds clear instead of muddy.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "T.6",
+            title: "Troubleshooting Tone",
+            thread: Technique,
+            minutes: 10,
+            prerequisites: ["T.5"],
+            goal: "Find a sound problem by checking one piece at a time.",
+            practice: "Keep the checklist handy. When something sounds wrong, check it one step at a time.",
+            steps: [
+                Learn(
+                    title: "Be a sound detective",
+                    explain: "If your sound is bad or missing, check one thing at a time. Start at the guitar. Then the cable. Then any pedals. Then the amp. Swap one piece and test again. When the problem goes away, you found it!",
+                    facts: [
+                        "Most problems are a bad cable or a knob turned down.",
+                        "Check the guitar's volume knob first.",
+                    ],
+                ),
+                Learn(
+                    title: "Check one string at a time",
+                    explain: "If your guitar buzzes or sounds wrong, play each string alone. Find the one that sounds bad. Is it out of tune? Is a fret buzzing? Is the string old and rusty? Fixing one string at a time is easier than guessing.",
+                    facts: [
+                        "Buzzing often comes from pressing too far from the fret.",
+                        "Old strings sound dull and won't stay in tune.",
+                    ],
+                    tips: [
+                        "Tune first. Many problems go away when the guitar is in tune.",
+                    ],
+                    visual: Some(Strings),
+                ),
+                Learn(
+                    title: "Check the cable and knobs",
+                    explain: "No sound at all? Check the easy things first. Is the cable plugged in at both ends? Is the guitar volume up? Is the amp on and turned up? Most problems are simple.",
+                    visual: Some(GuitarParts),
+                ),
+                Activity(
+                    title: "The checklist",
+                    instructions: "Use it the next time something sounds wrong.",
+                    activity: Checklist(items: [
+                        "Guitar volume and tone knobs up?",
+                        "Try a different cable.",
+                        "Plug straight into the amp, skipping pedals.",
+                        "Amp on, channel and volume set?",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How do you find a sound problem?",
+                            choices: ["Check one piece at a time", "Change everything at once", "Turn everything up"],
+                            answer: 0,
+                            explain: "Check one piece at a time (guitar, cable, pedals, amp). That way you know which piece caused it.",
+                        ),
+                        (
+                            prompt: "What's a very common cause of no sound?",
+                            choices: ["A bad cable or a knob turned down", "The wrong song", "Old picks"],
+                            answer: 0,
+                            explain: "Most \"no sound\" problems are a bad cable or a volume knob turned down.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)

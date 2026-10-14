@@ -1,0 +1,413 @@
+// Style Track A — Alternate Tunings & Songwriting. See docs/02-Curriculum-Part4-Level-7-and-Style-Tracks.md.
+Level(
+    number: 15,
+    title: "🎶 Alternate Tunings & Songwriting",
+    track: Some("Tunings"),
+    goal: "How tunings work, Open D, Open G, DADGAD, capo textures, and writing songs in new tunings.",
+    weeks: "4–6 weeks",
+    lessons: [
+        Lesson(
+            id: "A.1",
+            title: "How Alternate Tunings Work",
+            thread: TheoryEar,
+            minutes: 10,
+            prerequisites: ["L6.5"],
+            goal: "Retune safely and understand why open strings make drones.",
+            practice: "Five minutes, once. Tune to Open D slowly, using the tuner. Then tune back to standard.",
+            steps: [
+                Learn(
+                    title: "New tuning, new guitar",
+                    explain: "You don't have to tune to E A D G B E. Change a few strings and the guitar becomes a new instrument. Open strings can ring as a drone: a note that hums under everything else. Tune down when you can. Tuning strings up too high can snap them.",
+                    facts: [
+                        "Open tunings make a full chord when you strum the open strings.",
+                        "Tune each changed string slowly, and check it twice.",
+                        "Chord shapes change in each tuning, so learn new ones.",
+                    ],
+                ),
+                Learn(
+                    title: "Which strings move?",
+                    explain: "Each tuning changes only some strings. The others stay the same. For Open D, you lower four strings. Look at the open strings in standard tuning first. Then you'll know which ones need to change.",
+                    facts: [
+                        "Standard: E A D G B E.",
+                        "Open D: D A D F♯ A D.",
+                    ],
+                    tips: [
+                        "Write the new tuning on a sticky note and keep it on your music stand.",
+                    ],
+                    visual: Some(Strings),
+                ),
+                Learn(
+                    title: "Drones you already know",
+                    explain: "You've already played drones! In standard tuning, play a D chord and let the open D string ring. Now play a melody on top. The open string keeps humming. Alternate tunings give you more of these ringing strings.",
+                    facts: [
+                        "Open strings ring longer than fretted notes.",
+                    ],
+                    visual: Some(Chord("D")),
+                ),
+                Activity(
+                    title: "Safe retuning",
+                    instructions: "Tick each habit.",
+                    activity: Checklist(items: [
+                        "I tune down to a note when I can.",
+                        "I turn the peg slowly while plucking the string.",
+                        "I check every string again after retuning, because the neck shifts.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What is a drone?",
+                            choices: ["A note that hums under the music", "A fast solo", "A broken string"],
+                            answer: 0,
+                            explain: "A drone is a note that keeps humming under the music, like an open string ringing while you play.",
+                        ),
+                        (
+                            prompt: "Why tune down instead of up when you can?",
+                            choices: ["Strings tuned too high can snap", "It's louder", "It's faster"],
+                            answer: 0,
+                            explain: "Strings tuned too high can break. Tuning down is safer.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "A.2",
+            title: "Open D (D A D F♯ A D)",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["A.1"],
+            tuning: Some("open_d"),
+            goal: "Tune to Open D and play major chords with one finger.",
+            practice: "Five minutes a day for five days. Play D, G, and A with one finger. Then try sliding between them.",
+            steps: [
+                Learn(
+                    title: "Strum, and it's a D chord",
+                    explain: "In Open D, the strings are D, A, D, F sharp, A, and D. Strum them open and you hear a D major chord! Lay one finger across all six strings at any fret, and you get a new major chord. Fret 5 is G. Fret 7 is A.",
+                    facts: [
+                        "From standard: lower strings 6, 2, and 1 by a whole step, and string 3 by a half step.",
+                        "A slide on your finger makes it sound like slide guitar.",
+                    ],
+                    visual: Some(Shape(frets: "000000", fingers: "------", name: "D major (open)")),
+                ),
+                Activity(
+                    title: "Tune to Open D",
+                    instructions: "The tuner follows Open D now.",
+                    activity: Tune,
+                ),
+                Learn(
+                    title: "One-finger G and A",
+                    explain: "Barre all six strings at fret 5 for G. Barre at fret 7 for A. Now you have the 1, 4, and 5 chords in D with one finger!",
+                    visual: Some(Shape(frets: "555555", fingers: "111111", name: "G major in Open D")),
+                    tips: [
+                        "Lay your finger right behind the fret wire so every string rings clear.",
+                        "Try a glass or metal slide for a slide-guitar sound.",
+                    ],
+                ),
+                Activity(
+                    title: "D, G, A",
+                    instructions: "Tick each as you play it cleanly.",
+                    activity: Checklist(items: [
+                        "D: strum all six open strings.",
+                        "G: one finger across fret 5.",
+                        "A: one finger across fret 7.",
+                        "Back to D.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "In Open D, strumming the open strings makes…",
+                            choices: ["D major", "E minor", "G major"],
+                            answer: 0,
+                            explain: "Open D's strings are D A D F♯ A D, which are the notes of a D major chord.",
+                        ),
+                        (
+                            prompt: "In Open D, a one-finger barre at fret 5 is…",
+                            choices: ["G", "A", "E"],
+                            answer: 0,
+                            explain: "Every string goes up five half steps. From D, five half steps up is G, so it's G major.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "A.3",
+            title: "Open G (D G D G B D)",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["A.2"],
+            tuning: Some("open_g"),
+            goal: "Tune to Open G and play its classic rock and blues shapes.",
+            practice: "Five minutes a day for five days. Play the Open G riff, then try one-finger C and D chords at frets 5 and 7.",
+            steps: [
+                Learn(
+                    title: "The rock-and-roll tuning",
+                    explain: "Open G is D, G, D, G, B, D. Strum it open and you hear G major. Many famous rock and blues riffs use it. Try it with five strings: leave string 6 alone and start on string 5.",
+                    facts: [
+                        "From standard: lower strings 6, 5, and 1 by a whole step.",
+                        "Barre fret 5 for C. Barre fret 7 for D.",
+                    ],
+                    visual: Some(Shape(frets: "000000", fingers: "------", name: "G major (open)")),
+                ),
+                Learn(
+                    title: "Five strings, big sound",
+                    explain: "Many players skip string 6 in Open G. They strum from string 5, which is a G. Now the lowest note is the root, so the chord sounds strong and solid. Try a one-finger barre on strings 5 to 1 at fret 5 for C.",
+                    facts: [
+                        "String 5 is G, the root.",
+                        "Barre fret 5: C. Barre fret 7: D.",
+                    ],
+                    tips: [
+                        "Mute string 6 with your thumb or just don't strum it.",
+                    ],
+                    visual: Some(Shape(frets: "x55555", fingers: "-11111", name: "C in Open G (five strings)")),
+                ),
+                Activity(
+                    title: "Tune to Open G",
+                    instructions: "The tuner follows Open G now.",
+                    activity: Tune,
+                ),
+                Activity(
+                    title: "A riff in Open G",
+                    instructions: "Open strings with a little hammer-on.",
+                    activity: PlayNotes(tempo: 80.0, notes: [
+                        (string: 5, fret: 0), (string: 3, fret: 0), (string: 3, fret: 2, tech: Some(Hammer)), (string: 2, fret: 0),
+                        (string: 5, fret: 0), (string: 3, fret: 0), (string: 2, fret: 1), (string: 2, fret: 0, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What are the open strings in Open G, from 6 to 1?",
+                            choices: ["D G D G B D", "D A D F♯ A D", "E A D G B E"],
+                            answer: 0,
+                            explain: "Open G tunes the strings, from 6 to 1, to D G D G B D.",
+                        ),
+                        (
+                            prompt: "In Open G, a barre at fret 5 makes…",
+                            choices: ["C", "D", "A"],
+                            answer: 0,
+                            explain: "Five half steps up from G is C, so a barre at fret 5 makes C major.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "A.4",
+            title: "DADGAD",
+            thread: Chords,
+            minutes: 15,
+            prerequisites: ["A.3"],
+            tuning: Some("dadgad"),
+            goal: "Use DADGAD's floating, cinematic sound.",
+            practice: "Five minutes a day for five days. Play the drone melody. Then make up your own on strings 1 and 2.",
+            steps: [
+                Learn(
+                    title: "Not major, not minor",
+                    explain: "DADGAD strums open as a floating chord. It's neither happy nor sad, because it has no 3rd. That makes it great for Celtic tunes and movie music. Move one or two fingers and let the other strings ring.",
+                    facts: [
+                        "Open strings: D A D G A D.",
+                        "The open sound is a D sus 4 chord.",
+                    ],
+                    visual: Some(Shape(frets: "000000", fingers: "------", name: "Open DADGAD")),
+                ),
+                Learn(
+                    title: "One finger makes a power chord",
+                    explain: "In DADGAD, put one finger on string 3 at fret 2. Now the strings are D, A, D, A, A, D. That's a big D5 power chord! Lift the finger to get the floating sus sound back. Switching between them sounds great.",
+                    facts: [
+                        "String 3 is G. Fret 2 makes it an A.",
+                        "D5 has only D and A.",
+                    ],
+                    tips: [
+                        "Try a hammer-on: play the open string, then hammer onto fret 2.",
+                    ],
+                    visual: Some(Shape(frets: "000200", fingers: "---1--", name: "D5 in DADGAD")),
+                ),
+                Activity(
+                    title: "Tune to DADGAD",
+                    instructions: "The tuner follows DADGAD now.",
+                    activity: Tune,
+                ),
+                Activity(
+                    title: "Drone melody",
+                    instructions: "Play the melody on string 1 while the open strings hum.",
+                    activity: PlayNotes(tempo: 70.0, notes: [
+                        (string: 1, fret: 0), (string: 1, fret: 2), (string: 1, fret: 4), (string: 1, fret: 5),
+                        (string: 1, fret: 7), (string: 1, fret: 5), (string: 1, fret: 4), (string: 1, fret: 0, beats: 2.0),
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "Why does open DADGAD sound neither major nor minor?",
+                            choices: ["It has no 3rd", "It has two roots", "It's out of tune"],
+                            answer: 0,
+                            explain: "DADGAD has no 3rd (no F or F♯), and the 3rd is what makes a chord major or minor.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "A.5",
+            title: "Capo Textures",
+            thread: Chords,
+            minutes: 10,
+            prerequisites: ["A.4"],
+            goal: "Use a capo high on the neck for a shimmering sound.",
+            practice: "Five minutes a day for three days. Try the capo at frets 2, 5, and 7. Play the same shapes and hear how the color changes.",
+            steps: [
+                Learn(
+                    title: "A capo for color",
+                    explain: "A capo isn't just for changing keys. Put it high up, like fret 7. Your open chord shapes now sound bright and sparkly, almost like a mandolin. If a friend plays the same chords lower down, your parts fill out the song together.",
+                    facts: [
+                        "Capo 7 with a G shape sounds like D.",
+                        "Two guitars, one low and one high, make a big sound.",
+                    ],
+                    visual: Some(Capo(fret: 7, chord: "G")),
+                ),
+                Learn(
+                    title: "Name the capo sound",
+                    explain: "To name a capo chord, count up from the shape's name. A C shape with a capo at fret 5 sounds like F, because F is five frets above C. A G shape at capo 7 sounds like D. Same shapes, new sounds.",
+                    facts: [
+                        "Capo 2 + G shape = A.",
+                        "Capo 5 + C shape = F.",
+                    ],
+                    tips: [
+                        "Check it on the Neck screen. Find the shape's root note, then move up as many frets as the capo.",
+                    ],
+                    visual: Some(Capo(fret: 5, chord: "C")),
+                ),
+                Activity(
+                    title: "Try the high capo",
+                    instructions: "Tick each one.",
+                    activity: Checklist(items: [
+                        "Put a capo at fret 7.",
+                        "Play G, C, and D shapes. Notice the sparkle.",
+                        "Try fingerpicking the same shapes.",
+                    ]),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "With a capo at fret 7, a G shape sounds like…",
+                            choices: ["D", "G", "A"],
+                            answer: 0,
+                            explain: "Seven half steps above G is D.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "A.6",
+            title: "Songwriting in Alternate Tunings",
+            thread: Song,
+            minutes: 20,
+            prerequisites: ["A.5"],
+            tuning: Some("open_d"),
+            goal: "Write a short progression and melody in Open D.",
+            practice: "Ten minutes a day for a week. Try one-finger shapes in Open D and keep the ones you like. Write them down and record your idea.",
+            steps: [
+                Learn(
+                    title: "Let the tuning lead",
+                    explain: "New tunings give you new ideas. In Open D, slide one finger to different frets and listen. Pick the sounds you like and put them in order. Then hum a melody over the droning open strings. Keep it short: four chords and a simple tune is a great start.",
+                    facts: [
+                        "Try frets 0, 5, 7, then back to 0.",
+                        "Write it down as fret numbers so you remember it.",
+                    ],
+                    visual: Some(Shape(frets: "777777", fingers: "111111", name: "A major in Open D")),
+                    tips: [
+                        "Don't think about chord names yet. Just listen and pick sounds you like.",
+                        "Record ideas right away. It's easy to forget them.",
+                    ],
+                ),
+                Learn(
+                    title: "Write it as frets",
+                    explain: "You don't need chord names to write a song. Write the fret numbers in order, like 0, 5, 7, 0. That's your chord progression! Under each fret, write how many beats it lasts. Now you can remember your song tomorrow.",
+                    facts: [
+                        "In Open D: 0 is D, 5 is G, 7 is A.",
+                        "Try 0, 3, 5, 0 for a different mood.",
+                    ],
+                    visual: Some(Tab([(string: 6, fret: 0, beats: 2.0), (string: 6, fret: 5, beats: 2.0), (string: 6, fret: 7, beats: 2.0), (string: 6, fret: 0, beats: 2.0)])),
+                ),
+                Activity(
+                    title: "Record your idea",
+                    instructions: "Record your progression and hum the melody over it.",
+                    activity: Record(chords: []),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "What's a good way to start writing in a new tuning?",
+                            choices: ["Try shapes, keep the sounds you like", "Only use standard shapes", "Write the lyrics first, always"],
+                            answer: 0,
+                            explain: "A new tuning gives you new sounds. Try shapes, keep the ones you like, and build your song from them.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+        Lesson(
+            id: "A.7",
+            title: "Tunings Capstone: Your Song",
+            thread: Song,
+            minutes: 30,
+            prerequisites: ["A.6"],
+            goal: "Record an original song in an alternate tuning.",
+            practice: "Fifteen minutes a day for a week. Practice your verse and chorus. Record the whole song at the end of the week.",
+            steps: [
+                Learn(
+                    title: "Your tuning, your song",
+                    explain: "Pick your favorite tuning from this track. Write a song with a verse and a chorus. Make them sound different: change the frets, the rhythm, or how high you play. Then record it.",
+                    facts: [
+                        "Tell a listener which tuning you used.",
+                    ],
+                ),
+                Learn(
+                    title: "Make the chorus pop",
+                    explain: "Here's one idea in Open D. For the verse, play near the nut: frets 0, 5, and 7. For the chorus, move up high: frets 7, 10, and 12. The high chords sound brighter and bigger. Listeners will hear the change right away.",
+                    facts: [
+                        "Fret 12 in Open D is D again, an octave up.",
+                    ],
+                    tips: [
+                        "Strum harder in the chorus to make it feel bigger.",
+                    ],
+                    visual: Some(Shape(frets: "777777", fingers: "111111", name: "A major in Open D")),
+                ),
+                Learn(
+                    title: "Plan your song",
+                    explain: "A simple plan works well: verse, chorus, verse, chorus. Then end on the home chord. Keep the plan in front of you as you practice. When it feels easy, press Record.",
+                    facts: [
+                        "Verse: tell the story. Chorus: the part people remember.",
+                    ],
+                    visual: Some(Shape(frets: "000000", fingers: "------", name: "Home chord: D in Open D")),
+                ),
+                Activity(
+                    title: "Record your song",
+                    instructions: "Press Record when you're ready.",
+                    activity: Record(chords: []),
+                ),
+                Check(
+                    pass_percent: 66,
+                    questions: [
+                        (
+                            prompt: "How can a chorus sound different from a verse?",
+                            choices: ["Change the frets, rhythm, or how high you play", "Play it exactly the same", "Skip it"],
+                            answer: 0,
+                            explain: "Contrast makes a chorus stand out. Change where you play, the rhythm, or how high the notes are.",
+                        ),
+                    ],
+                ),
+            ],
+        ),
+    ],
+)
